@@ -22,3 +22,7 @@
 	path = fixture/rspress
 	url = https://github.com/web-infra-dev/rspress.git
 	shallow = true
+[submodule "fixture/rspack"]
+	path = fixture/rspack
+	url = https://github.com/web-infra-dev/rspack.git
+	shallow = true

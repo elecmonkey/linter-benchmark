@@ -32,6 +32,16 @@ function load(group, fixture, tool) {
   return fs.existsSync(file) ? readJson(file) : null;
 }
 
+/** A run whose output could not be parsed produced no lint result: the tool crashed. */
+const crashed = (r) => Boolean(r.diagnostics.error);
+
+/** First internal-error message from the tool's last stderr, if the log is still around. */
+function crashReason(group, fixture, tool) {
+  const stderr = path.join(ROOT, 'logs', 'output', `group-${group.toLowerCase()}`, fixture, `${tool}.stderr`);
+  if (!fs.existsSync(stderr)) return null;
+  return /^Message: (.+)$/m.exec(fs.readFileSync(stderr, 'utf8'))?.[1] ?? null;
+}
+
 /** Markdown for the results section; `chartDir` is relative to the output file. */
 function section(chartDir, headingLevel) {
   const h = (n) => '#'.repeat(headingLevel + n);
@@ -46,7 +56,7 @@ function section(chartDir, headingLevel) {
       const rows = def.tools.map((tool) => ({ tool, r: load(group, fixture, tool) })).filter((x) => x.r);
       if (rows.length !== def.tools.length) continue;
       total++;
-      const winner = rows.reduce((a, b) => (b.r.wallMs.median < a.r.wallMs.median ? b : a)).tool;
+      const winner = rows.filter((x) => !crashed(x.r)).reduce((a, b) => (b.r.wallMs.median < a.r.wallMs.median ? b : a)).tool;
       (wins[winner] ??= []).push(fixture);
     }
     const cells = Object.entries(wins)
@@ -62,7 +72,8 @@ function section(chartDir, headingLevel) {
     for (const fixture of ORDER) {
       const rows = def.tools.map((tool) => ({ tool, r: load(group, fixture, tool) })).filter((x) => x.r);
       if (rows.length !== def.tools.length) continue;
-      rows.sort((a, b) => a.r.wallMs.median - b.r.wallMs.median);
+      // Crashed tools go last and take no part in the ranking.
+      rows.sort((a, b) => crashed(a.r) - crashed(b.r) || a.r.wallMs.median - b.r.wallMs.median);
       const fastest = rows[0].r.wallMs.median;
 
       const sha = manifest?.repositories.find((r) => r.name === fixture)?.sha;
@@ -72,13 +83,21 @@ function section(chartDir, headingLevel) {
       lines.push(`![Group ${group}, ${fixture}](${chartDir}/group-${group.toLowerCase()}-${fixture}.svg)`, '');
       lines.push('| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |');
       lines.push('|---|--:|--:|--:|--:|--:|--:|');
+      const notes = [];
       for (const { tool, r } of rows) {
+        if (crashed(r)) {
+          lines.push(`| ${NAMES[tool]} | crashed | | | | | |`);
+          const reason = crashReason(group, fixture, tool);
+          notes.push(`${NAMES[tool]} crashed on every run and produced no lint output${reason ? `: internal error \`${reason}\`` : ''}.`);
+          continue;
+        }
         const failed = r.failedRuns ? ` (${r.failedRuns} failed)` : '';
         lines.push(
           `| ${NAMES[tool]}${failed} | ${fmtTime(r.wallMs.median)} | ${fmtTime(r.wallMs.min)} | ${fmtTime(r.wallMs.max)} | ${fmtInt(Math.round(r.peakRssMb.median))} MB | ${fmtInt(r.diagnostics.total ?? 0)} | ${(r.wallMs.median / fastest).toFixed(2)}× |`,
         );
       }
       lines.push('');
+      if (notes.length) lines.push(...notes, '');
     }
   }
   return lines.join('\n').trimEnd();

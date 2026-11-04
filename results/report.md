@@ -2,8 +2,8 @@
 
 | Group | Fastest tool (fixtures won) |
 |---|---|
-| A | **Rslint** 6/6 |
-| B | **Rslint** 5/6 · **Biome** 1/6 |
+| A | **Rslint** 7/7 |
+| B | **Rslint** 6/7 · **Biome** 1/7 |
 
 ## Group A: ESLint (typescript-eslint), Rslint, Oxlint (oxlint-tsgolint)
 
@@ -20,6 +20,18 @@
 | Rslint | 330 ms | 324 ms | 380 ms | 395 MB | 191 | 1.00× |
 | Oxlint (oxlint-tsgolint) | 462 ms | 449 ms | 466 ms | 435 MB | 188 | 1.40× |
 | ESLint (typescript-eslint) | 5.31 s | 5.12 s | 5.36 s | 2,155 MB | 191 | 16.12× |
+
+### [rspack](https://github.com/web-infra-dev/rspack/tree/6c1f72b0991a7c691c8e951d6a7821b3d532f6d5)
+
+**Files:** 352
+
+![Group A, rspack](charts/group-a-rspack.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 370 ms | 359 ms | 421 ms | 430 MB | 2,196 | 1.00× |
+| Oxlint (oxlint-tsgolint) | 524 ms | 465 ms | 576 ms | 448 MB | 2,167 | 1.41× |
+| ESLint (typescript-eslint) | 4.69 s | 4.67 s | 4.79 s | 1,548 MB | 2,196 | 12.67× |
 
 ### [rspress](https://github.com/web-infra-dev/rspress/tree/6f87abf1d323ced2883261642561a3fc88fbd278)
 
@@ -97,6 +109,21 @@
 | Oxlint (oxlint-tsgolint) | 455 ms | 449 ms | 459 ms | 449 MB | 4 | 1.21× |
 | Biome | 577 ms | 546 ms | 579 ms | 462 MB | 12 | 1.54× |
 | ESLint (typescript-eslint) | 4.99 s | 4.95 s | 5.00 s | 2,140 MB | 7 | 13.29× |
+
+### [rspack](https://github.com/web-infra-dev/rspack/tree/6c1f72b0991a7c691c8e951d6a7821b3d532f6d5)
+
+**Files:** 352
+
+![Group B, rspack](charts/group-b-rspack.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 342 ms | 335 ms | 357 ms | 418 MB | 784 | 1.00× |
+| Oxlint (oxlint-tsgolint) | 452 ms | 445 ms | 549 ms | 436 MB | 764 | 1.32× |
+| ESLint (typescript-eslint) | 4.35 s | 4.17 s | 4.37 s | 1,498 MB | 784 | 12.70× |
+| Biome | crashed | | | | | |
+
+Biome crashed on every run and produced no lint output: internal error `The parser is no longer progressing. Stuck at '(' L_PAREN:21069..21070`.
 
 ### [rspress](https://github.com/web-infra-dev/rspress/tree/6f87abf1d323ced2883261642561a3fc88fbd278)
 

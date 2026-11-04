@@ -1,0 +1,59 @@
+{
+  "group": "B",
+  "fixture": "rspack",
+  "tool": "biome",
+  "files": 352,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none <scope files>",
+  "wallMs": {
+    "median": 2406.1405,
+    "mean": 2445.7722999999996,
+    "stdev": 83.5112255542401,
+    "min": 2383.345458,
+    "max": 2610.080167
+  },
+  "peakRssMb": {
+    "median": 1182.109375,
+    "max": 1196.765625
+  },
+  "runs": [
+    {
+      "wallMs": 2383.345458,
+      "peakRssMb": 1169.46875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2399.346125,
+      "peakRssMb": 1194.15625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2406.1405,
+      "peakRssMb": 1151.765625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2429.94925,
+      "peakRssMb": 1196.765625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2610.080167,
+      "peakRssMb": 1182.109375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "error": "could not parse output: Unexpected end of JSON input"
+  }
+}

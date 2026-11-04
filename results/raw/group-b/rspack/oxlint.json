@@ -1,0 +1,81 @@
+{
+  "group": "B",
+  "fixture": "rspack",
+  "tool": "oxlint",
+  "files": 352,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json <scope files>",
+  "wallMs": {
+    "median": 451.513125,
+    "mean": 469.7302834,
+    "stdev": 39.77457091623652,
+    "min": 445.067042,
+    "max": 548.845291
+  },
+  "peakRssMb": {
+    "median": 435.75,
+    "max": 470.328125
+  },
+  "runs": [
+    {
+      "wallMs": 446.403167,
+      "peakRssMb": 461.8125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 548.845291,
+      "peakRssMb": 429.875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 456.822792,
+      "peakRssMb": 470.328125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 445.067042,
+      "peakRssMb": 435.75,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 451.513125,
+      "peakRssMb": 430.046875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 764,
+    "typeAware": 235,
+    "syntactic": 529,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 1,
+      "@typescript-eslint/no-explicit-any": 441,
+      "@typescript-eslint/no-floating-promises": 34,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 3,
+      "@typescript-eslint/no-require-imports": 9,
+      "@typescript-eslint/no-unsafe-return": 182,
+      "@typescript-eslint/no-unused-vars": 61,
+      "@typescript-eslint/prefer-promise-reject-errors": 13,
+      "@typescript-eslint/restrict-plus-operands": 1,
+      "no-control-regex": 2,
+      "no-empty": 2,
+      "no-prototype-builtins": 2,
+      "no-unsafe-optional-chaining": 1,
+      "no-useless-assignment": 7,
+      "prefer-spread": 1,
+      "preserve-caught-error": 3
+    }
+  }
+}

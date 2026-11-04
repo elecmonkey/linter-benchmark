@@ -1,0 +1,96 @@
+{
+  "group": "A",
+  "fixture": "rspack",
+  "tool": "oxlint",
+  "files": 352,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json <scope files>",
+  "wallMs": {
+    "median": 523.985625,
+    "mean": 531.1783254,
+    "stdev": 39.81502268239237,
+    "min": 465.459584,
+    "max": 575.523667
+  },
+  "peakRssMb": {
+    "median": 448.078125,
+    "max": 499
+  },
+  "runs": [
+    {
+      "wallMs": 523.985625,
+      "peakRssMb": 445.40625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 465.459584,
+      "peakRssMb": 446.625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 521.161459,
+      "peakRssMb": 448.078125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 575.523667,
+      "peakRssMb": 499,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 569.761292,
+      "peakRssMb": 474.375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 2167,
+    "typeAware": 1571,
+    "syntactic": 596,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/await-thenable": 34,
+      "@typescript-eslint/ban-ts-comment": 19,
+      "@typescript-eslint/no-base-to-string": 1,
+      "@typescript-eslint/no-empty-object-type": 15,
+      "@typescript-eslint/no-explicit-any": 441,
+      "@typescript-eslint/no-floating-promises": 34,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 3,
+      "@typescript-eslint/no-redundant-type-constituents": 1,
+      "@typescript-eslint/no-require-imports": 9,
+      "@typescript-eslint/no-this-alias": 3,
+      "@typescript-eslint/no-unnecessary-type-assertion": 111,
+      "@typescript-eslint/no-unsafe-argument": 276,
+      "@typescript-eslint/no-unsafe-assignment": 313,
+      "@typescript-eslint/no-unsafe-call": 185,
+      "@typescript-eslint/no-unsafe-function-type": 15,
+      "@typescript-eslint/no-unsafe-member-access": 350,
+      "@typescript-eslint/no-unsafe-return": 182,
+      "@typescript-eslint/no-unused-vars": 61,
+      "@typescript-eslint/no-wrapper-object-types": 15,
+      "@typescript-eslint/only-throw-error": 2,
+      "@typescript-eslint/prefer-promise-reject-errors": 13,
+      "@typescript-eslint/restrict-plus-operands": 1,
+      "@typescript-eslint/restrict-template-expressions": 52,
+      "@typescript-eslint/unbound-method": 12,
+      "no-control-regex": 2,
+      "no-empty": 2,
+      "no-prototype-builtins": 2,
+      "no-unsafe-optional-chaining": 1,
+      "no-useless-assignment": 7,
+      "prefer-spread": 1,
+      "preserve-caught-error": 3
+    }
+  }
+}

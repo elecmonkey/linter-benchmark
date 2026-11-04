@@ -31,6 +31,11 @@
       "name": "rspress",
       "repository": "web-infra-dev/rspress",
       "sha": "6f87abf1d323ced2883261642561a3fc88fbd278"
+    },
+    {
+      "name": "rspack",
+      "repository": "web-infra-dev/rspack",
+      "sha": "6c1f72b0991a7c691c8e951d6a7821b3d532f6d5"
     }
   ]
 }

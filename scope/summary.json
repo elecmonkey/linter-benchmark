@@ -40,5 +40,12 @@
     "afterIgnores": 466,
     "files": 466,
     "repoProjectConfigs": 28
+  },
+  "rspack": {
+    "tracked": 3841,
+    "inRepoProjects": 352,
+    "afterIgnores": 352,
+    "files": 352,
+    "repoProjectConfigs": 4
   }
 }

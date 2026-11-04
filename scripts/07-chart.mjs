@@ -50,12 +50,13 @@ function barPath(x, y, w, h, r = 4) {
   return `M${x},${y}H${x + w - rr}A${rr},${rr} 0 0 1 ${x + w},${y + rr}V${y + h - rr}A${rr},${rr} 0 0 1 ${x + w - rr},${y + h}H${x}Z`;
 }
 
-function renderChart({ label, rows }) {
+/** `crashed`: tools without a valid result, listed last with "N/A" and no bar. */
+function renderChart({ label, rows, crashed = [] }) {
   const sorted = [...rows].sort((a, b) => a.ms - b.ms);
   const fastest = sorted[0].ms;
   const maxLog = Math.log(sorted.at(-1).ms / fastest) || 1;
   const width = (ms) => BAR_MIN + (BAR_MAX - BAR_MIN) * (Math.log(ms / fastest) / maxLog);
-  const H = PAD + sorted.length * (BAR_H + ROW_GAP) - ROW_GAP + PAD;
+  const H = PAD + (sorted.length + crashed.length) * (BAR_H + ROW_GAP) - ROW_GAP + PAD;
 
   const style = `
     .surface { fill: ${SURFACE.light}; }
@@ -97,7 +98,18 @@ function renderChart({ label, rows }) {
   <style>${style}
   </style>
   <rect class="surface" width="${W}" height="${H}" rx="8"/>
-${body.join('')}
+${body.join('')}${crashed
+    .map((tool, j) => {
+      const cy = PAD + (sorted.length + j) * (BAR_H + ROW_GAP) + BAR_H / 2;
+      const name = TOOLS[tool].name;
+      return `
+  <g>
+    <title>${esc(`${name}: N/A (crashed, no valid result)`)}</title>
+    <text class="t-secondary" x="${LABEL_W}" y="${cy}" text-anchor="end" dominant-baseline="central" font-size="15">${esc(name)}</text>
+    <text class="t-secondary" x="${BAR_X}" y="${cy}" dominant-baseline="central" font-size="14">N/A</text>
+  </g>`;
+    })
+    .join('')}
 </svg>
 `;
 }
@@ -115,12 +127,15 @@ fs.mkdirSync(outDir, { recursive: true });
 
 for (const [group, def] of Object.entries(groups)) {
   for (const fixture of FIXTURES) {
-    const rows = def.tools.map((tool) => ({ tool, ms: load(group, fixture, tool)?.wallMs.median }));
-    if (rows.some((r) => r.ms == null)) {
+    const results = def.tools.map((tool) => ({ tool, r: load(group, fixture, tool) }));
+    if (results.some(({ r }) => !r)) {
       console.warn(`group ${group} / ${fixture}: incomplete results, no chart`);
       continue;
     }
-    const svg = renderChart({ label: `Group ${group}, ${fixture}: median wall time, lower is better`, rows });
+    // A tool whose output could not be parsed crashed: it has no time to rank and is shown as N/A.
+    const rows = results.filter(({ r }) => !r.diagnostics.error).map(({ tool, r }) => ({ tool, ms: r.wallMs.median }));
+    const crashed = results.filter(({ r }) => r.diagnostics.error).map(({ tool }) => tool);
+    const svg = renderChart({ label: `Group ${group}, ${fixture}: median wall time, lower is better`, rows, crashed });
     fs.writeFileSync(path.join(outDir, `group-${group.toLowerCase()}-${fixture}.svg`), svg);
   }
 }

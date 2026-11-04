@@ -1,0 +1,44 @@
+{
+  "rsbuild": {
+    "tracked": 1527,
+    "inRepoProjects": 1333,
+    "afterIgnores": 1249,
+    "files": 1249,
+    "repoProjectConfigs": 74
+  },
+  "rslib": {
+    "tracked": 865,
+    "inRepoProjects": 502,
+    "afterIgnores": 502,
+    "files": 501,
+    "repoProjectConfigs": 19
+  },
+  "rstack-cli": {
+    "tracked": 291,
+    "inRepoProjects": 192,
+    "afterIgnores": 192,
+    "files": 192,
+    "repoProjectConfigs": 15
+  },
+  "rstest": {
+    "tracked": 1890,
+    "inRepoProjects": 1688,
+    "afterIgnores": 1688,
+    "files": 1688,
+    "repoProjectConfigs": 19
+  },
+  "rsdoctor": {
+    "tracked": 665,
+    "inRepoProjects": 646,
+    "afterIgnores": 646,
+    "files": 646,
+    "repoProjectConfigs": 19
+  },
+  "rspress": {
+    "tracked": 724,
+    "inRepoProjects": 466,
+    "afterIgnores": 466,
+    "files": 466,
+    "repoProjectConfigs": 28
+  }
+}

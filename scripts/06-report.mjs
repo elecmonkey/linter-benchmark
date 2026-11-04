@@ -8,7 +8,7 @@
 // between the <!-- results:start --> / <!-- results:end --> markers.
 import fs from 'node:fs';
 import path from 'node:path';
-import { FIXTURE_DIR, REPOS, RESULTS_DIR, ROOT, RULES_DIR, SCOPE_DIR, readJson } from './lib.mjs';
+import { FIXTURE_DIR, REPOS, RESULTS_DIR, ROOT, RULES_DIR, SCOPE_DIR, fixtureName, readJson } from './lib.mjs';
 
 const groups = readJson(path.join(RULES_DIR, 'groups.json'));
 const scope = readJson(path.join(SCOPE_DIR, 'summary.json'));
@@ -21,7 +21,7 @@ const NAMES = {
   oxlint: 'Oxlint (oxlint-tsgolint)',
   biome: 'Biome',
 };
-const REPO_OF = Object.fromEntries(REPOS.map((repo) => [repo.split('/')[1], repo]));
+const REPO_OF = Object.fromEntries(REPOS.map((repo) => [fixtureName(repo), repo]));
 const ORDER = Object.keys(REPO_OF).sort((a, b) => scope[a].files - scope[b].files);
 
 const fmtTime = (ms) => (ms >= 10_000 ? `${(ms / 1000).toFixed(1)} s` : ms >= 1000 ? `${(ms / 1000).toFixed(2)} s` : `${Math.round(ms)} ms`);
@@ -88,7 +88,8 @@ function section(chartDir, headingLevel) {
         if (crashed(r)) {
           lines.push(`| ${NAMES[tool]} | crashed | | | | | |`);
           const reason = crashReason(group, fixture, tool);
-          notes.push(`${NAMES[tool]} crashed on every run and produced no lint output${reason ? `: internal error \`${reason}\`` : ''}.`);
+          // Double backticks: the message itself may contain backticks.
+          notes.push(`${NAMES[tool]} crashed on every run and produced no lint output${reason ? `: internal error \`\` ${reason} \`\`` : ''}.`);
           continue;
         }
         const failed = r.failedRuns ? ` (${r.failedRuns} failed)` : '';

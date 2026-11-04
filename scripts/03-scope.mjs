@@ -1,13 +1,16 @@
 // Step 3: fix the exact set of files every tool lints, per fixture.
 //
-// The scope follows each repository's own lint setup (its rstack.config.*):
+// The scope follows each repository's own lint setup (its rstack.config.*, or
+// eslint.config.* for vscode and typescript6):
 // we lint what the repository itself lints WITH type information.
 //
 //   1. git-tracked .ts/.tsx/.mts/.cts files, excluding .d.ts
 //      (tracked files are by definition not gitignored);
 //   2. included by one of the repository's configured `parserOptions.project`
-//      tsconfigs (rsbuild uses projectService, so: any tsconfig.json);
-//   3. not matched by the repository's `ignores` / `globalIgnores`, nor by
+//      tsconfigs (rsbuild uses projectService, so: any tsconfig.json), and
+//      matched by that config block's `files` globs where it has them;
+//   3. not matched by the repository's `ignores` / `globalIgnores` (or an
+//      ignore file such as vscode's .eslint-ignore), nor by
 //      globs where it explicitly disables type information;
 //   4. resolvable by projectService (nearest tsconfig.json walking up, or a
 //      project it references) - all tools run with projectService-style
@@ -79,6 +82,54 @@ const REPO_LINT = {
     projects: ['e2e/tsconfig.json', 'packages/*/tsconfig.json', 'packages/*/tests/tsconfig.json'],
     ignores: [],
   },
+  rspack: {
+    projects: ['packages/*/tsconfig.json'],
+    ignores: [
+      'packages/rspack/src/runtime/moduleFederationDefaultRuntime.js',
+      'xtask/benchmark/benches/fixtures/rspack_sources/**',
+      '**/tests/**',
+      'crates/rspack_resolver/**',
+    ],
+  },
+  // Only these extensions get type information (the `parserOptions.project` block).
+  vscode: {
+    files: [
+      'extensions/markdown-language-features/src/**/*.ts',
+      'extensions/markdown-language-features/notebook/**/*.ts',
+      'extensions/markdown-language-features/preview-src/**/*.ts',
+      'extensions/mermaid-markdown-features/preview-src/chat/**/*.ts',
+      'extensions/mermaid-markdown-features/src/**/*.ts',
+      'extensions/simple-browser/**/*.ts',
+      'extensions/typescript-language-features/**/*.ts',
+    ],
+    projects: [
+      'extensions/markdown-language-features/tsconfig.json',
+      'extensions/markdown-language-features/notebook/tsconfig.json',
+      'extensions/markdown-language-features/preview-src/tsconfig.json',
+      'extensions/simple-browser/tsconfig.json',
+      'extensions/simple-browser/preview-src/tsconfig.json',
+      'extensions/mermaid-markdown-features/tsconfig.json',
+      'extensions/mermaid-markdown-features/preview-src/chat/tsconfig.json',
+      'extensions/typescript-language-features/tsconfig.json',
+      'extensions/typescript-language-features/web/tsconfig.json',
+    ],
+    ignoresFile: '.eslint-ignore', // read by eslint.config.js as global ignores
+    ignores: [],
+  },
+  typescript6: {
+    projects: ['src/tsconfig-eslint.json', 'scripts/tsconfig.json'],
+    ignores: [
+      '**/node_modules/**',
+      'built/**',
+      'tests/**',
+      'lib/**',
+      'src/lib/*.generated.d.ts',
+      'scripts/**/*.js',
+      'scripts/**/*.d.*',
+      'internal/**',
+      'coverage/**',
+    ],
+  },
 };
 
 const SOURCE = /\.(ts|tsx|mts|cts)$/;
@@ -126,7 +177,12 @@ function resolvesViaProjectService(file, repoRoot, load) {
 const summary = {};
 for (const fixture of FIXTURES) {
   const repoRoot = path.join(FIXTURE_DIR, fixture);
-  const { projects, ignores } = REPO_LINT[fixture];
+  const { projects, files, ignoresFile } = REPO_LINT[fixture];
+  const ignores = [...REPO_LINT[fixture].ignores];
+  if (ignoresFile) {
+    const lines = fs.readFileSync(path.join(repoRoot, ignoresFile), 'utf8').split('\n').map((l) => l.trim());
+    ignores.push(...lines.filter((l) => l && !l.startsWith('#') && !l.startsWith('!')));
+  }
   const load = createProjectLoader();
 
   const tracked = run('git', ['ls-files'], { cwd: repoRoot }).stdout.split('\n');
@@ -144,6 +200,7 @@ for (const fixture of FIXTURES) {
   const scope = [];
   for (const rel of candidates) {
     const abs = path.join(repoRoot, rel);
+    if (files && !files.some((glob) => path.matchesGlob(rel, glob))) continue;
     if (!projectFiles.has(abs)) continue;
     stages.inRepoProjects++;
     if (ignores.some((glob) => path.matchesGlob(rel, glob))) continue;

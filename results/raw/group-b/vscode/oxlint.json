@@ -1,0 +1,81 @@
+{
+  "group": "B",
+  "fixture": "vscode",
+  "tool": "oxlint",
+  "files": 312,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json <scope files>",
+  "wallMs": {
+    "median": 492.024708,
+    "mean": 505.4462831999999,
+    "stdev": 28.53311848474784,
+    "min": 488.600333,
+    "max": 562.448542
+  },
+  "peakRssMb": {
+    "median": 473.453125,
+    "max": 479.828125
+  },
+  "runs": [
+    {
+      "wallMs": 562.448542,
+      "peakRssMb": 473.453125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 491.81525,
+      "peakRssMb": 456.640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 492.342583,
+      "peakRssMb": 479.828125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 488.600333,
+      "peakRssMb": 468.140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 492.024708,
+      "peakRssMb": 477.78125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 477,
+    "typeAware": 224,
+    "syntactic": 253,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 4,
+      "@typescript-eslint/no-explicit-any": 96,
+      "@typescript-eslint/no-floating-promises": 65,
+      "@typescript-eslint/no-misused-promises": 23,
+      "@typescript-eslint/no-namespace": 21,
+      "@typescript-eslint/no-require-imports": 6,
+      "@typescript-eslint/no-unsafe-return": 12,
+      "@typescript-eslint/no-unused-vars": 41,
+      "@typescript-eslint/prefer-promise-reject-errors": 5,
+      "@typescript-eslint/require-await": 110,
+      "@typescript-eslint/restrict-plus-operands": 5,
+      "no-control-regex": 2,
+      "no-empty": 9,
+      "no-fallthrough": 1,
+      "no-prototype-builtins": 2,
+      "no-useless-assignment": 6,
+      "no-useless-escape": 69
+    }
+  }
+}

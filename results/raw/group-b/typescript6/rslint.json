@@ -1,0 +1,86 @@
+{
+  "group": "B",
+  "fixture": "typescript6",
+  "tool": "rslint",
+  "files": 601,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline <scope files>",
+  "wallMs": {
+    "median": 810.861291,
+    "mean": 858.1303666,
+    "stdev": 93.46979213182787,
+    "min": 801.362709,
+    "max": 1044.246583
+  },
+  "peakRssMb": {
+    "median": 949.84375,
+    "max": 1022.25
+  },
+  "runs": [
+    {
+      "wallMs": 1044.246583,
+      "peakRssMb": 926.015625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 801.362709,
+      "peakRssMb": 1005.96875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 806.642875,
+      "peakRssMb": 1022.25,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 810.861291,
+      "peakRssMb": 940.25,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 827.538375,
+      "peakRssMb": 949.84375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1678,
+    "typeAware": 321,
+    "syntactic": 1357,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 11,
+      "@typescript-eslint/no-duplicate-enum-values": 5,
+      "@typescript-eslint/no-explicit-any": 549,
+      "@typescript-eslint/no-floating-promises": 2,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 1,
+      "@typescript-eslint/no-namespace": 26,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 12,
+      "@typescript-eslint/no-require-imports": 11,
+      "@typescript-eslint/no-unsafe-return": 268,
+      "@typescript-eslint/no-unsafe-unary-minus": 2,
+      "@typescript-eslint/no-unused-vars": 347,
+      "@typescript-eslint/prefer-promise-reject-errors": 1,
+      "@typescript-eslint/require-await": 30,
+      "@typescript-eslint/restrict-plus-operands": 5,
+      "no-case-declarations": 344,
+      "no-constant-condition": 1,
+      "no-control-regex": 7,
+      "no-extra-boolean-cast": 22,
+      "no-unassigned-vars": 3,
+      "no-useless-assignment": 28,
+      "preserve-caught-error": 2
+    }
+  }
+}

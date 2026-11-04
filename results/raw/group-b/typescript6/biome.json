@@ -1,0 +1,59 @@
+{
+  "group": "B",
+  "fixture": "typescript6",
+  "tool": "biome",
+  "files": 601,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none <scope files>",
+  "wallMs": {
+    "median": 4141.162875,
+    "mean": 4734.7011668000005,
+    "stdev": 1421.3135877979405,
+    "min": 3630.450125,
+    "max": 7545.838625
+  },
+  "peakRssMb": {
+    "median": 4478.5,
+    "max": 5097.140625
+  },
+  "runs": [
+    {
+      "wallMs": 7545.838625,
+      "peakRssMb": 4530.78125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4236.068792,
+      "peakRssMb": 4330.578125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 3630.450125,
+      "peakRssMb": 5097.140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4119.985417,
+      "peakRssMb": 4478.5,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4141.162875,
+      "peakRssMb": 4119.234375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "error": "could not parse output: Unexpected end of JSON input"
+  }
+}

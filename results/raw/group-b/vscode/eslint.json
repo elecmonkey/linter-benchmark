@@ -1,0 +1,83 @@
+{
+  "group": "B",
+  "fixture": "vscode",
+  "tool": "eslint",
+  "files": 312,
+  "failedRuns": 0,
+  "command": "eslint -c eslint.config.bench.mjs --format json --no-warn-ignored <scope files>",
+  "wallMs": {
+    "median": 4176.154833,
+    "mean": 4231.6383164,
+    "stdev": 98.80727322239478,
+    "min": 4125.082958,
+    "max": 4396.8265
+  },
+  "peakRssMb": {
+    "median": 1516.8125,
+    "max": 1588.703125
+  },
+  "runs": [
+    {
+      "wallMs": 4396.8265,
+      "peakRssMb": 1588.703125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4289.602833,
+      "peakRssMb": 1572.09375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4170.524458,
+      "peakRssMb": 1497.328125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4176.154833,
+      "peakRssMb": 1516.8125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4125.082958,
+      "peakRssMb": 1504.703125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 534,
+    "typeAware": 224,
+    "syntactic": 297,
+    "unmapped": {
+      "local/code-no-sync-fs": 13
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 4,
+      "@typescript-eslint/no-explicit-any": 96,
+      "@typescript-eslint/no-floating-promises": 65,
+      "@typescript-eslint/no-misused-promises": 23,
+      "@typescript-eslint/no-namespace": 21,
+      "@typescript-eslint/no-require-imports": 6,
+      "@typescript-eslint/no-unsafe-return": 12,
+      "@typescript-eslint/no-unused-vars": 85,
+      "@typescript-eslint/prefer-promise-reject-errors": 5,
+      "@typescript-eslint/require-await": 110,
+      "@typescript-eslint/restrict-plus-operands": 5,
+      "no-control-regex": 2,
+      "no-empty": 9,
+      "no-fallthrough": 1,
+      "no-prototype-builtins": 2,
+      "no-useless-assignment": 6,
+      "no-useless-escape": 69
+    }
+  }
+}

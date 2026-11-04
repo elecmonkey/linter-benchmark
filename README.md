@@ -1,6 +1,6 @@
 # Type-Aware Linter Benchmark
 
-ESLint vs Rslint vs Oxlint vs Biome on six Rstack monorepos.
+ESLint vs Rslint vs Oxlint vs Biome on seven Rstack monorepos, VS Code and TypeScript.
 
 ## Experiments
 
@@ -18,8 +18,8 @@ Each group enables only the recommended rules that every tool in it implements e
 
 | Group | Fastest tool (fixtures won) |
 |---|---|
-| A | **Rslint** 7/7 |
-| B | **Rslint** 6/7 · **Biome** 1/7 |
+| A | **Rslint** 9/9 |
+| B | **Rslint** 8/9 · **Biome** 1/9 |
 
 ### Group A: ESLint (typescript-eslint), Rslint, Oxlint (oxlint-tsgolint)
 
@@ -36,6 +36,18 @@ Each group enables only the recommended rules that every tool in it implements e
 | Rslint | 330 ms | 324 ms | 380 ms | 395 MB | 191 | 1.00× |
 | Oxlint (oxlint-tsgolint) | 462 ms | 449 ms | 466 ms | 435 MB | 188 | 1.40× |
 | ESLint (typescript-eslint) | 5.31 s | 5.12 s | 5.36 s | 2,155 MB | 191 | 16.12× |
+
+#### [vscode](https://github.com/microsoft/vscode/tree/f92b8f3adcd9bc034e6b9ade05c093dd59b99c5f)
+
+**Files:** 312
+
+![Group A, vscode](results/charts/group-a-vscode.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 352 ms | 339 ms | 359 ms | 427 MB | 996 | 1.00× |
+| Oxlint (oxlint-tsgolint) | 523 ms | 489 ms | 644 ms | 478 MB | 953 | 1.49× |
+| ESLint (typescript-eslint) | 4.69 s | 4.55 s | 4.72 s | 1,560 MB | 1,010 | 13.33× |
 
 #### [rspack](https://github.com/web-infra-dev/rspack/tree/6c1f72b0991a7c691c8e951d6a7821b3d532f6d5)
 
@@ -72,6 +84,18 @@ Each group enables only the recommended rules that every tool in it implements e
 | Rslint | 605 ms | 578 ms | 649 ms | 524 MB | 567 | 1.00× |
 | Oxlint (oxlint-tsgolint) | 739 ms | 690 ms | 786 ms | 592 MB | 558 | 1.22× |
 | ESLint (typescript-eslint) | 14.8 s | 14.7 s | 15.0 s | 6,155 MB | 567 | 24.47× |
+
+#### [typescript6](https://github.com/microsoft/TypeScript/tree/050880ce59e30b356b686bd3144efe24f875ebc8)
+
+**Files:** 601
+
+![Group A, typescript6](results/charts/group-a-typescript6.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 1.04 s | 1.03 s | 1.09 s | 1,026 MB | 11,109 | 1.00× |
+| Oxlint (oxlint-tsgolint) | 3.56 s | 3.55 s | 3.62 s | 1,101 MB | 10,785 | 3.42× |
+| ESLint (typescript-eslint) | 18.8 s | 18.8 s | 19.1 s | 4,430 MB | 11,139 | 18.07× |
 
 #### [rsdoctor](https://github.com/web-infra-dev/rsdoctor/tree/80b2381d1a20901e1f12b3f2bb2778aaacf94f2f)
 
@@ -126,6 +150,19 @@ Each group enables only the recommended rules that every tool in it implements e
 | Biome | 577 ms | 546 ms | 579 ms | 462 MB | 12 | 1.54× |
 | ESLint (typescript-eslint) | 4.99 s | 4.95 s | 5.00 s | 2,140 MB | 7 | 13.29× |
 
+#### [vscode](https://github.com/microsoft/vscode/tree/f92b8f3adcd9bc034e6b9ade05c093dd59b99c5f)
+
+**Files:** 312
+
+![Group B, vscode](results/charts/group-b-vscode.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 336 ms | 330 ms | 390 ms | 409 MB | 520 | 1.00× |
+| Oxlint (oxlint-tsgolint) | 492 ms | 489 ms | 562 ms | 473 MB | 477 | 1.46× |
+| ESLint (typescript-eslint) | 4.18 s | 4.13 s | 4.40 s | 1,517 MB | 534 | 12.41× |
+| Biome | 4.51 s | 4.11 s | 4.59 s | 6,949 MB | 452 | 13.42× |
+
 #### [rspack](https://github.com/web-infra-dev/rspack/tree/6c1f72b0991a7c691c8e951d6a7821b3d532f6d5)
 
 **Files:** 352
@@ -139,7 +176,7 @@ Each group enables only the recommended rules that every tool in it implements e
 | ESLint (typescript-eslint) | 4.35 s | 4.17 s | 4.37 s | 1,498 MB | 784 | 12.70× |
 | Biome | crashed | | | | | |
 
-Biome crashed on every run and produced no lint output: internal error `The parser is no longer progressing. Stuck at '(' L_PAREN:21069..21070`.
+Biome crashed on every run and produced no lint output: internal error `` The parser is no longer progressing. Stuck at '(' L_PAREN:21069..21070 ``.
 
 #### [rspress](https://github.com/web-infra-dev/rspress/tree/6f87abf1d323ced2883261642561a3fc88fbd278)
 
@@ -166,6 +203,21 @@ Biome crashed on every run and produced no lint output: internal error `The pars
 | Oxlint (oxlint-tsgolint) | 685 ms | 681 ms | 734 ms | 576 MB | 154 | 1.12× |
 | Biome | 1.06 s | 1.05 s | 1.14 s | 650 MB | 143 | 1.74× |
 | ESLint (typescript-eslint) | 14.3 s | 14.2 s | 14.5 s | 6,074 MB | 162 | 23.48× |
+
+#### [typescript6](https://github.com/microsoft/TypeScript/tree/050880ce59e30b356b686bd3144efe24f875ebc8)
+
+**Files:** 601
+
+![Group B, typescript6](results/charts/group-b-typescript6.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 811 ms | 801 ms | 1.04 s | 950 MB | 1,678 | 1.00× |
+| Oxlint (oxlint-tsgolint) | 1.27 s | 1.24 s | 1.32 s | 937 MB | 1,361 | 1.56× |
+| ESLint (typescript-eslint) | 14.9 s | 14.7 s | 15.0 s | 4,118 MB | 1,709 | 18.38× |
+| Biome | crashed | | | | | |
+
+Biome crashed on every run and produced no lint output: internal error `` assertion `left == right` failed: expected L_PAREN but at SEMICOLON -- text: ";" at 115..116 ``.
 
 #### [rsdoctor](https://github.com/web-infra-dev/rsdoctor/tree/80b2381d1a20901e1f12b3f2bb2778aaacf94f2f)
 
@@ -213,10 +265,10 @@ Biome crashed on every run and produced no lint output: internal error `The pars
 <details>
 <summary>Same files</summary>
 
-Each fixture's scope follows its own `rstack.config.*` lint setup. It is the git-tracked `.ts/.tsx/.mts/.cts` files (no `.d.ts`) that the repository lints with type information:
+Each fixture's scope follows its own lint setup (`rstack.config.*`, or `eslint.config.*` for VS Code and TypeScript). It is the git-tracked `.ts/.tsx/.mts/.cts` files (no `.d.ts`) that the repository lints with type information:
 
-- files included by its configured `parserOptions.project` tsconfigs (rsbuild uses `projectService`, so any tsconfig);
-- minus its `ignores` / `globalIgnores`, and minus the globs where it turns type information off;
+- files included by its configured `parserOptions.project` tsconfigs (rsbuild uses `projectService`, so any tsconfig), limited to the `files` globs of that config block where it has them;
+- minus its `ignores` / `globalIgnores` (VS Code: `.eslint-ignore`), and minus the globs where it turns type information off;
 - and only files that projectService-style discovery can reach.
 
 The list in `scope/<fixture>.txt` is passed explicitly to every tool.

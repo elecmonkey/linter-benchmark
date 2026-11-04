@@ -19,8 +19,16 @@ export const REPOS = [
   'web-infra-dev/rstest',
   'web-infra-dev/rsdoctor',
   'web-infra-dev/rspress',
+  'web-infra-dev/rspack',
+  'microsoft/vscode',
+  'microsoft/TypeScript',
 ];
-export const FIXTURES = REPOS.map((repo) => repo.split('/')[1]);
+// microsoft/TypeScript is pinned to its last 6.x release, not the current repository.
+const NAME_OVERRIDES = { 'microsoft/TypeScript': 'typescript6' };
+
+/** Fixture directory name: the repository name, lowercased, unless overridden. */
+export const fixtureName = (repo) => NAME_OVERRIDES[repo] ?? repo.split('/')[1].toLowerCase();
+export const FIXTURES = REPOS.map(fixtureName);
 
 export const TS_PREFIX = '@typescript-eslint/';
 

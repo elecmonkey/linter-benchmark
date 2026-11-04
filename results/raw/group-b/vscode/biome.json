@@ -1,0 +1,83 @@
+{
+  "group": "B",
+  "fixture": "vscode",
+  "tool": "biome",
+  "files": 312,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none <scope files>",
+  "wallMs": {
+    "median": 4514.416625,
+    "mean": 4437.8768248,
+    "stdev": 178.6673289935221,
+    "min": 4113.278875,
+    "max": 4588.977541
+  },
+  "peakRssMb": {
+    "median": 6949.390625,
+    "max": 7125.453125
+  },
+  "runs": [
+    {
+      "wallMs": 4588.977541,
+      "peakRssMb": 7125.453125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4113.278875,
+      "peakRssMb": 6772.484375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4384.237708,
+      "peakRssMb": 6936.15625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4588.473375,
+      "peakRssMb": 6982.71875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4514.416625,
+      "peakRssMb": 6949.390625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 452,
+    "typeAware": 191,
+    "syntactic": 261,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 1,
+      "@typescript-eslint/no-explicit-any": 96,
+      "@typescript-eslint/no-floating-promises": 62,
+      "@typescript-eslint/no-misused-promises": 7,
+      "@typescript-eslint/no-namespace": 21,
+      "@typescript-eslint/no-require-imports": 5,
+      "@typescript-eslint/no-unsafe-return": 9,
+      "@typescript-eslint/no-unused-vars": 23,
+      "@typescript-eslint/prefer-promise-reject-errors": 1,
+      "@typescript-eslint/require-await": 111,
+      "no-control-regex": 3,
+      "no-delete-var": 2,
+      "no-empty + no-empty-static-block": 84,
+      "no-fallthrough": 1,
+      "no-misleading-character-class": 1,
+      "no-prototype-builtins": 2,
+      "no-shadow-restricted-names": 1,
+      "no-useless-assignment": 3,
+      "no-useless-escape": 19
+    }
+  }
+}

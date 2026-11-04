@@ -1,0 +1,101 @@
+{
+  "group": "A",
+  "fixture": "typescript6",
+  "tool": "rslint",
+  "files": 601,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline <scope files>",
+  "wallMs": {
+    "median": 1040.916667,
+    "mean": 1048.4180334,
+    "stdev": 20.403438500471704,
+    "min": 1028.773125,
+    "max": 1087.859292
+  },
+  "peakRssMb": {
+    "median": 1025.671875,
+    "max": 1061.03125
+  },
+  "runs": [
+    {
+      "wallMs": 1087.859292,
+      "peakRssMb": 1061.03125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1044.284542,
+      "peakRssMb": 1008.375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1040.916667,
+      "peakRssMb": 1030.046875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1028.773125,
+      "peakRssMb": 1005.109375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1040.256541,
+      "peakRssMb": 1025.671875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 11109,
+    "typeAware": 9606,
+    "syntactic": 1503,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-array-delete": 2,
+      "@typescript-eslint/no-base-to-string": 11,
+      "@typescript-eslint/no-duplicate-enum-values": 5,
+      "@typescript-eslint/no-duplicate-type-constituents": 26,
+      "@typescript-eslint/no-empty-object-type": 81,
+      "@typescript-eslint/no-explicit-any": 549,
+      "@typescript-eslint/no-floating-promises": 2,
+      "@typescript-eslint/no-for-in-array": 3,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 1,
+      "@typescript-eslint/no-namespace": 26,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 12,
+      "@typescript-eslint/no-require-imports": 11,
+      "@typescript-eslint/no-unnecessary-type-assertion": 119,
+      "@typescript-eslint/no-unsafe-argument": 2162,
+      "@typescript-eslint/no-unsafe-assignment": 1138,
+      "@typescript-eslint/no-unsafe-call": 317,
+      "@typescript-eslint/no-unsafe-enum-comparison": 1183,
+      "@typescript-eslint/no-unsafe-member-access": 3848,
+      "@typescript-eslint/no-unsafe-return": 268,
+      "@typescript-eslint/no-unsafe-unary-minus": 2,
+      "@typescript-eslint/no-unused-expressions": 6,
+      "@typescript-eslint/no-unused-vars": 347,
+      "@typescript-eslint/only-throw-error": 16,
+      "@typescript-eslint/prefer-promise-reject-errors": 1,
+      "@typescript-eslint/require-await": 30,
+      "@typescript-eslint/restrict-plus-operands": 5,
+      "@typescript-eslint/restrict-template-expressions": 53,
+      "@typescript-eslint/unbound-method": 418,
+      "no-case-declarations": 344,
+      "no-cond-assign": 59,
+      "no-constant-condition": 1,
+      "no-control-regex": 7,
+      "no-extra-boolean-cast": 22,
+      "no-unassigned-vars": 3,
+      "no-useless-assignment": 28,
+      "preserve-caught-error": 2
+    }
+  }
+}

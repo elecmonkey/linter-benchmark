@@ -36,6 +36,16 @@
       "name": "rspack",
       "repository": "web-infra-dev/rspack",
       "sha": "6c1f72b0991a7c691c8e951d6a7821b3d532f6d5"
+    },
+    {
+      "name": "vscode",
+      "repository": "microsoft/vscode",
+      "sha": "f92b8f3adcd9bc034e6b9ade05c093dd59b99c5f"
+    },
+    {
+      "name": "typescript6",
+      "repository": "microsoft/TypeScript",
+      "sha": "050880ce59e30b356b686bd3144efe24f875ebc8"
     }
   ]
 }

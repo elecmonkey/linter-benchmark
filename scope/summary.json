@@ -47,5 +47,19 @@
     "afterIgnores": 352,
     "files": 352,
     "repoProjectConfigs": 4
+  },
+  "vscode": {
+    "tracked": 15318,
+    "inRepoProjects": 312,
+    "afterIgnores": 312,
+    "files": 312,
+    "repoProjectConfigs": 9
+  },
+  "typescript6": {
+    "tracked": 20036,
+    "inRepoProjects": 601,
+    "afterIgnores": 601,
+    "files": 601,
+    "repoProjectConfigs": 2
   }
 }

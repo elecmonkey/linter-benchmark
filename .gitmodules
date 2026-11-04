@@ -26,3 +26,11 @@
 	path = fixture/rspack
 	url = https://github.com/web-infra-dev/rspack.git
 	shallow = true
+[submodule "fixture/vscode"]
+	path = fixture/vscode
+	url = https://github.com/microsoft/vscode.git
+	shallow = true
+[submodule "fixture/typescript6"]
+	path = fixture/typescript6
+	url = https://github.com/microsoft/TypeScript.git
+	shallow = true

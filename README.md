@@ -16,6 +16,11 @@ Each group enables only the recommended rules that every tool in it implements e
 
 ## Results
 
+| Group | Fastest tool (fixtures won) |
+|---|---|
+| A | **Rslint** 6/6 |
+| B | **Rslint** 5/6 · **Biome** 1/6 |
+
 ### Group A: ESLint (typescript-eslint), Rslint, Oxlint (oxlint-tsgolint)
 
 68 syntactic + 23 type-aware rules. Median of 5 runs after 1 warmup. Bar lengths are log-scaled; the labels give exact values.

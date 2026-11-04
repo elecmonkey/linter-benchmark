@@ -36,6 +36,26 @@ function load(group, fixture, tool) {
 function section(chartDir, headingLevel) {
   const h = (n) => '#'.repeat(headingLevel + n);
   const lines = [];
+
+  // Wins: the fastest tool (median wall time) on each fixture.
+  lines.push('| Group | Fastest tool (fixtures won) |', '|---|---|');
+  for (const [group, def] of Object.entries(groups)) {
+    const wins = {};
+    let total = 0;
+    for (const fixture of ORDER) {
+      const rows = def.tools.map((tool) => ({ tool, r: load(group, fixture, tool) })).filter((x) => x.r);
+      if (rows.length !== def.tools.length) continue;
+      total++;
+      const winner = rows.reduce((a, b) => (b.r.wallMs.median < a.r.wallMs.median ? b : a)).tool;
+      (wins[winner] ??= []).push(fixture);
+    }
+    const cells = Object.entries(wins)
+      .sort((a, b) => b[1].length - a[1].length)
+      .map(([tool, fixtures]) => `**${NAMES[tool]}** ${fixtures.length}/${total}`);
+    lines.push(`| ${group} | ${cells.join(' · ')} |`);
+  }
+  lines.push('');
+
   for (const [group, def] of Object.entries(groups)) {
     lines.push(`${h(0)} Group ${group}: ${def.tools.map((t) => NAMES[t]).join(', ')}`, '');
     lines.push(`${def.syntactic} syntactic + ${def.typeAware} type-aware rules. Median of 5 runs after 1 warmup. Bar lengths are log-scaled; the labels give exact values.`, '');

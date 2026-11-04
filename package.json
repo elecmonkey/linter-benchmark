@@ -1,0 +1,26 @@
+{
+  "name": "type-aware-linter-benchmark",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "node scripts/00-setup-fixtures.mjs",
+    "rules": "node scripts/01-rule-universe.mjs && node scripts/02-rule-support.mjs",
+    "scope": "node scripts/03-scope.mjs",
+    "configs": "node scripts/04-configs.mjs",
+    "bench": "node scripts/05-run.mjs",
+    "report": "node scripts/06-report.mjs",
+    "chart": "node scripts/07-chart.mjs"
+  },
+  "dependencies": {
+    "@biomejs/biome": "2.6.4",
+    "@eslint/js": "10.0.1",
+    "@rslint/core": "0.10.0",
+    "@typescript-eslint/eslint-plugin": "8.72.1",
+    "@typescript-eslint/parser": "8.72.1",
+    "eslint": "10.14.0",
+    "oxlint": "1.91.0",
+    "oxlint-tsgolint": "7.0.2005",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.1"
+  }
+}

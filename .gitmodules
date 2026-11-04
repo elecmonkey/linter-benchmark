@@ -1,0 +1,24 @@
+[submodule "fixture/rsbuild"]
+	path = fixture/rsbuild
+	url = https://github.com/web-infra-dev/rsbuild.git
+	shallow = true
+[submodule "fixture/rslib"]
+	path = fixture/rslib
+	url = https://github.com/web-infra-dev/rslib.git
+	shallow = true
+[submodule "fixture/rstack-cli"]
+	path = fixture/rstack-cli
+	url = https://github.com/rstackjs/rstack-cli.git
+	shallow = true
+[submodule "fixture/rstest"]
+	path = fixture/rstest
+	url = https://github.com/web-infra-dev/rstest.git
+	shallow = true
+[submodule "fixture/rsdoctor"]
+	path = fixture/rsdoctor
+	url = https://github.com/web-infra-dev/rsdoctor.git
+	shallow = true
+[submodule "fixture/rspress"]
+	path = fixture/rspress
+	url = https://github.com/web-infra-dev/rspress.git
+	shallow = true

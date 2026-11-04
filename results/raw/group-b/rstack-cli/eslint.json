@@ -1,0 +1,66 @@
+{
+  "group": "B",
+  "fixture": "rstack-cli",
+  "tool": "eslint",
+  "files": 192,
+  "failedRuns": 0,
+  "command": "eslint -c eslint.config.bench.mjs --format json --no-warn-ignored <scope files>",
+  "wallMs": {
+    "median": 4989.513708,
+    "mean": 4979.210458199999,
+    "stdev": 23.00151582951203,
+    "min": 4950.406,
+    "max": 5001.800208
+  },
+  "peakRssMb": {
+    "median": 2140.0625,
+    "max": 2152.359375
+  },
+  "runs": [
+    {
+      "wallMs": 5001.800208,
+      "peakRssMb": 2152.359375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4989.513708,
+      "peakRssMb": 2131.828125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4952.764958,
+      "peakRssMb": 2140.0625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 5001.567417,
+      "peakRssMb": 2143.96875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4950.406,
+      "peakRssMb": 2138.359375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 7,
+    "typeAware": 4,
+    "syntactic": 3,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-unsafe-return": 4,
+      "@typescript-eslint/no-unused-vars": 3
+    }
+  }
+}

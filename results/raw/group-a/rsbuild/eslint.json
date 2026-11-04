@@ -1,0 +1,80 @@
+{
+  "group": "A",
+  "fixture": "rsbuild",
+  "tool": "eslint",
+  "files": 1249,
+  "failedRuns": 0,
+  "command": "eslint -c eslint.config.bench.mjs --format json --no-warn-ignored <scope files>",
+  "wallMs": {
+    "median": 22648.582166,
+    "mean": 22964.3145332,
+    "stdev": 950.0950037806491,
+    "min": 22221.054125,
+    "max": 24810.59675
+  },
+  "peakRssMb": {
+    "median": 7197.328125,
+    "max": 7298.234375
+  },
+  "runs": [
+    {
+      "wallMs": 22648.582166,
+      "peakRssMb": 7197.078125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 22837.699083,
+      "peakRssMb": 7262.09375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 22221.054125,
+      "peakRssMb": 7168.859375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 24810.59675,
+      "peakRssMb": 7197.328125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 22303.640542,
+      "peakRssMb": 7298.234375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 939,
+    "typeAware": 883,
+    "syntactic": 56,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/await-thenable": 1,
+      "@typescript-eslint/ban-ts-comment": 2,
+      "@typescript-eslint/no-base-to-string": 1,
+      "@typescript-eslint/no-explicit-any": 35,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 3,
+      "@typescript-eslint/no-require-imports": 1,
+      "@typescript-eslint/no-unsafe-argument": 2,
+      "@typescript-eslint/no-unsafe-assignment": 194,
+      "@typescript-eslint/no-unsafe-call": 468,
+      "@typescript-eslint/no-unsafe-member-access": 204,
+      "@typescript-eslint/no-unsafe-return": 4,
+      "@typescript-eslint/no-unused-vars": 17,
+      "@typescript-eslint/only-throw-error": 1,
+      "@typescript-eslint/require-await": 4,
+      "no-control-regex": 1
+    }
+  }
+}

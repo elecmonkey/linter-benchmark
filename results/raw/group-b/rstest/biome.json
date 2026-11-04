@@ -1,0 +1,82 @@
+{
+  "group": "B",
+  "fixture": "rstest",
+  "tool": "biome",
+  "files": 1688,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none <scope files>",
+  "wallMs": {
+    "median": 1800.803333,
+    "mean": 1795.6301748,
+    "stdev": 37.84134321565722,
+    "min": 1730.318916,
+    "max": 1834.091083
+  },
+  "peakRssMb": {
+    "median": 1045.671875,
+    "max": 1081.421875
+  },
+  "runs": [
+    {
+      "wallMs": 1834.091083,
+      "peakRssMb": 1045.671875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1730.318916,
+      "peakRssMb": 1081.421875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1830.482542,
+      "peakRssMb": 1044.8125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1782.455,
+      "peakRssMb": 1060.421875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1800.803333,
+      "peakRssMb": 1022.78125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1483,
+    "typeAware": 386,
+    "syntactic": 1097,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 3,
+      "@typescript-eslint/no-explicit-any": 606,
+      "@typescript-eslint/no-floating-promises": 17,
+      "@typescript-eslint/no-implied-eval": 4,
+      "@typescript-eslint/no-misused-promises": 17,
+      "@typescript-eslint/no-namespace": 1,
+      "@typescript-eslint/no-require-imports": 35,
+      "@typescript-eslint/no-unsafe-return": 59,
+      "@typescript-eslint/prefer-promise-reject-errors": 2,
+      "@typescript-eslint/require-await": 284,
+      "no-delete-var": 18,
+      "no-empty + no-empty-static-block": 410,
+      "no-prototype-builtins": 8,
+      "no-shadow-restricted-names": 4,
+      "no-useless-assignment": 1,
+      "prefer-const": 2,
+      "prefer-rest-params": 1,
+      "preserve-caught-error": 11
+    }
+  }
+}

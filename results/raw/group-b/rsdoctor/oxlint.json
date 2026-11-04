@@ -1,0 +1,76 @@
+{
+  "group": "B",
+  "fixture": "rsdoctor",
+  "tool": "oxlint",
+  "files": 646,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json <scope files>",
+  "wallMs": {
+    "median": 1012.036042,
+    "mean": 1039.40925,
+    "stdev": 49.885114413209045,
+    "min": 1004.441,
+    "max": 1136.305333
+  },
+  "peakRssMb": {
+    "median": 776,
+    "max": 852.046875
+  },
+  "runs": [
+    {
+      "wallMs": 1136.305333,
+      "peakRssMb": 742.484375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1006.5645,
+      "peakRssMb": 776,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1004.441,
+      "peakRssMb": 852.046875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1037.699375,
+      "peakRssMb": 666.140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1012.036042,
+      "peakRssMb": 848.140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 583,
+    "typeAware": 309,
+    "syntactic": 274,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 8,
+      "@typescript-eslint/no-explicit-any": 264,
+      "@typescript-eslint/no-floating-promises": 41,
+      "@typescript-eslint/no-misused-promises": 6,
+      "@typescript-eslint/no-require-imports": 2,
+      "@typescript-eslint/no-unsafe-return": 154,
+      "@typescript-eslint/no-unused-vars": 2,
+      "@typescript-eslint/prefer-promise-reject-errors": 4,
+      "@typescript-eslint/require-await": 94,
+      "@typescript-eslint/restrict-plus-operands": 2,
+      "no-useless-assignment": 5,
+      "prefer-rest-params": 1
+    }
+  }
+}

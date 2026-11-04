@@ -1,0 +1,87 @@
+{
+  "group": "A",
+  "fixture": "rspress",
+  "tool": "rslint",
+  "files": 466,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline <scope files>",
+  "wallMs": {
+    "median": 615.822833,
+    "mean": 607.8958334,
+    "stdev": 23.280484348996744,
+    "min": 572.5315,
+    "max": 634.054625
+  },
+  "peakRssMb": {
+    "median": 687.4375,
+    "max": 721.671875
+  },
+  "runs": [
+    {
+      "wallMs": 572.5315,
+      "peakRssMb": 721.671875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 634.054625,
+      "peakRssMb": 688.734375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 615.822833,
+      "peakRssMb": 687.4375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 627.394209,
+      "peakRssMb": 647.484375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 589.676,
+      "peakRssMb": 684.953125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 995,
+    "typeAware": 922,
+    "syntactic": 73,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/await-thenable": 4,
+      "@typescript-eslint/ban-ts-comment": 2,
+      "@typescript-eslint/no-base-to-string": 1,
+      "@typescript-eslint/no-duplicate-type-constituents": 1,
+      "@typescript-eslint/no-explicit-any": 43,
+      "@typescript-eslint/no-floating-promises": 19,
+      "@typescript-eslint/no-implied-eval": 3,
+      "@typescript-eslint/no-misused-promises": 3,
+      "@typescript-eslint/no-redundant-type-constituents": 4,
+      "@typescript-eslint/no-unnecessary-type-assertion": 34,
+      "@typescript-eslint/no-unsafe-argument": 40,
+      "@typescript-eslint/no-unsafe-assignment": 281,
+      "@typescript-eslint/no-unsafe-call": 129,
+      "@typescript-eslint/no-unsafe-member-access": 328,
+      "@typescript-eslint/no-unsafe-return": 26,
+      "@typescript-eslint/no-unused-expressions": 9,
+      "@typescript-eslint/no-unused-vars": 17,
+      "@typescript-eslint/only-throw-error": 1,
+      "@typescript-eslint/prefer-promise-reject-errors": 4,
+      "@typescript-eslint/require-await": 33,
+      "@typescript-eslint/restrict-template-expressions": 6,
+      "@typescript-eslint/triple-slash-reference": 2,
+      "@typescript-eslint/unbound-method": 5
+    }
+  }
+}

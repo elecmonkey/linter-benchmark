@@ -1,0 +1,79 @@
+{
+  "group": "A",
+  "fixture": "rsbuild",
+  "tool": "oxlint",
+  "files": 1249,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json <scope files>",
+  "wallMs": {
+    "median": 1216.797583,
+    "mean": 1220.4537916000002,
+    "stdev": 49.50732379424612,
+    "min": 1140.795417,
+    "max": 1294.308958
+  },
+  "peakRssMb": {
+    "median": 680.40625,
+    "max": 793.734375
+  },
+  "runs": [
+    {
+      "wallMs": 1211.099375,
+      "peakRssMb": 680.40625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1239.267625,
+      "peakRssMb": 793.734375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1140.795417,
+      "peakRssMb": 676.734375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1294.308958,
+      "peakRssMb": 708.890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1216.797583,
+      "peakRssMb": 657.03125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 922,
+    "typeAware": 883,
+    "syntactic": 39,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/await-thenable": 1,
+      "@typescript-eslint/ban-ts-comment": 2,
+      "@typescript-eslint/no-base-to-string": 1,
+      "@typescript-eslint/no-explicit-any": 35,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 3,
+      "@typescript-eslint/no-require-imports": 1,
+      "@typescript-eslint/no-unsafe-argument": 2,
+      "@typescript-eslint/no-unsafe-assignment": 194,
+      "@typescript-eslint/no-unsafe-call": 468,
+      "@typescript-eslint/no-unsafe-member-access": 204,
+      "@typescript-eslint/no-unsafe-return": 4,
+      "@typescript-eslint/only-throw-error": 1,
+      "@typescript-eslint/require-await": 4,
+      "no-control-regex": 1
+    }
+  }
+}

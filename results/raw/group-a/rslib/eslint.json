@@ -1,0 +1,81 @@
+{
+  "group": "A",
+  "fixture": "rslib",
+  "tool": "eslint",
+  "files": 501,
+  "failedRuns": 0,
+  "command": "eslint -c eslint.config.bench.mjs --format json --no-warn-ignored <scope files>",
+  "wallMs": {
+    "median": 14808.208417,
+    "mean": 14801.547266999998,
+    "stdev": 112.21340590253394,
+    "min": 14674.087917,
+    "max": 14975.317584
+  },
+  "peakRssMb": {
+    "median": 6154.9375,
+    "max": 6214.203125
+  },
+  "runs": [
+    {
+      "wallMs": 14808.208417,
+      "peakRssMb": 6214.203125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 14688.257292,
+      "peakRssMb": 6154.9375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 14975.317584,
+      "peakRssMb": 6154.546875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 14861.865125,
+      "peakRssMb": 6141.4375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 14674.087917,
+      "peakRssMb": 6156.734375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 567,
+    "typeAware": 525,
+    "syntactic": 42,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/await-thenable": 7,
+      "@typescript-eslint/ban-ts-comment": 2,
+      "@typescript-eslint/no-explicit-any": 27,
+      "@typescript-eslint/no-floating-promises": 10,
+      "@typescript-eslint/no-misused-promises": 5,
+      "@typescript-eslint/no-redundant-type-constituents": 3,
+      "@typescript-eslint/no-unnecessary-type-assertion": 48,
+      "@typescript-eslint/no-unsafe-argument": 7,
+      "@typescript-eslint/no-unsafe-assignment": 112,
+      "@typescript-eslint/no-unsafe-call": 85,
+      "@typescript-eslint/no-unsafe-member-access": 131,
+      "@typescript-eslint/no-unsafe-return": 12,
+      "@typescript-eslint/no-unused-vars": 11,
+      "@typescript-eslint/require-await": 95,
+      "@typescript-eslint/restrict-template-expressions": 9,
+      "@typescript-eslint/unbound-method": 1,
+      "preserve-caught-error": 2
+    }
+  }
+}

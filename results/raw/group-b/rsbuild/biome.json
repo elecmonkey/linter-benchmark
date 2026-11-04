@@ -1,0 +1,74 @@
+{
+  "group": "B",
+  "fixture": "rsbuild",
+  "tool": "biome",
+  "files": 1249,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none <scope files>",
+  "wallMs": {
+    "median": 526.2105,
+    "mean": 527.0227752,
+    "stdev": 21.348265534672482,
+    "min": 499.953042,
+    "max": 557.025334
+  },
+  "peakRssMb": {
+    "median": 214,
+    "max": 225.0625
+  },
+  "runs": [
+    {
+      "wallMs": 499.953042,
+      "peakRssMb": 214,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 508.033333,
+      "peakRssMb": 212.703125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 543.891667,
+      "peakRssMb": 217.34375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 557.025334,
+      "peakRssMb": 213.140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 526.2105,
+      "peakRssMb": 225.0625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 126,
+    "typeAware": 29,
+    "syntactic": 97,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 35,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 4,
+      "@typescript-eslint/no-require-imports": 1,
+      "@typescript-eslint/no-unsafe-return": 3,
+      "@typescript-eslint/require-await": 21,
+      "no-control-regex": 1,
+      "no-delete-var": 5,
+      "no-empty + no-empty-static-block": 53,
+      "preserve-caught-error": 2
+    }
+  }
+}

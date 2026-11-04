@@ -1,0 +1,65 @@
+{
+  "group": "B",
+  "fixture": "rstack-cli",
+  "tool": "oxlint",
+  "files": 192,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json <scope files>",
+  "wallMs": {
+    "median": 455.123666,
+    "mean": 453.77590820000006,
+    "stdev": 3.641425622158022,
+    "min": 448.84175,
+    "max": 459.02275
+  },
+  "peakRssMb": {
+    "median": 448.953125,
+    "max": 458.59375
+  },
+  "runs": [
+    {
+      "wallMs": 455.123666,
+      "peakRssMb": 425.71875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 448.84175,
+      "peakRssMb": 451.015625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 450.576125,
+      "peakRssMb": 417.0625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 459.02275,
+      "peakRssMb": 458.59375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 455.31525,
+      "peakRssMb": 448.953125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 4,
+    "typeAware": 4,
+    "syntactic": 0,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-unsafe-return": 4
+    }
+  }
+}

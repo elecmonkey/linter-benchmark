@@ -1,0 +1,69 @@
+{
+  "group": "A",
+  "fixture": "rstack-cli",
+  "tool": "oxlint",
+  "files": 192,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json <scope files>",
+  "wallMs": {
+    "median": 462.469959,
+    "mean": 460.1896250000001,
+    "stdev": 5.9063459382200145,
+    "min": 448.718416,
+    "max": 465.62525
+  },
+  "peakRssMb": {
+    "median": 434.65625,
+    "max": 469.140625
+  },
+  "runs": [
+    {
+      "wallMs": 461.346458,
+      "peakRssMb": 469.140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 462.469959,
+      "peakRssMb": 451.96875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 465.62525,
+      "peakRssMb": 434.65625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 462.788042,
+      "peakRssMb": 414.828125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 448.718416,
+      "peakRssMb": 422.5,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 188,
+    "typeAware": 188,
+    "syntactic": 0,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-unsafe-argument": 10,
+      "@typescript-eslint/no-unsafe-assignment": 17,
+      "@typescript-eslint/no-unsafe-call": 93,
+      "@typescript-eslint/no-unsafe-member-access": 64,
+      "@typescript-eslint/no-unsafe-return": 4
+    }
+  }
+}

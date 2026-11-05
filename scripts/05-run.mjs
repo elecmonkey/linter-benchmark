@@ -1,7 +1,9 @@
 // Step 5: run the benchmark.
 //
-// For every group x fixture, the group's configs are copied into the fixture
-// root, then each tool lints the fixture's scope file list (passed explicitly).
+// For every group x fixture, the configs from configs/group-<g>/<fixture>/ are
+// copied into the fixture root, then each tool lints the fixture root; the
+// config selects the scope. Afterwards the number of files each tool actually
+// linted is checked against scope/<fixture>.txt (`filesLinted`, `scopeMatch`).
 // Per tool: 1 warmup run, then N measured runs, interleaved across tools so
 // machine drift affects every tool equally. Each run records wall time and the
 // peak RSS summed over the whole process tree (Node launchers + native
@@ -14,7 +16,7 @@
 //
 // Usage:
 //   node scripts/05-run.mjs [--groups A,B] [--fixtures rsbuild,...] [--tools eslint,...]
-//                           [--runs 5] [--warmup 1] [--timeout-min 15]
+//                           [--runs 5] [--warmup 1] [--timeout-min 15] [--eslint-heap-mb 16384]
 //
 // Output: results/raw/group-<g>/<fixture>/<tool>.json
 //         logs/output/group-<g>/<fixture>/<tool>.{stdout,stderr} (last run)
@@ -30,40 +32,64 @@ const SELECTED_FIXTURES = list(flags.fixtures, FIXTURES);
 const RUNS = Number(flags.runs ?? 5);
 const WARMUP = Number(flags.warmup ?? 1);
 const TIMEOUT_MS = Number(flags['timeout-min'] ?? 15) * 60_000;
+const ESLINT_HEAP_MB = Number(flags['eslint-heap-mb'] ?? 16384);
 const groups = readJson(path.join(RULES_DIR, 'groups.json'));
 
 // ------------------------------------------------------------------ tools
-// `config` is the file in configs/group-<g>/; `as` is its name inside the fixture.
+// `config` is the file in configs/group-<g>/<fixture>/; `as` is its name inside the fixture.
+// `linted(stdout, cwd)` returns the files the tool linted: a list, or a count.
 const TOOLS = {
   eslint: {
     config: 'eslint.config.mjs',
     as: 'eslint.config.bench.mjs',
-    env: { NODE_OPTIONS: '--max-old-space-size=16384' },
-    args: (files) => [path.join(BIN, 'eslint'), '-c', 'eslint.config.bench.mjs', '--format', 'json', '--no-warn-ignored', ...files],
+    env: { NODE_OPTIONS: `--max-old-space-size=${ESLINT_HEAP_MB}` },
+    args: () => [path.join(BIN, 'eslint'), '-c', 'eslint.config.bench.mjs', '--format', 'json', '.'],
     parse: (out) => JSON.parse(out).flatMap((file) => file.messages.map((m) => m.ruleId ?? `fatal: ${m.message}`)),
+    linted: (out, cwd) => JSON.parse(out).map((file) => path.relative(cwd, file.filePath)),
   },
   rslint: {
     config: 'rslint.config.mjs',
     as: 'rslint.config.bench.mjs',
-    args: (files) => [path.join(BIN, 'rslint'), '-c', 'rslint.config.bench.mjs', '--format', 'jsonline', ...files],
+    args: () => [path.join(BIN, 'rslint'), '-c', 'rslint.config.bench.mjs', '--format', 'jsonline'],
     parse: (out) => out.split('\n').filter((line) => line.startsWith('{')).map((line) => JSON.parse(line).ruleName),
+    // jsonline has no file count: one extra, untimed run with the default format prints "(N files, ...)".
+    verifyArgs: () => [path.join(BIN, 'rslint'), '-c', 'rslint.config.bench.mjs', '--no-color', '--quiet'],
+    linted: (out) => Number(/\((\d+) files?,/.exec(out)?.[1] ?? NaN),
   },
   oxlint: {
     config: 'oxlintrc.json',
     as: '.oxlintrc.bench.json',
     env: { OXLINT_TSGOLINT_PATH: path.join(BIN, 'tsgolint') },
-    args: (files) => [path.join(BIN, 'oxlint'), '-c', '.oxlintrc.bench.json', '--type-aware', '--disable-nested-config', '-f', 'json', ...files],
+    args: () => [path.join(BIN, 'oxlint'), '-c', '.oxlintrc.bench.json', '--type-aware', '--disable-nested-config', '-f', 'json', '.'],
     // code: "typescript(no-floating-promises)" -> "typescript/no-floating-promises"
     parse: (out) => JSON.parse(out).diagnostics.map((d) => d.code?.replace(/^(\w+)\((.+)\)$/, '$1/$2') ?? `other: ${d.message}`),
+    linted: (out) => JSON.parse(out).number_of_files,
   },
   biome: {
     config: 'biome.json',
     as: 'biome.json',
-    args: (files) => [path.join(BIN, 'biome'), 'lint', '--reporter=json', '--max-diagnostics=none', ...files],
+    args: () => [path.join(BIN, 'biome'), 'lint', '--reporter=json', '--max-diagnostics=none', '.'],
     // category: "lint/nursery/noFloatingPromises" -> "nursery/noFloatingPromises"
     parse: (out) => JSON.parse(out).diagnostics.map((d) => (d.category?.startsWith('lint/') ? d.category.slice(5) : `other: ${d.category}`)),
+    // Biome's summary also counts its own biome.json as a processed file.
+    linted: (out) => {
+      const { changed, unchanged } = JSON.parse(out).summary;
+      return changed + unchanged - 1;
+    },
   },
 };
+
+/** Compare what a tool linted with the scope: exact for file lists, by count otherwise. */
+function checkScope(linted, scope) {
+  if (Array.isArray(linted)) {
+    const want = new Set(scope);
+    const got = new Set(linted);
+    const missing = scope.filter((f) => !got.has(f));
+    const extra = linted.filter((f) => !want.has(f));
+    return { filesLinted: linted.length, scopeMatch: !missing.length && !extra.length, missing: missing.slice(0, 20), extra: extra.slice(0, 20) };
+  }
+  return { filesLinted: linted, scopeMatch: linted === scope.length };
+}
 const SELECTED_TOOLS = list(flags.tools, Object.keys(TOOLS));
 
 // Map a tool-specific rule name back to the ESLint rule name(s) of the group.
@@ -178,9 +204,8 @@ process.on('SIGINT', () => {
 
 for (const group of GROUPS) {
   const tools = groups[group].tools.filter((t) => SELECTED_TOOLS.includes(t));
-  const configDir = path.join(CONFIGS_DIR, `group-${group.toLowerCase()}`);
-
   for (const fixture of SELECTED_FIXTURES) {
+    const configDir = path.join(CONFIGS_DIR, `group-${group.toLowerCase()}`, fixture);
     const cwd = path.join(FIXTURE_DIR, fixture);
     const files = fs.readFileSync(path.join(SCOPE_DIR, `${fixture}.txt`), 'utf8').trim().split('\n');
     const outDir = path.join(LOGS_DIR, 'output', `group-${group.toLowerCase()}`, fixture);
@@ -200,7 +225,7 @@ for (const group of GROUPS) {
         for (const tool of tools) {
           const measured = i - WARMUP;
           const spec = TOOLS[tool];
-          const result = await runOnce(spec.args(files), {
+          const result = await runOnce(spec.args(), {
             cwd,
             env: spec.env,
             stdoutFile: path.join(outDir, `${tool}.stdout`),
@@ -213,12 +238,24 @@ for (const group of GROUPS) {
       }
 
       for (const tool of tools) {
+        const spec = TOOLS[tool];
         const stdout = fs.readFileSync(path.join(outDir, `${tool}.stdout`), 'utf8');
         let diagnostics;
+        let scopeCheck = { filesLinted: null, scopeMatch: false };
         try {
-          diagnostics = summarizeDiagnostics(group, tool, TOOLS[tool].parse(stdout));
+          diagnostics = summarizeDiagnostics(group, tool, spec.parse(stdout));
+          let lintedOut = stdout;
+          if (spec.verifyArgs) {
+            const verifyFile = path.join(outDir, `${tool}.verify`);
+            await runOnce(spec.verifyArgs(), { cwd, env: spec.env, stdoutFile: verifyFile, stderrFile: `${verifyFile}.stderr` });
+            lintedOut = fs.readFileSync(verifyFile, 'utf8') + fs.readFileSync(`${verifyFile}.stderr`, 'utf8');
+          }
+          scopeCheck = checkScope(spec.linted(lintedOut, cwd), files);
         } catch (error) {
           diagnostics = { error: `could not parse output: ${error.message}` };
+        }
+        if (!diagnostics.error && !scopeCheck.scopeMatch) {
+          console.log(`[${group}] ${fixture} ${tool}: SCOPE MISMATCH, linted ${scopeCheck.filesLinted} files, scope has ${files.length}`);
         }
         const walls = runs[tool].map((r) => r.wallMs);
         writeJson(path.join(RESULTS_DIR, 'raw', `group-${group.toLowerCase()}`, fixture, `${tool}.json`), {
@@ -226,9 +263,10 @@ for (const group of GROUPS) {
           fixture,
           tool,
           files: files.length,
+          ...scopeCheck,
           // A run that was killed (timeout / OOM signal) did not finish its work.
           failedRuns: runs[tool].filter((r) => r.timedOut || r.signal).length,
-          command: TOOLS[tool].args(['<scope files>']).map((a) => a.replace(`${BIN}/`, '')).join(' '),
+          command: spec.args().map((a) => a.replace(`${BIN}/`, '')).join(' '),
           wallMs: { median: median(walls), mean: mean(walls), stdev: stdev(walls), min: Math.min(...walls), max: Math.max(...walls) },
           peakRssMb: { median: median(runs[tool].map((r) => r.peakRssMb)), max: Math.max(...runs[tool].map((r) => r.peakRssMb)) },
           runs: runs[tool],

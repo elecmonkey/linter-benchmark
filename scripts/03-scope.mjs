@@ -1,139 +1,73 @@
-// Step 3: fix the exact set of files every tool lints, per fixture.
+// Step 3: fix the set of files every tool lints, per fixture, and how to
+// express it in tool configs.
 //
-// The scope follows each repository's own lint setup (its rstack.config.*, or
-// eslint.config.* for vscode and typescript6):
-// we lint what the repository itself lints WITH type information.
+// Scope = every file the repository runs its linter on:
 //
-//   1. git-tracked .ts/.tsx/.mts/.cts files, excluding .d.ts
-//      (tracked files are by definition not gitignored);
-//   2. included by one of the repository's configured `parserOptions.project`
-//      tsconfigs (rsbuild uses projectService, so: any tsconfig.json), and
-//      matched by that config block's `files` globs where it has them;
-//   3. not matched by the repository's `ignores` / `globalIgnores` (or an
-//      ignore file such as vscode's .eslint-ignore), nor by
-//      globs where it explicitly disables type information;
-//   4. resolvable by projectService (nearest tsconfig.json walking up, or a
-//      project it references) - all tools run with projectService-style
-//      discovery, so every file must be reachable that way.
+//   1. JavaScript and TypeScript files (.js .jsx .mjs .cjs .ts .tsx .mts .cts,
+//      .d.ts included) the tools would find on disk: git-tracked files plus
+//      untracked ones outside node_modules;
+//   2. minus the repository's global lint ignores (rstack.config.* `ignores` /
+//      `globalIgnores`, eslint.config.*, vscode's .eslint-ignore) and minus
+//      gitignored files.
 //
-// The resulting list is passed explicitly on the command line to every tool.
+// Type-aware rules run only on files a TypeScript project includes:
+// projectService-style lookup (nearest tsconfig.json walking up, or a project
+// it references) must find one. Every tool disables type-aware rules on the
+// other files (`untyped`), so all of them do the same work.
 //
-// Output: scope/<fixture>.txt, scope/summary.json
+// Each tool selects the scope through its own config (04-configs.mjs): JS/TS
+// extensions, minus `ignores` (the repository's globs), minus `exclude` (exact
+// paths of gitignored files), with an override turning type-aware rules off
+// for `untyped` (directory globs where a whole directory is untyped, exact
+// paths otherwise).
+//
+// Output: scope/<fixture>.txt   expected file list (checked after each run)
+//         scope/<fixture>.json  { ignores, exclude, untyped } for the tool configs
+//         scope/summary.json    file counts per stage
 import fs from 'node:fs';
 import path from 'node:path';
 import ts from 'typescript';
 import { FIXTURES, FIXTURE_DIR, SCOPE_DIR, run, writeJson } from './lib.mjs';
 
-// Transcribed from each fixture's rstack.config.* `define.lint(...)`.
-const REPO_LINT = {
-  rsbuild: {
-    projects: ['**/tsconfig.json'], // projectService: true
-    ignores: [
-      'e2e/cases/browser-logs/skip-build-error/src/index.js',
-      'e2e/cases/wasm/wasm-source-import/src/index.js',
-      // projectService: false ("templates lack installed dependencies ...")
-      'packages/create-rsbuild/template-*/**',
-      'e2e/cases/**/src/**',
-    ],
-  },
-  rsdoctor: {
-    projects: [
-      'packages/*/tsconfig.json',
-      'packages/*/tests/tsconfig.json',
-      'scripts/*/tsconfig.json',
-      'examples/*/tsconfig.json',
-      'e2e/tsconfig.json',
-    ],
-    ignores: ['packages/core/tests/build/utils/bundles/**'],
-  },
-  rslib: {
-    projects: [
-      'packages/*/tsconfig.json',
-      'packages/core/tests/tsconfig.json',
-      'examples/*/tsconfig.json',
-      'examples/module-federation/*/tsconfig.json',
-      'tests/tsconfig.json',
-      'tests/scripts/tsconfig.json',
-      'tests/type-tests/*/tsconfig.json',
-    ],
-    ignores: ['tests/integration/wasm/static-source/src/utils.js', 'tests/integration/wasm-inline/basic/src/source.js'],
-  },
-  rspress: {
-    projects: [
-      'tsconfig.json',
-      'scripts/config/tsconfig.json',
-      'packages/*/tsconfig*.json',
-      'packages/*/tests/tsconfig.json',
-      'website/tsconfig.json',
-    ],
-    ignores: ['**/*.d.ts'],
-  },
-  'rstack-cli': {
-    projects: [
-      'packages/*/tsconfig.json',
-      'packages/*/tests/tsconfig.json',
-      'packages/rstack/tests/types/*/tsconfig.json',
-      'examples/*/tsconfig.json',
-      'website/tsconfig.json',
-    ],
-    ignores: [],
-  },
-  rstest: {
-    projects: ['e2e/tsconfig.json', 'packages/*/tsconfig.json', 'packages/*/tests/tsconfig.json'],
-    ignores: [],
-  },
-  rspack: {
-    projects: ['packages/*/tsconfig.json'],
-    ignores: [
-      'packages/rspack/src/runtime/moduleFederationDefaultRuntime.js',
-      'xtask/benchmark/benches/fixtures/rspack_sources/**',
-      '**/tests/**',
-      'crates/rspack_resolver/**',
-    ],
-  },
-  // Only these extensions get type information (the `parserOptions.project` block).
-  vscode: {
-    files: [
-      'extensions/markdown-language-features/src/**/*.ts',
-      'extensions/markdown-language-features/notebook/**/*.ts',
-      'extensions/markdown-language-features/preview-src/**/*.ts',
-      'extensions/mermaid-markdown-features/preview-src/chat/**/*.ts',
-      'extensions/mermaid-markdown-features/src/**/*.ts',
-      'extensions/simple-browser/**/*.ts',
-      'extensions/typescript-language-features/**/*.ts',
-    ],
-    projects: [
-      'extensions/markdown-language-features/tsconfig.json',
-      'extensions/markdown-language-features/notebook/tsconfig.json',
-      'extensions/markdown-language-features/preview-src/tsconfig.json',
-      'extensions/simple-browser/tsconfig.json',
-      'extensions/simple-browser/preview-src/tsconfig.json',
-      'extensions/mermaid-markdown-features/tsconfig.json',
-      'extensions/mermaid-markdown-features/preview-src/chat/tsconfig.json',
-      'extensions/typescript-language-features/tsconfig.json',
-      'extensions/typescript-language-features/web/tsconfig.json',
-    ],
-    ignoresFile: '.eslint-ignore', // read by eslint.config.js as global ignores
-    ignores: [],
-  },
-  typescript6: {
-    projects: ['src/tsconfig-eslint.json', 'scripts/tsconfig.json'],
-    ignores: [
-      '**/node_modules/**',
-      'built/**',
-      'tests/**',
-      'lib/**',
-      'src/lib/*.generated.d.ts',
-      'scripts/**/*.js',
-      'scripts/**/*.d.*',
-      'internal/**',
-      'coverage/**',
-    ],
-  },
+// Global lint ignores, transcribed from each fixture's lint config.
+const REPO_IGNORES = {
+  rsbuild: ['e2e/cases/browser-logs/skip-build-error/src/index.js', 'e2e/cases/wasm/wasm-source-import/src/index.js'],
+  rsdoctor: ['packages/core/tests/build/utils/bundles/**'],
+  rslib: ['tests/integration/wasm/static-source/src/utils.js', 'tests/integration/wasm-inline/basic/src/source.js'],
+  rspress: ['**/*.d.ts'],
+  'rstack-cli': [],
+  rstest: [],
+  rspack: [
+    'packages/rspack/src/runtime/moduleFederationDefaultRuntime.js',
+    'xtask/benchmark/benches/fixtures/rspack_sources/**',
+    '**/tests/**',
+    'crates/rspack_resolver/**',
+  ],
+  vscode: { file: '.eslint-ignore' }, // read by eslint.config.js as global ignores
+  typescript6: [
+    '**/node_modules/**',
+    'built/**',
+    'tests/**',
+    'lib/**',
+    'src/lib/*.generated.d.ts',
+    'scripts/**/*.js',
+    'scripts/**/*.d.*',
+    'internal/**',
+    'coverage/**',
+  ],
 };
 
-const SOURCE = /\.(ts|tsx|mts|cts)$/;
-const DECLARATION = /\.d\.(ts|mts|cts)$/;
+function repoIgnores(fixture, repoRoot) {
+  const spec = REPO_IGNORES[fixture];
+  if (Array.isArray(spec)) return spec;
+  return fs
+    .readFileSync(path.join(repoRoot, spec.file), 'utf8')
+    .split('\n')
+    .map((l) => l.trim())
+    .filter((l) => l && !l.startsWith('#') && !l.startsWith('!'));
+}
+
+const SOURCE = /\.(js|jsx|mjs|cjs|ts|tsx|mts|cts)$/;
 
 /** tsconfig path -> { files: Set<abs path>, refs: [abs tsconfig path], ok } */
 function createProjectLoader() {
@@ -174,47 +108,69 @@ function resolvesViaProjectService(file, repoRoot, load) {
   return false;
 }
 
+/**
+ * Compress `untyped` files into globs: a directory whose scope files are all
+ * untyped becomes `dir/**`; otherwise its untyped files are listed one by one.
+ */
+function compressUntyped(scope, untyped) {
+  const root = { files: [], dirs: new Map() };
+  for (const rel of scope) {
+    const parts = rel.split('/');
+    let node = root;
+    for (const dir of parts.slice(0, -1)) {
+      if (!node.dirs.has(dir)) node.dirs.set(dir, { files: [], dirs: new Map() });
+      node = node.dirs.get(dir);
+    }
+    node.files.push(rel);
+  }
+  const allUntyped = (node) => node.files.every((f) => untyped.has(f)) && [...node.dirs.values()].every(allUntyped);
+  const globs = [];
+  const walk = (node, prefix) => {
+    if (allUntyped(node)) {
+      globs.push(prefix ? `${prefix}/**` : '**');
+      return;
+    }
+    globs.push(...node.files.filter((f) => untyped.has(f)));
+    for (const [dir, child] of node.dirs) walk(child, prefix ? `${prefix}/${dir}` : dir);
+  };
+  if (untyped.size) walk(root, '');
+  return globs;
+}
+
 const summary = {};
 for (const fixture of FIXTURES) {
   const repoRoot = path.join(FIXTURE_DIR, fixture);
-  const { projects, files, ignoresFile } = REPO_LINT[fixture];
-  const ignores = [...REPO_LINT[fixture].ignores];
-  if (ignoresFile) {
-    const lines = fs.readFileSync(path.join(repoRoot, ignoresFile), 'utf8').split('\n').map((l) => l.trim());
-    ignores.push(...lines.filter((l) => l && !l.startsWith('#') && !l.startsWith('!')));
-  }
+  const ignores = repoIgnores(fixture, repoRoot);
   const load = createProjectLoader();
+  const isSource = (f) => SOURCE.test(f) && !f.split('/').includes('node_modules');
+  const git = (...args) => run('git', args, { cwd: repoRoot }).stdout.split('\n').filter(isSource);
 
-  const tracked = run('git', ['ls-files'], { cwd: repoRoot }).stdout.split('\n');
-  const trackedSet = new Set(tracked);
-  const candidates = tracked.filter((f) => SOURCE.test(f) && !DECLARATION.test(f));
+  // Every JS/TS file a tool walking the repository would find.
+  const onDisk = [...new Set([...git('ls-files'), ...git('ls-files', '--others')])].sort();
+  const gitignored = new Set([...git('ls-files', '--cached', '--ignored', '--exclude-standard'), ...git('ls-files', '--others', '--ignored', '--exclude-standard')]);
 
-  // Files covered by the repository's configured projects (tracked tsconfigs only, no node_modules).
-  const projectFiles = new Set();
-  const projectConfigs = fs
-    .globSync(projects, { cwd: repoRoot, exclude: (p) => p.includes('node_modules') })
-    .filter((p) => trackedSet.has(p));
-  for (const rel of projectConfigs) for (const f of load(path.join(repoRoot, rel)).files) projectFiles.add(f);
-
-  const stages = { tracked: candidates.length, inRepoProjects: 0, afterIgnores: 0, files: 0 };
   const scope = [];
-  for (const rel of candidates) {
-    const abs = path.join(repoRoot, rel);
-    if (files && !files.some((glob) => path.matchesGlob(rel, glob))) continue;
-    if (!projectFiles.has(abs)) continue;
-    stages.inRepoProjects++;
+  const exclude = []; // gitignored, not covered by `ignores`: excluded by exact path
+  const untyped = new Set();
+  let afterIgnores = 0;
+  for (const rel of onDisk) {
     if (ignores.some((glob) => path.matchesGlob(rel, glob))) continue;
-    stages.afterIgnores++;
-    if (!resolvesViaProjectService(abs, repoRoot, load)) continue;
-    stages.files++;
+    afterIgnores++;
+    if (gitignored.has(rel)) {
+      exclude.push(rel);
+      continue;
+    }
     scope.push(rel);
+    if (!resolvesViaProjectService(path.join(repoRoot, rel), repoRoot, load)) untyped.add(rel);
   }
+  const untypedGlobs = compressUntyped(scope, untyped);
 
   fs.mkdirSync(SCOPE_DIR, { recursive: true });
   fs.writeFileSync(path.join(SCOPE_DIR, `${fixture}.txt`), `${scope.join('\n')}\n`);
-  summary[fixture] = { ...stages, repoProjectConfigs: projectConfigs.length };
+  writeJson(path.join(SCOPE_DIR, `${fixture}.json`), { ignores, exclude, untyped: untypedGlobs });
+  summary[fixture] = { onDisk: onDisk.length, afterIgnores, files: scope.length, typed: scope.length - untyped.size, untyped: untyped.size, untypedGlobs: untypedGlobs.length };
   console.log(
-    `${fixture.padEnd(11)} tracked TS ${String(stages.tracked).padStart(5)} -> in repo projects ${String(stages.inRepoProjects).padStart(5)} -> after ignores ${String(stages.afterIgnores).padStart(5)} -> projectService-resolvable ${String(stages.files).padStart(5)}`,
+    `${fixture.padEnd(11)} JS/TS on disk ${String(onDisk.length).padStart(5)} -> scope ${String(scope.length).padStart(5)} (typed ${String(scope.length - untyped.size).padStart(5)}, untyped ${String(untyped.size).padStart(5)} in ${untypedGlobs.length} globs)`,
   );
 }
 writeJson(path.join(SCOPE_DIR, 'summary.json'), summary);

@@ -4,7 +4,36 @@
     "enabled": false
   },
   "files": {
-    "maxSize": 67108864
+    "maxSize": 67108864,
+    "includes": [
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.mjs",
+      "**/*.cjs",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.mts",
+      "**/*.cts",
+      "!**/*.vue",
+      "!**/*.svelte",
+      "!**/*.astro",
+      "!**/node_modules/**",
+      "!built/**",
+      "!tests/**",
+      "!lib/**",
+      "!src/lib/*.generated.d.ts",
+      "!scripts/**/*.js",
+      "!scripts/**/*.d.*",
+      "!internal/**",
+      "!coverage/**",
+      "!eslint.config.bench.mjs",
+      "!rslint.config.bench.mjs"
+    ]
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
   },
   "formatter": {
     "enabled": false
@@ -94,5 +123,32 @@
         "useAsConstAssertion": "error"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": [
+        ".gulp.js",
+        "Herebyfile.mjs",
+        "eslint.config.mjs",
+        "src/lib/**"
+      ],
+      "linter": {
+        "rules": {
+          "nursery": {
+            "noBaseToString": "off",
+            "noFloatingPromises": "off",
+            "noImpliedEval": "off",
+            "noMisusedPromises": "off",
+            "noUnsafeReturn": "off",
+            "noUnsafeUnaryMinus": "off",
+            "usePromiseRejectErrors": "off",
+            "noUnsafePlusOperands": "off"
+          },
+          "suspicious": {
+            "useAwait": "off"
+          }
+        }
+      }
+    }
+  ]
 }

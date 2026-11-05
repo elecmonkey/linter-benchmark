@@ -1,65 +1,74 @@
 {
   "rsbuild": {
-    "tracked": 1527,
-    "inRepoProjects": 1333,
-    "afterIgnores": 1249,
-    "files": 1249,
-    "repoProjectConfigs": 74
+    "onDisk": 2450,
+    "afterIgnores": 2448,
+    "files": 2448,
+    "typed": 1348,
+    "untyped": 1100,
+    "untypedGlobs": 709
   },
   "rslib": {
-    "tracked": 865,
-    "inRepoProjects": 502,
-    "afterIgnores": 502,
-    "files": 501,
-    "repoProjectConfigs": 19
+    "onDisk": 1020,
+    "afterIgnores": 1018,
+    "files": 1018,
+    "typed": 696,
+    "untyped": 322,
+    "untypedGlobs": 195
   },
   "rstack-cli": {
-    "tracked": 291,
-    "inRepoProjects": 192,
-    "afterIgnores": 192,
-    "files": 192,
-    "repoProjectConfigs": 15
+    "onDisk": 366,
+    "afterIgnores": 366,
+    "files": 366,
+    "typed": 259,
+    "untyped": 107,
+    "untypedGlobs": 56
   },
   "rstest": {
-    "tracked": 1890,
-    "inRepoProjects": 1688,
-    "afterIgnores": 1688,
-    "files": 1688,
-    "repoProjectConfigs": 19
+    "onDisk": 2139,
+    "afterIgnores": 2139,
+    "files": 2139,
+    "typed": 1808,
+    "untyped": 331,
+    "untypedGlobs": 157
   },
   "rsdoctor": {
-    "tracked": 665,
-    "inRepoProjects": 646,
-    "afterIgnores": 646,
-    "files": 646,
-    "repoProjectConfigs": 19
+    "onDisk": 738,
+    "afterIgnores": 734,
+    "files": 734,
+    "typed": 680,
+    "untyped": 54,
+    "untypedGlobs": 35
   },
   "rspress": {
-    "tracked": 724,
-    "inRepoProjects": 466,
-    "afterIgnores": 466,
-    "files": 466,
-    "repoProjectConfigs": 28
+    "onDisk": 760,
+    "afterIgnores": 746,
+    "files": 746,
+    "typed": 573,
+    "untyped": 173,
+    "untypedGlobs": 133
   },
   "rspack": {
-    "tracked": 3841,
-    "inRepoProjects": 352,
-    "afterIgnores": 352,
-    "files": 352,
-    "repoProjectConfigs": 4
+    "onDisk": 17547,
+    "afterIgnores": 499,
+    "files": 499,
+    "typed": 427,
+    "untyped": 72,
+    "untypedGlobs": 35
   },
   "vscode": {
-    "tracked": 15318,
-    "inRepoProjects": 312,
-    "afterIgnores": 312,
-    "files": 312,
-    "repoProjectConfigs": 9
+    "onDisk": 15705,
+    "afterIgnores": 14260,
+    "files": 14260,
+    "typed": 14045,
+    "untyped": 215,
+    "untypedGlobs": 122
   },
   "typescript6": {
-    "tracked": 20036,
-    "inRepoProjects": 601,
-    "afterIgnores": 601,
-    "files": 601,
-    "repoProjectConfigs": 2
+    "onDisk": 39444,
+    "afterIgnores": 745,
+    "files": 745,
+    "typed": 640,
+    "untyped": 105,
+    "untypedGlobs": 4
   }
 }

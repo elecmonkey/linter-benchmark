@@ -12,6 +12,17 @@
     "restriction": "off",
     "nursery": "off"
   },
+  "ignorePatterns": [
+    "**/*.vue",
+    "**/*.svelte",
+    "**/*.astro",
+    "packages/rspack/src/runtime/moduleFederationDefaultRuntime.js",
+    "xtask/benchmark/benches/fixtures/rspack_sources/**",
+    "**/tests/**",
+    "crates/rspack_resolver/**",
+    "/eslint.config.bench.mjs",
+    "/rslint.config.bench.mjs"
+  ],
   "rules": {
     "eslint/for-direction": "error",
     "eslint/no-async-promise-executor": "error",
@@ -104,5 +115,71 @@
     "typescript/restrict-template-expressions": "error",
     "typescript/triple-slash-reference": "error",
     "typescript/unbound-method": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "rstack.config.mts",
+        ".agents/**",
+        ".github/**",
+        "crates/rspack_binding_builder_testing/**",
+        "crates/rspack_loader_preact_refresh/**",
+        "crates/rspack_plugin_wasm/**",
+        "examples/basic/**",
+        "examples/react/rspack.config.ts",
+        "examples/vanilla/rspack.config.ts",
+        "packages/create-rspack/bin.js",
+        "packages/create-rspack/rstack.config.ts",
+        "packages/create-rspack/template-react-js/**",
+        "packages/create-rspack/template-react-ts/rspack.config.ts",
+        "packages/create-rspack/template-rstest/**",
+        "packages/create-rspack/template-vanilla-js/**",
+        "packages/create-rspack/template-vanilla-ts/rspack.config.ts",
+        "packages/create-rspack/template-vue-js/**",
+        "packages/create-rspack/template-vue-ts/rspack.config.ts",
+        "packages/rspack-cli/prebundle.config.js",
+        "packages/rspack-cli/rstack.config.ts",
+        "packages/rspack-cli/bin/**",
+        "packages/rspack-test-tools/rstack.config.mts",
+        "packages/rspack-test-tools/rstest.d.ts",
+        "packages/rspack/module.d.ts",
+        "packages/rspack/move-tinypool.js",
+        "packages/rspack/prebundle.config.js",
+        "packages/rspack/rstack.browser.config.ts",
+        "packages/rspack/rstack.config.ts",
+        "packages/rspack/hot/**",
+        "scripts/**",
+        "tests/**",
+        "website/cspell.config.js",
+        "website/sortProjectWords.js",
+        "website/hooks/**",
+        "xtask/**"
+      ],
+      "rules": {
+        "typescript/await-thenable": "off",
+        "typescript/no-array-delete": "off",
+        "typescript/no-base-to-string": "off",
+        "typescript/no-duplicate-type-constituents": "off",
+        "typescript/no-floating-promises": "off",
+        "typescript/no-for-in-array": "off",
+        "typescript/no-implied-eval": "off",
+        "typescript/no-misused-promises": "off",
+        "typescript/no-redundant-type-constituents": "off",
+        "typescript/no-unnecessary-type-assertion": "off",
+        "typescript/no-unsafe-argument": "off",
+        "typescript/no-unsafe-assignment": "off",
+        "typescript/no-unsafe-call": "off",
+        "typescript/no-unsafe-enum-comparison": "off",
+        "typescript/no-unsafe-member-access": "off",
+        "typescript/no-unsafe-return": "off",
+        "typescript/no-unsafe-unary-minus": "off",
+        "typescript/only-throw-error": "off",
+        "typescript/prefer-promise-reject-errors": "off",
+        "typescript/require-await": "off",
+        "typescript/restrict-plus-operands": "off",
+        "typescript/restrict-template-expressions": "off",
+        "typescript/unbound-method": "off"
+      }
+    }
+  ]
 }

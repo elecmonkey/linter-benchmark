@@ -2,69 +2,46 @@
   "group": "A",
   "fixture": "rstack-cli",
   "tool": "eslint",
-  "files": 192,
+  "files": 366,
+  "filesLinted": 366,
+  "scopeMatch": true,
+  "missing": [],
+  "extra": [],
   "failedRuns": 0,
-  "command": "eslint -c eslint.config.bench.mjs --format json --no-warn-ignored <scope files>",
+  "command": "eslint -c eslint.config.bench.mjs --format json .",
   "wallMs": {
-    "median": 5314.522542,
-    "mean": 5285.885925199999,
-    "stdev": 83.73312494189003,
-    "min": 5123.4845,
-    "max": 5363.554417
+    "median": 11687.170042,
+    "mean": 11687.170042,
+    "stdev": 0,
+    "min": 11687.170042,
+    "max": 11687.170042
   },
   "peakRssMb": {
-    "median": 2155.359375,
-    "max": 2165.59375
+    "median": 5209.65625,
+    "max": 5209.65625
   },
   "runs": [
     {
-      "wallMs": 5123.4845,
-      "peakRssMb": 2155.28125,
-      "exitCode": 1,
-      "signal": null,
-      "timedOut": false
-    },
-    {
-      "wallMs": 5325.250208,
-      "peakRssMb": 2165.59375,
-      "exitCode": 1,
-      "signal": null,
-      "timedOut": false
-    },
-    {
-      "wallMs": 5314.522542,
-      "peakRssMb": 2161.046875,
-      "exitCode": 1,
-      "signal": null,
-      "timedOut": false
-    },
-    {
-      "wallMs": 5363.554417,
-      "peakRssMb": 2151.5625,
-      "exitCode": 1,
-      "signal": null,
-      "timedOut": false
-    },
-    {
-      "wallMs": 5302.617959,
-      "peakRssMb": 2155.359375,
+      "wallMs": 11687.170042,
+      "peakRssMb": 5209.65625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 191,
-    "typeAware": 188,
+    "total": 468,
+    "typeAware": 465,
     "syntactic": 3,
     "unmapped": {},
     "byRule": {
       "@typescript-eslint/no-unsafe-argument": 10,
-      "@typescript-eslint/no-unsafe-assignment": 17,
-      "@typescript-eslint/no-unsafe-call": 93,
-      "@typescript-eslint/no-unsafe-member-access": 64,
-      "@typescript-eslint/no-unsafe-return": 4,
-      "@typescript-eslint/no-unused-vars": 3
+      "@typescript-eslint/no-unsafe-assignment": 31,
+      "@typescript-eslint/no-unsafe-call": 249,
+      "@typescript-eslint/no-unsafe-member-access": 153,
+      "@typescript-eslint/no-unsafe-return": 19,
+      "@typescript-eslint/no-unused-vars": 3,
+      "@typescript-eslint/require-await": 3
     }
   }
 }

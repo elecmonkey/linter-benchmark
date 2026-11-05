@@ -2,77 +2,85 @@
   "group": "A",
   "fixture": "rslib",
   "tool": "eslint",
-  "files": 501,
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
+  "missing": [],
+  "extra": [],
   "failedRuns": 0,
-  "command": "eslint -c eslint.config.bench.mjs --format json --no-warn-ignored <scope files>",
+  "command": "eslint -c eslint.config.bench.mjs --format json .",
   "wallMs": {
-    "median": 14808.208417,
-    "mean": 14801.547266999998,
-    "stdev": 112.21340590253394,
-    "min": 14674.087917,
-    "max": 14975.317584
+    "median": 20970.466208,
+    "mean": 21149.322533000002,
+    "stdev": 333.0361997006458,
+    "min": 20824.778541,
+    "max": 21761.494458
   },
   "peakRssMb": {
-    "median": 6154.9375,
-    "max": 6214.203125
+    "median": 8167.40625,
+    "max": 8188.609375
   },
   "runs": [
     {
-      "wallMs": 14808.208417,
-      "peakRssMb": 6214.203125,
+      "wallMs": 20970.466208,
+      "peakRssMb": 8167.40625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 14688.257292,
-      "peakRssMb": 6154.9375,
+      "wallMs": 20824.778541,
+      "peakRssMb": 8188.609375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 14975.317584,
-      "peakRssMb": 6154.546875,
+      "wallMs": 21230.171833,
+      "peakRssMb": 8103.4375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 14861.865125,
-      "peakRssMb": 6141.4375,
+      "wallMs": 20959.701625,
+      "peakRssMb": 8174.234375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 14674.087917,
-      "peakRssMb": 6156.734375,
+      "wallMs": 21761.494458,
+      "peakRssMb": 8137.078125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 567,
-    "typeAware": 525,
-    "syntactic": 42,
-    "unmapped": {},
+    "total": 696,
+    "typeAware": 606,
+    "syntactic": 88,
+    "unmapped": {
+      "fatal: Parsing error: ';' expected.": 1,
+      "fatal: Parsing error: 'source' is not a valid meta-property for keyword 'import'.": 1
+    },
     "byRule": {
       "@typescript-eslint/await-thenable": 7,
-      "@typescript-eslint/ban-ts-comment": 2,
-      "@typescript-eslint/no-explicit-any": 27,
-      "@typescript-eslint/no-floating-promises": 10,
+      "@typescript-eslint/ban-ts-comment": 6,
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-floating-promises": 11,
       "@typescript-eslint/no-misused-promises": 5,
-      "@typescript-eslint/no-redundant-type-constituents": 3,
+      "@typescript-eslint/no-redundant-type-constituents": 5,
+      "@typescript-eslint/no-require-imports": 23,
       "@typescript-eslint/no-unnecessary-type-assertion": 48,
-      "@typescript-eslint/no-unsafe-argument": 7,
-      "@typescript-eslint/no-unsafe-assignment": 112,
-      "@typescript-eslint/no-unsafe-call": 85,
-      "@typescript-eslint/no-unsafe-member-access": 131,
-      "@typescript-eslint/no-unsafe-return": 12,
-      "@typescript-eslint/no-unused-vars": 11,
-      "@typescript-eslint/require-await": 95,
+      "@typescript-eslint/no-unsafe-argument": 10,
+      "@typescript-eslint/no-unsafe-assignment": 142,
+      "@typescript-eslint/no-unsafe-call": 104,
+      "@typescript-eslint/no-unsafe-member-access": 151,
+      "@typescript-eslint/no-unsafe-return": 16,
+      "@typescript-eslint/no-unused-vars": 16,
+      "@typescript-eslint/require-await": 97,
       "@typescript-eslint/restrict-template-expressions": 9,
       "@typescript-eslint/unbound-method": 1,
       "preserve-caught-error": 2

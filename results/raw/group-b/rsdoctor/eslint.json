@@ -2,73 +2,78 @@
   "group": "B",
   "fixture": "rsdoctor",
   "tool": "eslint",
-  "files": 646,
+  "files": 734,
+  "filesLinted": 734,
+  "scopeMatch": true,
+  "missing": [],
+  "extra": [],
   "failedRuns": 0,
-  "command": "eslint -c eslint.config.bench.mjs --format json --no-warn-ignored <scope files>",
+  "command": "eslint -c eslint.config.bench.mjs --format json .",
   "wallMs": {
-    "median": 12338.690625,
-    "mean": 12352.5079584,
-    "stdev": 89.45641594683505,
-    "min": 12231.037584,
-    "max": 12496.434708
+    "median": 12395.631042,
+    "mean": 12371.2296168,
+    "stdev": 45.473391354736584,
+    "min": 12301.237375,
+    "max": 12421.074167
   },
   "peakRssMb": {
-    "median": 4106.125,
-    "max": 4118.3125
+    "median": 4255.6875,
+    "max": 4262.546875
   },
   "runs": [
     {
-      "wallMs": 12496.434708,
-      "peakRssMb": 4108.375,
+      "wallMs": 12403.390334,
+      "peakRssMb": 4255.6875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 12338.690625,
-      "peakRssMb": 4118.3125,
+      "wallMs": 12334.815166,
+      "peakRssMb": 4257.625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 12301.744625,
-      "peakRssMb": 4105.96875,
+      "wallMs": 12421.074167,
+      "peakRssMb": 4108.671875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 12231.037584,
-      "peakRssMb": 4083.875,
+      "wallMs": 12395.631042,
+      "peakRssMb": 4087.90625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 12394.63225,
-      "peakRssMb": 4106.125,
+      "wallMs": 12301.237375,
+      "peakRssMb": 4262.546875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 597,
-    "typeAware": 309,
-    "syntactic": 288,
+    "total": 626,
+    "typeAware": 311,
+    "syntactic": 315,
     "unmapped": {},
     "byRule": {
       "@typescript-eslint/no-base-to-string": 8,
-      "@typescript-eslint/no-explicit-any": 264,
+      "@typescript-eslint/no-explicit-any": 268,
       "@typescript-eslint/no-floating-promises": 41,
       "@typescript-eslint/no-misused-promises": 6,
-      "@typescript-eslint/no-require-imports": 2,
-      "@typescript-eslint/no-unsafe-return": 154,
-      "@typescript-eslint/no-unused-vars": 21,
+      "@typescript-eslint/no-require-imports": 13,
+      "@typescript-eslint/no-unsafe-return": 155,
+      "@typescript-eslint/no-unused-vars": 23,
       "@typescript-eslint/prefer-promise-reject-errors": 4,
-      "@typescript-eslint/require-await": 94,
+      "@typescript-eslint/require-await": 95,
       "@typescript-eslint/restrict-plus-operands": 2,
+      "no-var": 10,
       "prefer-rest-params": 1
     }
   }

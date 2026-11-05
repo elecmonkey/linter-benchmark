@@ -8,20 +8,48 @@
   "failedRuns": 0,
   "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
   "wallMs": {
-    "median": 655.50025,
-    "mean": 655.50025,
-    "stdev": 0,
-    "min": 655.50025,
-    "max": 655.50025
+    "median": 583.098375,
+    "mean": 578.84295,
+    "stdev": 18.212805362835145,
+    "min": 552.626333,
+    "max": 602.856833
   },
   "peakRssMb": {
-    "median": 458,
-    "max": 458
+    "median": 463.96875,
+    "max": 479.359375
   },
   "runs": [
     {
-      "wallMs": 655.50025,
-      "peakRssMb": 458,
+      "wallMs": 583.098375,
+      "peakRssMb": 455.34375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 591.497584,
+      "peakRssMb": 453.515625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 552.626333,
+      "peakRssMb": 478.859375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 602.856833,
+      "peakRssMb": 479.359375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 564.135625,
+      "peakRssMb": 463.96875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false

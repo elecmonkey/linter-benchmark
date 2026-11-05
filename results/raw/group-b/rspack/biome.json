@@ -2,58 +2,93 @@
   "group": "B",
   "fixture": "rspack",
   "tool": "biome",
-  "files": 352,
+  "files": 499,
+  "filesLinted": 493,
+  "scopeMatch": false,
   "failedRuns": 0,
-  "command": "biome lint --reporter=json --max-diagnostics=none <scope files>",
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
   "wallMs": {
-    "median": 2406.1405,
-    "mean": 2445.7722999999996,
-    "stdev": 83.5112255542401,
-    "min": 2383.345458,
-    "max": 2610.080167
+    "median": 1015.712375,
+    "mean": 1027.4037834,
+    "stdev": 35.88364898392198,
+    "min": 989.895875,
+    "max": 1084.26825
   },
   "peakRssMb": {
-    "median": 1182.109375,
-    "max": 1196.765625
+    "median": 621.90625,
+    "max": 685.984375
   },
   "runs": [
     {
-      "wallMs": 2383.345458,
-      "peakRssMb": 1169.46875,
+      "wallMs": 989.895875,
+      "peakRssMb": 685.984375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2399.346125,
-      "peakRssMb": 1194.15625,
+      "wallMs": 1084.26825,
+      "peakRssMb": 621.90625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2406.1405,
-      "peakRssMb": 1151.765625,
+      "wallMs": 1015.712375,
+      "peakRssMb": 646.0625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2429.94925,
-      "peakRssMb": 1196.765625,
+      "wallMs": 995.008083,
+      "peakRssMb": 621.546875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2610.080167,
-      "peakRssMb": 1182.109375,
+      "wallMs": 1052.134334,
+      "peakRssMb": 593.640625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "error": "could not parse output: Unexpected end of JSON input"
+    "total": 936,
+    "typeAware": 123,
+    "syntactic": 812,
+    "unmapped": {
+      "other: syntax/correctness/noTypeOnlyImportAttributes": 1
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 8,
+      "@typescript-eslint/no-explicit-any": 477,
+      "@typescript-eslint/no-floating-promises": 36,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 4,
+      "@typescript-eslint/no-namespace": 3,
+      "@typescript-eslint/no-require-imports": 97,
+      "@typescript-eslint/no-unsafe-return": 44,
+      "@typescript-eslint/no-unused-vars": 4,
+      "@typescript-eslint/prefer-promise-reject-errors": 2,
+      "@typescript-eslint/require-await": 26,
+      "@typescript-eslint/restrict-plus-operands": 2,
+      "no-control-regex": 4,
+      "no-delete-var": 15,
+      "no-empty + no-empty-static-block": 106,
+      "no-extra-boolean-cast": 1,
+      "no-fallthrough": 1,
+      "no-global-assign": 1,
+      "no-prototype-builtins": 7,
+      "no-unsafe-optional-chaining": 1,
+      "no-useless-assignment": 8,
+      "no-var": 65,
+      "prefer-const": 4,
+      "prefer-rest-params": 7,
+      "prefer-spread": 4,
+      "preserve-caught-error": 7
+    }
   }
 }

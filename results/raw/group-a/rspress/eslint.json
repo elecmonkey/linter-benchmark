@@ -2,61 +2,65 @@
   "group": "A",
   "fixture": "rspress",
   "tool": "eslint",
-  "files": 466,
+  "files": 746,
+  "filesLinted": 746,
+  "scopeMatch": true,
+  "missing": [],
+  "extra": [],
   "failedRuns": 0,
-  "command": "eslint -c eslint.config.bench.mjs --format json --no-warn-ignored <scope files>",
+  "command": "eslint -c eslint.config.bench.mjs --format json .",
   "wallMs": {
-    "median": 10602.59,
-    "mean": 10591.3729498,
-    "stdev": 85.60256286751128,
-    "min": 10502.514958,
-    "max": 10734.260583
+    "median": 22198.154083,
+    "mean": 22165.499425,
+    "stdev": 235.07631359538624,
+    "min": 21893.362792,
+    "max": 22496.392833
   },
   "peakRssMb": {
-    "median": 3096.65625,
-    "max": 3272.65625
+    "median": 8315.59375,
+    "max": 8356.78125
   },
   "runs": [
     {
-      "wallMs": 10602.59,
-      "peakRssMb": 3096.65625,
+      "wallMs": 22198.154083,
+      "peakRssMb": 8356.78125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 10502.514958,
-      "peakRssMb": 3146.5,
+      "wallMs": 21893.362792,
+      "peakRssMb": 8016.40625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 10503.64975,
-      "peakRssMb": 3095.609375,
+      "wallMs": 21910.615292,
+      "peakRssMb": 8060.65625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 10613.849458,
-      "peakRssMb": 3272.65625,
+      "wallMs": 22328.972125,
+      "peakRssMb": 8315.59375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 10734.260583,
-      "peakRssMb": 3088.875,
+      "wallMs": 22496.392833,
+      "peakRssMb": 8330.828125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 1001,
-    "typeAware": 922,
-    "syntactic": 75,
+    "total": 2888,
+    "typeAware": 2800,
+    "syntactic": 84,
     "unmapped": {
       "react/no-array-index-key": 2,
       "react/no-danger": 1,
@@ -67,25 +71,26 @@
       "@typescript-eslint/ban-ts-comment": 2,
       "@typescript-eslint/no-base-to-string": 1,
       "@typescript-eslint/no-duplicate-type-constituents": 1,
-      "@typescript-eslint/no-explicit-any": 43,
+      "@typescript-eslint/no-explicit-any": 45,
       "@typescript-eslint/no-floating-promises": 19,
       "@typescript-eslint/no-implied-eval": 3,
-      "@typescript-eslint/no-misused-promises": 3,
+      "@typescript-eslint/no-misused-promises": 6,
       "@typescript-eslint/no-redundant-type-constituents": 4,
+      "@typescript-eslint/no-require-imports": 2,
       "@typescript-eslint/no-unnecessary-type-assertion": 34,
-      "@typescript-eslint/no-unsafe-argument": 40,
-      "@typescript-eslint/no-unsafe-assignment": 281,
-      "@typescript-eslint/no-unsafe-call": 129,
-      "@typescript-eslint/no-unsafe-member-access": 328,
-      "@typescript-eslint/no-unsafe-return": 26,
-      "@typescript-eslint/no-unused-expressions": 9,
-      "@typescript-eslint/no-unused-vars": 17,
-      "@typescript-eslint/only-throw-error": 1,
+      "@typescript-eslint/no-unsafe-argument": 46,
+      "@typescript-eslint/no-unsafe-assignment": 497,
+      "@typescript-eslint/no-unsafe-call": 1070,
+      "@typescript-eslint/no-unsafe-member-access": 1005,
+      "@typescript-eslint/no-unsafe-return": 40,
+      "@typescript-eslint/no-unused-expressions": 10,
+      "@typescript-eslint/no-unused-vars": 21,
+      "@typescript-eslint/only-throw-error": 2,
       "@typescript-eslint/prefer-promise-reject-errors": 4,
-      "@typescript-eslint/require-await": 33,
+      "@typescript-eslint/require-await": 51,
       "@typescript-eslint/restrict-template-expressions": 6,
       "@typescript-eslint/triple-slash-reference": 2,
-      "@typescript-eslint/unbound-method": 5,
+      "@typescript-eslint/unbound-method": 7,
       "prefer-const": 2
     }
   }

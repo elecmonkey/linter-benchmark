@@ -2,89 +2,94 @@
   "group": "A",
   "fixture": "rstest",
   "tool": "oxlint",
-  "files": 1688,
+  "files": 2139,
+  "filesLinted": 2143,
+  "scopeMatch": false,
   "failedRuns": 0,
-  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json <scope files>",
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
   "wallMs": {
-    "median": 1181.855083,
-    "mean": 1198.5593664,
-    "stdev": 50.69319684860325,
-    "min": 1124.214083,
-    "max": 1258.595166
+    "median": 1373.190416,
+    "mean": 1393.105408,
+    "stdev": 63.45239024321589,
+    "min": 1334.142583,
+    "max": 1515.379416
   },
   "peakRssMb": {
-    "median": 823.078125,
-    "max": 914.25
+    "median": 896.03125,
+    "max": 972.171875
   },
   "runs": [
     {
-      "wallMs": 1252.520916,
-      "peakRssMb": 753.359375,
+      "wallMs": 1373.190416,
+      "peakRssMb": 972.171875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1181.855083,
-      "peakRssMb": 914.25,
+      "wallMs": 1515.379416,
+      "peakRssMb": 896.03125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1124.214083,
-      "peakRssMb": 819.59375,
+      "wallMs": 1384.921375,
+      "peakRssMb": 878.03125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1175.611584,
-      "peakRssMb": 823.078125,
+      "wallMs": 1334.142583,
+      "peakRssMb": 879.3125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1258.595166,
-      "peakRssMb": 867.578125,
+      "wallMs": 1357.89325,
+      "peakRssMb": 900.78125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 35797,
-    "typeAware": 35111,
-    "syntactic": 683,
+    "total": 36074,
+    "typeAware": 35279,
+    "syntactic": 789,
     "unmapped": {
-      "typescript/tsconfig-error": 3
+      "typescript/tsconfig-error": 6
     },
     "byRule": {
       "@typescript-eslint/await-thenable": 13,
-      "@typescript-eslint/ban-ts-comment": 28,
-      "@typescript-eslint/no-base-to-string": 3,
+      "@typescript-eslint/ban-ts-comment": 29,
+      "@typescript-eslint/no-base-to-string": 5,
       "@typescript-eslint/no-duplicate-type-constituents": 2,
-      "@typescript-eslint/no-explicit-any": 606,
-      "@typescript-eslint/no-floating-promises": 18,
+      "@typescript-eslint/no-explicit-any": 609,
+      "@typescript-eslint/no-floating-promises": 26,
       "@typescript-eslint/no-implied-eval": 18,
       "@typescript-eslint/no-misused-promises": 16,
       "@typescript-eslint/no-redundant-type-constituents": 50,
-      "@typescript-eslint/no-require-imports": 32,
+      "@typescript-eslint/no-require-imports": 68,
       "@typescript-eslint/no-unnecessary-type-assertion": 119,
-      "@typescript-eslint/no-unsafe-argument": 475,
-      "@typescript-eslint/no-unsafe-assignment": 1799,
-      "@typescript-eslint/no-unsafe-call": 21079,
-      "@typescript-eslint/no-unsafe-member-access": 10743,
-      "@typescript-eslint/no-unsafe-return": 303,
+      "@typescript-eslint/no-unsafe-argument": 490,
+      "@typescript-eslint/no-unsafe-assignment": 1794,
+      "@typescript-eslint/no-unsafe-call": 21153,
+      "@typescript-eslint/no-unsafe-member-access": 10802,
+      "@typescript-eslint/no-unsafe-return": 316,
+      "@typescript-eslint/no-unused-vars": 3,
       "@typescript-eslint/only-throw-error": 15,
       "@typescript-eslint/prefer-promise-reject-errors": 8,
       "@typescript-eslint/require-await": 380,
-      "@typescript-eslint/restrict-template-expressions": 12,
+      "@typescript-eslint/restrict-template-expressions": 14,
       "@typescript-eslint/unbound-method": 58,
+      "no-empty": 1,
       "no-useless-assignment": 2,
-      "prefer-const": 9,
-      "preserve-caught-error": 6
+      "no-var": 59,
+      "prefer-const": 11,
+      "preserve-caught-error": 7
     }
   }
 }

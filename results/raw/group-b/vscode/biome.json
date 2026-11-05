@@ -8,20 +8,48 @@
   "failedRuns": 0,
   "command": "biome lint --reporter=json --max-diagnostics=none .",
   "wallMs": {
-    "median": 22836.408083,
-    "mean": 22836.408083,
-    "stdev": 0,
-    "min": 22836.408083,
-    "max": 22836.408083
+    "median": 22350.216292,
+    "mean": 22443.4610582,
+    "stdev": 584.1462073295794,
+    "min": 21578.265875,
+    "max": 23339.838666
   },
   "peakRssMb": {
-    "median": 17399.71875,
-    "max": 17399.71875
+    "median": 17841.46875,
+    "max": 18115.703125
   },
   "runs": [
     {
-      "wallMs": 22836.408083,
-      "peakRssMb": 17399.71875,
+      "wallMs": 22350.216292,
+      "peakRssMb": 17860.421875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 22742.314916,
+      "peakRssMb": 17621.1875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 22206.669542,
+      "peakRssMb": 18115.703125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 23339.838666,
+      "peakRssMb": 17841.46875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 21578.265875,
+      "peakRssMb": 17744.5,
       "exitCode": 1,
       "signal": null,
       "timedOut": false

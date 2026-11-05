@@ -2,28 +2,56 @@
   "group": "B",
   "fixture": "rstack-cli",
   "tool": "eslint",
-  "files": 255,
-  "filesLinted": 255,
+  "files": 366,
+  "filesLinted": 366,
   "scopeMatch": true,
   "missing": [],
   "extra": [],
   "failedRuns": 0,
   "command": "eslint -c eslint.config.bench.mjs --format json .",
   "wallMs": {
-    "median": 11255.813291,
-    "mean": 11255.813291,
-    "stdev": 0,
-    "min": 11255.813291,
-    "max": 11255.813291
+    "median": 10678.6325,
+    "mean": 10663.9430084,
+    "stdev": 38.05698650305825,
+    "min": 10592.171917,
+    "max": 10694.993458
   },
   "peakRssMb": {
-    "median": 5225.859375,
-    "max": 5225.859375
+    "median": 5175.765625,
+    "max": 5209.265625
   },
   "runs": [
     {
-      "wallMs": 11255.813291,
-      "peakRssMb": 5225.859375,
+      "wallMs": 10678.6325,
+      "peakRssMb": 5201.4375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 10660.049125,
+      "peakRssMb": 5159.15625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 10592.171917,
+      "peakRssMb": 5147.28125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 10693.868042,
+      "peakRssMb": 5209.265625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 10694.993458,
+      "peakRssMb": 5175.765625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false

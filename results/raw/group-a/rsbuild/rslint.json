@@ -2,70 +2,75 @@
   "group": "A",
   "fixture": "rsbuild",
   "tool": "rslint",
-  "files": 1249,
+  "files": 2448,
+  "filesLinted": 2450,
+  "scopeMatch": false,
   "failedRuns": 0,
-  "command": "rslint -c rslint.config.bench.mjs --format jsonline <scope files>",
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
   "wallMs": {
-    "median": 906.364625,
-    "mean": 919.7227832000001,
-    "stdev": 64.08485238392468,
-    "min": 854.718375,
-    "max": 1039.540541
+    "median": 760.033208,
+    "mean": 777.3870164,
+    "stdev": 31.682011535032732,
+    "min": 737.853458,
+    "max": 816.063
   },
   "peakRssMb": {
-    "median": 868.84375,
-    "max": 940.515625
+    "median": 934.9375,
+    "max": 986.1875
   },
   "runs": [
     {
-      "wallMs": 906.364625,
-      "peakRssMb": 918.640625,
+      "wallMs": 737.853458,
+      "peakRssMb": 901.390625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 877.608667,
-      "peakRssMb": 860.890625,
+      "wallMs": 760.033208,
+      "peakRssMb": 986.1875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 854.718375,
-      "peakRssMb": 862.46875,
+      "wallMs": 813.815166,
+      "peakRssMb": 934.9375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1039.540541,
-      "peakRssMb": 868.84375,
+      "wallMs": 759.17025,
+      "peakRssMb": 919.125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 920.381708,
-      "peakRssMb": 940.515625,
+      "wallMs": 816.063,
+      "peakRssMb": 944.5625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 924,
-    "typeAware": 872,
-    "syntactic": 52,
+    "total": 1013,
+    "typeAware": 949,
+    "syntactic": 64,
     "unmapped": {},
     "byRule": {
-      "@typescript-eslint/no-explicit-any": 35,
+      "@typescript-eslint/await-thenable": 2,
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-floating-promises": 6,
       "@typescript-eslint/no-unsafe-argument": 2,
-      "@typescript-eslint/no-unsafe-assignment": 194,
-      "@typescript-eslint/no-unsafe-call": 468,
-      "@typescript-eslint/no-unsafe-member-access": 204,
-      "@typescript-eslint/no-unsafe-return": 4,
-      "@typescript-eslint/no-unused-vars": 17
+      "@typescript-eslint/no-unsafe-assignment": 203,
+      "@typescript-eslint/no-unsafe-call": 502,
+      "@typescript-eslint/no-unsafe-member-access": 222,
+      "@typescript-eslint/no-unsafe-return": 11,
+      "@typescript-eslint/no-unused-vars": 19,
+      "@typescript-eslint/require-await": 1
     }
   }
 }

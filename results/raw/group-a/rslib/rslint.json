@@ -2,77 +2,80 @@
   "group": "A",
   "fixture": "rslib",
   "tool": "rslint",
-  "files": 501,
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
   "failedRuns": 0,
-  "command": "rslint -c rslint.config.bench.mjs --format jsonline <scope files>",
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
   "wallMs": {
-    "median": 605.046583,
-    "mean": 606.8670414000001,
-    "stdev": 23.547250343263492,
-    "min": 578.112583,
-    "max": 648.529583
+    "median": 569.0535,
+    "mean": 575.7475166,
+    "stdev": 18.89619988112179,
+    "min": 561.511208,
+    "max": 612.749292
   },
   "peakRssMb": {
-    "median": 524.0625,
-    "max": 590.890625
+    "median": 602.46875,
+    "max": 654.765625
   },
   "runs": [
     {
-      "wallMs": 578.112583,
-      "peakRssMb": 590.890625,
+      "wallMs": 612.749292,
+      "peakRssMb": 598.9375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 648.529583,
-      "peakRssMb": 534.4375,
+      "wallMs": 569.0535,
+      "peakRssMb": 607.515625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 609.837833,
-      "peakRssMb": 498.765625,
+      "wallMs": 561.511208,
+      "peakRssMb": 654.765625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 605.046583,
-      "peakRssMb": 495.6875,
+      "wallMs": 563.263625,
+      "peakRssMb": 593.828125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 592.808625,
-      "peakRssMb": 524.0625,
+      "wallMs": 572.159958,
+      "peakRssMb": 602.46875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 567,
-    "typeAware": 525,
-    "syntactic": 42,
+    "total": 663,
+    "typeAware": 599,
+    "syntactic": 64,
     "unmapped": {},
     "byRule": {
       "@typescript-eslint/await-thenable": 7,
-      "@typescript-eslint/ban-ts-comment": 2,
-      "@typescript-eslint/no-explicit-any": 27,
-      "@typescript-eslint/no-floating-promises": 10,
+      "@typescript-eslint/ban-ts-comment": 6,
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-floating-promises": 11,
       "@typescript-eslint/no-misused-promises": 5,
-      "@typescript-eslint/no-redundant-type-constituents": 3,
+      "@typescript-eslint/no-redundant-type-constituents": 5,
+      "@typescript-eslint/no-require-imports": 4,
       "@typescript-eslint/no-unnecessary-type-assertion": 48,
-      "@typescript-eslint/no-unsafe-argument": 7,
-      "@typescript-eslint/no-unsafe-assignment": 112,
-      "@typescript-eslint/no-unsafe-call": 85,
-      "@typescript-eslint/no-unsafe-member-access": 131,
-      "@typescript-eslint/no-unsafe-return": 12,
+      "@typescript-eslint/no-unsafe-argument": 10,
+      "@typescript-eslint/no-unsafe-assignment": 141,
+      "@typescript-eslint/no-unsafe-call": 102,
+      "@typescript-eslint/no-unsafe-member-access": 148,
+      "@typescript-eslint/no-unsafe-return": 15,
       "@typescript-eslint/no-unused-vars": 11,
-      "@typescript-eslint/require-await": 95,
+      "@typescript-eslint/require-await": 97,
       "@typescript-eslint/restrict-template-expressions": 9,
       "@typescript-eslint/unbound-method": 1,
       "preserve-caught-error": 2

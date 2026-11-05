@@ -2,58 +2,99 @@
   "group": "B",
   "fixture": "typescript6",
   "tool": "biome",
-  "files": 601,
+  "files": 745,
+  "filesLinted": 745,
+  "scopeMatch": true,
   "failedRuns": 0,
-  "command": "biome lint --reporter=json --max-diagnostics=none <scope files>",
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
   "wallMs": {
-    "median": 4141.162875,
-    "mean": 4734.7011668000005,
-    "stdev": 1421.3135877979405,
-    "min": 3630.450125,
-    "max": 7545.838625
+    "median": 6097.472834,
+    "mean": 6109.6669335999995,
+    "stdev": 117.50665920543119,
+    "min": 5971.469042,
+    "max": 6290.974958
   },
   "peakRssMb": {
-    "median": 4478.5,
-    "max": 5097.140625
+    "median": 2614.390625,
+    "max": 2630.203125
   },
   "runs": [
     {
-      "wallMs": 7545.838625,
-      "peakRssMb": 4530.78125,
+      "wallMs": 6003.541334,
+      "peakRssMb": 2614.390625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 4236.068792,
-      "peakRssMb": 4330.578125,
+      "wallMs": 6184.8765,
+      "peakRssMb": 2630.203125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 3630.450125,
-      "peakRssMb": 5097.140625,
+      "wallMs": 5971.469042,
+      "peakRssMb": 2522.890625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 4119.985417,
-      "peakRssMb": 4478.5,
+      "wallMs": 6097.472834,
+      "peakRssMb": 2444.84375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 4141.162875,
-      "peakRssMb": 4119.234375,
+      "wallMs": 6290.974958,
+      "peakRssMb": 2624.53125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "error": "could not parse output: Unexpected end of JSON input"
+    "total": 2334,
+    "typeAware": 105,
+    "syntactic": 2229,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-array-constructor": 1,
+      "@typescript-eslint/no-base-to-string": 9,
+      "@typescript-eslint/no-duplicate-enum-values": 4,
+      "@typescript-eslint/no-explicit-any": 959,
+      "@typescript-eslint/no-floating-promises": 4,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 2,
+      "@typescript-eslint/no-namespace": 41,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 13,
+      "@typescript-eslint/no-require-imports": 13,
+      "@typescript-eslint/no-unsafe-return": 49,
+      "@typescript-eslint/no-unsafe-unary-minus": 8,
+      "@typescript-eslint/no-unused-vars": 3,
+      "@typescript-eslint/prefer-promise-reject-errors": 1,
+      "@typescript-eslint/require-await": 31,
+      "no-case-declarations": 344,
+      "no-constant-condition": 1,
+      "no-control-regex": 14,
+      "no-debugger": 1,
+      "no-delete-var": 6,
+      "no-empty + no-empty-static-block": 14,
+      "no-extra-boolean-cast": 52,
+      "no-fallthrough": 122,
+      "no-prototype-builtins": 1,
+      "no-shadow-restricted-names": 135,
+      "no-sparse-arrays": 1,
+      "no-unassigned-vars": 3,
+      "no-unsafe-optional-chaining": 1,
+      "no-useless-assignment": 26,
+      "no-var": 461,
+      "prefer-const": 5,
+      "prefer-rest-params": 4,
+      "prefer-spread": 2,
+      "preserve-caught-error": 2
+    }
   }
 }

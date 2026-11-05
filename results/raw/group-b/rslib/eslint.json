@@ -2,69 +2,77 @@
   "group": "B",
   "fixture": "rslib",
   "tool": "eslint",
-  "files": 501,
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
+  "missing": [],
+  "extra": [],
   "failedRuns": 0,
-  "command": "eslint -c eslint.config.bench.mjs --format json --no-warn-ignored <scope files>",
+  "command": "eslint -c eslint.config.bench.mjs --format json .",
   "wallMs": {
-    "median": 14344.12475,
-    "mean": 14382.5573584,
-    "stdev": 101.97400773210694,
-    "min": 14246.807375,
-    "max": 14540.735667
+    "median": 20299.545709,
+    "mean": 20315.8753,
+    "stdev": 120.87124230413963,
+    "min": 20129.117208,
+    "max": 20457.176959
   },
   "peakRssMb": {
-    "median": 6074.046875,
-    "max": 6316.25
+    "median": 8116.109375,
+    "max": 8146.203125
   },
   "runs": [
     {
-      "wallMs": 14246.807375,
-      "peakRssMb": 6074.046875,
+      "wallMs": 20257.244208,
+      "peakRssMb": 8141.5,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 14331.653125,
-      "peakRssMb": 6044.625,
+      "wallMs": 20457.176959,
+      "peakRssMb": 8102.34375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 14540.735667,
-      "peakRssMb": 5980.859375,
+      "wallMs": 20129.117208,
+      "peakRssMb": 8146.203125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 14449.465875,
-      "peakRssMb": 6316.25,
+      "wallMs": 20299.545709,
+      "peakRssMb": 8116.109375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 14344.12475,
-      "peakRssMb": 6209.109375,
+      "wallMs": 20436.292416,
+      "peakRssMb": 8061.859375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 162,
-    "typeAware": 122,
-    "syntactic": 40,
-    "unmapped": {},
+    "total": 213,
+    "typeAware": 129,
+    "syntactic": 82,
+    "unmapped": {
+      "fatal: Parsing error: ';' expected.": 1,
+      "fatal: Parsing error: 'source' is not a valid meta-property for keyword 'import'.": 1
+    },
     "byRule": {
-      "@typescript-eslint/no-explicit-any": 27,
-      "@typescript-eslint/no-floating-promises": 10,
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-floating-promises": 11,
       "@typescript-eslint/no-misused-promises": 5,
-      "@typescript-eslint/no-unsafe-return": 12,
-      "@typescript-eslint/no-unused-vars": 11,
-      "@typescript-eslint/require-await": 95,
+      "@typescript-eslint/no-require-imports": 23,
+      "@typescript-eslint/no-unsafe-return": 16,
+      "@typescript-eslint/no-unused-vars": 16,
+      "@typescript-eslint/require-await": 97,
       "preserve-caught-error": 2
     }
   }

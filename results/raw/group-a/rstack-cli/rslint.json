@@ -8,20 +8,48 @@
   "failedRuns": 0,
   "command": "rslint -c rslint.config.bench.mjs --format jsonline",
   "wallMs": {
-    "median": 457.930041,
-    "mean": 457.930041,
-    "stdev": 0,
-    "min": 457.930041,
-    "max": 457.930041
+    "median": 377.571167,
+    "mean": 377.21199179999996,
+    "stdev": 14.626458429666531,
+    "min": 354.47725,
+    "max": 398.457292
   },
   "peakRssMb": {
-    "median": 333.078125,
-    "max": 333.078125
+    "median": 366.890625,
+    "max": 400
   },
   "runs": [
     {
-      "wallMs": 457.930041,
-      "peakRssMb": 333.078125,
+      "wallMs": 370.6825,
+      "peakRssMb": 331.84375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 398.457292,
+      "peakRssMb": 366.890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 354.47725,
+      "peakRssMb": 340.828125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 384.87175,
+      "peakRssMb": 390.28125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 377.571167,
+      "peakRssMb": 400,
       "exitCode": 1,
       "signal": null,
       "timedOut": false

@@ -2,71 +2,77 @@
   "group": "B",
   "fixture": "rsbuild",
   "tool": "oxlint",
-  "files": 1249,
+  "files": 2448,
+  "filesLinted": 2450,
+  "scopeMatch": false,
   "failedRuns": 0,
-  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json <scope files>",
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
   "wallMs": {
-    "median": 1177.345459,
-    "mean": 1172.1798251999999,
-    "stdev": 16.50719815229616,
-    "min": 1147.372958,
-    "max": 1193.27975
+    "median": 1355.3425,
+    "mean": 1359.3931748,
+    "stdev": 23.26497550675163,
+    "min": 1325.013875,
+    "max": 1397.346958
   },
   "peakRssMb": {
-    "median": 678.609375,
-    "max": 746.46875
+    "median": 711.15625,
+    "max": 819.4375
   },
   "runs": [
     {
-      "wallMs": 1159.743584,
-      "peakRssMb": 667.34375,
+      "wallMs": 1325.013875,
+      "peakRssMb": 712.984375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1147.372958,
-      "peakRssMb": 678.609375,
+      "wallMs": 1353.828333,
+      "peakRssMb": 704.921875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1183.157375,
-      "peakRssMb": 695.53125,
+      "wallMs": 1365.434208,
+      "peakRssMb": 686.65625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1177.345459,
-      "peakRssMb": 664.875,
+      "wallMs": 1397.346958,
+      "peakRssMb": 711.15625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1193.27975,
-      "peakRssMb": 746.46875,
+      "wallMs": 1355.3425,
+      "peakRssMb": 819.4375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 50,
-    "typeAware": 13,
-    "syntactic": 37,
-    "unmapped": {},
+    "total": 95,
+    "typeAware": 20,
+    "syntactic": 50,
+    "unmapped": {
+      "typescript/tsconfig-error": 25
+    },
     "byRule": {
       "@typescript-eslint/no-base-to-string": 1,
-      "@typescript-eslint/no-explicit-any": 35,
+      "@typescript-eslint/no-explicit-any": 45,
       "@typescript-eslint/no-implied-eval": 1,
       "@typescript-eslint/no-misused-promises": 3,
       "@typescript-eslint/no-require-imports": 1,
-      "@typescript-eslint/no-unsafe-return": 4,
+      "@typescript-eslint/no-unsafe-return": 11,
       "@typescript-eslint/require-await": 4,
-      "no-control-regex": 1
+      "no-constant-binary-expression": 1,
+      "no-control-regex": 1,
+      "prefer-const": 2
     }
   }
 }

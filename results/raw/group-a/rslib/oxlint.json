@@ -2,78 +2,82 @@
   "group": "A",
   "fixture": "rslib",
   "tool": "oxlint",
-  "files": 501,
+  "files": 1018,
+  "filesLinted": 1036,
+  "scopeMatch": false,
   "failedRuns": 0,
-  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json <scope files>",
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
   "wallMs": {
-    "median": 739.231666,
-    "mean": 734.8482415999999,
-    "stdev": 36.430948554580176,
-    "min": 690.33125,
-    "max": 785.564834
+    "median": 1072.123292,
+    "mean": 1078.107775,
+    "stdev": 27.027054380282962,
+    "min": 1043.059041,
+    "max": 1116.132417
   },
   "peakRssMb": {
-    "median": 591.875,
-    "max": 629.125
+    "median": 680.375,
+    "max": 708.234375
   },
   "runs": [
     {
-      "wallMs": 739.231666,
-      "peakRssMb": 599,
+      "wallMs": 1101.264792,
+      "peakRssMb": 708.234375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 697.879291,
-      "peakRssMb": 541.046875,
+      "wallMs": 1043.059041,
+      "peakRssMb": 650.328125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 785.564834,
-      "peakRssMb": 629.125,
+      "wallMs": 1116.132417,
+      "peakRssMb": 704.859375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 690.33125,
-      "peakRssMb": 591.875,
+      "wallMs": 1057.959333,
+      "peakRssMb": 664.3125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 761.234167,
-      "peakRssMb": 577.265625,
+      "wallMs": 1072.123292,
+      "peakRssMb": 680.375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 558,
-    "typeAware": 524,
-    "syntactic": 33,
+    "total": 685,
+    "typeAware": 590,
+    "syntactic": 80,
     "unmapped": {
-      "typescript/tsconfig-error": 1
+      "other: Expected a semicolon or an implicit semicolon after a statement, but found none": 1,
+      "typescript/tsconfig-error": 14
     },
     "byRule": {
       "@typescript-eslint/await-thenable": 7,
-      "@typescript-eslint/ban-ts-comment": 2,
-      "@typescript-eslint/no-explicit-any": 27,
-      "@typescript-eslint/no-floating-promises": 10,
+      "@typescript-eslint/ban-ts-comment": 6,
+      "@typescript-eslint/no-explicit-any": 44,
+      "@typescript-eslint/no-floating-promises": 11,
       "@typescript-eslint/no-misused-promises": 5,
-      "@typescript-eslint/no-redundant-type-constituents": 3,
+      "@typescript-eslint/no-redundant-type-constituents": 5,
+      "@typescript-eslint/no-require-imports": 25,
       "@typescript-eslint/no-unnecessary-type-assertion": 48,
       "@typescript-eslint/no-unsafe-argument": 7,
-      "@typescript-eslint/no-unsafe-assignment": 112,
-      "@typescript-eslint/no-unsafe-call": 85,
-      "@typescript-eslint/no-unsafe-member-access": 131,
-      "@typescript-eslint/no-unsafe-return": 12,
-      "@typescript-eslint/no-unused-vars": 2,
+      "@typescript-eslint/no-unsafe-assignment": 140,
+      "@typescript-eslint/no-unsafe-call": 92,
+      "@typescript-eslint/no-unsafe-member-access": 157,
+      "@typescript-eslint/no-unsafe-return": 14,
+      "@typescript-eslint/no-unused-vars": 3,
       "@typescript-eslint/require-await": 95,
       "@typescript-eslint/restrict-template-expressions": 9,
       "preserve-caught-error": 2

@@ -10,20 +10,48 @@
   "failedRuns": 0,
   "command": "eslint -c eslint.config.bench.mjs --format json .",
   "wallMs": {
-    "median": 11687.170042,
-    "mean": 11687.170042,
-    "stdev": 0,
-    "min": 11687.170042,
-    "max": 11687.170042
+    "median": 11496.584292,
+    "mean": 11437.8137666,
+    "stdev": 83.42753966265678,
+    "min": 11319.6625,
+    "max": 11509.720333
   },
   "peakRssMb": {
-    "median": 5209.65625,
-    "max": 5209.65625
+    "median": 5228.75,
+    "max": 5236.03125
   },
   "runs": [
     {
-      "wallMs": 11687.170042,
-      "peakRssMb": 5209.65625,
+      "wallMs": 11353.646833,
+      "peakRssMb": 5200.0625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 11509.454875,
+      "peakRssMb": 5194.796875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 11509.720333,
+      "peakRssMb": 5228.75,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 11496.584292,
+      "peakRssMb": 5236.03125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 11319.6625,
+      "peakRssMb": 5229.609375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false

@@ -2,72 +2,86 @@
   "group": "B",
   "fixture": "rsbuild",
   "tool": "eslint",
-  "files": 1249,
+  "files": 2448,
+  "filesLinted": 2450,
+  "scopeMatch": false,
+  "missing": [],
+  "extra": [
+    "e2e/cases/output/charset-emoji-filename/src/🦀.js",
+    "e2e/cases/output/charset-zh-filename/src/这是一个中文目录/这是一个中文文件名.js"
+  ],
   "failedRuns": 0,
-  "command": "eslint -c eslint.config.bench.mjs --format json --no-warn-ignored <scope files>",
+  "command": "eslint -c eslint.config.bench.mjs --format json .",
   "wallMs": {
-    "median": 21218.082833,
-    "mean": 21262.841999799995,
-    "stdev": 90.8650037491688,
-    "min": 21162.081542,
-    "max": 21374.607916
+    "median": 26847.593459,
+    "mean": 26864.389925200005,
+    "stdev": 77.66006233823573,
+    "min": 26760.725,
+    "max": 26964.859625
   },
   "peakRssMb": {
-    "median": 7194.859375,
-    "max": 7256.046875
+    "median": 8685.265625,
+    "max": 8705.25
   },
   "runs": [
     {
-      "wallMs": 21374.607916,
-      "peakRssMb": 7212.125,
+      "wallMs": 26964.859625,
+      "peakRssMb": 8604.71875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 21369.342833,
-      "peakRssMb": 7193.953125,
+      "wallMs": 26940.842125,
+      "peakRssMb": 8685.265625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 21162.081542,
-      "peakRssMb": 7256.046875,
+      "wallMs": 26847.593459,
+      "peakRssMb": 8702.671875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 21190.094875,
-      "peakRssMb": 7189.78125,
+      "wallMs": 26807.929417,
+      "peakRssMb": 8629.625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 21218.082833,
-      "peakRssMb": 7194.859375,
+      "wallMs": 26760.725,
+      "peakRssMb": 8705.25,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 67,
-    "typeAware": 13,
-    "syntactic": 54,
-    "unmapped": {},
+    "total": 106,
+    "typeAware": 27,
+    "syntactic": 73,
+    "unmapped": {
+      "fatal: Parsing error: Unable to parse the specified 'tsconfig' file. Ensure it's correct and has valid syntax.\n\nerror TS5012: Cannot read file '/Users/bytedance/rstack/wrslint/benchmark/fixture/rsbuild/packages/create-rsbuild/template-rstest/react-ts/tsconfig.json': ENOENT: no such file or directory, open '/Users/bytedance/rstack/wrslint/benchmark/fixture/rsbuild/packages/create-rsbuild/template-rstest/react-ts/tsconfig.json'.": 2,
+      "fatal: Parsing error: Unable to parse the specified 'tsconfig' file. Ensure it's correct and has valid syntax.\n\nerror TS5012: Cannot read file '/Users/bytedance/rstack/wrslint/benchmark/fixture/rsbuild/packages/create-rsbuild/template-rstest/vanilla-ts/tsconfig.json': ENOENT: no such file or directory, open '/Users/bytedance/rstack/wrslint/benchmark/fixture/rsbuild/packages/create-rsbuild/template-rstest/vanilla-ts/tsconfig.json'.": 2,
+      "fatal: Parsing error: Unable to parse the specified 'tsconfig' file. Ensure it's correct and has valid syntax.\n\nerror TS5012: Cannot read file '/Users/bytedance/rstack/wrslint/benchmark/fixture/rsbuild/packages/create-rsbuild/template-rstest/vue-ts/tsconfig.json': ENOENT: no such file or directory, open '/Users/bytedance/rstack/wrslint/benchmark/fixture/rsbuild/packages/create-rsbuild/template-rstest/vue-ts/tsconfig.json'.": 2
+    },
     "byRule": {
       "@typescript-eslint/no-base-to-string": 1,
-      "@typescript-eslint/no-explicit-any": 35,
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-floating-promises": 6,
       "@typescript-eslint/no-implied-eval": 1,
       "@typescript-eslint/no-misused-promises": 3,
       "@typescript-eslint/no-require-imports": 1,
-      "@typescript-eslint/no-unsafe-return": 4,
-      "@typescript-eslint/no-unused-vars": 17,
-      "@typescript-eslint/require-await": 4,
-      "no-control-regex": 1
+      "@typescript-eslint/no-unsafe-return": 11,
+      "@typescript-eslint/no-unused-vars": 23,
+      "@typescript-eslint/require-await": 5,
+      "no-constant-binary-expression": 1,
+      "no-control-regex": 1,
+      "prefer-const": 2
     }
   }
 }

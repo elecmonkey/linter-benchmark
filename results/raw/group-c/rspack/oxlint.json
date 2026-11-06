@@ -1,0 +1,78 @@
+{
+  "group": "C",
+  "fixture": "rspack",
+  "tool": "oxlint",
+  "files": 499,
+  "filesLinted": 493,
+  "scopeMatch": false,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 188.073708,
+    "mean": 188.14406680000002,
+    "stdev": 5.2162045730901845,
+    "min": 181.406417,
+    "max": 197.283084
+  },
+  "peakRssMb": {
+    "median": 89.953125,
+    "max": 91.046875
+  },
+  "runs": [
+    {
+      "wallMs": 188.462584,
+      "peakRssMb": 90.375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 185.494541,
+      "peakRssMb": 89.953125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 197.283084,
+      "peakRssMb": 88.90625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 181.406417,
+      "peakRssMb": 91.046875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 188.073708,
+      "peakRssMb": 89.453125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 625,
+    "typeAware": 0,
+    "syntactic": 625,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 453,
+      "@typescript-eslint/no-require-imports": 46,
+      "no-control-regex": 2,
+      "no-empty": 18,
+      "no-prototype-builtins": 2,
+      "no-unsafe-optional-chaining": 1,
+      "no-useless-assignment": 8,
+      "no-var": 78,
+      "prefer-const": 4,
+      "prefer-rest-params": 5,
+      "prefer-spread": 4,
+      "preserve-caught-error": 4
+    }
+  }
+}

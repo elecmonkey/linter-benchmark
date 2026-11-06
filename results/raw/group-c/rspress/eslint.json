@@ -1,0 +1,75 @@
+{
+  "group": "C",
+  "fixture": "rspress",
+  "tool": "eslint",
+  "files": 746,
+  "filesLinted": 746,
+  "scopeMatch": true,
+  "missing": [],
+  "extra": [],
+  "failedRuns": 0,
+  "command": "eslint -c eslint.config.bench.mjs --format json .",
+  "wallMs": {
+    "median": 1415.71125,
+    "mean": 1420.1069916000001,
+    "stdev": 28.940718453278535,
+    "min": 1383.302333,
+    "max": 1470.188333
+  },
+  "peakRssMb": {
+    "median": 689.21875,
+    "max": 743.6875
+  },
+  "runs": [
+    {
+      "wallMs": 1383.302333,
+      "peakRssMb": 692.84375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1415.71125,
+      "peakRssMb": 538.34375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1427.206542,
+      "peakRssMb": 743.6875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1404.1265,
+      "peakRssMb": 689.21875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1470.188333,
+      "peakRssMb": 623.15625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 53,
+    "typeAware": 0,
+    "syntactic": 49,
+    "unmapped": {
+      "react/no-array-index-key": 2,
+      "react/no-danger": 1,
+      "import/no-mutable-exports": 1
+    },
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-require-imports": 2,
+      "prefer-const": 2
+    }
+  }
+}

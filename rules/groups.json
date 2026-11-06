@@ -5,6 +5,7 @@
       "rslint",
       "oxlint"
     ],
+    "typeInfo": true,
     "syntactic": 68,
     "typeAware": 23,
     "rules": [
@@ -654,6 +655,7 @@
       "oxlint",
       "biome"
     ],
+    "typeInfo": true,
     "syntactic": 57,
     "typeAware": 9,
     "rules": [
@@ -1118,6 +1120,411 @@
         "rslint": "@typescript-eslint/restrict-plus-operands",
         "oxlint": "typescript/restrict-plus-operands",
         "biome": "nursery/noUnsafePlusOperands"
+      }
+    ]
+  },
+  "C": {
+    "tools": [
+      "eslint",
+      "rslint",
+      "oxlint",
+      "biome"
+    ],
+    "typeInfo": false,
+    "syntactic": 56,
+    "typeAware": 0,
+    "rules": [
+      {
+        "typed": false,
+        "eslint": "for-direction",
+        "rslint": "for-direction",
+        "oxlint": "eslint/for-direction",
+        "biome": "correctness/useValidForDirection"
+      },
+      {
+        "typed": false,
+        "eslint": "no-async-promise-executor",
+        "rslint": "no-async-promise-executor",
+        "oxlint": "eslint/no-async-promise-executor",
+        "biome": "suspicious/noAsyncPromiseExecutor"
+      },
+      {
+        "typed": false,
+        "eslint": "no-case-declarations",
+        "rslint": "no-case-declarations",
+        "oxlint": "eslint/no-case-declarations",
+        "biome": "correctness/noSwitchDeclarations"
+      },
+      {
+        "typed": false,
+        "eslint": "no-compare-neg-zero",
+        "rslint": "no-compare-neg-zero",
+        "oxlint": "eslint/no-compare-neg-zero",
+        "biome": "suspicious/noCompareNegZero"
+      },
+      {
+        "typed": false,
+        "eslint": "no-constant-binary-expression",
+        "rslint": "no-constant-binary-expression",
+        "oxlint": "eslint/no-constant-binary-expression",
+        "biome": "suspicious/noConstantBinaryExpressions"
+      },
+      {
+        "typed": false,
+        "eslint": "no-constant-condition",
+        "rslint": "no-constant-condition",
+        "oxlint": "eslint/no-constant-condition",
+        "biome": "correctness/noConstantCondition"
+      },
+      {
+        "typed": false,
+        "eslint": "no-control-regex",
+        "rslint": "no-control-regex",
+        "oxlint": "eslint/no-control-regex",
+        "biome": "suspicious/noControlCharactersInRegex"
+      },
+      {
+        "typed": false,
+        "eslint": "no-debugger",
+        "rslint": "no-debugger",
+        "oxlint": "eslint/no-debugger",
+        "biome": "suspicious/noDebugger"
+      },
+      {
+        "typed": false,
+        "eslint": "no-delete-var",
+        "rslint": "no-delete-var",
+        "oxlint": "eslint/no-delete-var",
+        "biome": "performance/noDelete"
+      },
+      {
+        "typed": false,
+        "eslint": "no-dupe-else-if",
+        "rslint": "no-dupe-else-if",
+        "oxlint": "eslint/no-dupe-else-if",
+        "biome": "suspicious/noDuplicateElseIf"
+      },
+      {
+        "typed": false,
+        "eslint": "no-duplicate-case",
+        "rslint": "no-duplicate-case",
+        "oxlint": "eslint/no-duplicate-case",
+        "biome": "suspicious/noDuplicateCase"
+      },
+      {
+        "typed": false,
+        "eslint": "no-empty",
+        "rslint": "no-empty",
+        "oxlint": "eslint/no-empty",
+        "biome": "suspicious/noEmptyBlockStatements"
+      },
+      {
+        "typed": false,
+        "eslint": "no-empty-character-class",
+        "rslint": "no-empty-character-class",
+        "oxlint": "eslint/no-empty-character-class",
+        "biome": "correctness/noEmptyCharacterClassInRegex"
+      },
+      {
+        "typed": false,
+        "eslint": "no-empty-pattern",
+        "rslint": "no-empty-pattern",
+        "oxlint": "eslint/no-empty-pattern",
+        "biome": "correctness/noEmptyPattern"
+      },
+      {
+        "typed": false,
+        "eslint": "no-empty-static-block",
+        "rslint": "no-empty-static-block",
+        "oxlint": "eslint/no-empty-static-block",
+        "biome": "suspicious/noEmptyBlockStatements"
+      },
+      {
+        "typed": false,
+        "eslint": "no-ex-assign",
+        "rslint": "no-ex-assign",
+        "oxlint": "eslint/no-ex-assign",
+        "biome": "suspicious/noCatchAssign"
+      },
+      {
+        "typed": false,
+        "eslint": "no-extra-boolean-cast",
+        "rslint": "no-extra-boolean-cast",
+        "oxlint": "eslint/no-extra-boolean-cast",
+        "biome": "complexity/noExtraBooleanCast"
+      },
+      {
+        "typed": false,
+        "eslint": "no-fallthrough",
+        "rslint": "no-fallthrough",
+        "oxlint": "eslint/no-fallthrough",
+        "biome": "suspicious/noFallthroughSwitchClause"
+      },
+      {
+        "typed": false,
+        "eslint": "no-global-assign",
+        "rslint": "no-global-assign",
+        "oxlint": "eslint/no-global-assign",
+        "biome": "suspicious/noGlobalAssign"
+      },
+      {
+        "typed": false,
+        "eslint": "no-irregular-whitespace",
+        "rslint": "no-irregular-whitespace",
+        "oxlint": "eslint/no-irregular-whitespace",
+        "biome": "suspicious/noIrregularWhitespace"
+      },
+      {
+        "typed": false,
+        "eslint": "no-loss-of-precision",
+        "rslint": "no-loss-of-precision",
+        "oxlint": "eslint/no-loss-of-precision",
+        "biome": "correctness/noPrecisionLoss"
+      },
+      {
+        "typed": false,
+        "eslint": "no-misleading-character-class",
+        "rslint": "no-misleading-character-class",
+        "oxlint": "eslint/no-misleading-character-class",
+        "biome": "suspicious/noMisleadingCharacterClass"
+      },
+      {
+        "typed": false,
+        "eslint": "no-nonoctal-decimal-escape",
+        "rslint": "no-nonoctal-decimal-escape",
+        "oxlint": "eslint/no-nonoctal-decimal-escape",
+        "biome": "correctness/noNonoctalDecimalEscape"
+      },
+      {
+        "typed": false,
+        "eslint": "no-prototype-builtins",
+        "rslint": "no-prototype-builtins",
+        "oxlint": "eslint/no-prototype-builtins",
+        "biome": "suspicious/noPrototypeBuiltins"
+      },
+      {
+        "typed": false,
+        "eslint": "no-regex-spaces",
+        "rslint": "no-regex-spaces",
+        "oxlint": "eslint/no-regex-spaces",
+        "biome": "complexity/noAdjacentSpacesInRegex"
+      },
+      {
+        "typed": false,
+        "eslint": "no-self-assign",
+        "rslint": "no-self-assign",
+        "oxlint": "eslint/no-self-assign",
+        "biome": "correctness/noSelfAssign"
+      },
+      {
+        "typed": false,
+        "eslint": "no-shadow-restricted-names",
+        "rslint": "no-shadow-restricted-names",
+        "oxlint": "eslint/no-shadow-restricted-names",
+        "biome": "suspicious/noShadowRestrictedNames"
+      },
+      {
+        "typed": false,
+        "eslint": "no-sparse-arrays",
+        "rslint": "no-sparse-arrays",
+        "oxlint": "eslint/no-sparse-arrays",
+        "biome": "suspicious/noSparseArray"
+      },
+      {
+        "typed": false,
+        "eslint": "no-unassigned-vars",
+        "rslint": "no-unassigned-vars",
+        "oxlint": "eslint/no-unassigned-vars",
+        "biome": "suspicious/noUnassignedVariables"
+      },
+      {
+        "typed": false,
+        "eslint": "no-unsafe-finally",
+        "rslint": "no-unsafe-finally",
+        "oxlint": "eslint/no-unsafe-finally",
+        "biome": "correctness/noUnsafeFinally"
+      },
+      {
+        "typed": false,
+        "eslint": "no-unsafe-optional-chaining",
+        "rslint": "no-unsafe-optional-chaining",
+        "oxlint": "eslint/no-unsafe-optional-chaining",
+        "biome": "correctness/noUnsafeOptionalChaining"
+      },
+      {
+        "typed": false,
+        "eslint": "no-unused-labels",
+        "rslint": "no-unused-labels",
+        "oxlint": "eslint/no-unused-labels",
+        "biome": "correctness/noUnusedLabels"
+      },
+      {
+        "typed": false,
+        "eslint": "no-useless-assignment",
+        "rslint": "no-useless-assignment",
+        "oxlint": "eslint/no-useless-assignment",
+        "biome": "nursery/noUselessAssignment"
+      },
+      {
+        "typed": false,
+        "eslint": "no-useless-backreference",
+        "rslint": "no-useless-backreference",
+        "oxlint": "eslint/no-useless-backreference",
+        "biome": "suspicious/noUselessRegexBackrefs"
+      },
+      {
+        "typed": false,
+        "eslint": "no-useless-catch",
+        "rslint": "no-useless-catch",
+        "oxlint": "eslint/no-useless-catch",
+        "biome": "complexity/noUselessCatch"
+      },
+      {
+        "typed": false,
+        "eslint": "no-useless-escape",
+        "rslint": "no-useless-escape",
+        "oxlint": "eslint/no-useless-escape",
+        "biome": "complexity/noUselessEscapeInRegex"
+      },
+      {
+        "typed": false,
+        "eslint": "preserve-caught-error",
+        "rslint": "preserve-caught-error",
+        "oxlint": "eslint/preserve-caught-error",
+        "biome": "style/useErrorCause"
+      },
+      {
+        "typed": false,
+        "eslint": "require-yield",
+        "rslint": "require-yield",
+        "oxlint": "eslint/require-yield",
+        "biome": "correctness/useYield"
+      },
+      {
+        "typed": false,
+        "eslint": "use-isnan",
+        "rslint": "use-isnan",
+        "oxlint": "eslint/use-isnan",
+        "biome": "correctness/useIsNan"
+      },
+      {
+        "typed": false,
+        "eslint": "valid-typeof",
+        "rslint": "valid-typeof",
+        "oxlint": "eslint/valid-typeof",
+        "biome": "correctness/useValidTypeof"
+      },
+      {
+        "typed": false,
+        "eslint": "no-var",
+        "rslint": "no-var",
+        "oxlint": "eslint/no-var",
+        "biome": "suspicious/noVar"
+      },
+      {
+        "typed": false,
+        "eslint": "prefer-const",
+        "rslint": "prefer-const",
+        "oxlint": "eslint/prefer-const",
+        "biome": "style/useConst"
+      },
+      {
+        "typed": false,
+        "eslint": "prefer-rest-params",
+        "rslint": "prefer-rest-params",
+        "oxlint": "eslint/prefer-rest-params",
+        "biome": "complexity/noArguments"
+      },
+      {
+        "typed": false,
+        "eslint": "prefer-spread",
+        "rslint": "prefer-spread",
+        "oxlint": "eslint/prefer-spread",
+        "biome": "style/useSpreadOverApply"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/no-array-constructor",
+        "rslint": "@typescript-eslint/no-array-constructor",
+        "oxlint": "eslint/no-array-constructor",
+        "biome": "style/useArrayLiterals"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/no-duplicate-enum-values",
+        "rslint": "@typescript-eslint/no-duplicate-enum-values",
+        "oxlint": "typescript/no-duplicate-enum-values",
+        "biome": "suspicious/noDuplicateEnumValues"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/no-explicit-any",
+        "rslint": "@typescript-eslint/no-explicit-any",
+        "oxlint": "typescript/no-explicit-any",
+        "biome": "suspicious/noExplicitAny"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/no-extra-non-null-assertion",
+        "rslint": "@typescript-eslint/no-extra-non-null-assertion",
+        "oxlint": "typescript/no-extra-non-null-assertion",
+        "biome": "suspicious/noExtraNonNullAssertion"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/no-misused-new",
+        "rslint": "@typescript-eslint/no-misused-new",
+        "oxlint": "typescript/no-misused-new",
+        "biome": "suspicious/noMisleadingInstantiator"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/no-namespace",
+        "rslint": "@typescript-eslint/no-namespace",
+        "oxlint": "typescript/no-namespace",
+        "biome": "style/noNamespace"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/no-non-null-asserted-optional-chain",
+        "rslint": "@typescript-eslint/no-non-null-asserted-optional-chain",
+        "oxlint": "typescript/no-non-null-asserted-optional-chain",
+        "biome": "suspicious/noNonNullAssertedOptionalChain"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/no-require-imports",
+        "rslint": "@typescript-eslint/no-require-imports",
+        "oxlint": "typescript/no-require-imports",
+        "biome": "style/noCommonJs"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/no-unnecessary-type-constraint",
+        "rslint": "@typescript-eslint/no-unnecessary-type-constraint",
+        "oxlint": "typescript/no-unnecessary-type-constraint",
+        "biome": "complexity/noUselessTypeConstraint"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/no-unsafe-declaration-merging",
+        "rslint": "@typescript-eslint/no-unsafe-declaration-merging",
+        "oxlint": "typescript/no-unsafe-declaration-merging",
+        "biome": "suspicious/noUnsafeDeclarationMerging"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/prefer-as-const",
+        "rslint": "@typescript-eslint/prefer-as-const",
+        "oxlint": "typescript/prefer-as-const",
+        "biome": "style/useAsConstAssertion"
+      },
+      {
+        "typed": false,
+        "eslint": "@typescript-eslint/prefer-namespace-keyword",
+        "rslint": "@typescript-eslint/prefer-namespace-keyword",
+        "oxlint": "typescript/prefer-namespace-keyword",
+        "biome": "suspicious/useNamespaceKeyword"
       }
     ]
   }

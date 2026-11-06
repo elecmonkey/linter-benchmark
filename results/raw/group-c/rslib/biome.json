@@ -1,0 +1,75 @@
+{
+  "group": "C",
+  "fixture": "rslib",
+  "tool": "biome",
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 268.586125,
+    "mean": 275.2846834,
+    "stdev": 40.25043189678588,
+    "min": 230.683708,
+    "max": 345.162125
+  },
+  "peakRssMb": {
+    "median": 130.9375,
+    "max": 134.453125
+  },
+  "runs": [
+    {
+      "wallMs": 243.513042,
+      "peakRssMb": 130.921875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 268.586125,
+      "peakRssMb": 102.203125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 288.478417,
+      "peakRssMb": 133.59375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 345.162125,
+      "peakRssMb": 130.9375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 230.683708,
+      "peakRssMb": 134.453125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 98,
+    "typeAware": 0,
+    "syntactic": 95,
+    "unmapped": {
+      "other: parse": 3
+    },
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-require-imports": 25,
+      "no-delete-var": 4,
+      "no-empty + no-empty-static-block": 17,
+      "no-prototype-builtins": 1,
+      "no-shadow-restricted-names": 2,
+      "preserve-caught-error": 5
+    }
+  }
+}

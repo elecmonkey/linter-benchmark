@@ -3,6 +3,7 @@
     "rule": "for-direction",
     "typed": false,
     "rslint": "for-direction",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/for-direction",
     "biome": [
       "correctness/useValidForDirection"
@@ -13,6 +14,7 @@
     "rule": "no-async-promise-executor",
     "typed": false,
     "rslint": "no-async-promise-executor",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-async-promise-executor",
     "biome": [
       "suspicious/noAsyncPromiseExecutor"
@@ -23,6 +25,7 @@
     "rule": "no-case-declarations",
     "typed": false,
     "rslint": "no-case-declarations",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-case-declarations",
     "biome": [
       "correctness/noSwitchDeclarations"
@@ -33,6 +36,7 @@
     "rule": "no-compare-neg-zero",
     "typed": false,
     "rslint": "no-compare-neg-zero",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-compare-neg-zero",
     "biome": [
       "suspicious/noCompareNegZero"
@@ -43,6 +47,7 @@
     "rule": "no-cond-assign",
     "typed": false,
     "rslint": "no-cond-assign",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-cond-assign",
     "biome": [],
     "biomeInspired": [
@@ -53,6 +58,7 @@
     "rule": "no-constant-binary-expression",
     "typed": false,
     "rslint": "no-constant-binary-expression",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-constant-binary-expression",
     "biome": [
       "suspicious/noConstantBinaryExpressions"
@@ -63,6 +69,7 @@
     "rule": "no-constant-condition",
     "typed": false,
     "rslint": "no-constant-condition",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-constant-condition",
     "biome": [
       "correctness/noConstantCondition"
@@ -73,6 +80,7 @@
     "rule": "no-control-regex",
     "typed": false,
     "rslint": "no-control-regex",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-control-regex",
     "biome": [
       "suspicious/noControlCharactersInRegex"
@@ -83,6 +91,7 @@
     "rule": "no-debugger",
     "typed": false,
     "rslint": "no-debugger",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-debugger",
     "biome": [
       "suspicious/noDebugger"
@@ -93,6 +102,7 @@
     "rule": "no-delete-var",
     "typed": false,
     "rslint": "no-delete-var",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-delete-var",
     "biome": [
       "performance/noDelete"
@@ -103,6 +113,7 @@
     "rule": "no-dupe-else-if",
     "typed": false,
     "rslint": "no-dupe-else-if",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-dupe-else-if",
     "biome": [
       "suspicious/noDuplicateElseIf"
@@ -113,6 +124,7 @@
     "rule": "no-duplicate-case",
     "typed": false,
     "rslint": "no-duplicate-case",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-duplicate-case",
     "biome": [
       "suspicious/noDuplicateCase"
@@ -123,6 +135,7 @@
     "rule": "no-empty",
     "typed": false,
     "rslint": "no-empty",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-empty",
     "biome": [
       "suspicious/noEmptyBlockStatements"
@@ -133,6 +146,7 @@
     "rule": "no-empty-character-class",
     "typed": false,
     "rslint": "no-empty-character-class",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-empty-character-class",
     "biome": [
       "correctness/noEmptyCharacterClassInRegex"
@@ -143,6 +157,7 @@
     "rule": "no-empty-pattern",
     "typed": false,
     "rslint": "no-empty-pattern",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-empty-pattern",
     "biome": [
       "correctness/noEmptyPattern"
@@ -153,6 +168,7 @@
     "rule": "no-empty-static-block",
     "typed": false,
     "rslint": "no-empty-static-block",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-empty-static-block",
     "biome": [
       "suspicious/noEmptyBlockStatements"
@@ -163,6 +179,7 @@
     "rule": "no-ex-assign",
     "typed": false,
     "rslint": "no-ex-assign",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-ex-assign",
     "biome": [
       "suspicious/noCatchAssign"
@@ -173,6 +190,7 @@
     "rule": "no-extra-boolean-cast",
     "typed": false,
     "rslint": "no-extra-boolean-cast",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-extra-boolean-cast",
     "biome": [
       "complexity/noExtraBooleanCast"
@@ -183,6 +201,7 @@
     "rule": "no-fallthrough",
     "typed": false,
     "rslint": "no-fallthrough",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-fallthrough",
     "biome": [
       "suspicious/noFallthroughSwitchClause"
@@ -193,6 +212,7 @@
     "rule": "no-global-assign",
     "typed": false,
     "rslint": "no-global-assign",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-global-assign",
     "biome": [
       "suspicious/noGlobalAssign"
@@ -203,6 +223,7 @@
     "rule": "no-invalid-regexp",
     "typed": false,
     "rslint": "no-invalid-regexp",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-invalid-regexp",
     "biome": [],
     "biomeInspired": []
@@ -211,6 +232,7 @@
     "rule": "no-irregular-whitespace",
     "typed": false,
     "rslint": "no-irregular-whitespace",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-irregular-whitespace",
     "biome": [
       "suspicious/noIrregularWhitespace"
@@ -221,6 +243,7 @@
     "rule": "no-loss-of-precision",
     "typed": false,
     "rslint": "no-loss-of-precision",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-loss-of-precision",
     "biome": [
       "correctness/noPrecisionLoss"
@@ -231,6 +254,7 @@
     "rule": "no-misleading-character-class",
     "typed": false,
     "rslint": "no-misleading-character-class",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-misleading-character-class",
     "biome": [
       "suspicious/noMisleadingCharacterClass"
@@ -241,6 +265,7 @@
     "rule": "no-nonoctal-decimal-escape",
     "typed": false,
     "rslint": "no-nonoctal-decimal-escape",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-nonoctal-decimal-escape",
     "biome": [
       "correctness/noNonoctalDecimalEscape"
@@ -251,6 +276,7 @@
     "rule": "no-octal",
     "typed": false,
     "rslint": "no-octal",
+    "rslintWithoutTypes": true,
     "oxlint": null,
     "biome": [
       "nursery/noOctal"
@@ -261,6 +287,7 @@
     "rule": "no-prototype-builtins",
     "typed": false,
     "rslint": "no-prototype-builtins",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-prototype-builtins",
     "biome": [
       "suspicious/noPrototypeBuiltins"
@@ -271,6 +298,7 @@
     "rule": "no-regex-spaces",
     "typed": false,
     "rslint": "no-regex-spaces",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-regex-spaces",
     "biome": [
       "complexity/noAdjacentSpacesInRegex"
@@ -281,6 +309,7 @@
     "rule": "no-self-assign",
     "typed": false,
     "rslint": "no-self-assign",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-self-assign",
     "biome": [
       "correctness/noSelfAssign"
@@ -291,6 +320,7 @@
     "rule": "no-shadow-restricted-names",
     "typed": false,
     "rslint": "no-shadow-restricted-names",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-shadow-restricted-names",
     "biome": [
       "suspicious/noShadowRestrictedNames"
@@ -301,6 +331,7 @@
     "rule": "no-sparse-arrays",
     "typed": false,
     "rslint": "no-sparse-arrays",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-sparse-arrays",
     "biome": [
       "suspicious/noSparseArray"
@@ -311,6 +342,7 @@
     "rule": "no-unassigned-vars",
     "typed": false,
     "rslint": "no-unassigned-vars",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-unassigned-vars",
     "biome": [
       "suspicious/noUnassignedVariables"
@@ -321,6 +353,7 @@
     "rule": "no-unexpected-multiline",
     "typed": false,
     "rslint": "no-unexpected-multiline",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-unexpected-multiline",
     "biome": [],
     "biomeInspired": []
@@ -329,6 +362,7 @@
     "rule": "no-unsafe-finally",
     "typed": false,
     "rslint": "no-unsafe-finally",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-unsafe-finally",
     "biome": [
       "correctness/noUnsafeFinally"
@@ -339,6 +373,7 @@
     "rule": "no-unsafe-optional-chaining",
     "typed": false,
     "rslint": "no-unsafe-optional-chaining",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-unsafe-optional-chaining",
     "biome": [
       "correctness/noUnsafeOptionalChaining"
@@ -349,6 +384,7 @@
     "rule": "no-unused-labels",
     "typed": false,
     "rslint": "no-unused-labels",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-unused-labels",
     "biome": [
       "correctness/noUnusedLabels"
@@ -359,6 +395,7 @@
     "rule": "no-unused-private-class-members",
     "typed": false,
     "rslint": "no-unused-private-class-members",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-unused-private-class-members",
     "biome": [],
     "biomeInspired": [
@@ -369,6 +406,7 @@
     "rule": "no-useless-assignment",
     "typed": false,
     "rslint": "no-useless-assignment",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-useless-assignment",
     "biome": [
       "nursery/noUselessAssignment"
@@ -379,6 +417,7 @@
     "rule": "no-useless-backreference",
     "typed": false,
     "rslint": "no-useless-backreference",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-useless-backreference",
     "biome": [
       "suspicious/noUselessRegexBackrefs"
@@ -389,6 +428,7 @@
     "rule": "no-useless-catch",
     "typed": false,
     "rslint": "no-useless-catch",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-useless-catch",
     "biome": [
       "complexity/noUselessCatch"
@@ -399,6 +439,7 @@
     "rule": "no-useless-escape",
     "typed": false,
     "rslint": "no-useless-escape",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-useless-escape",
     "biome": [
       "complexity/noUselessEscapeInRegex"
@@ -409,6 +450,7 @@
     "rule": "preserve-caught-error",
     "typed": false,
     "rslint": "preserve-caught-error",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/preserve-caught-error",
     "biome": [
       "style/useErrorCause"
@@ -419,6 +461,7 @@
     "rule": "require-yield",
     "typed": false,
     "rslint": "require-yield",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/require-yield",
     "biome": [
       "correctness/useYield"
@@ -429,6 +472,7 @@
     "rule": "use-isnan",
     "typed": false,
     "rslint": "use-isnan",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/use-isnan",
     "biome": [
       "correctness/useIsNan"
@@ -439,6 +483,7 @@
     "rule": "valid-typeof",
     "typed": false,
     "rslint": "valid-typeof",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/valid-typeof",
     "biome": [
       "correctness/useValidTypeof"
@@ -449,6 +494,7 @@
     "rule": "no-var",
     "typed": false,
     "rslint": "no-var",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-var",
     "biome": [
       "suspicious/noVar"
@@ -459,6 +505,7 @@
     "rule": "prefer-const",
     "typed": false,
     "rslint": "prefer-const",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/prefer-const",
     "biome": [
       "style/useConst"
@@ -469,6 +516,7 @@
     "rule": "prefer-rest-params",
     "typed": false,
     "rslint": "prefer-rest-params",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/prefer-rest-params",
     "biome": [
       "complexity/noArguments"
@@ -479,6 +527,7 @@
     "rule": "prefer-spread",
     "typed": false,
     "rslint": "prefer-spread",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/prefer-spread",
     "biome": [
       "style/useSpreadOverApply"
@@ -489,6 +538,7 @@
     "rule": "@typescript-eslint/await-thenable",
     "typed": true,
     "rslint": "@typescript-eslint/await-thenable",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/await-thenable",
     "biome": [],
     "biomeInspired": [
@@ -499,6 +549,7 @@
     "rule": "@typescript-eslint/ban-ts-comment",
     "typed": false,
     "rslint": "@typescript-eslint/ban-ts-comment",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/ban-ts-comment",
     "biome": [],
     "biomeInspired": [
@@ -509,6 +560,7 @@
     "rule": "@typescript-eslint/no-array-constructor",
     "typed": false,
     "rslint": "@typescript-eslint/no-array-constructor",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-array-constructor",
     "biome": [
       "style/useArrayLiterals"
@@ -519,6 +571,7 @@
     "rule": "@typescript-eslint/no-array-delete",
     "typed": true,
     "rslint": "@typescript-eslint/no-array-delete",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-array-delete",
     "biome": [],
     "biomeInspired": []
@@ -527,6 +580,7 @@
     "rule": "@typescript-eslint/no-base-to-string",
     "typed": true,
     "rslint": "@typescript-eslint/no-base-to-string",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-base-to-string",
     "biome": [
       "nursery/noBaseToString"
@@ -537,6 +591,7 @@
     "rule": "@typescript-eslint/no-duplicate-enum-values",
     "typed": false,
     "rslint": "@typescript-eslint/no-duplicate-enum-values",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-duplicate-enum-values",
     "biome": [
       "suspicious/noDuplicateEnumValues"
@@ -547,6 +602,7 @@
     "rule": "@typescript-eslint/no-duplicate-type-constituents",
     "typed": true,
     "rslint": "@typescript-eslint/no-duplicate-type-constituents",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-duplicate-type-constituents",
     "biome": [],
     "biomeInspired": []
@@ -555,6 +611,7 @@
     "rule": "@typescript-eslint/no-empty-object-type",
     "typed": false,
     "rslint": "@typescript-eslint/no-empty-object-type",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-empty-object-type",
     "biome": [],
     "biomeInspired": [
@@ -565,6 +622,7 @@
     "rule": "@typescript-eslint/no-explicit-any",
     "typed": false,
     "rslint": "@typescript-eslint/no-explicit-any",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-explicit-any",
     "biome": [
       "suspicious/noExplicitAny"
@@ -575,6 +633,7 @@
     "rule": "@typescript-eslint/no-extra-non-null-assertion",
     "typed": false,
     "rslint": "@typescript-eslint/no-extra-non-null-assertion",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-extra-non-null-assertion",
     "biome": [
       "suspicious/noExtraNonNullAssertion"
@@ -585,6 +644,7 @@
     "rule": "@typescript-eslint/no-floating-promises",
     "typed": true,
     "rslint": "@typescript-eslint/no-floating-promises",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-floating-promises",
     "biome": [
       "nursery/noFloatingPromises"
@@ -595,6 +655,7 @@
     "rule": "@typescript-eslint/no-for-in-array",
     "typed": true,
     "rslint": "@typescript-eslint/no-for-in-array",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-for-in-array",
     "biome": [],
     "biomeInspired": [
@@ -605,6 +666,7 @@
     "rule": "@typescript-eslint/no-implied-eval",
     "typed": true,
     "rslint": "@typescript-eslint/no-implied-eval",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-implied-eval",
     "biome": [
       "nursery/noImpliedEval"
@@ -615,6 +677,7 @@
     "rule": "@typescript-eslint/no-misused-new",
     "typed": false,
     "rslint": "@typescript-eslint/no-misused-new",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-misused-new",
     "biome": [
       "suspicious/noMisleadingInstantiator"
@@ -625,6 +688,7 @@
     "rule": "@typescript-eslint/no-misused-promises",
     "typed": true,
     "rslint": "@typescript-eslint/no-misused-promises",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-misused-promises",
     "biome": [
       "nursery/noMisusedPromises"
@@ -635,6 +699,7 @@
     "rule": "@typescript-eslint/no-namespace",
     "typed": false,
     "rslint": "@typescript-eslint/no-namespace",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-namespace",
     "biome": [
       "style/noNamespace"
@@ -645,6 +710,7 @@
     "rule": "@typescript-eslint/no-non-null-asserted-optional-chain",
     "typed": false,
     "rslint": "@typescript-eslint/no-non-null-asserted-optional-chain",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-non-null-asserted-optional-chain",
     "biome": [
       "suspicious/noNonNullAssertedOptionalChain"
@@ -655,6 +721,7 @@
     "rule": "@typescript-eslint/no-redundant-type-constituents",
     "typed": true,
     "rslint": "@typescript-eslint/no-redundant-type-constituents",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-redundant-type-constituents",
     "biome": [],
     "biomeInspired": []
@@ -663,6 +730,7 @@
     "rule": "@typescript-eslint/no-require-imports",
     "typed": false,
     "rslint": "@typescript-eslint/no-require-imports",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-require-imports",
     "biome": [
       "style/noCommonJs"
@@ -673,6 +741,7 @@
     "rule": "@typescript-eslint/no-this-alias",
     "typed": false,
     "rslint": "@typescript-eslint/no-this-alias",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-this-alias",
     "biome": [],
     "biomeInspired": [
@@ -683,6 +752,7 @@
     "rule": "@typescript-eslint/no-unnecessary-type-assertion",
     "typed": true,
     "rslint": "@typescript-eslint/no-unnecessary-type-assertion",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-unnecessary-type-assertion",
     "biome": [],
     "biomeInspired": []
@@ -691,6 +761,7 @@
     "rule": "@typescript-eslint/no-unnecessary-type-constraint",
     "typed": false,
     "rslint": "@typescript-eslint/no-unnecessary-type-constraint",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-unnecessary-type-constraint",
     "biome": [
       "complexity/noUselessTypeConstraint"
@@ -701,6 +772,7 @@
     "rule": "@typescript-eslint/no-unsafe-argument",
     "typed": true,
     "rslint": "@typescript-eslint/no-unsafe-argument",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-unsafe-argument",
     "biome": [],
     "biomeInspired": []
@@ -709,6 +781,7 @@
     "rule": "@typescript-eslint/no-unsafe-assignment",
     "typed": true,
     "rslint": "@typescript-eslint/no-unsafe-assignment",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-unsafe-assignment",
     "biome": [],
     "biomeInspired": []
@@ -717,6 +790,7 @@
     "rule": "@typescript-eslint/no-unsafe-call",
     "typed": true,
     "rslint": "@typescript-eslint/no-unsafe-call",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-unsafe-call",
     "biome": [],
     "biomeInspired": []
@@ -725,6 +799,7 @@
     "rule": "@typescript-eslint/no-unsafe-declaration-merging",
     "typed": false,
     "rslint": "@typescript-eslint/no-unsafe-declaration-merging",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/no-unsafe-declaration-merging",
     "biome": [
       "suspicious/noUnsafeDeclarationMerging"
@@ -735,6 +810,7 @@
     "rule": "@typescript-eslint/no-unsafe-enum-comparison",
     "typed": true,
     "rslint": "@typescript-eslint/no-unsafe-enum-comparison",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-unsafe-enum-comparison",
     "biome": [],
     "biomeInspired": []
@@ -743,6 +819,7 @@
     "rule": "@typescript-eslint/no-unsafe-function-type",
     "typed": false,
     "rslint": "@typescript-eslint/no-unsafe-function-type",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-unsafe-function-type",
     "biome": [],
     "biomeInspired": [
@@ -753,6 +830,7 @@
     "rule": "@typescript-eslint/no-unsafe-member-access",
     "typed": true,
     "rslint": "@typescript-eslint/no-unsafe-member-access",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-unsafe-member-access",
     "biome": [],
     "biomeInspired": []
@@ -761,6 +839,7 @@
     "rule": "@typescript-eslint/no-unsafe-return",
     "typed": true,
     "rslint": "@typescript-eslint/no-unsafe-return",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-unsafe-return",
     "biome": [
       "nursery/noUnsafeReturn"
@@ -771,6 +850,7 @@
     "rule": "@typescript-eslint/no-unsafe-unary-minus",
     "typed": true,
     "rslint": "@typescript-eslint/no-unsafe-unary-minus",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-unsafe-unary-minus",
     "biome": [
       "nursery/noUnsafeUnaryMinus"
@@ -781,6 +861,7 @@
     "rule": "@typescript-eslint/no-unused-expressions",
     "typed": false,
     "rslint": "@typescript-eslint/no-unused-expressions",
+    "rslintWithoutTypes": true,
     "oxlint": "eslint/no-unused-expressions",
     "biome": [],
     "biomeInspired": []
@@ -789,6 +870,7 @@
     "rule": "@typescript-eslint/no-unused-vars",
     "typed": false,
     "rslint": "@typescript-eslint/no-unused-vars",
+    "rslintWithoutTypes": false,
     "oxlint": "eslint/no-unused-vars",
     "biome": [
       "correctness/noUnusedVariables"
@@ -799,6 +881,7 @@
     "rule": "@typescript-eslint/no-wrapper-object-types",
     "typed": false,
     "rslint": "@typescript-eslint/no-wrapper-object-types",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/no-wrapper-object-types",
     "biome": [],
     "biomeInspired": [
@@ -809,6 +892,7 @@
     "rule": "@typescript-eslint/only-throw-error",
     "typed": true,
     "rslint": "@typescript-eslint/only-throw-error",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/only-throw-error",
     "biome": [],
     "biomeInspired": [
@@ -819,6 +903,7 @@
     "rule": "@typescript-eslint/prefer-as-const",
     "typed": false,
     "rslint": "@typescript-eslint/prefer-as-const",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/prefer-as-const",
     "biome": [
       "style/useAsConstAssertion"
@@ -829,6 +914,7 @@
     "rule": "@typescript-eslint/prefer-namespace-keyword",
     "typed": false,
     "rslint": "@typescript-eslint/prefer-namespace-keyword",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/prefer-namespace-keyword",
     "biome": [
       "suspicious/useNamespaceKeyword"
@@ -839,6 +925,7 @@
     "rule": "@typescript-eslint/prefer-promise-reject-errors",
     "typed": true,
     "rslint": "@typescript-eslint/prefer-promise-reject-errors",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/prefer-promise-reject-errors",
     "biome": [
       "nursery/usePromiseRejectErrors"
@@ -849,6 +936,7 @@
     "rule": "@typescript-eslint/require-await",
     "typed": true,
     "rslint": "@typescript-eslint/require-await",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/require-await",
     "biome": [
       "suspicious/useAwait"
@@ -859,6 +947,7 @@
     "rule": "@typescript-eslint/restrict-plus-operands",
     "typed": true,
     "rslint": "@typescript-eslint/restrict-plus-operands",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/restrict-plus-operands",
     "biome": [
       "nursery/noUnsafePlusOperands"
@@ -869,6 +958,7 @@
     "rule": "@typescript-eslint/restrict-template-expressions",
     "typed": true,
     "rslint": "@typescript-eslint/restrict-template-expressions",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/restrict-template-expressions",
     "biome": [],
     "biomeInspired": []
@@ -877,6 +967,7 @@
     "rule": "@typescript-eslint/triple-slash-reference",
     "typed": false,
     "rslint": "@typescript-eslint/triple-slash-reference",
+    "rslintWithoutTypes": true,
     "oxlint": "typescript/triple-slash-reference",
     "biome": [],
     "biomeInspired": []
@@ -885,6 +976,7 @@
     "rule": "@typescript-eslint/unbound-method",
     "typed": true,
     "rslint": "@typescript-eslint/unbound-method",
+    "rslintWithoutTypes": false,
     "oxlint": "typescript/unbound-method",
     "biome": [],
     "biomeInspired": []

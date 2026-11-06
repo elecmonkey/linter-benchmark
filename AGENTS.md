@@ -10,7 +10,7 @@ benchmark/
 │   ├── lib.mjs                  shared paths and helpers
 │   ├── 00-setup-fixtures.mjs    submodule checkout + pnpm install --frozen-lockfile --ignore-scripts
 │   ├── 01-rule-universe.mjs     recommended rules              -> rules/universe.json
-│   ├── 02-rule-support.mjs      per-tool support, groups A/B   -> rules/
+│   ├── 02-rule-support.mjs      per-tool support, groups A/B/C -> rules/
 │   ├── 03-scope.mjs             files to lint per fixture      -> scope/
 │   ├── 04-configs.mjs           one config per group x tool    -> configs/
 │   ├── 05-run.mjs               the benchmark                  -> results/raw/
@@ -20,13 +20,14 @@ benchmark/
 │   ├── universe.json            recommended rules for a .ts file (92)
 │   ├── oxlint-rules.json        Oxlint's rule list
 │   ├── matrix.json              per-rule support in each tool
-│   └── groups.json              rule sets of groups A and B
+│   └── groups.json              rule sets of groups A, B and C
 ├── scope/
 │   ├── <fixture>.txt            files passed to every tool
 │   └── summary.json             file counts per filtering stage
 ├── configs/
 │   ├── group-a/                 eslint.config.mjs, rslint.config.mjs, oxlintrc.json
-│   └── group-b/                 the same + biome.json
+│   ├── group-b/                 the same + biome.json
+│   └── group-c/                 the same as group B, no type information
 └── results/
     ├── raw/group-<g>/<fixture>/<tool>.json   timings, peak RSS, diagnostics
     ├── charts/group-<g>-<fixture>.svg        ranking charts
@@ -43,11 +44,11 @@ Requires Node 26 and pnpm 12. All scripts are Node.js (`.mjs`).
 pnpm install --frozen-lockfile
 pnpm run setup
 pnpm run rules && pnpm run scope && pnpm run configs
-pnpm run bench -- --groups A,B --runs 5 --warmup 1
+pnpm run bench -- --groups A,B,C --runs 5 --warmup 1
 pnpm run chart && pnpm run report
 ```
 
-`05-run.mjs` accepts `--groups`, `--fixtures`, `--tools`, `--runs`, `--warmup` and `--timeout-min`. Use them to run a subset, for example `--groups A --fixtures rstack-cli --runs 1 --warmup 0` as a smoke test.
+`05-run.mjs` accepts `--groups`, `--fixtures`, `--tools`, `--runs`, `--warmup`, `--timeout-min` and `--eslint-heap-mb`. Use them to run a subset, for example `--groups A --fixtures rstack-cli --runs 1 --warmup 0` as a smoke test.
 
 `06-report.mjs` rewrites the README between `<!-- results:start -->` and `<!-- results:end -->`. Do not edit that part by hand.
 

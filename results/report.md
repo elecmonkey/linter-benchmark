@@ -4,6 +4,7 @@
 |---|---|
 | A | **Rslint** 9/9 |
 | B | **Rslint** 9/9 |
+| C | **Oxlint** 9/9 |
 
 ## Group A: ESLint (typescript-eslint), Rslint, Oxlint (oxlint-tsgolint)
 
@@ -237,3 +238,124 @@
 | Oxlint (oxlint-tsgolint) | 13.5 s | 13.3 s | 14.0 s | 13,303 MB | 50,345 | 1.10× |
 | Biome | 22.4 s | 21.6 s | 23.3 s | 17,841 MB | 43,921 | 1.83× |
 | ESLint (typescript-eslint) | 487.6 s | 414.4 s | 499.6 s | 23,735 MB | 56,163 | 39.82× |
+
+## Group C: ESLint (typescript-eslint), Rslint, Oxlint, Biome
+
+56 syntactic rules, no type information. Median of 5 runs after 1 warmup. Bar lengths are log-scaled; the labels give exact values.
+
+### [rstack-cli](https://github.com/rstackjs/rstack-cli/tree/b35a79a98d4cdb84fc9c56f7b5fb5625cb74c1c9)
+
+**Files:** 366
+
+![Group C, rstack-cli](charts/group-c-rstack-cli.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 85 ms | 76 ms | 90 ms | 48 MB | 0 | 1.00× |
+| Biome | 164 ms | 163 ms | 167 ms | 92 MB | 13 | 1.92× |
+| Rslint | 234 ms | 181 ms | 237 ms | 115 MB | 0 | 2.74× |
+| ESLint (typescript-eslint) | 782 ms | 777 ms | 852 ms | 413 MB | 0 | 9.17× |
+
+### [rspack](https://github.com/web-infra-dev/rspack/tree/6c1f72b0991a7c691c8e951d6a7821b3d532f6d5)
+
+**Files:** 499
+
+![Group C, rspack](charts/group-c-rspack.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 188 ms | 181 ms | 197 ms | 90 MB | 625 | 1.00× |
+| Rslint | 242 ms | 234 ms | 291 ms | 157 MB | 624 | 1.29× |
+| Biome | 244 ms | 235 ms | 248 ms | 166 MB | 809 | 1.30× |
+| ESLint (typescript-eslint) | 1.45 s | 1.42 s | 1.49 s | 611 MB | 624 | 7.73× |
+
+### [rsdoctor](https://github.com/web-infra-dev/rsdoctor/tree/80b2381d1a20901e1f12b3f2bb2778aaacf94f2f)
+
+**Files:** 734
+
+![Group C, rsdoctor](charts/group-c-rsdoctor.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 103 ms | 85 ms | 155 ms | 25 MB | 297 | 1.00× |
+| Biome | 197 ms | 190 ms | 249 ms | 132 MB | 357 | 1.91× |
+| Rslint | 217 ms | 209 ms | 300 ms | 122 MB | 291 | 2.10× |
+| ESLint (typescript-eslint) | 1.48 s | 1.45 s | 1.51 s | 771 MB | 292 | 14.28× |
+
+### [typescript6](https://github.com/microsoft/TypeScript/tree/050880ce59e30b356b686bd3144efe24f875ebc8)
+
+**Files:** 745
+
+![Group C, typescript6](charts/group-c-typescript6.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 356 ms | 297 ms | 371 ms | 338 MB | 1,526 | 1.00× |
+| Rslint | 484 ms | 474 ms | 521 ms | 464 MB | 1,530 | 1.36× |
+| Biome | 4.74 s | 4.66 s | 4.81 s | 1,958 MB | 2,226 | 13.32× |
+| ESLint (typescript-eslint) | 5.67 s | 5.63 s | 6.01 s | 1,499 MB | 1,560 | 15.91× |
+
+### [rspress](https://github.com/web-infra-dev/rspress/tree/6f87abf1d323ced2883261642561a3fc88fbd278)
+
+**Files:** 746
+
+![Group C, rspress](charts/group-c-rspress.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 85 ms | 79 ms | 156 ms | 63 MB | 50 | 1.00× |
+| Biome | 247 ms | 243 ms | 289 ms | 122 MB | 92 | 2.91× |
+| Rslint | 253 ms | 239 ms | 348 ms | 145 MB | 47 | 2.98× |
+| ESLint (typescript-eslint) | 1.42 s | 1.38 s | 1.47 s | 689 MB | 53 | 16.67× |
+
+### [rslib](https://github.com/web-infra-dev/rslib/tree/0734e3624dd7bfb08fdfc4ff0416404a9a551df4)
+
+**Files:** 1,018
+
+![Group C, rslib](charts/group-c-rslib.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 101 ms | 86 ms | 105 ms | 41 MB | 72 | 1.00× |
+| Biome | 269 ms | 231 ms | 345 ms | 131 MB | 98 | 2.66× |
+| Rslint | 290 ms | 280 ms | 373 ms | 143 MB | 47 | 2.87× |
+| ESLint (typescript-eslint) | 1.08 s | 1.07 s | 1.10 s | 554 MB | 68 | 10.64× |
+
+### [rstest](https://github.com/web-infra-dev/rstest/tree/03cabf3dd586392a6bfa4720e5a92c37281b943a)
+
+**Files:** 2,139
+
+![Group C, rstest](charts/group-c-rstest.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 98 ms | 97 ms | 179 ms | 80 MB | 757 | 1.00× |
+| Biome | 357 ms | 312 ms | 403 ms | 225 MB | 1,208 | 3.63× |
+| Rslint | 402 ms | 348 ms | 467 ms | 248 MB | 755 | 4.09× |
+| ESLint (typescript-eslint) | 2.94 s | 2.91 s | 3.01 s | 719 MB | 755 | 29.92× |
+
+### [rsbuild](https://github.com/web-infra-dev/rsbuild/tree/622f5df2b43c12423b50ed986e0f0983c338bf91)
+
+**Files:** 2,448
+
+![Group C, rsbuild](charts/group-c-rsbuild.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 137 ms | 103 ms | 180 ms | 83 MB | 50 | 1.00× |
+| Rslint | 413 ms | 395 ms | 462 ms | 176 MB | 45 | 3.01× |
+| Biome | 442 ms | 429 ms | 478 ms | 146 MB | 119 | 3.22× |
+| ESLint (typescript-eslint) | 1.91 s | 1.91 s | 1.92 s | 631 MB | 50 | 13.90× |
+
+### [vscode](https://github.com/microsoft/vscode/tree/f92b8f3adcd9bc034e6b9ade05c093dd59b99c5f)
+
+**Files:** 14,260
+
+![Group C, vscode](charts/group-c-vscode.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 494 ms | 423 ms | 521 ms | 435 MB | 10,260 | 1.00× |
+| Rslint | 2.49 s | 2.30 s | 2.62 s | 5,915 MB | 10,291 | 5.04× |
+| Biome | 4.38 s | 3.95 s | 4.47 s | 6,065 MB | 18,600 | 8.87× |
+| ESLint (typescript-eslint) | 79.1 s | 75.6 s | 82.9 s | 2,248 MB | 11,344 | 160.06× |

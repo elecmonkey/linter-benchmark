@@ -21,6 +21,8 @@ const NAMES = {
   oxlint: 'Oxlint (oxlint-tsgolint)',
   biome: 'Biome',
 };
+// Without type information Oxlint does not use tsgolint.
+const nameIn = (def, tool) => (tool === 'oxlint' && !def.typeInfo ? 'Oxlint' : NAMES[tool]);
 const REPO_OF = Object.fromEntries(REPOS.map((repo) => [fixtureName(repo), repo]));
 const ORDER = Object.keys(REPO_OF).sort((a, b) => scope[a].files - scope[b].files);
 
@@ -61,14 +63,14 @@ function section(chartDir, headingLevel) {
     }
     const cells = Object.entries(wins)
       .sort((a, b) => b[1].length - a[1].length)
-      .map(([tool, fixtures]) => `**${NAMES[tool]}** ${fixtures.length}/${total}`);
+      .map(([tool, fixtures]) => `**${nameIn(def, tool)}** ${fixtures.length}/${total}`);
     lines.push(`| ${group} | ${cells.join(' · ')} |`);
   }
   lines.push('');
 
   for (const [group, def] of Object.entries(groups)) {
-    lines.push(`${h(0)} Group ${group}: ${def.tools.map((t) => NAMES[t]).join(', ')}`, '');
-    lines.push(`${def.syntactic} syntactic + ${def.typeAware} type-aware rules. Median of 5 runs after 1 warmup. Bar lengths are log-scaled; the labels give exact values.`, '');
+    lines.push(`${h(0)} Group ${group}: ${def.tools.map((t) => nameIn(def, t)).join(', ')}`, '');
+    lines.push(`${def.typeInfo ? `${def.syntactic} syntactic + ${def.typeAware} type-aware rules` : `${def.syntactic} syntactic rules, no type information`}. Median of 5 runs after 1 warmup. Bar lengths are log-scaled; the labels give exact values.`, '');
     for (const fixture of ORDER) {
       const rows = def.tools.map((tool) => ({ tool, r: load(group, fixture, tool) })).filter((x) => x.r);
       if (rows.length !== def.tools.length) continue;
@@ -86,15 +88,15 @@ function section(chartDir, headingLevel) {
       const notes = [];
       for (const { tool, r } of rows) {
         if (crashed(r)) {
-          lines.push(`| ${NAMES[tool]} | crashed | | | | | |`);
+          lines.push(`| ${nameIn(def, tool)} | crashed | | | | | |`);
           const reason = crashReason(group, fixture, tool);
           // Double backticks: the message itself may contain backticks.
-          notes.push(`${NAMES[tool]} crashed on every run and produced no lint output${reason ? `: internal error \`\` ${reason} \`\`` : ''}.`);
+          notes.push(`${nameIn(def, tool)} crashed on every run and produced no lint output${reason ? `: internal error \`\` ${reason} \`\`` : ''}.`);
           continue;
         }
         const failed = r.failedRuns ? ` (${r.failedRuns} failed)` : '';
         lines.push(
-          `| ${NAMES[tool]}${failed} | ${fmtTime(r.wallMs.median)} | ${fmtTime(r.wallMs.min)} | ${fmtTime(r.wallMs.max)} | ${fmtInt(Math.round(r.peakRssMb.median))} MB | ${fmtInt(r.diagnostics.total ?? 0)} | ${(r.wallMs.median / fastest).toFixed(2)}× |`,
+          `| ${nameIn(def, tool)}${failed} | ${fmtTime(r.wallMs.median)} | ${fmtTime(r.wallMs.min)} | ${fmtTime(r.wallMs.max)} | ${fmtInt(Math.round(r.peakRssMb.median))} MB | ${fmtInt(r.diagnostics.total ?? 0)} | ${(r.wallMs.median / fastest).toFixed(2)}× |`,
         );
       }
       lines.push('');

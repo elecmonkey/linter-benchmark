@@ -11,12 +11,12 @@
 // Diagnostics from the last run are parsed and counted per ESLint rule name.
 //
 // Safety: each run is killed (whole process group) after --timeout-min minutes
-// and recorded as a timeout. ESLint gets a 16 GB V8 heap: typed linting with
+// and recorded as a timeout. ESLint gets a 32 GB V8 heap: typed linting with
 // projectService exceeds Node's ~4 GB default on multi-tsconfig monorepos.
 //
 // Usage:
-//   node scripts/05-run.mjs [--groups A,B] [--fixtures rsbuild,...] [--tools eslint,...]
-//                           [--runs 5] [--warmup 1] [--timeout-min 15] [--eslint-heap-mb 16384]
+//   node scripts/05-run.mjs [--groups A,B,C] [--fixtures rsbuild,...] [--tools eslint,...]
+//                           [--runs 5] [--warmup 1] [--timeout-min 15] [--eslint-heap-mb 32768]
 //
 // Output: results/raw/group-<g>/<fixture>/<tool>.json
 //         logs/output/group-<g>/<fixture>/<tool>.{stdout,stderr} (last run)
@@ -27,16 +27,17 @@ import { promisify } from 'node:util';
 import { BIN, CONFIGS_DIR, FIXTURES, FIXTURE_DIR, LOGS_DIR, RESULTS_DIR, RULES_DIR, SCOPE_DIR, list, parseFlags, readJson, writeJson } from './lib.mjs';
 
 const flags = parseFlags();
-const GROUPS = list(flags.groups, ['A', 'B']);
+const GROUPS = list(flags.groups, ['A', 'B', 'C']);
 const SELECTED_FIXTURES = list(flags.fixtures, FIXTURES);
 const RUNS = Number(flags.runs ?? 5);
 const WARMUP = Number(flags.warmup ?? 1);
 const TIMEOUT_MS = Number(flags['timeout-min'] ?? 15) * 60_000;
-const ESLINT_HEAP_MB = Number(flags['eslint-heap-mb'] ?? 16384);
+const ESLINT_HEAP_MB = Number(flags['eslint-heap-mb'] ?? 32768);
 const groups = readJson(path.join(RULES_DIR, 'groups.json'));
 
 // ------------------------------------------------------------------ tools
 // `config` is the file in configs/group-<g>/<fixture>/; `as` is its name inside the fixture.
+// `args(typeInfo)` is false for groups that run without type information.
 // `linted(stdout, cwd)` returns the files the tool linted: a list, or a count.
 const TOOLS = {
   eslint: {
@@ -60,7 +61,7 @@ const TOOLS = {
     config: 'oxlintrc.json',
     as: '.oxlintrc.bench.json',
     env: { OXLINT_TSGOLINT_PATH: path.join(BIN, 'tsgolint') },
-    args: () => [path.join(BIN, 'oxlint'), '-c', '.oxlintrc.bench.json', '--type-aware', '--disable-nested-config', '-f', 'json', '.'],
+    args: (typeInfo) => [path.join(BIN, 'oxlint'), '-c', '.oxlintrc.bench.json', ...(typeInfo ? ['--type-aware'] : []), '--disable-nested-config', '-f', 'json', '.'],
     // code: "typescript(no-floating-promises)" -> "typescript/no-floating-promises"
     parse: (out) => JSON.parse(out).diagnostics.map((d) => d.code?.replace(/^(\w+)\((.+)\)$/, '$1/$2') ?? `other: ${d.message}`),
     linted: (out) => JSON.parse(out).number_of_files,
@@ -225,7 +226,7 @@ for (const group of GROUPS) {
         for (const tool of tools) {
           const measured = i - WARMUP;
           const spec = TOOLS[tool];
-          const result = await runOnce(spec.args(), {
+          const result = await runOnce(spec.args(groups[group].typeInfo), {
             cwd,
             env: spec.env,
             stdoutFile: path.join(outDir, `${tool}.stdout`),
@@ -266,7 +267,7 @@ for (const group of GROUPS) {
           ...scopeCheck,
           // A run that was killed (timeout / OOM signal) did not finish its work.
           failedRuns: runs[tool].filter((r) => r.timedOut || r.signal).length,
-          command: spec.args().map((a) => a.replace(`${BIN}/`, '')).join(' '),
+          command: spec.args(groups[group].typeInfo).map((a) => a.replace(`${BIN}/`, '')).join(' '),
           wallMs: { median: median(walls), mean: mean(walls), stdev: stdev(walls), min: Math.min(...walls), max: Math.max(...walls) },
           peakRssMb: { median: median(runs[tool].map((r) => r.peakRssMb)), max: Math.max(...runs[tool].map((r) => r.peakRssMb)) },
           runs: runs[tool],

@@ -1,0 +1,167 @@
+{
+  "root": true,
+  "vcs": {
+    "enabled": false
+  },
+  "files": {
+    "maxSize": 67108864,
+    "includes": [
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.mjs",
+      "**/*.cjs",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.mts",
+      "**/*.cts",
+      "!**/*.vue",
+      "!**/*.svelte",
+      "!**/*.astro",
+      "!**/dist/**/*",
+      "!**/extensions/**/*.d.ts",
+      "!**/extensions/**/build/**",
+      "!**/extensions/**/colorize-fixtures/**",
+      "!**/extensions/copilot/coverage/**",
+      "!**/extensions/copilot/.esbuild/**",
+      "!**/extensions/copilot/.simulation/**",
+      "!**/extensions/copilot/.eslintplugin/**",
+      "!**/extensions/copilot/chat-lib/**",
+      "!**/extensions/copilot/test/simulation/fixtures/**",
+      "!**/extensions/copilot/src/util/vs/**",
+      "!**/extensions/copilot/src/platform/parser/test/node/fixtures/**",
+      "!**/extensions/copilot/src/extension/test/node/fixtures/**",
+      "!**/extensions/copilot/src/extension/prompts/node/test/fixtures/**",
+      "!**/extensions/copilot/src/extension/typescriptContext/serverPlugin/fixtures/**",
+      "!**/extensions/copilot/src/extension/typescriptContext/serverPlugin/lib/**",
+      "!**/extensions/copilot/src/extension/typescriptContext/serverPlugin/dist/**",
+      "!**/extensions/copilot/src/extension/completions-core/**/testdata/*",
+      "!**/extensions/copilot/.vscode/extensions/test-extension/dist/**",
+      "!**/extensions/css-language-features/server/test/pathCompletionFixtures/**",
+      "!**/extensions/html-language-features/server/lib/jquery.d.ts",
+      "!**/extensions/html-language-features/server/src/test/pathCompletionFixtures/**",
+      "!**/extensions/ipynb/notebook-out/**",
+      "!**/extensions/markdown-language-features/media/**",
+      "!**/extensions/markdown-language-features/markdown-editor-out/**",
+      "!**/extensions/markdown-language-features/notebook-out/**",
+      "!**/extensions/markdown-math/notebook-out/**",
+      "!**/extensions/mermaid-markdown-features/chat-webview-out/**",
+      "!**/extensions/mermaid-markdown-features/markdown-preview-out/**",
+      "!**/extensions/mermaid-markdown-features/notebook-out/**",
+      "!**/extensions/notebook-renderers/renderer-out/index.js",
+      "!**/extensions/simple-browser/media/index.js",
+      "!**/extensions/terminal-suggest/src/completions/upstream/**",
+      "!**/extensions/terminal-suggest/src/shell/zshBuiltinsCache.ts",
+      "!**/extensions/terminal-suggest/src/shell/fishBuiltinsCache.ts",
+      "!**/extensions/terminal-suggest/third_party/**",
+      "!**/extensions/typescript-language-features/test-workspace/**",
+      "!**/extensions/typescript-language-features/package-manager/node-maintainer/**",
+      "!**/extensions/vscode-api-tests/testWorkspace/**",
+      "!**/extensions/vscode-api-tests/testWorkspace2/**",
+      "!**/fixtures/**",
+      "!**/node_modules/**",
+      "!**/out/**",
+      "!**/out-*/**",
+      "!**/src/**/dompurify.js",
+      "!**/src/**/marked.js",
+      "!**/src/**/semver.js",
+      "!**/src/typings/**/*.d.ts",
+      "!**/src/vs/*/**/*.d.ts",
+      "!**/src/vs/base/test/common/filters.perf.data.js",
+      "!**/src/vs/platform/agentHost/node/codex/protocol/generated/**",
+      "!**/test/unit/assert.js",
+      "!**/test/automation/out/**",
+      "!**/typings/**",
+      "!**/.build/**",
+      "!**/.vscode-test/**",
+      "!src/vs/base/common/lit-html/**",
+      "!src/vs/base/common/signals-core/**",
+      "!eslint.config.bench.mjs",
+      "!rslint.config.bench.mjs"
+    ]
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  },
+  "formatter": {
+    "enabled": false
+  },
+  "assist": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "none",
+      "correctness": {
+        "useValidForDirection": "error",
+        "noSwitchDeclarations": "error",
+        "noConstantCondition": "error",
+        "noEmptyCharacterClassInRegex": "error",
+        "noEmptyPattern": "error",
+        "noPrecisionLoss": "error",
+        "noNonoctalDecimalEscape": "error",
+        "noSelfAssign": "error",
+        "noUnsafeFinally": "error",
+        "noUnsafeOptionalChaining": "error",
+        "noUnusedLabels": "error",
+        "useYield": "error",
+        "useIsNan": "error",
+        "useValidTypeof": "error"
+      },
+      "suspicious": {
+        "noAsyncPromiseExecutor": "error",
+        "noCompareNegZero": "error",
+        "noConstantBinaryExpressions": "error",
+        "noControlCharactersInRegex": "error",
+        "noDebugger": "error",
+        "noDuplicateElseIf": "error",
+        "noDuplicateCase": "error",
+        "noEmptyBlockStatements": "error",
+        "noCatchAssign": "error",
+        "noFallthroughSwitchClause": "error",
+        "noGlobalAssign": "error",
+        "noIrregularWhitespace": "error",
+        "noMisleadingCharacterClass": "error",
+        "noPrototypeBuiltins": "error",
+        "noShadowRestrictedNames": "error",
+        "noSparseArray": "error",
+        "noUnassignedVariables": "error",
+        "noUselessRegexBackrefs": "error",
+        "noVar": "error",
+        "noDuplicateEnumValues": "error",
+        "noExplicitAny": "error",
+        "noExtraNonNullAssertion": "error",
+        "noMisleadingInstantiator": "error",
+        "noNonNullAssertedOptionalChain": "error",
+        "noUnsafeDeclarationMerging": "error",
+        "useNamespaceKeyword": "error"
+      },
+      "performance": {
+        "noDelete": "error"
+      },
+      "complexity": {
+        "noExtraBooleanCast": "error",
+        "noAdjacentSpacesInRegex": "error",
+        "noUselessCatch": "error",
+        "noUselessEscapeInRegex": "error",
+        "noArguments": "error",
+        "noUselessTypeConstraint": "error"
+      },
+      "nursery": {
+        "noUselessAssignment": "error"
+      },
+      "style": {
+        "useErrorCause": "error",
+        "useConst": "error",
+        "useSpreadOverApply": "error",
+        "useArrayLiterals": "error",
+        "noNamespace": "error",
+        "noCommonJs": "error",
+        "useAsConstAssertion": "error"
+      }
+    }
+  },
+  "overrides": []
+}

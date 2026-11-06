@@ -1,0 +1,100 @@
+{
+  "group": "C",
+  "fixture": "vscode",
+  "tool": "oxlint",
+  "files": 14260,
+  "filesLinted": 14258,
+  "scopeMatch": false,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 493.915792,
+    "mean": 486.1364416,
+    "stdev": 35.347453896858106,
+    "min": 422.888792,
+    "max": 520.88575
+  },
+  "peakRssMb": {
+    "median": 435.484375,
+    "max": 465
+  },
+  "runs": [
+    {
+      "wallMs": 516.044291,
+      "peakRssMb": 435.53125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 493.915792,
+      "peakRssMb": 465,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 422.888792,
+      "peakRssMb": 416.109375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 520.88575,
+      "peakRssMb": 435.484375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 476.947583,
+      "peakRssMb": 425.0625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 10260,
+    "typeAware": 0,
+    "syntactic": 10260,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-array-constructor": 3,
+      "@typescript-eslint/no-duplicate-enum-values": 15,
+      "@typescript-eslint/no-explicit-any": 5718,
+      "@typescript-eslint/no-misused-new": 1,
+      "@typescript-eslint/no-namespace": 712,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 28,
+      "@typescript-eslint/no-require-imports": 291,
+      "@typescript-eslint/no-unsafe-declaration-merging": 2,
+      "@typescript-eslint/prefer-as-const": 15,
+      "no-constant-binary-expression": 10,
+      "no-constant-condition": 21,
+      "no-control-regex": 85,
+      "no-dupe-else-if": 2,
+      "no-empty": 188,
+      "no-empty-pattern": 33,
+      "no-ex-assign": 11,
+      "no-extra-boolean-cast": 83,
+      "no-fallthrough": 36,
+      "no-irregular-whitespace": 18,
+      "no-prototype-builtins": 118,
+      "no-regex-spaces": 14,
+      "no-self-assign": 24,
+      "no-shadow-restricted-names": 8,
+      "no-unassigned-vars": 11,
+      "no-unsafe-optional-chaining": 50,
+      "no-useless-assignment": 486,
+      "no-useless-catch": 8,
+      "no-useless-escape": 1926,
+      "prefer-const": 133,
+      "prefer-rest-params": 17,
+      "prefer-spread": 40,
+      "preserve-caught-error": 148,
+      "require-yield": 4,
+      "valid-typeof": 1
+    }
+  }
+}

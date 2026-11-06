@@ -1,0 +1,91 @@
+{
+  "group": "C",
+  "fixture": "typescript6",
+  "tool": "biome",
+  "files": 745,
+  "filesLinted": 745,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 4744.909792,
+    "mean": 4731.654591799999,
+    "stdev": 55.91170546354634,
+    "min": 4658.845167,
+    "max": 4807.043875
+  },
+  "peakRssMb": {
+    "median": 1958.25,
+    "max": 1975.8125
+  },
+  "runs": [
+    {
+      "wallMs": 4770.345875,
+      "peakRssMb": 1957.453125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4744.909792,
+      "peakRssMb": 1975.8125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4658.845167,
+      "peakRssMb": 1958.25,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4677.12825,
+      "peakRssMb": 1972.796875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 4807.043875,
+      "peakRssMb": 1957.546875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 2226,
+    "typeAware": 0,
+    "syntactic": 2226,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-array-constructor": 1,
+      "@typescript-eslint/no-duplicate-enum-values": 4,
+      "@typescript-eslint/no-explicit-any": 959,
+      "@typescript-eslint/no-namespace": 41,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 13,
+      "@typescript-eslint/no-require-imports": 13,
+      "no-case-declarations": 344,
+      "no-constant-condition": 1,
+      "no-control-regex": 14,
+      "no-debugger": 1,
+      "no-delete-var": 6,
+      "no-empty + no-empty-static-block": 14,
+      "no-extra-boolean-cast": 52,
+      "no-fallthrough": 122,
+      "no-prototype-builtins": 1,
+      "no-shadow-restricted-names": 135,
+      "no-sparse-arrays": 1,
+      "no-unassigned-vars": 3,
+      "no-unsafe-optional-chaining": 1,
+      "no-useless-assignment": 26,
+      "no-var": 461,
+      "prefer-const": 5,
+      "prefer-rest-params": 4,
+      "prefer-spread": 2,
+      "preserve-caught-error": 2
+    }
+  }
+}

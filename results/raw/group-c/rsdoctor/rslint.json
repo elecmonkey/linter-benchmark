@@ -1,0 +1,69 @@
+{
+  "group": "C",
+  "fixture": "rsdoctor",
+  "tool": "rslint",
+  "files": 734,
+  "filesLinted": 734,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 217.414166,
+    "mean": 231.99537500000002,
+    "stdev": 34.31751023674456,
+    "min": 209.185125,
+    "max": 300.269667
+  },
+  "peakRssMb": {
+    "median": 121.703125,
+    "max": 149.59375
+  },
+  "runs": [
+    {
+      "wallMs": 213.614167,
+      "peakRssMb": 121.703125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 209.185125,
+      "peakRssMb": 125.15625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 217.414166,
+      "peakRssMb": 119.203125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 300.269667,
+      "peakRssMb": 149.59375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 219.49375,
+      "peakRssMb": 115.71875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 291,
+    "typeAware": 0,
+    "syntactic": 291,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 268,
+      "@typescript-eslint/no-require-imports": 13,
+      "no-var": 10
+    }
+  }
+}

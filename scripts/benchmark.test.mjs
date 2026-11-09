@@ -4,10 +4,27 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
-import { CONFIGS_DIR, FIXTURES, ROOT, RULES_DIR, readJson, ruleTool, toolName, toolsForGroup } from './lib.mjs';
+import { CONFIGS_DIR, FIXTURES, ROOT, RULES_DIR, parseFlags, readJson, ruleTool, toolName, toolsForGroup } from './lib.mjs';
 
 const groups = readJson(path.join(RULES_DIR, 'groups.json'));
 const typedTools = ['rslint', 'oxlint-tsgolint', 'oxlint-tsrs', 'oxlint-tsrs-fast'];
+
+test('the CI argument list parses identically with a pnpm separator', () => {
+  const args = ['--groups', 'A,B,C', '--runs', '5', '--warmup', '1', '--timeout-min', '15'];
+  const expected = { groups: 'A,B,C', runs: '5', warmup: '1', 'timeout-min': '15' };
+  assert.deepEqual(parseFlags(args), expected);
+  assert.deepEqual(parseFlags(['--', ...args]), expected);
+  assert.deepEqual(parseFlags(['--', '--groups=A,B,C', '--runs=5']), { groups: 'A,B,C', runs: '5' });
+});
+
+test('pnpm run forwards options to benchmark validation without shifting them', () => {
+  const result = spawnSync('pnpm', ['run', 'bench', '--', '--groups', 'invalid', '--runs', '5', '--warmup', '1', '--timeout-min', '15'], {
+    cwd: ROOT, encoding: 'utf8', timeout: 30000,
+  });
+  assert.notEqual(result.status, 0);
+  assert.match(result.stdout + result.stderr, /unknown benchmark group: invalid/);
+  assert.doesNotMatch(result.stdout + result.stderr, /unknown benchmark option/);
+});
 
 test('the requested comparator groups are explicit and preserve the rule baseline', () => {
   assert.deepEqual(groups.A.tools, typedTools);

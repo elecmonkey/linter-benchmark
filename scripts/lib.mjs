@@ -66,6 +66,8 @@ export function run(command, args, options = {}) {
 
 /** Parse `--key value` / `--key=value` CLI flags into an object of comma lists. */
 export function parseFlags(argv = process.argv.slice(2)) {
+  // pnpm run forwards its argument separator to the script in pnpm 12.
+  if (argv[0] === '--') argv = argv.slice(1);
   const flags = {};
   for (let i = 0; i < argv.length; i++) {
     const [key, inline] = argv[i].replace(/^--/, '').split('=');

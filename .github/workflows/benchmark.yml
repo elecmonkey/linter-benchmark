@@ -11,6 +11,7 @@ on:
       publish_results:
         description: |
           Approve pushing ci/benchmark-results in this repository and opening a PR to main.
+          Archive the previous main results and README before replacing live generated data.
           Title and commit: Update benchmark results
           PR body:
           Refresh all A/B/C benchmark results, charts, scope, configurations, and README using the pinned fixture revisions and tool versions.

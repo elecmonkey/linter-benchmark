@@ -3,9 +3,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { PUBLICATION, GENERATED_PATHS, isGeneratedPath, assertPullRequest, isSameWorkflowRun } from './ci-contract.mjs';
+import { PUBLICATION, GENERATED_PATHS, isGeneratedPath, isPublicationPath, assertPullRequest, isSameWorkflowRun } from './ci-contract.mjs';
 import { ROOT, readJson } from './lib.mjs';
 import { validateDirectory } from './ci-results.mjs';
+import { archivePreviousResults, assertArchivesPreserved, ARCHIVE_INDEX } from './archive.mjs';
 
 const command = (bin, args) => execFileSync(bin, args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 ** 2 }).trim();
 const git = (...args) => command('git', args);
@@ -53,9 +54,11 @@ if (existing) {
   const merge = spawnSync('git', ['merge', '--no-commit', '--no-ff', environment.sourceCommit], { cwd: ROOT, encoding: 'utf8' });
   if (merge.status !== 0) {
     const conflicts = git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean);
-    if (!conflicts.length || conflicts.some((file) => !isGeneratedPath(file))) fail('main conflicts with non-generated automation branch files');
+    if (!conflicts.length || conflicts.some((file) => !isGeneratedPath(file) && file !== ARCHIVE_INDEX)) fail('main conflicts with non-generated automation branch files');
   }
 } else git('switch', '-c', PUBLICATION.branch, environment.sourceCommit);
+
+const archive = archivePreviousResults({ root: ROOT, commit: environment.sourceCommit, repository: PUBLICATION.repository });
 
 for (const file of GENERATED_PATHS) {
   const target = path.join(ROOT, file);
@@ -63,9 +66,10 @@ for (const file of GENERATED_PATHS) {
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.cpSync(path.join(artifact, file), target, { recursive: true });
 }
-git('add', '--', ...GENERATED_PATHS);
+git('add', '--', ...GENERATED_PATHS, archive.archivePath, archive.indexPath);
 const changed = git('diff', '--name-only', environment.sourceCommit).split('\n').filter(Boolean);
-if (changed.some((file) => !isGeneratedPath(file))) fail('publication would modify source files outside the generated paths');
+if (changed.some((file) => !isPublicationPath(file))) fail('publication would modify source files outside generated and archive paths');
+assertArchivesPreserved(ROOT, environment.sourceCommit);
 if (!changed.length) {
   console.log('No benchmark changes to publish');
   process.exit(0);

@@ -55,6 +55,8 @@ pnpm run chart && pnpm run report
 
 `.github/workflows/benchmark.yml` provides a manual CI refresh. It validates all fresh A/B/C data before publishing the generated files through an internal PR. `scripts/ci-contract.mjs` fixes the target and English publication text; manual dispatch with `publish_results` enabled approves that contract. The CI benchmark job has read-only repository permissions, and publication uses a separate job.
 
+The publishing job archives the previous `main` README and result/input files under `archives/<source-commit>/` before replacing live data. `scripts/archive.mjs` preserves the relative layout, rewrites links to historical targets, and verifies existing snapshots are not overwritten. Never archive an archive recursively or point historical charts at the newest live charts.
+
 ## Before benchmarking
 
 Make sure the machine has ample free resources and nothing else interferes: no other heavy jobs, and no editors or language servers watching this directory.

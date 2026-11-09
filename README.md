@@ -2,6 +2,8 @@
 
 Rslint, Oxlint and Biome on seven Rstack monorepos, VS Code and TypeScript.
 
+[Archived benchmark results](archives/README.md)
+
 ## Experiments
 
 | Group | Tools | Rules |
@@ -444,6 +446,8 @@ The workflow installs pinned dependencies and fixture revisions, regenerates the
 Results and logs are uploaded as artifacts. With `publish_results` enabled, the publishing job pushes only generated data to `ci/benchmark-results` on this repository and creates a PR to `main`, or updates the branch of its existing PR. It preserves branch history and uses no force push. A changed `main`, human edits to the automation branch/PR, or changes outside generated paths stop publication. With `publish_results` disabled, the workflow only saves artifacts.
 
 A raw checkpoint is uploaded before validation, including exact result JSON and the generated inputs. The always-uploaded logs also contain a backup under `benchmark-checkpoint/`. Validation failures therefore preserve the measured data. Retrying only a failed publishing job can reuse the validated artifact from an earlier attempt of the same workflow run.
+
+Before replacing live data, each results update PR snapshots the previous `main` revision into `archives/<full-source-commit>/`. It preserves the old README, results (raw JSON, charts, report and runner information), scope, configurations, rule metadata and version inputs. The archive keeps the repository-relative layout, so README images still resolve to its own `results/charts/` and the report uses its own `charts/`. Other relative Markdown/reference/HTML links are rewritten for the snapshot; links to uncopied source files point at the original commit. Existing snapshots are immutable and a repeated update from the same source commit verifies and reuses the snapshot. The archive index links to each historical README and report.
 
 Enabling `publish_results` and submitting the manual dispatch approves the following fixed publication contract (`scripts/ci-contract.mjs`):
 

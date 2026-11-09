@@ -18,6 +18,11 @@ export function isGeneratedPath(file) {
   return GENERATED_PATHS.some((root) => file === root || ['results', 'scope', 'configs'].includes(root) && file.startsWith(`${root}/`));
 }
 
+export function isPublicationPath(file) {
+  if (file.split('/').some((part) => part === '..' || part === '.git')) return false;
+  return isGeneratedPath(file) || file === 'archives/README.md' || /^archives\/[a-f0-9]{40}\//.test(file);
+}
+
 export function assertPullRequest(pr) {
   if (pr.title !== PUBLICATION.title || pr.body !== PUBLICATION.body ||
       pr.base.ref !== PUBLICATION.base || pr.head.ref !== PUBLICATION.branch ||

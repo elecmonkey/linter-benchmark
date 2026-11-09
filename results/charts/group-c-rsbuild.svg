@@ -25,24 +25,24 @@
   <rect class="surface" width="760" height="132" rx="8"/>
 
   <g>
-    <title>Oxlint: 109 ms (fastest)</title>
+    <title>Oxlint: 96 ms (fastest)</title>
     <text class="t-secondary" x="170" y="28" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint</text>
     <path class="bar-oxlint" d="M186,16H249A4,4 0 0 1 253,20V36A4,4 0 0 1 249,40H186Z"/>
     <text class="ratio" x="245" y="28" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.00×</text>
-    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">109 ms</text>
+    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">96 ms</text>
   </g>
   <g>
-    <title>Rslint: 364 ms (3.34× the fastest)</title>
-    <text class="t-secondary" x="170" y="66" text-anchor="end" dominant-baseline="central" font-size="15">Rslint</text>
-    <path class="bar-rslint" d="M186,54H652.8269070782119A4,4 0 0 1 656.8269070782119,58V74A4,4 0 0 1 652.8269070782119,78H186Z"/>
-    <text class="ratio" x="648.8269070782119" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">3.34×</text>
-    <text class="t-secondary" x="666.8269070782119" y="66" dominant-baseline="central" font-size="14">364 ms</text>
+    <title>Biome: 437 ms (4.58× the fastest)</title>
+    <text class="t-secondary" x="170" y="66" text-anchor="end" dominant-baseline="central" font-size="15">Biome</text>
+    <path class="bar-biome" d="M186,54H607.4466668450273A4,4 0 0 1 611.4466668450273,58V74A4,4 0 0 1 607.4466668450273,78H186Z"/>
+    <text class="ratio" x="603.4466668450273" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">4.58×</text>
+    <text class="t-secondary" x="621.4466668450273" y="66" dominant-baseline="central" font-size="14">437 ms</text>
   </g>
   <g>
-    <title>Biome: 379 ms (3.47× the fastest)</title>
-    <text class="t-secondary" x="170" y="104" text-anchor="end" dominant-baseline="central" font-size="15">Biome</text>
-    <path class="bar-biome" d="M186,92H666A4,4 0 0 1 670,96V112A4,4 0 0 1 666,116H186Z"/>
-    <text class="ratio" x="662" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">3.47×</text>
-    <text class="t-secondary" x="680" y="104" dominant-baseline="central" font-size="14">379 ms</text>
+    <title>Rslint: 560 ms (5.87× the fastest)</title>
+    <text class="t-secondary" x="170" y="104" text-anchor="end" dominant-baseline="central" font-size="15">Rslint</text>
+    <path class="bar-rslint" d="M186,92H666A4,4 0 0 1 670,96V112A4,4 0 0 1 666,116H186Z"/>
+    <text class="ratio" x="662" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">5.87×</text>
+    <text class="t-secondary" x="680" y="104" dominant-baseline="central" font-size="14">560 ms</text>
   </g>
 </svg>

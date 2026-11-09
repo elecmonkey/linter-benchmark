@@ -25,31 +25,31 @@
   <rect class="surface" width="760" height="170" rx="8"/>
 
   <g>
-    <title>Rslint: 720 ms (fastest)</title>
-    <text class="t-secondary" x="170" y="28" text-anchor="end" dominant-baseline="central" font-size="15">Rslint</text>
-    <path class="bar-rslint" d="M186,16H249A4,4 0 0 1 253,20V36A4,4 0 0 1 249,40H186Z"/>
+    <title>Oxlint (tsgolint): 2.41 s (fastest)</title>
+    <text class="t-secondary" x="170" y="28" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsgolint)</text>
+    <path class="bar-oxlint-tsgolint" d="M186,16H249A4,4 0 0 1 253,20V36A4,4 0 0 1 249,40H186Z"/>
     <text class="ratio" x="245" y="28" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.00×</text>
-    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">720 ms</text>
+    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">2.41 s</text>
   </g>
   <g>
-    <title>Oxlint (tsgolint): 1.32 s (1.84× the fastest)</title>
-    <text class="t-secondary" x="170" y="66" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsgolint)</text>
-    <path class="bar-oxlint-tsgolint" d="M186,54H617.5098551904706A4,4 0 0 1 621.5098551904706,58V74A4,4 0 0 1 617.5098551904706,78H186Z"/>
-    <text class="ratio" x="613.5098551904706" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.84×</text>
-    <text class="t-secondary" x="631.5098551904706" y="66" dominant-baseline="central" font-size="14">1.32 s</text>
+    <title>Rslint: 2.56 s (1.06× the fastest)</title>
+    <text class="t-secondary" x="170" y="66" text-anchor="end" dominant-baseline="central" font-size="15">Rslint</text>
+    <path class="bar-rslint" d="M186,54H340.26510514680706A4,4 0 0 1 344.26510514680706,58V74A4,4 0 0 1 340.26510514680706,78H186Z"/>
+    <text class="ratio" x="336.26510514680706" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.06×</text>
+    <text class="t-secondary" x="354.26510514680706" y="66" dominant-baseline="central" font-size="14">2.56 s</text>
   </g>
   <g>
-    <title>Oxlint (tsrs --fast): 1.41 s (1.96× the fastest)</title>
+    <title>Oxlint (tsrs --fast): 3.11 s (1.29× the fastest)</title>
     <text class="t-secondary" x="170" y="104" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsrs --fast)</text>
-    <path class="bar-oxlint-tsrs-fast" d="M186,92H656.9641689456068A4,4 0 0 1 660.9641689456068,96V112A4,4 0 0 1 656.9641689456068,116H186Z"/>
-    <text class="ratio" x="652.9641689456068" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.96×</text>
-    <text class="t-secondary" x="670.9641689456068" y="104" dominant-baseline="central" font-size="14">1.41 s</text>
+    <path class="bar-oxlint-tsrs-fast" d="M186,92H631.7795784540954A4,4 0 0 1 635.7795784540954,96V112A4,4 0 0 1 631.7795784540954,116H186Z"/>
+    <text class="ratio" x="627.7795784540954" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.29×</text>
+    <text class="t-secondary" x="645.7795784540954" y="104" dominant-baseline="central" font-size="14">3.11 s</text>
   </g>
   <g>
-    <title>Oxlint (tsrs): 1.43 s (1.99× the fastest)</title>
+    <title>Oxlint (tsrs): 3.18 s (1.32× the fastest)</title>
     <text class="t-secondary" x="170" y="142" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsrs)</text>
     <path class="bar-oxlint-tsrs" d="M186,130H666A4,4 0 0 1 670,134V150A4,4 0 0 1 666,154H186Z"/>
-    <text class="ratio" x="662" y="142" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.99×</text>
-    <text class="t-secondary" x="680" y="142" dominant-baseline="central" font-size="14">1.43 s</text>
+    <text class="ratio" x="662" y="142" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.32×</text>
+    <text class="t-secondary" x="680" y="142" dominant-baseline="central" font-size="14">3.18 s</text>
   </g>
 </svg>

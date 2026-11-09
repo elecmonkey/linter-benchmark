@@ -1,0 +1,89 @@
+{
+  "group": "B",
+  "fixture": "rsbuild",
+  "tool": "oxlint-tsrs",
+  "completedAt": "2026-11-09T05:19:39.375Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {
+    "OXLINT_TSGOLINT_PATH": "/Users/bytedance/rstack/wrslint/benchmark/node_modules/.bin/tsrs-lint",
+    "TSRS_FAST": "0"
+  },
+  "files": 2450,
+  "filesLinted": 2450,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 1357.85,
+    "mean": 1353.9320332000002,
+    "stdev": 13.223784245373015,
+    "min": 1329.004208,
+    "max": 1368.508166
+  },
+  "peakRssMb": {
+    "median": 2329.5625,
+    "max": 2339.015625
+  },
+  "runs": [
+    {
+      "wallMs": 1355.659709,
+      "peakRssMb": 2337.640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1358.638083,
+      "peakRssMb": 2339.015625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1357.85,
+      "peakRssMb": 2324.015625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1368.508166,
+      "peakRssMb": 2329.5625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1329.004208,
+      "peakRssMb": 2291.78125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 95,
+    "typeAware": 20,
+    "syntactic": 50,
+    "unmapped": {
+      "typescript/tsconfig-error": 25
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 1,
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 3,
+      "@typescript-eslint/no-require-imports": 1,
+      "@typescript-eslint/no-unsafe-return": 11,
+      "@typescript-eslint/require-await": 4,
+      "no-constant-binary-expression": 1,
+      "no-control-regex": 1,
+      "prefer-const": 2
+    }
+  }
+}

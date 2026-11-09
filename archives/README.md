@@ -1,5 +1,7 @@
 # Archived benchmark results
 
-CI results update PRs add a snapshot of the previous main revision here, including its README, raw data, charts, report and input metadata.
+Each snapshot preserves the previous main revision before a CI results update.
 
-No snapshots have been archived yet.
+| Source date | Source commit | Snapshot |
+|---|---|---|
+| 2026-11-09T19:53:58+08:00 | `6ee5a6cb00fc` | [README](6ee5a6cb00fc507096b73be7ca84bf85b6a24585/README.md) · [Report](6ee5a6cb00fc507096b73be7ca84bf85b6a24585/results/report.md) |

@@ -1,0 +1,14 @@
+{
+  "startedAt": "2026-11-09T11:59:19.792Z",
+  "sourceCommit": "6ee5a6cb00fc507096b73be7ca84bf85b6a24585",
+  "ciRunId": "42612909433/1",
+  "runUrl": "https://github.com/elecmonkey/linter-benchmark/actions/runs/42612909433",
+  "os": "Linux",
+  "release": "7.0.0-1017-azure",
+  "arch": "x64",
+  "cpuModel": "AMD EPYC 9V74 80-Core Processor",
+  "cpuCount": 4,
+  "memoryGiB": 16,
+  "node": "v26.5.1",
+  "pnpm": "12.18.0"
+}

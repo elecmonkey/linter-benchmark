@@ -1,0 +1,88 @@
+{
+  "group": "B",
+  "fixture": "rstest",
+  "tool": "rslint",
+  "completedAt": "2026-11-09T05:30:14.708Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 2139,
+  "filesLinted": 2139,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 657.853,
+    "mean": 653.7240168000001,
+    "stdev": 16.81527421775895,
+    "min": 626.820209,
+    "max": 677.362125
+  },
+  "peakRssMb": {
+    "median": 818.421875,
+    "max": 923.921875
+  },
+  "runs": [
+    {
+      "wallMs": 626.820209,
+      "peakRssMb": 923.921875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 645.750125,
+      "peakRssMb": 735.109375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 677.362125,
+      "peakRssMb": 830.015625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 660.834625,
+      "peakRssMb": 736.796875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 657.853,
+      "peakRssMb": 818.421875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1578,
+    "typeAware": 765,
+    "syntactic": 813,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 4,
+      "@typescript-eslint/no-explicit-any": 609,
+      "@typescript-eslint/no-floating-promises": 26,
+      "@typescript-eslint/no-implied-eval": 18,
+      "@typescript-eslint/no-misused-promises": 17,
+      "@typescript-eslint/no-require-imports": 68,
+      "@typescript-eslint/no-unsafe-return": 311,
+      "@typescript-eslint/no-unused-vars": 58,
+      "@typescript-eslint/prefer-promise-reject-errors": 8,
+      "@typescript-eslint/require-await": 381,
+      "no-empty": 1,
+      "no-var": 59,
+      "prefer-const": 11,
+      "preserve-caught-error": 7
+    }
+  }
+}

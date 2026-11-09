@@ -1,0 +1,92 @@
+{
+  "group": "A",
+  "fixture": "rslib",
+  "tool": "rslint",
+  "completedAt": "2026-11-09T05:24:31.349Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 521.6115,
+    "mean": 534.546267,
+    "stdev": 29.795316809159957,
+    "min": 514.61575,
+    "max": 593.779334
+  },
+  "peakRssMb": {
+    "median": 624.640625,
+    "max": 633.3125
+  },
+  "runs": [
+    {
+      "wallMs": 518.355334,
+      "peakRssMb": 624.640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 521.6115,
+      "peakRssMb": 633.3125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 593.779334,
+      "peakRssMb": 582.296875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 524.369417,
+      "peakRssMb": 631.65625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 514.61575,
+      "peakRssMb": 552.828125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 663,
+    "typeAware": 599,
+    "syntactic": 64,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/await-thenable": 7,
+      "@typescript-eslint/ban-ts-comment": 6,
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-floating-promises": 11,
+      "@typescript-eslint/no-misused-promises": 5,
+      "@typescript-eslint/no-redundant-type-constituents": 5,
+      "@typescript-eslint/no-require-imports": 4,
+      "@typescript-eslint/no-unnecessary-type-assertion": 48,
+      "@typescript-eslint/no-unsafe-argument": 10,
+      "@typescript-eslint/no-unsafe-assignment": 141,
+      "@typescript-eslint/no-unsafe-call": 102,
+      "@typescript-eslint/no-unsafe-member-access": 148,
+      "@typescript-eslint/no-unsafe-return": 15,
+      "@typescript-eslint/no-unused-vars": 11,
+      "@typescript-eslint/require-await": 97,
+      "@typescript-eslint/restrict-template-expressions": 9,
+      "@typescript-eslint/unbound-method": 1,
+      "preserve-caught-error": 2
+    }
+  }
+}

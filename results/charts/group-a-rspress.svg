@@ -25,31 +25,31 @@
   <rect class="surface" width="760" height="170" rx="8"/>
 
   <g>
-    <title>Rslint: 582 ms (fastest)</title>
+    <title>Rslint: 2.05 s (fastest)</title>
     <text class="t-secondary" x="170" y="28" text-anchor="end" dominant-baseline="central" font-size="15">Rslint</text>
     <path class="bar-rslint" d="M186,16H249A4,4 0 0 1 253,20V36A4,4 0 0 1 249,40H186Z"/>
     <text class="ratio" x="245" y="28" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.00×</text>
-    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">582 ms</text>
+    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">2.05 s</text>
   </g>
   <g>
-    <title>Oxlint (tsgolint): 1.03 s (1.77× the fastest)</title>
+    <title>Oxlint (tsgolint): 2.29 s (1.12× the fastest)</title>
     <text class="t-secondary" x="170" y="66" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsgolint)</text>
-    <path class="bar-oxlint-tsgolint" d="M186,54H540.1167566081417A4,4 0 0 1 544.1167566081417,58V74A4,4 0 0 1 540.1167566081417,78H186Z"/>
-    <text class="ratio" x="536.1167566081417" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.77×</text>
-    <text class="t-secondary" x="554.1167566081417" y="66" dominant-baseline="central" font-size="14">1.03 s</text>
+    <path class="bar-oxlint-tsgolint" d="M186,54H377.2929939789203A4,4 0 0 1 381.2929939789203,58V74A4,4 0 0 1 377.2929939789203,78H186Z"/>
+    <text class="ratio" x="373.2929939789203" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.12×</text>
+    <text class="t-secondary" x="391.2929939789203" y="66" dominant-baseline="central" font-size="14">2.29 s</text>
   </g>
   <g>
-    <title>Oxlint (tsrs --fast): 1.31 s (2.25× the fastest)</title>
-    <text class="t-secondary" x="170" y="104" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsrs --fast)</text>
-    <path class="bar-oxlint-tsrs-fast" d="M186,92H663.6237307902957A4,4 0 0 1 667.6237307902957,96V112A4,4 0 0 1 663.6237307902957,116H186Z"/>
-    <text class="ratio" x="659.6237307902957" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">2.25×</text>
-    <text class="t-secondary" x="677.6237307902957" y="104" dominant-baseline="central" font-size="14">1.31 s</text>
+    <title>Oxlint (tsrs): 2.91 s (1.42× the fastest)</title>
+    <text class="t-secondary" x="170" y="104" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsrs)</text>
+    <path class="bar-oxlint-tsrs" d="M186,92H659.7164414784287A4,4 0 0 1 663.7164414784287,96V112A4,4 0 0 1 659.7164414784287,116H186Z"/>
+    <text class="ratio" x="655.7164414784287" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.42×</text>
+    <text class="t-secondary" x="673.7164414784287" y="104" dominant-baseline="central" font-size="14">2.91 s</text>
   </g>
   <g>
-    <title>Oxlint (tsrs): 1.32 s (2.26× the fastest)</title>
-    <text class="t-secondary" x="170" y="142" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsrs)</text>
-    <path class="bar-oxlint-tsrs" d="M186,130H666A4,4 0 0 1 670,134V150A4,4 0 0 1 666,154H186Z"/>
-    <text class="ratio" x="662" y="142" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">2.26×</text>
-    <text class="t-secondary" x="680" y="142" dominant-baseline="central" font-size="14">1.32 s</text>
+    <title>Oxlint (tsrs --fast): 2.93 s (1.43× the fastest)</title>
+    <text class="t-secondary" x="170" y="142" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsrs --fast)</text>
+    <path class="bar-oxlint-tsrs-fast" d="M186,130H666A4,4 0 0 1 670,134V150A4,4 0 0 1 666,154H186Z"/>
+    <text class="ratio" x="662" y="142" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.43×</text>
+    <text class="t-secondary" x="680" y="142" dominant-baseline="central" font-size="14">2.93 s</text>
   </g>
 </svg>

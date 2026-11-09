@@ -1,0 +1,79 @@
+{
+  "group": "C",
+  "fixture": "rslib",
+  "tool": "oxlint",
+  "completedAt": "2026-11-09T06:31:26.576Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 80.556708,
+    "mean": 82.4671998,
+    "stdev": 3.926069871973621,
+    "min": 78.099625,
+    "max": 88.17375
+  },
+  "peakRssMb": {
+    "median": 63.15625,
+    "max": 69.5625
+  },
+  "runs": [
+    {
+      "wallMs": 86.040541,
+      "peakRssMb": 51.90625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 78.099625,
+      "peakRssMb": 69.5625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 80.556708,
+      "peakRssMb": 63.15625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 88.17375,
+      "peakRssMb": 51.1875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 79.465375,
+      "peakRssMb": 69.203125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 67,
+    "typeAware": 0,
+    "syntactic": 66,
+    "unmapped": {
+      "other: Expected a semicolon or an implicit semicolon after a statement, but found none": 1
+    },
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-require-imports": 23,
+      "preserve-caught-error": 2
+    }
+  }
+}

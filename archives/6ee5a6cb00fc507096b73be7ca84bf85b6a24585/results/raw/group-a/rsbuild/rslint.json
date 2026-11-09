@@ -1,0 +1,84 @@
+{
+  "group": "A",
+  "fixture": "rsbuild",
+  "tool": "rslint",
+  "completedAt": "2026-11-09T05:12:39.894Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 2450,
+  "filesLinted": 2450,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 719.50825,
+    "mean": 719.3737334,
+    "stdev": 40.27699426961759,
+    "min": 664.488292,
+    "max": 788.7255
+  },
+  "peakRssMb": {
+    "median": 925.078125,
+    "max": 1044.625
+  },
+  "runs": [
+    {
+      "wallMs": 719.50825,
+      "peakRssMb": 895.4375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 664.488292,
+      "peakRssMb": 909.609375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 702.521042,
+      "peakRssMb": 925.078125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 788.7255,
+      "peakRssMb": 926.015625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 721.625583,
+      "peakRssMb": 1044.625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1013,
+    "typeAware": 949,
+    "syntactic": 64,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/await-thenable": 2,
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-floating-promises": 6,
+      "@typescript-eslint/no-unsafe-argument": 2,
+      "@typescript-eslint/no-unsafe-assignment": 203,
+      "@typescript-eslint/no-unsafe-call": 502,
+      "@typescript-eslint/no-unsafe-member-access": 222,
+      "@typescript-eslint/no-unsafe-return": 11,
+      "@typescript-eslint/no-unused-vars": 19,
+      "@typescript-eslint/require-await": 1
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "group": "B",
+  "fixture": "rsbuild",
+  "tool": "biome",
+  "completedAt": "2026-11-09T05:19:39.375Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 2450,
+  "filesLinted": 2450,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 602.92525,
+    "mean": 603.1115752,
+    "stdev": 7.481284009042766,
+    "min": 590.604125,
+    "max": 613.3285
+  },
+  "peakRssMb": {
+    "median": 450.375,
+    "max": 470.546875
+  },
+  "runs": [
+    {
+      "wallMs": 602.92525,
+      "peakRssMb": 450.375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 590.604125,
+      "peakRssMb": 470.546875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 601.528292,
+      "peakRssMb": 467.734375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 613.3285,
+      "peakRssMb": 450.25,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 607.171709,
+      "peakRssMb": 449.890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 155,
+    "typeAware": 36,
+    "syntactic": 119,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-floating-promises": 6,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 4,
+      "@typescript-eslint/no-namespace": 2,
+      "@typescript-eslint/no-require-imports": 3,
+      "@typescript-eslint/no-unsafe-return": 3,
+      "@typescript-eslint/require-await": 22,
+      "no-constant-binary-expression": 1,
+      "no-control-regex": 1,
+      "no-delete-var": 5,
+      "no-empty + no-empty-static-block": 58,
+      "prefer-const": 2,
+      "preserve-caught-error": 2
+    }
+  }
+}

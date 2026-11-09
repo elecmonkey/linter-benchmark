@@ -1,0 +1,177 @@
+{
+  "root": true,
+  "vcs": {
+    "enabled": false
+  },
+  "files": {
+    "maxSize": 67108864,
+    "includes": [
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.mjs",
+      "**/*.cjs",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.mts",
+      "**/*.cts",
+      "!**/node_modules/**",
+      "!**/*.vue",
+      "!**/*.svelte",
+      "!**/*.astro",
+      "!packages/core/tests/build/utils/bundles/**",
+      "!rslint.config.bench.mjs"
+    ]
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  },
+  "formatter": {
+    "enabled": false
+  },
+  "assist": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "none",
+      "correctness": {
+        "useValidForDirection": "error",
+        "noSwitchDeclarations": "error",
+        "noConstantCondition": "error",
+        "noEmptyCharacterClassInRegex": "error",
+        "noEmptyPattern": "error",
+        "noPrecisionLoss": "error",
+        "noNonoctalDecimalEscape": "error",
+        "noSelfAssign": "error",
+        "noUnsafeFinally": "error",
+        "noUnsafeOptionalChaining": "error",
+        "noUnusedLabels": "error",
+        "useYield": "error",
+        "useIsNan": "error",
+        "useValidTypeof": "error",
+        "noUnusedVariables": "error"
+      },
+      "suspicious": {
+        "noAsyncPromiseExecutor": "error",
+        "noCompareNegZero": "error",
+        "noConstantBinaryExpressions": "error",
+        "noControlCharactersInRegex": "error",
+        "noDebugger": "error",
+        "noDuplicateElseIf": "error",
+        "noDuplicateCase": "error",
+        "noEmptyBlockStatements": "error",
+        "noCatchAssign": "error",
+        "noFallthroughSwitchClause": "error",
+        "noGlobalAssign": "error",
+        "noIrregularWhitespace": "error",
+        "noMisleadingCharacterClass": "error",
+        "noPrototypeBuiltins": "error",
+        "noShadowRestrictedNames": "error",
+        "noSparseArray": "error",
+        "noUnassignedVariables": "error",
+        "noUselessRegexBackrefs": "error",
+        "noVar": "error",
+        "noDuplicateEnumValues": "error",
+        "noExplicitAny": "error",
+        "noExtraNonNullAssertion": "error",
+        "noMisleadingInstantiator": "error",
+        "noNonNullAssertedOptionalChain": "error",
+        "noUnsafeDeclarationMerging": "error",
+        "useNamespaceKeyword": "error",
+        "useAwait": "error"
+      },
+      "performance": {
+        "noDelete": "error"
+      },
+      "complexity": {
+        "noExtraBooleanCast": "error",
+        "noAdjacentSpacesInRegex": "error",
+        "noUselessCatch": "error",
+        "noUselessEscapeInRegex": "error",
+        "noArguments": "error",
+        "noUselessTypeConstraint": "error"
+      },
+      "nursery": {
+        "noUselessAssignment": "error",
+        "noBaseToString": "error",
+        "noFloatingPromises": "error",
+        "noImpliedEval": "error",
+        "noMisusedPromises": "error",
+        "noUnsafeReturn": "error",
+        "noUnsafeUnaryMinus": "error",
+        "usePromiseRejectErrors": "error",
+        "noUnsafePlusOperands": "error"
+      },
+      "style": {
+        "useErrorCause": "error",
+        "useConst": "error",
+        "useSpreadOverApply": "error",
+        "useArrayLiterals": "error",
+        "noNamespace": "error",
+        "noCommonJs": "error",
+        "useAsConstAssertion": "error"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": [
+        "cspell.config.cjs",
+        "rstack.config.ts",
+        ".agents/**",
+        "examples/rsbuild-environments/**",
+        "examples/rsbuild-minimal/rsbuild.config.ts",
+        "examples/rsbuild-minimal/rules/**",
+        "examples/rspack-banner-minimal/rspack.config.mjs",
+        "examples/rspack-banner-minimal/src/index.tsx",
+        "examples/rspack-child-compiler/**",
+        "examples/rspack-layers-minimal/build.ts",
+        "examples/rspack-layers-minimal/legacy-loader.js",
+        "examples/rspack-layers-minimal/rspack.config.mjs",
+        "examples/rspack-layers-minimal/src/index.tsx",
+        "examples/rspack-minimal/build.ts",
+        "examples/rspack-minimal/rspack.config.mjs",
+        "examples/rspack-minimal/src/index.tsx",
+        "packages/agent-cli/rstack.config.ts",
+        "packages/agent-cli/bin/**",
+        "packages/cli/rstack.config.ts",
+        "packages/client/rstack.config.mts",
+        "packages/client/src/index.tsx",
+        "packages/core/rstack.config.ts",
+        "packages/core/tests/fixtures/**",
+        "packages/core/tests/plugins/fixtures/**",
+        "packages/core/tests/runtime-compatibility/**",
+        "packages/document/rstack.config.ts",
+        "packages/shared/rstack.config.ts",
+        "packages/shared/tests/fixtures/**",
+        "packages/shared/tests/graph/fixture/**",
+        "scripts/skipCI.js",
+        "scripts/skipCI.test.js",
+        "scripts/runtime-compatibility/**",
+        "scripts/test-helper/rstack.config.ts",
+        "tests/midscene/fixture-server.ts",
+        "tests/midscene/scripts/**"
+      ],
+      "linter": {
+        "rules": {
+          "nursery": {
+            "noBaseToString": "off",
+            "noFloatingPromises": "off",
+            "noImpliedEval": "off",
+            "noMisusedPromises": "off",
+            "noUnsafeReturn": "off",
+            "noUnsafeUnaryMinus": "off",
+            "usePromiseRejectErrors": "off",
+            "noUnsafePlusOperands": "off"
+          },
+          "suspicious": {
+            "useAwait": "off"
+          }
+        }
+      }
+    }
+  ]
+}

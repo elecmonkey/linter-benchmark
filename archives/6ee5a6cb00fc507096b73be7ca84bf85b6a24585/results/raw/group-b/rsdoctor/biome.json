@@ -1,0 +1,91 @@
+{
+  "group": "B",
+  "fixture": "rsdoctor",
+  "tool": "biome",
+  "completedAt": "2026-11-09T05:21:08.639Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 734,
+  "filesLinted": 734,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 1383.060583,
+    "mean": 1375.1294501999998,
+    "stdev": 22.438766085584287,
+    "min": 1347.410792,
+    "max": 1408.627625
+  },
+  "peakRssMb": {
+    "median": 856.03125,
+    "max": 897.34375
+  },
+  "runs": [
+    {
+      "wallMs": 1383.606209,
+      "peakRssMb": 860.0625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1352.942042,
+      "peakRssMb": 831.0625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1408.627625,
+      "peakRssMb": 801.203125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1383.060583,
+      "peakRssMb": 856.03125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1347.410792,
+      "peakRssMb": 897.34375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 562,
+    "typeAware": 204,
+    "syntactic": 357,
+    "unmapped": {
+      "other: suppressions/unused": 1
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 8,
+      "@typescript-eslint/no-explicit-any": 268,
+      "@typescript-eslint/no-floating-promises": 45,
+      "@typescript-eslint/no-require-imports": 23,
+      "@typescript-eslint/no-unsafe-return": 34,
+      "@typescript-eslint/no-unused-vars": 1,
+      "@typescript-eslint/prefer-promise-reject-errors": 1,
+      "@typescript-eslint/require-await": 116,
+      "no-delete-var": 10,
+      "no-empty + no-empty-static-block": 39,
+      "no-prototype-builtins": 2,
+      "no-shadow-restricted-names": 2,
+      "no-var": 10,
+      "prefer-rest-params": 1,
+      "preserve-caught-error": 1
+    }
+  }
+}

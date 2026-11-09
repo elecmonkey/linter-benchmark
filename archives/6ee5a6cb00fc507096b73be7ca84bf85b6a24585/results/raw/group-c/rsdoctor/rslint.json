@@ -1,0 +1,77 @@
+{
+  "group": "C",
+  "fixture": "rsdoctor",
+  "tool": "rslint",
+  "completedAt": "2026-11-09T06:31:36.914Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 734,
+  "filesLinted": 734,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 174.41175,
+    "mean": 173.84528319999998,
+    "stdev": 2.949327850197967,
+    "min": 170.255958,
+    "max": 178.666375
+  },
+  "peakRssMb": {
+    "median": 160.21875,
+    "max": 170.1875
+  },
+  "runs": [
+    {
+      "wallMs": 174.593708,
+      "peakRssMb": 159.375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 170.255958,
+      "peakRssMb": 170.1875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 171.298625,
+      "peakRssMb": 166.40625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 174.41175,
+      "peakRssMb": 160.21875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 178.666375,
+      "peakRssMb": 156.71875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 291,
+    "typeAware": 0,
+    "syntactic": 291,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 268,
+      "@typescript-eslint/no-require-imports": 13,
+      "no-var": 10
+    }
+  }
+}

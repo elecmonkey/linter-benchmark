@@ -1,0 +1,93 @@
+{
+  "group": "B",
+  "fixture": "rstest",
+  "tool": "oxlint-tsgolint",
+  "completedAt": "2026-11-09T05:30:14.713Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {
+    "OXLINT_TSGOLINT_PATH": "/Users/bytedance/rstack/wrslint/benchmark/node_modules/.bin/tsgolint"
+  },
+  "files": 2139,
+  "filesLinted": 2139,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 1135.135625,
+    "mean": 1127.083325,
+    "stdev": 52.94697354279321,
+    "min": 1028.699125,
+    "max": 1187.627125
+  },
+  "peakRssMb": {
+    "median": 907.890625,
+    "max": 919.8125
+  },
+  "runs": [
+    {
+      "wallMs": 1135.135625,
+      "peakRssMb": 916.515625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1028.699125,
+      "peakRssMb": 833.921875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1132.9385,
+      "peakRssMb": 907.890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1187.627125,
+      "peakRssMb": 919.8125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1151.01625,
+      "peakRssMb": 789.546875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1521,
+    "typeAware": 755,
+    "syntactic": 760,
+    "unmapped": {
+      "typescript/tsconfig-error": 6
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 3,
+      "@typescript-eslint/no-explicit-any": 609,
+      "@typescript-eslint/no-floating-promises": 26,
+      "@typescript-eslint/no-implied-eval": 18,
+      "@typescript-eslint/no-misused-promises": 16,
+      "@typescript-eslint/no-require-imports": 68,
+      "@typescript-eslint/no-unsafe-return": 304,
+      "@typescript-eslint/no-unused-vars": 3,
+      "@typescript-eslint/prefer-promise-reject-errors": 8,
+      "@typescript-eslint/require-await": 380,
+      "no-empty": 1,
+      "no-useless-assignment": 2,
+      "no-var": 59,
+      "prefer-const": 11,
+      "preserve-caught-error": 7
+    }
+  }
+}

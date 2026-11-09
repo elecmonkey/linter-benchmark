@@ -1,0 +1,197 @@
+{
+  "root": true,
+  "vcs": {
+    "enabled": false
+  },
+  "files": {
+    "maxSize": 67108864,
+    "includes": [
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.mjs",
+      "**/*.cjs",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.mts",
+      "**/*.cts",
+      "!**/node_modules/**",
+      "!**/*.vue",
+      "!**/*.svelte",
+      "!**/*.astro",
+      "!rslint.config.bench.mjs"
+    ]
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  },
+  "formatter": {
+    "enabled": false
+  },
+  "assist": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "none",
+      "correctness": {
+        "useValidForDirection": "error",
+        "noSwitchDeclarations": "error",
+        "noConstantCondition": "error",
+        "noEmptyCharacterClassInRegex": "error",
+        "noEmptyPattern": "error",
+        "noPrecisionLoss": "error",
+        "noNonoctalDecimalEscape": "error",
+        "noSelfAssign": "error",
+        "noUnsafeFinally": "error",
+        "noUnsafeOptionalChaining": "error",
+        "noUnusedLabels": "error",
+        "useYield": "error",
+        "useIsNan": "error",
+        "useValidTypeof": "error",
+        "noUnusedVariables": "error"
+      },
+      "suspicious": {
+        "noAsyncPromiseExecutor": "error",
+        "noCompareNegZero": "error",
+        "noConstantBinaryExpressions": "error",
+        "noControlCharactersInRegex": "error",
+        "noDebugger": "error",
+        "noDuplicateElseIf": "error",
+        "noDuplicateCase": "error",
+        "noEmptyBlockStatements": "error",
+        "noCatchAssign": "error",
+        "noFallthroughSwitchClause": "error",
+        "noGlobalAssign": "error",
+        "noIrregularWhitespace": "error",
+        "noMisleadingCharacterClass": "error",
+        "noPrototypeBuiltins": "error",
+        "noShadowRestrictedNames": "error",
+        "noSparseArray": "error",
+        "noUnassignedVariables": "error",
+        "noUselessRegexBackrefs": "error",
+        "noVar": "error",
+        "noDuplicateEnumValues": "error",
+        "noExplicitAny": "error",
+        "noExtraNonNullAssertion": "error",
+        "noMisleadingInstantiator": "error",
+        "noNonNullAssertedOptionalChain": "error",
+        "noUnsafeDeclarationMerging": "error",
+        "useNamespaceKeyword": "error",
+        "useAwait": "error"
+      },
+      "performance": {
+        "noDelete": "error"
+      },
+      "complexity": {
+        "noExtraBooleanCast": "error",
+        "noAdjacentSpacesInRegex": "error",
+        "noUselessCatch": "error",
+        "noUselessEscapeInRegex": "error",
+        "noArguments": "error",
+        "noUselessTypeConstraint": "error"
+      },
+      "nursery": {
+        "noUselessAssignment": "error",
+        "noBaseToString": "error",
+        "noFloatingPromises": "error",
+        "noImpliedEval": "error",
+        "noMisusedPromises": "error",
+        "noUnsafeReturn": "error",
+        "noUnsafeUnaryMinus": "error",
+        "usePromiseRejectErrors": "error",
+        "noUnsafePlusOperands": "error"
+      },
+      "style": {
+        "useErrorCause": "error",
+        "useConst": "error",
+        "useSpreadOverApply": "error",
+        "useArrayLiterals": "error",
+        "noNamespace": "error",
+        "noCommonJs": "error",
+        "useAsConstAssertion": "error"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": [
+        "cspell.config.js",
+        "rstack.config.ts",
+        ".agents/**",
+        "examples/app-react/rstack.config.ts",
+        "examples/app-vanilla/rstack.config.ts",
+        "examples/lib-node/rstack.config.ts",
+        "examples/lib-node/tests/**",
+        "examples/lib-react/rstack.config.ts",
+        "packages/create-rstack/bin.js",
+        "packages/create-rstack/rstack.config.ts",
+        "packages/create-rstack/template-app-lit-ts/rstack.config.ts",
+        "packages/create-rstack/template-app-lit/**",
+        "packages/create-rstack/template-app-preact-ts/rstack.config.ts",
+        "packages/create-rstack/template-app-preact/**",
+        "packages/create-rstack/template-app-react-ts/rstack.config.ts",
+        "packages/create-rstack/template-app-react/**",
+        "packages/create-rstack/template-app-solid-ts/rstack.config.ts",
+        "packages/create-rstack/template-app-solid/**",
+        "packages/create-rstack/template-app-svelte-ts/rstack.config.ts",
+        "packages/create-rstack/template-app-svelte/**",
+        "packages/create-rstack/template-app-vanilla-ts/rstack.config.ts",
+        "packages/create-rstack/template-app-vanilla/**",
+        "packages/create-rstack/template-app-vue-ts/rstack.config.ts",
+        "packages/create-rstack/template-app-vue/**",
+        "packages/create-rstack/template-lib-node-ts/rstack.config.ts",
+        "packages/create-rstack/template-lib-node/**",
+        "packages/create-rstack/template-lib-react-ts/rstack.config.ts",
+        "packages/create-rstack/template-lib-react/**",
+        "packages/create-rstack/template-lib-solid-ts/rstack.config.ts",
+        "packages/create-rstack/template-lib-solid/**",
+        "packages/create-rstack/template-lib-svelte-ts/rstack.config.ts",
+        "packages/create-rstack/template-lib-svelte-ts/scripts/**",
+        "packages/create-rstack/template-lib-svelte/**",
+        "packages/create-rstack/template-lib-vue-ts/rstack.config.ts",
+        "packages/create-rstack/template-lib-vue/**",
+        "packages/create-rstack/template-nx/rstack.config.ts",
+        "packages/create-rstack/template-nx/packages/ui/rstack.config.ts",
+        "packages/create-rstack/template-pnpm/rstack.config.ts",
+        "packages/create-rstack/template-pnpm/packages/ui/rstack.config.ts",
+        "packages/create-rstack/template-turborepo/**",
+        "packages/rstack/binding.cjs",
+        "packages/rstack/binding.d.cts",
+        "packages/rstack/rslib.config.ts",
+        "packages/rstack/rstack.config.ts",
+        "packages/rstack/bin/**",
+        "packages/rstack/tests/cli/specify-config-lint/workspace/app/src/**",
+        "packages/rstack/tests/cli/specify-config/src/**",
+        "packages/rstack/tests/config/define-app/src/**",
+        "packages/rstack/tests/config/define-lib/src/**",
+        "packages/rstack/tests/config/define-lint-base-path/src/**",
+        "packages/rstack/tests/config/define-lint/src/**",
+        "packages/rstack/tests/config/reload-app-config/src/**",
+        "packages/rstack/tests/config/reload-lib-config/src/**",
+        "packages/rstack/types/**",
+        "scripts/**",
+        "website/zephyr.config.js"
+      ],
+      "linter": {
+        "rules": {
+          "nursery": {
+            "noBaseToString": "off",
+            "noFloatingPromises": "off",
+            "noImpliedEval": "off",
+            "noMisusedPromises": "off",
+            "noUnsafeReturn": "off",
+            "noUnsafeUnaryMinus": "off",
+            "usePromiseRejectErrors": "off",
+            "noUnsafePlusOperands": "off"
+          },
+          "suspicious": {
+            "useAwait": "off"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "group": "C",
+  "fixture": "rstack-cli",
+  "tool": "oxlint",
+  "completedAt": "2026-11-09T06:31:28.669Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 366,
+  "filesLinted": 366,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 66.199291,
+    "mean": 65.9307164,
+    "stdev": 1.1781578016331442,
+    "min": 63.760042,
+    "max": 67.194416
+  },
+  "peakRssMb": {
+    "median": 63.109375,
+    "max": 69.484375
+  },
+  "runs": [
+    {
+      "wallMs": 63.760042,
+      "peakRssMb": 69.484375,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 66.199291,
+      "peakRssMb": 63.34375,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 65.82825,
+      "peakRssMb": 63.109375,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 66.671583,
+      "peakRssMb": 62.96875,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 67.194416,
+      "peakRssMb": 54.4375,
+      "exitCode": 0,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 0,
+    "typeAware": 0,
+    "syntactic": 0,
+    "unmapped": {},
+    "byRule": {}
+  }
+}

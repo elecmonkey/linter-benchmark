@@ -25,24 +25,24 @@
   <rect class="surface" width="760" height="132" rx="8"/>
 
   <g>
-    <title>Oxlint: 71 ms (fastest)</title>
+    <title>Oxlint: 76 ms (fastest)</title>
     <text class="t-secondary" x="170" y="28" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint</text>
     <path class="bar-oxlint" d="M186,16H249A4,4 0 0 1 253,20V36A4,4 0 0 1 249,40H186Z"/>
     <text class="ratio" x="245" y="28" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.00×</text>
-    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">71 ms</text>
+    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">76 ms</text>
   </g>
   <g>
-    <title>Biome: 136 ms (1.92× the fastest)</title>
+    <title>Biome: 259 ms (3.41× the fastest)</title>
     <text class="t-secondary" x="170" y="66" text-anchor="end" dominant-baseline="central" font-size="15">Biome</text>
-    <path class="bar-biome" d="M186,54H551.3296172156817A4,4 0 0 1 555.3296172156817,58V74A4,4 0 0 1 551.3296172156817,78H186Z"/>
-    <text class="ratio" x="547.3296172156817" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.92×</text>
-    <text class="t-secondary" x="565.3296172156817" y="66" dominant-baseline="central" font-size="14">136 ms</text>
+    <path class="bar-biome" d="M186,54H606.5883840270762A4,4 0 0 1 610.5883840270762,58V74A4,4 0 0 1 606.5883840270762,78H186Z"/>
+    <text class="ratio" x="602.5883840270762" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">3.41×</text>
+    <text class="t-secondary" x="620.5883840270762" y="66" dominant-baseline="central" font-size="14">259 ms</text>
   </g>
   <g>
-    <title>Rslint: 174 ms (2.46× the fastest)</title>
+    <title>Rslint: 318 ms (4.18× the fastest)</title>
     <text class="t-secondary" x="170" y="104" text-anchor="end" dominant-baseline="central" font-size="15">Rslint</text>
     <path class="bar-rslint" d="M186,92H666A4,4 0 0 1 670,96V112A4,4 0 0 1 666,116H186Z"/>
-    <text class="ratio" x="662" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">2.46×</text>
-    <text class="t-secondary" x="680" y="104" dominant-baseline="central" font-size="14">174 ms</text>
+    <text class="ratio" x="662" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">4.18×</text>
+    <text class="t-secondary" x="680" y="104" dominant-baseline="central" font-size="14">318 ms</text>
   </g>
 </svg>

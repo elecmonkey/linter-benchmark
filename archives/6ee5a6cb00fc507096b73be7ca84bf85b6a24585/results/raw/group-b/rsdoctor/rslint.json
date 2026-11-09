@@ -1,0 +1,85 @@
+{
+  "group": "B",
+  "fixture": "rsdoctor",
+  "tool": "rslint",
+  "completedAt": "2026-11-09T05:21:08.635Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 734,
+  "filesLinted": 734,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 621.022958,
+    "mean": 615.7423418000001,
+    "stdev": 22.820350105410643,
+    "min": 577.856042,
+    "max": 639.258
+  },
+  "peakRssMb": {
+    "median": 875.03125,
+    "max": 889.734375
+  },
+  "runs": [
+    {
+      "wallMs": 636.814375,
+      "peakRssMb": 876.484375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 639.258,
+      "peakRssMb": 889.734375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 577.856042,
+      "peakRssMb": 875.03125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 621.022958,
+      "peakRssMb": 848.890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 603.760334,
+      "peakRssMb": 855.265625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 625,
+    "typeAware": 313,
+    "syntactic": 312,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 8,
+      "@typescript-eslint/no-explicit-any": 268,
+      "@typescript-eslint/no-floating-promises": 41,
+      "@typescript-eslint/no-misused-promises": 6,
+      "@typescript-eslint/no-require-imports": 13,
+      "@typescript-eslint/no-unsafe-return": 157,
+      "@typescript-eslint/no-unused-vars": 21,
+      "@typescript-eslint/prefer-promise-reject-errors": 4,
+      "@typescript-eslint/require-await": 95,
+      "@typescript-eslint/restrict-plus-operands": 2,
+      "no-var": 10
+    }
+  }
+}

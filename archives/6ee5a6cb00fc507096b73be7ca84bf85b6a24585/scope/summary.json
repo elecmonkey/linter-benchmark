@@ -1,0 +1,74 @@
+{
+  "rsbuild": {
+    "onDisk": 2452,
+    "afterIgnores": 2450,
+    "files": 2450,
+    "typed": 1348,
+    "untyped": 1102,
+    "untypedGlobs": 709
+  },
+  "rslib": {
+    "onDisk": 1020,
+    "afterIgnores": 1018,
+    "files": 1018,
+    "typed": 696,
+    "untyped": 322,
+    "untypedGlobs": 195
+  },
+  "rstack-cli": {
+    "onDisk": 366,
+    "afterIgnores": 366,
+    "files": 366,
+    "typed": 259,
+    "untyped": 107,
+    "untypedGlobs": 56
+  },
+  "rstest": {
+    "onDisk": 2139,
+    "afterIgnores": 2139,
+    "files": 2139,
+    "typed": 1808,
+    "untyped": 331,
+    "untypedGlobs": 157
+  },
+  "rsdoctor": {
+    "onDisk": 738,
+    "afterIgnores": 734,
+    "files": 734,
+    "typed": 680,
+    "untyped": 54,
+    "untypedGlobs": 35
+  },
+  "rspress": {
+    "onDisk": 760,
+    "afterIgnores": 746,
+    "files": 746,
+    "typed": 573,
+    "untyped": 173,
+    "untypedGlobs": 133
+  },
+  "rspack": {
+    "onDisk": 17556,
+    "afterIgnores": 493,
+    "files": 493,
+    "typed": 427,
+    "untyped": 66,
+    "untypedGlobs": 34
+  },
+  "vscode": {
+    "onDisk": 15705,
+    "afterIgnores": 14258,
+    "files": 14258,
+    "typed": 14045,
+    "untyped": 213,
+    "untypedGlobs": 121
+  },
+  "typescript6": {
+    "onDisk": 39444,
+    "afterIgnores": 745,
+    "files": 745,
+    "typed": 640,
+    "untyped": 105,
+    "untypedGlobs": 4
+  }
+}

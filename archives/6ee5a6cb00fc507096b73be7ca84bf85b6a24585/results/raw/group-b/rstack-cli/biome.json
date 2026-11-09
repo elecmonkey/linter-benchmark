@@ -1,0 +1,82 @@
+{
+  "group": "B",
+  "fixture": "rstack-cli",
+  "tool": "biome",
+  "completedAt": "2026-11-09T05:20:15.751Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 366,
+  "filesLinted": 366,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 475.115417,
+    "mean": 483.28255040000005,
+    "stdev": 15.910531053905391,
+    "min": 465.780709,
+    "max": 510.465625
+  },
+  "peakRssMb": {
+    "median": 403.875,
+    "max": 435.90625
+  },
+  "runs": [
+    {
+      "wallMs": 510.465625,
+      "peakRssMb": 419.640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 475.115417,
+      "peakRssMb": 403.875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 491.261709,
+      "peakRssMb": 435.90625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 465.780709,
+      "peakRssMb": 369.140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 473.789292,
+      "peakRssMb": 396.078125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 22,
+    "typeAware": 8,
+    "syntactic": 14,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 3,
+      "@typescript-eslint/no-misused-promises": 1,
+      "@typescript-eslint/no-unused-vars": 1,
+      "@typescript-eslint/require-await": 4,
+      "no-delete-var": 5,
+      "no-empty + no-empty-static-block": 2,
+      "no-prototype-builtins": 1,
+      "no-useless-assignment": 5
+    }
+  }
+}

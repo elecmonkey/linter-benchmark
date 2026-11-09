@@ -1,0 +1,91 @@
+{
+  "group": "C",
+  "fixture": "typescript6",
+  "tool": "oxlint",
+  "completedAt": "2026-11-09T06:33:06.492Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 745,
+  "filesLinted": 745,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 284.568208,
+    "mean": 288.2964,
+    "stdev": 8.772081237658044,
+    "min": 278.795667,
+    "max": 302.298458
+  },
+  "peakRssMb": {
+    "median": 324.734375,
+    "max": 328.75
+  },
+  "runs": [
+    {
+      "wallMs": 284.568208,
+      "peakRssMb": 323.875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 302.298458,
+      "peakRssMb": 328.75,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 294.399333,
+      "peakRssMb": 324.734375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 278.795667,
+      "peakRssMb": 318.171875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 281.420334,
+      "peakRssMb": 326.296875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1526,
+    "typeAware": 0,
+    "syntactic": 1526,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-array-constructor": 1,
+      "@typescript-eslint/no-duplicate-enum-values": 5,
+      "@typescript-eslint/no-explicit-any": 959,
+      "@typescript-eslint/no-namespace": 26,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 12,
+      "@typescript-eslint/no-require-imports": 53,
+      "no-case-declarations": 344,
+      "no-constant-condition": 1,
+      "no-control-regex": 7,
+      "no-extra-boolean-cast": 22,
+      "no-fallthrough": 6,
+      "no-shadow-restricted-names": 3,
+      "no-unassigned-vars": 2,
+      "no-unsafe-optional-chaining": 1,
+      "no-useless-assignment": 28,
+      "no-var": 54,
+      "preserve-caught-error": 2
+    }
+  }
+}

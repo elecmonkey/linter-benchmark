@@ -1,0 +1,372 @@
+# Results
+
+| Group | Fastest tool (fixtures won) |
+|---|---|
+| A | **Rslint** 8/9 · **Oxlint (tsrs --fast)** 1/9 |
+| B | **Rslint** 7/9 · **Biome** 1/9 · **Oxlint (tsrs --fast)** 1/9 |
+| C | **Oxlint** 9/9 |
+
+The Oxlint variants use the same file scope and rule configuration. tsrs default mode uses `TSRS_FAST=0`; fast mode uses `TSRS_FAST=1`. Diagnostic counts can differ between engines and are reported separately.
+
+## Group A: Rslint, Oxlint (tsgolint), Oxlint (tsrs), Oxlint (tsrs --fast)
+
+68 syntactic + 23 type-aware rules. Median of 5 runs after 1 warmup. Bar lengths are log-scaled; the labels give exact values.
+
+### [rstack-cli](https://github.com/rstackjs/rstack-cli/tree/b35a79a98d4cdb84fc9c56f7b5fb5625cb74c1c9)
+
+**Files:** 366
+
+![Group A, rstack-cli](charts/group-a-rstack-cli.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 332 ms | 331 ms | 347 ms | 373 MB | 468 | 1.00× |
+| Oxlint (tsgolint) | 504 ms | 500 ms | 533 ms | 442 MB | 259 | 1.52× |
+| Oxlint (tsrs --fast) | 678 ms | 666 ms | 680 ms | 1,307 MB | 259 | 2.04× |
+| Oxlint (tsrs) | 683 ms | 679 ms | 701 ms | 1,286 MB | 259 | 2.05× |
+
+### [rspack](https://github.com/web-infra-dev/rspack/tree/6c1f72b0991a7c691c8e951d6a7821b3d532f6d5)
+
+**Files:** 493
+
+![Group A, rspack](charts/group-a-rspack.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 432 ms | 429 ms | 446 ms | 601 MB | 3,228 | 1.00× |
+| Oxlint (tsrs --fast) | 553 ms | 546 ms | 563 ms | 542 MB | 3,178 | 1.28× |
+| Oxlint (tsrs) | 553 ms | 539 ms | 590 ms | 542 MB | 3,178 | 1.28× |
+| Oxlint (tsgolint) | 682 ms | 670 ms | 736 ms | 613 MB | 3,178 | 1.58× |
+
+### [rsdoctor](https://github.com/web-infra-dev/rsdoctor/tree/80b2381d1a20901e1f12b3f2bb2778aaacf94f2f)
+
+**Files:** 734
+
+![Group A, rsdoctor](charts/group-a-rsdoctor.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 645 ms | 638 ms | 683 ms | 832 MB | 3,743 | 1.00× |
+| Oxlint (tsrs --fast) | 745 ms | 721 ms | 782 ms | 1,086 MB | 3,735 | 1.16× |
+| Oxlint (tsrs) | 754 ms | 732 ms | 810 ms | 1,057 MB | 3,735 | 1.17× |
+| Oxlint (tsgolint) | 974 ms | 966 ms | 1.19 s | 894 MB | 3,738 | 1.51× |
+
+### [typescript6](https://github.com/microsoft/TypeScript/tree/050880ce59e30b356b686bd3144efe24f875ebc8)
+
+**Files:** 745
+
+![Group A, typescript6](charts/group-a-typescript6.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 987 ms | 978 ms | 989 ms | 1,258 MB | 11,741 | 1.00× |
+| Oxlint (tsrs) | 3.29 s | 3.25 s | 3.30 s | 1,508 MB | 11,416 | 3.33× |
+| Oxlint (tsrs --fast) | 3.34 s | 3.34 s | 3.45 s | 1,553 MB | 11,416 | 3.39× |
+| Oxlint (tsgolint) | 3.84 s | 3.82 s | 3.91 s | 1,249 MB | 11,418 | 3.89× |
+
+### [rspress](https://github.com/web-infra-dev/rspress/tree/6f87abf1d323ced2883261642561a3fc88fbd278)
+
+**Files:** 746
+
+![Group A, rspress](charts/group-a-rspress.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 582 ms | 572 ms | 618 ms | 717 MB | 2,880 | 1.00× |
+| Oxlint (tsgolint) | 1.03 s | 1.02 s | 1.10 s | 781 MB | 2,741 | 1.77× |
+| Oxlint (tsrs --fast) | 1.31 s | 1.30 s | 1.32 s | 2,208 MB | 2,741 | 2.25× |
+| Oxlint (tsrs) | 1.32 s | 1.29 s | 1.38 s | 2,156 MB | 2,741 | 2.26× |
+
+### [rslib](https://github.com/web-infra-dev/rslib/tree/0734e3624dd7bfb08fdfc4ff0416404a9a551df4)
+
+**Files:** 1,018
+
+![Group A, rslib](charts/group-a-rslib.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 522 ms | 515 ms | 594 ms | 625 MB | 663 | 1.00× |
+| Oxlint (tsgolint) | 919 ms | 885 ms | 1.06 s | 692 MB | 675 | 1.76× |
+| Oxlint (tsrs --fast) | 1.39 s | 1.36 s | 1.41 s | 2,041 MB | 674 | 2.66× |
+| Oxlint (tsrs) | 1.41 s | 1.36 s | 1.43 s | 2,000 MB | 674 | 2.70× |
+
+### [rstest](https://github.com/web-infra-dev/rstest/tree/03cabf3dd586392a6bfa4720e5a92c37281b943a)
+
+**Files:** 2,139
+
+![Group A, rstest](charts/group-a-rstest.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 787 ms | 753 ms | 806 ms | 965 MB | 36,597 | 1.00× |
+| Oxlint (tsrs --fast) | 1.07 s | 1.06 s | 1.11 s | 1,510 MB | 35,913 | 1.36× |
+| Oxlint (tsrs) | 1.09 s | 1.08 s | 1.10 s | 1,429 MB | 35,913 | 1.38× |
+| Oxlint (tsgolint) | 1.25 s | 1.21 s | 1.27 s | 876 MB | 35,912 | 1.58× |
+
+### [rsbuild](https://github.com/web-infra-dev/rsbuild/tree/622f5df2b43c12423b50ed986e0f0983c338bf91)
+
+**Files:** 2,450
+
+![Group A, rsbuild](charts/group-a-rsbuild.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 720 ms | 664 ms | 789 ms | 925 MB | 1,013 | 1.00× |
+| Oxlint (tsgolint) | 1.32 s | 1.29 s | 1.42 s | 718 MB | 985 | 1.84× |
+| Oxlint (tsrs --fast) | 1.41 s | 1.37 s | 1.52 s | 2,371 MB | 985 | 1.96× |
+| Oxlint (tsrs) | 1.43 s | 1.41 s | 1.53 s | 2,337 MB | 985 | 1.99× |
+
+### [vscode](https://github.com/microsoft/vscode/tree/f92b8f3adcd9bc034e6b9ade05c093dd59b99c5f)
+
+**Files:** 14,258
+
+![Group A, vscode](charts/group-a-vscode.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint (tsrs --fast) | 5.65 s | 5.57 s | 5.69 s | 6,839 MB | 163,615 | 1.00× |
+| Oxlint (tsrs) | 7.94 s | 7.45 s | 8.61 s | 7,045 MB | 163,615 | 1.40× |
+| Rslint | 14.9 s | 14.0 s | 18.5 s | 12,940 MB | 168,683 | 2.63× |
+| Oxlint (tsgolint) | 16.2 s | 15.2 s | 19.7 s | 14,596 MB | 163,428 | 2.86× |
+
+## Group B: Rslint, Oxlint (tsgolint), Oxlint (tsrs), Oxlint (tsrs --fast), Biome
+
+57 syntactic + 9 type-aware rules. Median of 5 runs after 1 warmup. Bar lengths are log-scaled; the labels give exact values.
+
+### [rstack-cli](https://github.com/rstackjs/rstack-cli/tree/b35a79a98d4cdb84fc9c56f7b5fb5625cb74c1c9)
+
+**Files:** 366
+
+![Group B, rstack-cli](charts/group-b-rstack-cli.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 286 ms | 282 ms | 289 ms | 361 MB | 25 | 1.00× |
+| Oxlint (tsgolint) | 462 ms | 444 ms | 488 ms | 424 MB | 36 | 1.61× |
+| Biome | 475 ms | 466 ms | 510 ms | 404 MB | 22 | 1.66× |
+| Oxlint (tsrs) | 659 ms | 654 ms | 673 ms | 1,301 MB | 36 | 2.30× |
+| Oxlint (tsrs --fast) | 662 ms | 652 ms | 677 ms | 1,333 MB | 36 | 2.31× |
+
+### [rspack](https://github.com/web-infra-dev/rspack/tree/6c1f72b0991a7c691c8e951d6a7821b3d532f6d5)
+
+**Files:** 493
+
+![Group B, rspack](charts/group-b-rspack.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 383 ms | 356 ms | 405 ms | 560 MB | 1,021 | 1.00× |
+| Oxlint (tsrs --fast) | 526 ms | 517 ms | 535 ms | 521 MB | 998 | 1.37× |
+| Oxlint (tsrs) | 547 ms | 518 ms | 555 ms | 518 MB | 998 | 1.43× |
+| Oxlint (tsgolint) | 648 ms | 584 ms | 679 ms | 641 MB | 998 | 1.69× |
+| Biome | 977 ms | 956 ms | 996 ms | 618 MB | 936 | 2.55× |
+
+### [rsdoctor](https://github.com/web-infra-dev/rsdoctor/tree/80b2381d1a20901e1f12b3f2bb2778aaacf94f2f)
+
+**Files:** 734
+
+![Group B, rsdoctor](charts/group-b-rsdoctor.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 621 ms | 578 ms | 639 ms | 875 MB | 625 | 1.00× |
+| Oxlint (tsrs --fast) | 709 ms | 706 ms | 729 ms | 1,144 MB | 613 | 1.14× |
+| Oxlint (tsrs) | 731 ms | 720 ms | 736 ms | 1,035 MB | 613 | 1.18× |
+| Oxlint (tsgolint) | 962 ms | 945 ms | 987 ms | 872 MB | 613 | 1.55× |
+| Biome | 1.38 s | 1.35 s | 1.41 s | 856 MB | 562 | 2.23× |
+
+### [typescript6](https://github.com/microsoft/TypeScript/tree/050880ce59e30b356b686bd3144efe24f875ebc8)
+
+**Files:** 745
+
+![Group B, typescript6](charts/group-b-typescript6.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 775 ms | 768 ms | 792 ms | 1,212 MB | 2,213 | 1.00× |
+| Oxlint (tsrs) | 1.01 s | 990 ms | 1.02 s | 1,470 MB | 1,885 | 1.30× |
+| Oxlint (tsrs --fast) | 1.04 s | 1.02 s | 1.17 s | 1,540 MB | 1,885 | 1.34× |
+| Oxlint (tsgolint) | 1.39 s | 1.38 s | 1.43 s | 1,079 MB | 1,885 | 1.80× |
+| Biome | 6.22 s | 6.18 s | 6.25 s | 2,466 MB | 2,334 | 8.02× |
+
+### [rspress](https://github.com/web-infra-dev/rspress/tree/6f87abf1d323ced2883261642561a3fc88fbd278)
+
+**Files:** 746
+
+![Group B, rspress](charts/group-b-rspress.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 533 ms | 518 ms | 540 ms | 698 MB | 190 | 1.00× |
+| Oxlint (tsgolint) | 1.03 s | 990 ms | 1.06 s | 768 MB | 187 | 1.93× |
+| Biome | 1.12 s | 1.09 s | 1.15 s | 1,146 MB | 179 | 2.09× |
+| Oxlint (tsrs --fast) | 1.26 s | 1.25 s | 1.30 s | 2,184 MB | 187 | 2.37× |
+| Oxlint (tsrs) | 1.29 s | 1.29 s | 1.30 s | 2,197 MB | 187 | 2.42× |
+
+### [rslib](https://github.com/web-infra-dev/rslib/tree/0734e3624dd7bfb08fdfc4ff0416404a9a551df4)
+
+**Files:** 1,018
+
+![Group B, rslib](charts/group-b-rslib.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 502 ms | 487 ms | 555 ms | 611 MB | 186 | 1.00× |
+| Oxlint (tsgolint) | 1.01 s | 919 ms | 1.36 s | 640 MB | 208 | 2.00× |
+| Biome | 1.13 s | 1.02 s | 1.17 s | 725 MB | 203 | 2.25× |
+| Oxlint (tsrs --fast) | 1.39 s | 1.36 s | 1.41 s | 2,011 MB | 207 | 2.77× |
+| Oxlint (tsrs) | 1.55 s | 1.39 s | 1.86 s | 1,993 MB | 207 | 3.09× |
+
+### [rstest](https://github.com/web-infra-dev/rstest/tree/03cabf3dd586392a6bfa4720e5a92c37281b943a)
+
+**Files:** 2,139
+
+![Group B, rstest](charts/group-b-rstest.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Rslint | 658 ms | 627 ms | 677 ms | 818 MB | 1,578 | 1.00× |
+| Oxlint (tsrs --fast) | 898 ms | 895 ms | 921 ms | 1,424 MB | 1,521 | 1.37× |
+| Oxlint (tsrs) | 957 ms | 922 ms | 993 ms | 1,400 MB | 1,521 | 1.45× |
+| Oxlint (tsgolint) | 1.14 s | 1.03 s | 1.19 s | 908 MB | 1,521 | 1.73× |
+| Biome | 1.76 s | 1.65 s | 1.78 s | 1,109 MB | 1,606 | 2.67× |
+
+### [rsbuild](https://github.com/web-infra-dev/rsbuild/tree/622f5df2b43c12423b50ed986e0f0983c338bf91)
+
+**Files:** 2,450
+
+![Group B, rsbuild](charts/group-b-rsbuild.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Biome | 603 ms | 591 ms | 613 ms | 450 MB | 155 | 1.00× |
+| Rslint | 655 ms | 645 ms | 674 ms | 899 MB | 82 | 1.09× |
+| Oxlint (tsgolint) | 1.24 s | 1.21 s | 1.25 s | 738 MB | 95 | 2.05× |
+| Oxlint (tsrs) | 1.36 s | 1.33 s | 1.37 s | 2,330 MB | 95 | 2.25× |
+| Oxlint (tsrs --fast) | 1.41 s | 1.38 s | 1.46 s | 2,374 MB | 95 | 2.33× |
+
+### [vscode](https://github.com/microsoft/vscode/tree/f92b8f3adcd9bc034e6b9ade05c093dd59b99c5f)
+
+**Files:** 14,258
+
+![Group B, vscode](charts/group-b-vscode.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint (tsrs --fast) | 4.72 s | 4.68 s | 4.80 s | 6,390 MB | 50,345 | 1.00× |
+| Oxlint (tsrs) | 6.16 s | 6.11 s | 6.44 s | 6,573 MB | 50,345 | 1.30× |
+| Rslint | 11.6 s | 11.3 s | 12.3 s | 11,474 MB | 55,064 | 2.46× |
+| Oxlint (tsgolint) | 13.2 s | 12.9 s | 26.1 s | 13,230 MB | 50,345 | 2.79× |
+| Biome | 23.1 s | 21.7 s | 24.1 s | 17,302 MB | 43,921 | 4.89× |
+
+## Group C: Rslint, Oxlint, Biome
+
+56 syntactic rules, no type information. Median of 5 runs after 1 warmup. Bar lengths are log-scaled; the labels give exact values.
+
+### [rstack-cli](https://github.com/rstackjs/rstack-cli/tree/b35a79a98d4cdb84fc9c56f7b5fb5625cb74c1c9)
+
+**Files:** 366
+
+![Group C, rstack-cli](charts/group-c-rstack-cli.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 66 ms | 64 ms | 67 ms | 63 MB | 0 | 1.00× |
+| Biome | 118 ms | 116 ms | 125 ms | 101 MB | 13 | 1.79× |
+| Rslint | 142 ms | 134 ms | 143 ms | 101 MB | 0 | 2.15× |
+
+### [rspack](https://github.com/web-infra-dev/rspack/tree/6c1f72b0991a7c691c8e951d6a7821b3d532f6d5)
+
+**Files:** 493
+
+![Group C, rspack](charts/group-c-rspack.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 174 ms | 170 ms | 181 ms | 80 MB | 625 | 1.00× |
+| Rslint | 192 ms | 184 ms | 196 ms | 148 MB | 624 | 1.10× |
+| Biome | 201 ms | 191 ms | 207 ms | 129 MB | 809 | 1.15× |
+
+### [rsdoctor](https://github.com/web-infra-dev/rsdoctor/tree/80b2381d1a20901e1f12b3f2bb2778aaacf94f2f)
+
+**Files:** 734
+
+![Group C, rsdoctor](charts/group-c-rsdoctor.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 71 ms | 67 ms | 76 ms | 68 MB | 297 | 1.00× |
+| Biome | 136 ms | 129 ms | 143 ms | 123 MB | 357 | 1.92× |
+| Rslint | 174 ms | 170 ms | 179 ms | 160 MB | 291 | 2.46× |
+
+### [typescript6](https://github.com/microsoft/TypeScript/tree/050880ce59e30b356b686bd3144efe24f875ebc8)
+
+**Files:** 745
+
+![Group C, typescript6](charts/group-c-typescript6.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 285 ms | 279 ms | 302 ms | 325 MB | 1,526 | 1.00× |
+| Rslint | 450 ms | 436 ms | 453 ms | 477 MB | 1,530 | 1.58× |
+| Biome | 4.98 s | 4.91 s | 5.11 s | 1,962 MB | 2,226 | 17.50× |
+
+### [rspress](https://github.com/web-infra-dev/rspress/tree/6f87abf1d323ced2883261642561a3fc88fbd278)
+
+**Files:** 746
+
+![Group C, rspress](charts/group-c-rspress.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 75 ms | 73 ms | 80 ms | 65 MB | 50 | 1.00× |
+| Biome | 176 ms | 174 ms | 185 ms | 126 MB | 92 | 2.34× |
+| Rslint | 194 ms | 192 ms | 197 ms | 135 MB | 47 | 2.58× |
+
+### [rslib](https://github.com/web-infra-dev/rslib/tree/0734e3624dd7bfb08fdfc4ff0416404a9a551df4)
+
+**Files:** 1,018
+
+![Group C, rslib](charts/group-c-rslib.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 81 ms | 78 ms | 88 ms | 63 MB | 67 | 1.00× |
+| Biome | 222 ms | 213 ms | 229 ms | 126 MB | 98 | 2.76× |
+| Rslint | 231 ms | 226 ms | 235 ms | 138 MB | 47 | 2.87× |
+
+### [rstest](https://github.com/web-infra-dev/rstest/tree/03cabf3dd586392a6bfa4720e5a92c37281b943a)
+
+**Files:** 2,139
+
+![Group C, rstest](charts/group-c-rstest.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 95 ms | 89 ms | 97 ms | 55 MB | 757 | 1.00× |
+| Rslint | 304 ms | 302 ms | 319 ms | 237 MB | 755 | 3.20× |
+| Biome | 454 ms | 311 ms | 521 ms | 247 MB | 1,208 | 4.78× |
+
+### [rsbuild](https://github.com/web-infra-dev/rsbuild/tree/622f5df2b43c12423b50ed986e0f0983c338bf91)
+
+**Files:** 2,450
+
+![Group C, rsbuild](charts/group-c-rsbuild.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 109 ms | 101 ms | 155 ms | 95 MB | 50 | 1.00× |
+| Rslint | 364 ms | 357 ms | 660 ms | 177 MB | 45 | 3.34× |
+| Biome | 379 ms | 361 ms | 1.07 s | 137 MB | 119 | 3.47× |
+
+### [vscode](https://github.com/microsoft/vscode/tree/f92b8f3adcd9bc034e6b9ade05c093dd59b99c5f)
+
+**Files:** 14,258
+
+![Group C, vscode](charts/group-c-vscode.svg)
+
+| Tool | Median | Min | Max | Peak RSS | Diagnostics | Relative |
+|---|--:|--:|--:|--:|--:|--:|
+| Oxlint | 407 ms | 372 ms | 416 ms | 467 MB | 10,260 | 1.00× |
+| Rslint | 2.33 s | 2.26 s | 2.41 s | 5,930 MB | 10,291 | 5.72× |
+| Biome | 4.12 s | 4.10 s | 4.31 s | 6,053 MB | 18,600 | 10.12× |

@@ -1,0 +1,102 @@
+{
+  "group": "B",
+  "fixture": "rspack",
+  "tool": "biome",
+  "completedAt": "2026-11-09T05:30:30.430Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 493,
+  "filesLinted": 493,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 976.79775,
+    "mean": 977.6087252,
+    "stdev": 16.450228225264638,
+    "min": 955.854375,
+    "max": 996.423542
+  },
+  "peakRssMb": {
+    "median": 618.34375,
+    "max": 640.296875
+  },
+  "runs": [
+    {
+      "wallMs": 955.854375,
+      "peakRssMb": 630.28125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 976.79775,
+      "peakRssMb": 607.046875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 996.423542,
+      "peakRssMb": 616.140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 963.388792,
+      "peakRssMb": 640.296875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 995.579167,
+      "peakRssMb": 618.34375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 936,
+    "typeAware": 123,
+    "syntactic": 812,
+    "unmapped": {
+      "other: syntax/correctness/noTypeOnlyImportAttributes": 1
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 8,
+      "@typescript-eslint/no-explicit-any": 477,
+      "@typescript-eslint/no-floating-promises": 36,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 4,
+      "@typescript-eslint/no-namespace": 3,
+      "@typescript-eslint/no-require-imports": 97,
+      "@typescript-eslint/no-unsafe-return": 44,
+      "@typescript-eslint/no-unused-vars": 4,
+      "@typescript-eslint/prefer-promise-reject-errors": 2,
+      "@typescript-eslint/require-await": 26,
+      "@typescript-eslint/restrict-plus-operands": 2,
+      "no-control-regex": 4,
+      "no-delete-var": 15,
+      "no-empty + no-empty-static-block": 106,
+      "no-extra-boolean-cast": 1,
+      "no-fallthrough": 1,
+      "no-global-assign": 1,
+      "no-prototype-builtins": 7,
+      "no-unsafe-optional-chaining": 1,
+      "no-useless-assignment": 8,
+      "no-var": 65,
+      "prefer-const": 4,
+      "prefer-rest-params": 7,
+      "prefer-spread": 4,
+      "preserve-caught-error": 7
+    }
+  }
+}

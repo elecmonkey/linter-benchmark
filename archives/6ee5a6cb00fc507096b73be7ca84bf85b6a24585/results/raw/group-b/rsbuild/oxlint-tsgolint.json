@@ -1,0 +1,88 @@
+{
+  "group": "B",
+  "fixture": "rsbuild",
+  "tool": "oxlint-tsgolint",
+  "completedAt": "2026-11-09T05:19:39.375Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {
+    "OXLINT_TSGOLINT_PATH": "/Users/bytedance/rstack/wrslint/benchmark/node_modules/.bin/tsgolint"
+  },
+  "files": 2450,
+  "filesLinted": 2450,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 1238.501792,
+    "mean": 1232.4023002000001,
+    "stdev": 12.271506152883948,
+    "min": 1211.507417,
+    "max": 1245.190042
+  },
+  "peakRssMb": {
+    "median": 738.265625,
+    "max": 765.640625
+  },
+  "runs": [
+    {
+      "wallMs": 1238.501792,
+      "peakRssMb": 748.671875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1245.190042,
+      "peakRssMb": 765.640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1225.869292,
+      "peakRssMb": 722.578125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1211.507417,
+      "peakRssMb": 738.265625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1240.942958,
+      "peakRssMb": 726.40625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 95,
+    "typeAware": 20,
+    "syntactic": 50,
+    "unmapped": {
+      "typescript/tsconfig-error": 25
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 1,
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 3,
+      "@typescript-eslint/no-require-imports": 1,
+      "@typescript-eslint/no-unsafe-return": 11,
+      "@typescript-eslint/require-await": 4,
+      "no-constant-binary-expression": 1,
+      "no-control-regex": 1,
+      "prefer-const": 2
+    }
+  }
+}

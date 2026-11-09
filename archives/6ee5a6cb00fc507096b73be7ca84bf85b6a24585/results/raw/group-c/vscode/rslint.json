@@ -1,0 +1,108 @@
+{
+  "group": "C",
+  "fixture": "vscode",
+  "tool": "rslint",
+  "completedAt": "2026-11-09T06:32:31.094Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 14258,
+  "filesLinted": 14258,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 2329.536375,
+    "mean": 2317.6220918000004,
+    "stdev": 57.99594222801175,
+    "min": 2256.196583,
+    "max": 2413.4675
+  },
+  "peakRssMb": {
+    "median": 5929.859375,
+    "max": 5943.9375
+  },
+  "runs": [
+    {
+      "wallMs": 2329.536375,
+      "peakRssMb": 5444.890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2258.103709,
+      "peakRssMb": 5929.859375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2256.196583,
+      "peakRssMb": 5943.9375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2330.806292,
+      "peakRssMb": 5773.6875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2413.4675,
+      "peakRssMb": 5940.09375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 10291,
+    "typeAware": 0,
+    "syntactic": 10291,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-array-constructor": 3,
+      "@typescript-eslint/no-duplicate-enum-values": 15,
+      "@typescript-eslint/no-explicit-any": 5718,
+      "@typescript-eslint/no-misused-new": 1,
+      "@typescript-eslint/no-namespace": 712,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 28,
+      "@typescript-eslint/no-require-imports": 291,
+      "@typescript-eslint/no-unsafe-declaration-merging": 4,
+      "@typescript-eslint/prefer-as-const": 15,
+      "no-constant-binary-expression": 10,
+      "no-constant-condition": 21,
+      "no-control-regex": 86,
+      "no-dupe-else-if": 2,
+      "no-empty": 188,
+      "no-empty-pattern": 33,
+      "no-ex-assign": 11,
+      "no-extra-boolean-cast": 83,
+      "no-fallthrough": 23,
+      "no-irregular-whitespace": 47,
+      "no-prototype-builtins": 118,
+      "no-regex-spaces": 14,
+      "no-self-assign": 25,
+      "no-shadow-restricted-names": 3,
+      "no-unassigned-vars": 11,
+      "no-unsafe-optional-chaining": 7,
+      "no-useless-assignment": 504,
+      "no-useless-catch": 9,
+      "no-useless-escape": 1969,
+      "prefer-const": 130,
+      "prefer-rest-params": 17,
+      "prefer-spread": 40,
+      "preserve-caught-error": 148,
+      "require-yield": 4,
+      "valid-typeof": 1
+    }
+  }
+}

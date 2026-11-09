@@ -1,0 +1,51 @@
+{
+  "node": "v26.5.1",
+  "pnpm": "12.16.1",
+  "repositories": [
+    {
+      "name": "rsbuild",
+      "repository": "web-infra-dev/rsbuild",
+      "sha": "622f5df2b43c12423b50ed986e0f0983c338bf91"
+    },
+    {
+      "name": "rslib",
+      "repository": "web-infra-dev/rslib",
+      "sha": "0734e3624dd7bfb08fdfc4ff0416404a9a551df4"
+    },
+    {
+      "name": "rstack-cli",
+      "repository": "rstackjs/rstack-cli",
+      "sha": "b35a79a98d4cdb84fc9c56f7b5fb5625cb74c1c9"
+    },
+    {
+      "name": "rstest",
+      "repository": "web-infra-dev/rstest",
+      "sha": "03cabf3dd586392a6bfa4720e5a92c37281b943a"
+    },
+    {
+      "name": "rsdoctor",
+      "repository": "web-infra-dev/rsdoctor",
+      "sha": "80b2381d1a20901e1f12b3f2bb2778aaacf94f2f"
+    },
+    {
+      "name": "rspress",
+      "repository": "web-infra-dev/rspress",
+      "sha": "6f87abf1d323ced2883261642561a3fc88fbd278"
+    },
+    {
+      "name": "rspack",
+      "repository": "web-infra-dev/rspack",
+      "sha": "6c1f72b0991a7c691c8e951d6a7821b3d532f6d5"
+    },
+    {
+      "name": "vscode",
+      "repository": "microsoft/vscode",
+      "sha": "f92b8f3adcd9bc034e6b9ade05c093dd59b99c5f"
+    },
+    {
+      "name": "typescript6",
+      "repository": "microsoft/TypeScript",
+      "sha": "050880ce59e30b356b686bd3144efe24f875ebc8"
+    }
+  ]
+}

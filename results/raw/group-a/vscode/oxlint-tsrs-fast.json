@@ -2,15 +2,16 @@
   "group": "A",
   "fixture": "vscode",
   "tool": "oxlint-tsrs-fast",
-  "completedAt": "2026-11-09T06:02:03.578Z",
+  "ciRunId": "42612909433/1",
+  "completedAt": "2026-11-09T12:25:21.501Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
-    "rssMethod": "libproc",
+    "rssMethod": "ps",
     "rssSampleMs": 50
   },
   "environment": {
-    "OXLINT_TSGOLINT_PATH": "/Users/bytedance/rstack/wrslint/benchmark/node_modules/.bin/tsrs-lint",
+    "OXLINT_TSGOLINT_PATH": "/home/runner/work/linter-benchmark/linter-benchmark/node_modules/.bin/tsrs-lint",
     "TSRS_FAST": "1"
   },
   "files": 14258,
@@ -19,48 +20,49 @@
   "failedRuns": 0,
   "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
   "wallMs": {
-    "median": 5652.826875,
-    "mean": 5630.7587166,
-    "stdev": 49.84261303044844,
-    "min": 5570.443041,
-    "max": 5693.371917
+    "median": 21980.694273,
+    "mean": 21996.5568328,
+    "stdev": 186.99962982310362,
+    "min": 21771.875713,
+    "max": 22333.326942
   },
   "peakRssMb": {
-    "median": 6838.828125,
-    "max": 6851.828125
+    "median": 6295.078125,
+    "max": 6326.71484375,
+    "sampledRuns": 5
   },
   "runs": [
     {
-      "wallMs": 5570.443041,
-      "peakRssMb": 6838.828125,
+      "wallMs": 21771.875713,
+      "peakRssMb": 6326.71484375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 5663.73775,
-      "peakRssMb": 6851.828125,
+      "wallMs": 22333.326942,
+      "peakRssMb": 6293.93359375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 5652.826875,
-      "peakRssMb": 6845.1875,
+      "wallMs": 22003.521799,
+      "peakRssMb": 6295.078125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 5573.414,
-      "peakRssMb": 6813.484375,
+      "wallMs": 21980.694273,
+      "peakRssMb": 6291.41015625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 5693.371917,
-      "peakRssMb": 6827.046875,
+      "wallMs": 21893.365437,
+      "peakRssMb": 6304.1171875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false

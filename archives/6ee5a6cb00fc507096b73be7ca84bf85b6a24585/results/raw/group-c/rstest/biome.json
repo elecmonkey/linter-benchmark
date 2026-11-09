@@ -1,0 +1,88 @@
+{
+  "group": "C",
+  "fixture": "rstest",
+  "tool": "biome",
+  "completedAt": "2026-11-09T06:35:02.905Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 2139,
+  "filesLinted": 2139,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 453.66425,
+    "mean": 443.55355,
+    "stdev": 70.61713510955649,
+    "min": 311.296042,
+    "max": 521.044625
+  },
+  "peakRssMb": {
+    "median": 247.09375,
+    "max": 254.953125
+  },
+  "runs": [
+    {
+      "wallMs": 311.296042,
+      "peakRssMb": 220.71875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 478.875458,
+      "peakRssMb": 250.40625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 452.887375,
+      "peakRssMb": 247.09375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 521.044625,
+      "peakRssMb": 254.953125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 453.66425,
+      "peakRssMb": 246.59375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1208,
+    "typeAware": 0,
+    "syntactic": 1207,
+    "unmapped": {
+      "other: parse": 1
+    },
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 609,
+      "@typescript-eslint/no-namespace": 1,
+      "@typescript-eslint/no-require-imports": 65,
+      "no-delete-var": 18,
+      "no-empty + no-empty-static-block": 424,
+      "no-prototype-builtins": 8,
+      "no-shadow-restricted-names": 4,
+      "no-useless-assignment": 1,
+      "no-var": 59,
+      "prefer-const": 4,
+      "prefer-rest-params": 1,
+      "preserve-caught-error": 13
+    }
+  }
+}

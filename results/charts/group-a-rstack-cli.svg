@@ -25,31 +25,31 @@
   <rect class="surface" width="760" height="170" rx="8"/>
 
   <g>
-    <title>Rslint: 332 ms (fastest)</title>
+    <title>Rslint: 870 ms (fastest)</title>
     <text class="t-secondary" x="170" y="28" text-anchor="end" dominant-baseline="central" font-size="15">Rslint</text>
     <path class="bar-rslint" d="M186,16H249A4,4 0 0 1 253,20V36A4,4 0 0 1 249,40H186Z"/>
     <text class="ratio" x="245" y="28" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.00×</text>
-    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">332 ms</text>
+    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">870 ms</text>
   </g>
   <g>
-    <title>Oxlint (tsgolint): 504 ms (1.52× the fastest)</title>
+    <title>Oxlint (tsgolint): 971 ms (1.12× the fastest)</title>
     <text class="t-secondary" x="170" y="66" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsgolint)</text>
-    <path class="bar-oxlint-tsgolint" d="M186,54H490.1186432233818A4,4 0 0 1 494.1186432233818,58V74A4,4 0 0 1 490.1186432233818,78H186Z"/>
-    <text class="ratio" x="486.1186432233818" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.52×</text>
-    <text class="t-secondary" x="504.1186432233818" y="66" dominant-baseline="central" font-size="14">504 ms</text>
+    <path class="bar-oxlint-tsgolint" d="M186,54H328.002844657601A4,4 0 0 1 332.002844657601,58V74A4,4 0 0 1 328.002844657601,78H186Z"/>
+    <text class="ratio" x="324.002844657601" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.12×</text>
+    <text class="t-secondary" x="342.002844657601" y="66" dominant-baseline="central" font-size="14">971 ms</text>
   </g>
   <g>
-    <title>Oxlint (tsrs --fast): 678 ms (2.04× the fastest)</title>
+    <title>Oxlint (tsrs --fast): 1.54 s (1.77× the fastest)</title>
     <text class="t-secondary" x="170" y="104" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsrs --fast)</text>
-    <path class="bar-oxlint-tsrs-fast" d="M186,92H661.8745430338222A4,4 0 0 1 665.8745430338222,96V112A4,4 0 0 1 661.8745430338222,116H186Z"/>
-    <text class="ratio" x="657.8745430338222" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">2.04×</text>
-    <text class="t-secondary" x="675.8745430338222" y="104" dominant-baseline="central" font-size="14">678 ms</text>
+    <path class="bar-oxlint-tsrs-fast" d="M186,92H662.6186630166487A4,4 0 0 1 666.6186630166487,96V112A4,4 0 0 1 662.6186630166487,116H186Z"/>
+    <text class="ratio" x="658.6186630166487" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.77×</text>
+    <text class="t-secondary" x="676.6186630166487" y="104" dominant-baseline="central" font-size="14">1.54 s</text>
   </g>
   <g>
-    <title>Oxlint (tsrs): 683 ms (2.05× the fastest)</title>
+    <title>Oxlint (tsrs): 1.55 s (1.78× the fastest)</title>
     <text class="t-secondary" x="170" y="142" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint (tsrs)</text>
     <path class="bar-oxlint-tsrs" d="M186,130H666A4,4 0 0 1 670,134V150A4,4 0 0 1 666,154H186Z"/>
-    <text class="ratio" x="662" y="142" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">2.05×</text>
-    <text class="t-secondary" x="680" y="142" dominant-baseline="central" font-size="14">683 ms</text>
+    <text class="ratio" x="662" y="142" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.78×</text>
+    <text class="t-secondary" x="680" y="142" dominant-baseline="central" font-size="14">1.55 s</text>
   </g>
 </svg>

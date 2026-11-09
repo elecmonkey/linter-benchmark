@@ -1,10 +1,10 @@
 {
   "rsbuild": {
-    "onDisk": 2450,
-    "afterIgnores": 2448,
-    "files": 2448,
+    "onDisk": 2452,
+    "afterIgnores": 2450,
+    "files": 2450,
     "typed": 1348,
-    "untyped": 1100,
+    "untyped": 1102,
     "untypedGlobs": 709
   },
   "rslib": {
@@ -48,20 +48,20 @@
     "untypedGlobs": 133
   },
   "rspack": {
-    "onDisk": 17547,
-    "afterIgnores": 499,
-    "files": 499,
+    "onDisk": 17556,
+    "afterIgnores": 493,
+    "files": 493,
     "typed": 427,
-    "untyped": 72,
-    "untypedGlobs": 35
+    "untyped": 66,
+    "untypedGlobs": 34
   },
   "vscode": {
     "onDisk": 15705,
-    "afterIgnores": 14260,
-    "files": 14260,
+    "afterIgnores": 14258,
+    "files": 14258,
     "typed": 14045,
-    "untyped": 215,
-    "untypedGlobs": 122
+    "untyped": 213,
+    "untypedGlobs": 121
   },
   "typescript6": {
     "onDisk": 39444,

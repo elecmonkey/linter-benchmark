@@ -1,0 +1,87 @@
+{
+  "group": "B",
+  "fixture": "rslib",
+  "tool": "oxlint-tsgolint",
+  "completedAt": "2026-11-09T05:29:47.015Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {
+    "OXLINT_TSGOLINT_PATH": "/Users/bytedance/rstack/wrslint/benchmark/node_modules/.bin/tsgolint"
+  },
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 1005.2015,
+    "mean": 1079.6827998,
+    "stdev": 164.58234119390048,
+    "min": 919.345833,
+    "max": 1359.257292
+  },
+  "peakRssMb": {
+    "median": 639.84375,
+    "max": 730.828125
+  },
+  "runs": [
+    {
+      "wallMs": 1005.2015,
+      "peakRssMb": 730.828125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1359.257292,
+      "peakRssMb": 639.84375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1169.148041,
+      "peakRssMb": 638.90625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 919.345833,
+      "peakRssMb": 627.609375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 945.461333,
+      "peakRssMb": 686.078125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 208,
+    "typeAware": 124,
+    "syntactic": 69,
+    "unmapped": {
+      "other: Expected a semicolon or an implicit semicolon after a statement, but found none": 1,
+      "typescript/tsconfig-error": 14
+    },
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-floating-promises": 11,
+      "@typescript-eslint/no-misused-promises": 5,
+      "@typescript-eslint/no-require-imports": 23,
+      "@typescript-eslint/no-unsafe-return": 13,
+      "@typescript-eslint/no-unused-vars": 3,
+      "@typescript-eslint/require-await": 95,
+      "preserve-caught-error": 2
+    }
+  }
+}

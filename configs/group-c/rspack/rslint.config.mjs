@@ -2,6 +2,7 @@
 export default [
   {
     ignores: [
+      "**/node_modules/**",
       "**/*.vue",
       "**/*.svelte",
       "**/*.astro",
@@ -9,7 +10,6 @@ export default [
       "xtask/benchmark/benches/fixtures/rspack_sources/**",
       "**/tests/**",
       "crates/rspack_resolver/**",
-      "eslint.config.bench.mjs",
       "rslint.config.bench.mjs"
     ],
   },

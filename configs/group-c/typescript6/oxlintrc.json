@@ -13,6 +13,7 @@
     "nursery": "off"
   },
   "ignorePatterns": [
+    "**/node_modules/**",
     "**/*.vue",
     "**/*.svelte",
     "**/*.astro",
@@ -25,7 +26,6 @@
     "scripts/**/*.d.*",
     "internal/**",
     "coverage/**",
-    "/eslint.config.bench.mjs",
     "/rslint.config.bench.mjs"
   ],
   "rules": {

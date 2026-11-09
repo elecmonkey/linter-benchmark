@@ -892,8 +892,10 @@ e2e/cases/output/auto-external-web/index.test.ts
 e2e/cases/output/auto-external-web/src/index.js
 e2e/cases/output/charset-emoji-filename/index.test.ts
 e2e/cases/output/charset-emoji-filename/src/index.js
+e2e/cases/output/charset-emoji-filename/src/🦀.js
 e2e/cases/output/charset-zh-filename/index.test.ts
 e2e/cases/output/charset-zh-filename/src/index.js
+e2e/cases/output/charset-zh-filename/src/这是一个中文目录/这是一个中文文件名.js
 e2e/cases/output/charset/index.test.ts
 e2e/cases/output/charset/src/index.js
 e2e/cases/output/clean-dist-path/index.test.ts

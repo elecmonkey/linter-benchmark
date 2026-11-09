@@ -22,12 +22,32 @@
 // paths otherwise).
 //
 // Output: scope/<fixture>.txt   expected file list (checked after each run)
-//         scope/<fixture>.json  { ignores, exclude, untyped } for the tool configs
+//         scope/<fixture>.json  { ignores, directoryAliases, exclude, untyped }
 //         scope/summary.json    file counts per stage
 import fs from 'node:fs';
 import path from 'node:path';
+import { Minimatch } from 'minimatch';
 import ts from 'typescript';
 import { FIXTURES, FIXTURE_DIR, SCOPE_DIR, run, writeJson } from './lib.mjs';
+
+// Global ignore patterns include hidden files.
+
+function directorySymlinkIgnores(root) {
+  const ignores = [];
+  const walk = (rel) => {
+    for (const entry of fs.readdirSync(path.join(root, rel), { withFileTypes: true })) {
+      if (entry.name === 'node_modules' || entry.name === '.git') continue;
+      const file = path.posix.join(rel, entry.name);
+      if (entry.isSymbolicLink()) {
+        try {
+          if (fs.statSync(path.join(root, file)).isDirectory()) ignores.push(`${file}/**`);
+        } catch { /* A broken link has no files to discover. */ }
+      } else if (entry.isDirectory()) walk(file);
+    }
+  };
+  walk('');
+  return ignores.sort();
+}
 
 // Global lint ignores, transcribed from each fixture's lint config.
 const REPO_IGNORES = {
@@ -141,9 +161,12 @@ const summary = {};
 for (const fixture of FIXTURES) {
   const repoRoot = path.join(FIXTURE_DIR, fixture);
   const ignores = repoIgnores(fixture, repoRoot);
+  const directoryAliases = directorySymlinkIgnores(repoRoot);
+  const ignoreMatchers = [...ignores, ...directoryAliases].map((glob) => new Minimatch(glob, { dot: true }));
   const load = createProjectLoader();
   const isSource = (f) => SOURCE.test(f) && !f.split('/').includes('node_modules');
-  const git = (...args) => run('git', args, { cwd: repoRoot }).stdout.split('\n').filter(isSource);
+  // NUL output preserves Unicode paths without Git's display quoting.
+  const git = (...args) => run('git', [...args, '-z'], { cwd: repoRoot }).stdout.split('\0').filter(isSource);
 
   // Every JS/TS file a tool walking the repository would find.
   const onDisk = [...new Set([...git('ls-files'), ...git('ls-files', '--others')])].sort();
@@ -154,7 +177,7 @@ for (const fixture of FIXTURES) {
   const untyped = new Set();
   let afterIgnores = 0;
   for (const rel of onDisk) {
-    if (ignores.some((glob) => path.matchesGlob(rel, glob))) continue;
+    if (ignoreMatchers.some((matcher) => matcher.match(rel))) continue;
     afterIgnores++;
     if (gitignored.has(rel)) {
       exclude.push(rel);
@@ -167,7 +190,7 @@ for (const fixture of FIXTURES) {
 
   fs.mkdirSync(SCOPE_DIR, { recursive: true });
   fs.writeFileSync(path.join(SCOPE_DIR, `${fixture}.txt`), `${scope.join('\n')}\n`);
-  writeJson(path.join(SCOPE_DIR, `${fixture}.json`), { ignores, exclude, untyped: untypedGlobs });
+  writeJson(path.join(SCOPE_DIR, `${fixture}.json`), { ignores, directoryAliases, exclude, untyped: untypedGlobs });
   summary[fixture] = { onDisk: onDisk.length, afterIgnores, files: scope.length, typed: scope.length - untyped.size, untyped: untyped.size, untypedGlobs: untypedGlobs.length };
   console.log(
     `${fixture.padEnd(11)} JS/TS on disk ${String(onDisk.length).padStart(5)} -> scope ${String(scope.length).padStart(5)} (typed ${String(scope.length - untyped.size).padStart(5)}, untyped ${String(untyped.size).padStart(5)} in ${untypedGlobs.length} globs)`,

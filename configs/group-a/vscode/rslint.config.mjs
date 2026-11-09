@@ -2,6 +2,7 @@
 export default [
   {
     ignores: [
+      "**/node_modules/**",
       "**/*.vue",
       "**/*.svelte",
       "**/*.astro",
@@ -63,7 +64,6 @@ export default [
       "**/.vscode-test/**",
       "src/vs/base/common/lit-html/**",
       "src/vs/base/common/signals-core/**",
-      "eslint.config.bench.mjs",
       "rslint.config.bench.mjs"
     ],
   },
@@ -224,7 +224,6 @@ export default [
       "extensions/gulp/esbuild.mts",
       "extensions/html-language-features/esbuild.browser.mts",
       "extensions/html-language-features/esbuild.mts",
-      "extensions/html-language-features/server/src/test/pathCompletionFixtures/**",
       "extensions/html-language-features/server/test/**",
       "extensions/ipynb/esbuild.browser.mts",
       "extensions/ipynb/esbuild.mts",

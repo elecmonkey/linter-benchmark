@@ -8,21 +8,19 @@
 // between the <!-- results:start --> / <!-- results:end --> markers.
 import fs from 'node:fs';
 import path from 'node:path';
-import { FIXTURE_DIR, REPOS, RESULTS_DIR, ROOT, RULES_DIR, SCOPE_DIR, fixtureName, readJson } from './lib.mjs';
+import { FIXTURE_DIR, REPOS, RESULTS_DIR, ROOT, RULES_DIR, SCOPE_DIR, fixtureName, list, parseFlags, readJson, toolName, toolsForGroup } from './lib.mjs';
 
 const groups = readJson(path.join(RULES_DIR, 'groups.json'));
+const flags = parseFlags();
+const selectedGroups = list(flags.groups, Object.keys(groups));
+for (const [group, def] of Object.entries(groups)) {
+  if (!selectedGroups.includes(group)) delete groups[group];
+  else def.tools = toolsForGroup(def, list(flags.tools));
+}
 const scope = readJson(path.join(SCOPE_DIR, 'summary.json'));
 const manifestPath = path.join(FIXTURE_DIR, 'manifest.json');
 const manifest = fs.existsSync(manifestPath) ? readJson(manifestPath) : null;
 
-const NAMES = {
-  eslint: 'ESLint (typescript-eslint)',
-  rslint: 'Rslint',
-  oxlint: 'Oxlint (oxlint-tsgolint)',
-  biome: 'Biome',
-};
-// Without type information Oxlint does not use tsgolint.
-const nameIn = (def, tool) => (tool === 'oxlint' && !def.typeInfo ? 'Oxlint' : NAMES[tool]);
 const REPO_OF = Object.fromEntries(REPOS.map((repo) => [fixtureName(repo), repo]));
 const ORDER = Object.keys(REPO_OF).sort((a, b) => scope[a].files - scope[b].files);
 
@@ -31,7 +29,9 @@ const fmtInt = (n) => n.toLocaleString('en-US');
 
 function load(group, fixture, tool) {
   const file = path.join(RESULTS_DIR, 'raw', `group-${group.toLowerCase()}`, fixture, `${tool}.json`);
-  return fs.existsSync(file) ? readJson(file) : null;
+  if (!fs.existsSync(file)) return null;
+  const result = readJson(file);
+  return result.files === scope[fixture].files && (result.scopeMatch || result.diagnostics.error) ? result : null;
 }
 
 /** A run whose output could not be parsed produced no lint result: the tool crashed. */
@@ -63,13 +63,17 @@ function section(chartDir, headingLevel) {
     }
     const cells = Object.entries(wins)
       .sort((a, b) => b[1].length - a[1].length)
-      .map(([tool, fixtures]) => `**${nameIn(def, tool)}** ${fixtures.length}/${total}`);
+      .map(([tool, fixtures]) => `**${toolName(tool)}** ${fixtures.length}/${total}`);
     lines.push(`| ${group} | ${cells.join(' · ')} |`);
   }
   lines.push('');
 
+  if (Object.values(groups).some((def) => def.tools.some((tool) => tool.startsWith('oxlint-tsrs')))) {
+    lines.push('The Oxlint variants use the same file scope and rule configuration. tsrs default mode uses `TSRS_FAST=0`; fast mode uses `TSRS_FAST=1`. Diagnostic counts can differ between engines and are reported separately.', '');
+  }
+
   for (const [group, def] of Object.entries(groups)) {
-    lines.push(`${h(0)} Group ${group}: ${def.tools.map((t) => nameIn(def, t)).join(', ')}`, '');
+    lines.push(`${h(0)} Group ${group}: ${def.tools.map((t) => toolName(t)).join(', ')}`, '');
     lines.push(`${def.typeInfo ? `${def.syntactic} syntactic + ${def.typeAware} type-aware rules` : `${def.syntactic} syntactic rules, no type information`}. Median of 5 runs after 1 warmup. Bar lengths are log-scaled; the labels give exact values.`, '');
     for (const fixture of ORDER) {
       const rows = def.tools.map((tool) => ({ tool, r: load(group, fixture, tool) })).filter((x) => x.r);
@@ -88,15 +92,15 @@ function section(chartDir, headingLevel) {
       const notes = [];
       for (const { tool, r } of rows) {
         if (crashed(r)) {
-          lines.push(`| ${nameIn(def, tool)} | crashed | | | | | |`);
+          lines.push(`| ${toolName(tool)} | crashed | | | | | |`);
           const reason = crashReason(group, fixture, tool);
           // Double backticks: the message itself may contain backticks.
-          notes.push(`${nameIn(def, tool)} crashed on every run and produced no lint output${reason ? `: internal error \`\` ${reason} \`\`` : ''}.`);
+          notes.push(`${toolName(tool)} crashed on every run and produced no lint output${reason ? `: internal error \`\` ${reason} \`\`` : ''}.`);
           continue;
         }
         const failed = r.failedRuns ? ` (${r.failedRuns} failed)` : '';
         lines.push(
-          `| ${nameIn(def, tool)}${failed} | ${fmtTime(r.wallMs.median)} | ${fmtTime(r.wallMs.min)} | ${fmtTime(r.wallMs.max)} | ${fmtInt(Math.round(r.peakRssMb.median))} MB | ${fmtInt(r.diagnostics.total ?? 0)} | ${(r.wallMs.median / fastest).toFixed(2)}× |`,
+          `| ${toolName(tool)}${failed} | ${fmtTime(r.wallMs.median)} | ${fmtTime(r.wallMs.min)} | ${fmtTime(r.wallMs.max)} | ${fmtInt(Math.round(r.peakRssMb.median))} MB | ${fmtInt(r.diagnostics.total ?? 0)} | ${(r.wallMs.median / fastest).toFixed(2)}× |`,
         );
       }
       lines.push('');

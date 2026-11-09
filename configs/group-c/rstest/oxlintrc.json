@@ -13,10 +13,11 @@
     "nursery": "off"
   },
   "ignorePatterns": [
+    "**/node_modules/**",
     "**/*.vue",
     "**/*.svelte",
     "**/*.astro",
-    "/eslint.config.bench.mjs",
+    ".claude/skills/**",
     "/rslint.config.bench.mjs"
   ],
   "rules": {

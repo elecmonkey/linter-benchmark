@@ -3,6 +3,7 @@
     "tests/integration/wasm/static-source/src/utils.js",
     "tests/integration/wasm-inline/basic/src/source.js"
   ],
+  "directoryAliases": [],
   "exclude": [],
   "untyped": [
     "cspell.config.js",

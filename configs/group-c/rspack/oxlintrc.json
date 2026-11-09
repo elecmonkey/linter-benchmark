@@ -13,6 +13,7 @@
     "nursery": "off"
   },
   "ignorePatterns": [
+    "**/node_modules/**",
     "**/*.vue",
     "**/*.svelte",
     "**/*.astro",
@@ -20,7 +21,6 @@
     "xtask/benchmark/benches/fixtures/rspack_sources/**",
     "**/tests/**",
     "crates/rspack_resolver/**",
-    "/eslint.config.bench.mjs",
     "/rslint.config.bench.mjs"
   ],
   "rules": {

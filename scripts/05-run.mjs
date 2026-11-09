@@ -7,24 +7,23 @@
 // Per tool: 1 warmup run, then N measured runs, interleaved across tools so
 // machine drift affects every tool equally. Each run records wall time and the
 // peak RSS summed over the whole process tree (Node launchers + native
-// binaries + tsgolint), sampled every 50 ms with `ps`.
-// Diagnostics from the last run are parsed and counted per ESLint rule name.
+// binaries + type engine), sampled every 50 ms with libproc on macOS and ps elsewhere.
+// Diagnostics from the last run are parsed and counted per baseline rule ID.
 //
 // Safety: each run is killed (whole process group) after --timeout-min minutes
-// and recorded as a timeout. ESLint gets a 32 GB V8 heap: typed linting with
-// projectService exceeds Node's ~4 GB default on multi-tsconfig monorepos.
+// and recorded as a timeout.
 //
 // Usage:
-//   node scripts/05-run.mjs [--groups A,B,C] [--fixtures rsbuild,...] [--tools eslint,...]
-//                           [--runs 5] [--warmup 1] [--timeout-min 15] [--eslint-heap-mb 32768]
+//   node scripts/05-run.mjs [--groups A,B,C] [--fixtures rsbuild,...] [--tools rslint,oxlint-tsgolint,...]
+//                           [--runs 5] [--warmup 1] [--timeout-min 15]
 //
 // Output: results/raw/group-<g>/<fixture>/<tool>.json
 //         logs/output/group-<g>/<fixture>/<tool>.{stdout,stderr} (last run)
-import { execFile, spawn } from 'node:child_process';
+import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { promisify } from 'node:util';
-import { BIN, CONFIGS_DIR, FIXTURES, FIXTURE_DIR, LOGS_DIR, RESULTS_DIR, RULES_DIR, SCOPE_DIR, list, parseFlags, readJson, writeJson } from './lib.mjs';
+import { createRssSampler } from './rss.mjs';
+import { BIN, CONFIGS_DIR, FIXTURES, FIXTURE_DIR, LOGS_DIR, RESULTS_DIR, RULES_DIR, SCOPE_DIR, list, parseFlags, readJson, ruleTool, toolsForGroup, writeJson } from './lib.mjs';
 
 const flags = parseFlags();
 const GROUPS = list(flags.groups, ['A', 'B', 'C']);
@@ -32,22 +31,26 @@ const SELECTED_FIXTURES = list(flags.fixtures, FIXTURES);
 const RUNS = Number(flags.runs ?? 5);
 const WARMUP = Number(flags.warmup ?? 1);
 const TIMEOUT_MS = Number(flags['timeout-min'] ?? 15) * 60_000;
-const ESLINT_HEAP_MB = Number(flags['eslint-heap-mb'] ?? 32768);
 const groups = readJson(path.join(RULES_DIR, 'groups.json'));
+const allowedFlags = new Set(['groups', 'fixtures', 'tools', 'runs', 'warmup', 'timeout-min']);
+for (const flag of Object.keys(flags)) {
+  if (!allowedFlags.has(flag)) throw new Error(`unknown benchmark option: --${flag}`);
+}
+for (const group of GROUPS) {
+  if (!Object.hasOwn(groups, group)) throw new Error(`unknown benchmark group: ${group}`);
+}
+for (const fixture of SELECTED_FIXTURES) {
+  if (!FIXTURES.includes(fixture)) throw new Error(`unknown benchmark fixture: ${fixture}`);
+}
+if (!Number.isInteger(RUNS) || RUNS < 1 || !Number.isInteger(WARMUP) || WARMUP < 0 || !(TIMEOUT_MS > 0)) {
+  throw new Error('runs must be positive, warmup nonnegative, and timeout positive');
+}
 
 // ------------------------------------------------------------------ tools
 // `config` is the file in configs/group-<g>/<fixture>/; `as` is its name inside the fixture.
 // `args(typeInfo)` is false for groups that run without type information.
 // `linted(stdout, cwd)` returns the files the tool linted: a list, or a count.
 const TOOLS = {
-  eslint: {
-    config: 'eslint.config.mjs',
-    as: 'eslint.config.bench.mjs',
-    env: { NODE_OPTIONS: `--max-old-space-size=${ESLINT_HEAP_MB}` },
-    args: () => [path.join(BIN, 'eslint'), '-c', 'eslint.config.bench.mjs', '--format', 'json', '.'],
-    parse: (out) => JSON.parse(out).flatMap((file) => file.messages.map((m) => m.ruleId ?? `fatal: ${m.message}`)),
-    linted: (out, cwd) => JSON.parse(out).map((file) => path.relative(cwd, file.filePath)),
-  },
   rslint: {
     config: 'rslint.config.mjs',
     as: 'rslint.config.bench.mjs',
@@ -60,7 +63,6 @@ const TOOLS = {
   oxlint: {
     config: 'oxlintrc.json',
     as: '.oxlintrc.bench.json',
-    env: { OXLINT_TSGOLINT_PATH: path.join(BIN, 'tsgolint') },
     args: (typeInfo) => [path.join(BIN, 'oxlint'), '-c', '.oxlintrc.bench.json', ...(typeInfo ? ['--type-aware'] : []), '--disable-nested-config', '-f', 'json', '.'],
     // code: "typescript(no-floating-promises)" -> "typescript/no-floating-promises"
     parse: (out) => JSON.parse(out).diagnostics.map((d) => d.code?.replace(/^(\w+)\((.+)\)$/, '$1/$2') ?? `other: ${d.message}`),
@@ -79,6 +81,18 @@ const TOOLS = {
     },
   },
 };
+TOOLS['oxlint-tsgolint'] = {
+  ...TOOLS.oxlint,
+  env: { OXLINT_TSGOLINT_PATH: path.join(BIN, 'tsgolint') },
+};
+TOOLS['oxlint-tsrs'] = {
+  ...TOOLS.oxlint,
+  env: { OXLINT_TSGOLINT_PATH: path.join(BIN, 'tsrs-lint'), TSRS_FAST: '0' },
+};
+TOOLS['oxlint-tsrs-fast'] = {
+  ...TOOLS['oxlint-tsrs'],
+  env: { ...TOOLS['oxlint-tsrs'].env, TSRS_FAST: '1' },
+};
 
 /** Compare what a tool linted with the scope: exact for file lists, by count otherwise. */
 function checkScope(linted, scope) {
@@ -92,39 +106,23 @@ function checkScope(linted, scope) {
   return { filesLinted: linted, scopeMatch: linted === scope.length };
 }
 const SELECTED_TOOLS = list(flags.tools, Object.keys(TOOLS));
+for (const group of GROUPS) {
+  if (!toolsForGroup(groups[group], SELECTED_TOOLS).length) throw new Error(`no selected tools in group ${group}`);
+}
 
-// Map a tool-specific rule name back to the ESLint rule name(s) of the group.
+// Map a tool-specific rule name back to the baseline rule ID(s) of the group.
 function ruleIndex(group, tool) {
   const index = new Map();
   for (const rule of groups[group].rules) {
-    const key = rule[tool];
-    index.set(key, index.has(key) ? `${index.get(key)} + ${rule.eslint}` : rule.eslint);
+    const key = rule[ruleTool(tool)];
+    index.set(key, index.has(key) ? `${index.get(key)} + ${rule.rule}` : rule.rule);
   }
   return index;
 }
 
 // ------------------------------------------------------------------ measuring
-const execFileAsync = promisify(execFile);
-
-async function treeRssKb(rootPid) {
-  const { stdout } = await execFileAsync('ps', ['-A', '-o', 'pid=,ppid=,rss=']);
-  const children = new Map();
-  const rss = new Map();
-  for (const line of stdout.trim().split('\n')) {
-    const [pid, ppid, kb] = line.trim().split(/\s+/).map(Number);
-    rss.set(pid, kb);
-    if (!children.has(ppid)) children.set(ppid, []);
-    children.get(ppid).push(pid);
-  }
-  let total = 0;
-  const stack = [rootPid];
-  while (stack.length) {
-    const pid = stack.pop();
-    total += rss.get(pid) ?? 0;
-    stack.push(...(children.get(pid) ?? []));
-  }
-  return total;
-}
+const rssSampler = createRssSampler();
+await rssSampler.ready;
 
 function runOnce(argv, { cwd, env, stdoutFile, stderrFile }) {
   return new Promise((resolve, reject) => {
@@ -143,12 +141,13 @@ function runOnce(argv, { cwd, env, stdoutFile, stderrFile }) {
 
     let peakKb = 0;
     let sampling = false;
+    let samplingError;
     const timer = setInterval(async () => {
       if (sampling) return;
       sampling = true;
       try {
-        peakKb = Math.max(peakKb, await treeRssKb(child.pid));
-      } catch {}
+        peakKb = Math.max(peakKb, await rssSampler.sample(child.pid));
+      } catch (error) { samplingError = error; }
       sampling = false;
     }, 50);
 
@@ -159,6 +158,7 @@ function runOnce(argv, { cwd, env, stdoutFile, stderrFile }) {
       clearTimeout(killer);
       fs.closeSync(stdout);
       fs.closeSync(stderr);
+      if (samplingError) return reject(samplingError);
       resolve({ wallMs, peakRssMb: peakKb / 1024, exitCode: code, signal, timedOut });
     });
   });
@@ -174,12 +174,12 @@ const stdev = (xs) => Math.sqrt(mean(xs.map((x) => (x - mean(xs)) ** 2)));
 
 function summarizeDiagnostics(group, tool, names) {
   const index = ruleIndex(group, tool);
-  const typed = new Set(groups[group].rules.filter((r) => r.typed).map((r) => r.eslint));
+  const typed = new Set(groups[group].rules.filter((r) => r.typed).map((r) => r.rule));
   const byRule = {};
   const unmapped = {};
   for (const name of names) {
-    const eslintName = index.get(name);
-    if (eslintName) byRule[eslintName] = (byRule[eslintName] ?? 0) + 1;
+    const ruleId = index.get(name);
+    if (ruleId) byRule[ruleId] = (byRule[ruleId] ?? 0) + 1;
     else unmapped[name] = (unmapped[name] ?? 0) + 1;
   }
   const count = (pred) => Object.entries(byRule).filter(([r]) => pred(r)).reduce((a, [, n]) => a + n, 0);
@@ -200,11 +200,12 @@ const cleanup = () => {
 };
 process.on('SIGINT', () => {
   cleanup();
+  rssSampler.close();
   process.exit(130);
 });
 
 for (const group of GROUPS) {
-  const tools = groups[group].tools.filter((t) => SELECTED_TOOLS.includes(t));
+  const tools = toolsForGroup(groups[group], SELECTED_TOOLS);
   for (const fixture of SELECTED_FIXTURES) {
     const configDir = path.join(CONFIGS_DIR, `group-${group.toLowerCase()}`, fixture);
     const cwd = path.join(FIXTURE_DIR, fixture);
@@ -215,6 +216,7 @@ for (const group of GROUPS) {
     try {
       for (const tool of tools) {
         const target = path.join(cwd, TOOLS[tool].as);
+        if (placed.has(target)) continue;
         if (fs.existsSync(target)) throw new Error(`refusing to overwrite ${target}`);
         fs.copyFileSync(path.join(configDir, TOOLS[tool].config), target);
         placed.add(target);
@@ -263,6 +265,9 @@ for (const group of GROUPS) {
           group,
           fixture,
           tool,
+          completedAt: new Date().toISOString(),
+          measurement: { runs: RUNS, warmup: WARMUP, rssMethod: rssSampler.method, rssSampleMs: 50 },
+          environment: spec.env ?? {},
           files: files.length,
           ...scopeCheck,
           // A run that was killed (timeout / OOM signal) did not finish its work.
@@ -279,3 +284,4 @@ for (const group of GROUPS) {
     }
   }
 }
+rssSampler.close();

@@ -1,32 +1,17 @@
-// Step 1: compute the rule universe.
-//
-// Universe = the rules that are effectively ON for a `.ts` file under
-//   js.configs.recommended + typescript-eslint `recommendedTypeChecked`
-// (the latter also turns off core rules that TypeScript makes redundant,
-// e.g. no-undef, and swaps in the @typescript-eslint/ extension rules).
-//
-// Output: rules/universe.json  [{ rule, typed }]
+// Step 1: validate the pinned rule baseline and write its universe.
+// Keeping the catalog explicit preserves comparisons across tool refactors.
 import path from 'node:path';
-import js from '@eslint/js';
-import { ESLint } from 'eslint';
-import tseslint from 'typescript-eslint';
-import { RULES_DIR, TS_PREFIX, writeJson } from './lib.mjs';
+import { RULES_DIR, readJson, writeJson } from './lib.mjs';
 
-const eslint = new ESLint({
-  overrideConfigFile: true,
-  overrideConfig: [js.configs.recommended, ...tseslint.configs.recommendedTypeChecked],
-});
-const config = await eslint.calculateConfigForFile('example.ts');
-
-const severity = (value) => (Array.isArray(value) ? value[0] : value);
-const isOn = (value) => severity(value) !== 0 && severity(value) !== 'off';
-const requiresTypes = (rule) =>
-  rule.startsWith(TS_PREFIX) &&
-  Boolean(tseslint.plugin.rules[rule.slice(TS_PREFIX.length)].meta.docs?.requiresTypeChecking);
-
-const universe = Object.entries(config.rules)
-  .filter(([, value]) => isOn(value))
-  .map(([rule]) => ({ rule, typed: requiresTypes(rule) }));
-
-writeJson(path.join(RULES_DIR, 'universe.json'), universe);
-console.log(`${universe.length} rules (${universe.filter((r) => r.typed).length} type-aware)`);
+const { rules } = readJson(path.join(RULES_DIR, 'catalog.json'));
+const names = new Set();
+for (const entry of rules) {
+  if (typeof entry.rule !== 'string' || typeof entry.typed !== 'boolean' || !Array.isArray(entry.biome)) {
+    throw new Error(`invalid catalog entry: ${JSON.stringify(entry)}`);
+  }
+  if (names.has(entry.rule)) throw new Error(`duplicate baseline rule: ${entry.rule}`);
+  if (entry.biome.length > 1) throw new Error(`ambiguous Biome mapping: ${entry.rule}`);
+  names.add(entry.rule);
+}
+writeJson(path.join(RULES_DIR, 'universe.json'), rules.map(({ rule, typed }) => ({ rule, typed })));
+console.log(`${rules.length} baseline rules (${rules.filter((r) => r.typed).length} type-aware)`);

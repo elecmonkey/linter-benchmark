@@ -10,6 +10,7 @@
     "internal/**",
     "coverage/**"
   ],
+  "directoryAliases": [],
   "exclude": [],
   "untyped": [
     ".gulp.js",

@@ -2,12 +2,12 @@
 export default [
   {
     ignores: [
+      "**/node_modules/**",
       "**/*.vue",
       "**/*.svelte",
       "**/*.astro",
       "e2e/cases/browser-logs/skip-build-error/src/index.js",
       "e2e/cases/wasm/wasm-source-import/src/index.js",
-      "eslint.config.bench.mjs",
       "rslint.config.bench.mjs"
     ],
   },

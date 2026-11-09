@@ -1,5 +1,6 @@
 {
   "ignores": [],
+  "directoryAliases": [],
   "exclude": [],
   "untyped": [
     "cspell.config.js",

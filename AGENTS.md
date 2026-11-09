@@ -5,11 +5,11 @@
 ```
 benchmark/
 ├── package.json     pinned linter versions + step scripts
-├── fixture/         the six repositories (git submodules)
+├── fixture/         the nine repositories (git submodules)
 ├── scripts/
 │   ├── lib.mjs                  shared paths and helpers
 │   ├── 00-setup-fixtures.mjs    submodule checkout + pnpm install --frozen-lockfile --ignore-scripts
-│   ├── 01-rule-universe.mjs     recommended rules              -> rules/universe.json
+│   ├── 01-rule-universe.mjs     pinned rule baseline           -> rules/universe.json
 │   ├── 02-rule-support.mjs      per-tool support, groups A/B/C -> rules/
 │   ├── 03-scope.mjs             files to lint per fixture      -> scope/
 │   ├── 04-configs.mjs           one config per group x tool    -> configs/
@@ -17,7 +17,8 @@ benchmark/
 │   ├── 06-report.mjs            tables                         -> results/report.md + README results section
 │   └── 07-chart.mjs             ranking charts                 -> results/charts/
 ├── rules/
-│   ├── universe.json            recommended rules for a .ts file (92)
+│   ├── catalog.json             pinned baseline + Biome mappings
+│   ├── universe.json            baseline rule IDs (92)
 │   ├── oxlint-rules.json        Oxlint's rule list
 │   ├── matrix.json              per-rule support in each tool
 │   └── groups.json              rule sets of groups A, B and C
@@ -25,7 +26,7 @@ benchmark/
 │   ├── <fixture>.txt            files passed to every tool
 │   └── summary.json             file counts per filtering stage
 ├── configs/
-│   ├── group-a/                 eslint.config.mjs, rslint.config.mjs, oxlintrc.json
+│   ├── group-a/                 rslint.config.mjs, oxlintrc.json
 │   ├── group-b/                 the same + biome.json
 │   └── group-c/                 the same as group B, no type information
 └── results/
@@ -38,7 +39,7 @@ benchmark/
 
 ## Reproduce
 
-Requires Node 26 and pnpm 12. All scripts are Node.js (`.mjs`).
+Requires Node 26 and pnpm 12, plus Python 3 on macOS for the libproc RSS helper. Step scripts are Node.js (`.mjs`).
 
 ```sh
 pnpm install --frozen-lockfile
@@ -48,7 +49,7 @@ pnpm run bench -- --groups A,B,C --runs 5 --warmup 1
 pnpm run chart && pnpm run report
 ```
 
-`05-run.mjs` accepts `--groups`, `--fixtures`, `--tools`, `--runs`, `--warmup`, `--timeout-min` and `--eslint-heap-mb`. Use them to run a subset, for example `--groups A --fixtures rstack-cli --runs 1 --warmup 0` as a smoke test.
+`05-run.mjs` accepts `--groups`, `--fixtures`, `--tools`, `--runs`, `--warmup`, `--timeout-min`. Use them to run a subset, for example `--groups A --fixtures rstack-cli --runs 1 --warmup 0` as a smoke test.
 
 `06-report.mjs` rewrites the README between `<!-- results:start -->` and `<!-- results:end -->`. Do not edit that part by hand.
 

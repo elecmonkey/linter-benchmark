@@ -1,0 +1,91 @@
+{
+  "group": "B",
+  "fixture": "rspress",
+  "tool": "oxlint-tsrs",
+  "completedAt": "2026-11-09T05:21:33.542Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {
+    "OXLINT_TSGOLINT_PATH": "/Users/bytedance/rstack/wrslint/benchmark/node_modules/.bin/tsrs-lint",
+    "TSRS_FAST": "0"
+  },
+  "files": 746,
+  "filesLinted": 746,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 1290.0905,
+    "mean": 1294.4283334,
+    "stdev": 7.452949883239006,
+    "min": 1285.951167,
+    "max": 1304.947375
+  },
+  "peakRssMb": {
+    "median": 2197.21875,
+    "max": 2213.625
+  },
+  "runs": [
+    {
+      "wallMs": 1304.947375,
+      "peakRssMb": 2201.703125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1285.951167,
+      "peakRssMb": 2126.96875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1301.6495,
+      "peakRssMb": 2172.015625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1289.503125,
+      "peakRssMb": 2213.625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1290.0905,
+      "peakRssMb": 2197.21875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 187,
+    "typeAware": 121,
+    "syntactic": 53,
+    "unmapped": {
+      "typescript/tsconfig-error": 13
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 1,
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-floating-promises": 19,
+      "@typescript-eslint/no-implied-eval": 3,
+      "@typescript-eslint/no-misused-promises": 6,
+      "@typescript-eslint/no-require-imports": 2,
+      "@typescript-eslint/no-unsafe-return": 39,
+      "@typescript-eslint/no-unused-vars": 3,
+      "@typescript-eslint/prefer-promise-reject-errors": 4,
+      "@typescript-eslint/require-await": 49,
+      "no-unsafe-optional-chaining": 1,
+      "prefer-const": 2
+    }
+  }
+}

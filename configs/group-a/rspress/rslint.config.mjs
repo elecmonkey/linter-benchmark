@@ -2,11 +2,11 @@
 export default [
   {
     ignores: [
+      "**/node_modules/**",
       "**/*.vue",
       "**/*.svelte",
       "**/*.astro",
       "**/*.d.ts",
-      "eslint.config.bench.mjs",
       "rslint.config.bench.mjs"
     ],
   },

@@ -2,54 +2,62 @@
   "group": "B",
   "fixture": "rslib",
   "tool": "biome",
+  "completedAt": "2026-11-09T05:29:47.017Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {},
   "files": 1018,
   "filesLinted": 1018,
   "scopeMatch": true,
   "failedRuns": 0,
   "command": "biome lint --reporter=json --max-diagnostics=none .",
   "wallMs": {
-    "median": 1173.732208,
-    "mean": 1178.8705415999998,
-    "stdev": 30.124046861999386,
-    "min": 1144.015292,
-    "max": 1217.546792
+    "median": 1128.3185,
+    "mean": 1114.2357502,
+    "stdev": 49.27765774104116,
+    "min": 1024.714959,
+    "max": 1171.7035
   },
   "peakRssMb": {
-    "median": 728.953125,
-    "max": 749
+    "median": 725.453125,
+    "max": 739.171875
   },
   "runs": [
     {
-      "wallMs": 1149.535208,
-      "peakRssMb": 749,
+      "wallMs": 1107.97075,
+      "peakRssMb": 726.796875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1209.523208,
-      "peakRssMb": 728.953125,
+      "wallMs": 1171.7035,
+      "peakRssMb": 725.453125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1144.015292,
-      "peakRssMb": 723.46875,
+      "wallMs": 1138.471042,
+      "peakRssMb": 660.875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1173.732208,
-      "peakRssMb": 735.265625,
+      "wallMs": 1024.714959,
+      "peakRssMb": 676.4375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1217.546792,
-      "peakRssMb": 726.390625,
+      "wallMs": 1128.3185,
+      "peakRssMb": 739.171875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false

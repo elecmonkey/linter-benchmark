@@ -15,14 +15,9 @@
 // Output: results/charts/group-<g>-<fixture>.svg
 import fs from 'node:fs';
 import path from 'node:path';
-import { FIXTURES, RESULTS_DIR, RULES_DIR, readJson } from './lib.mjs';
+import { FIXTURES, RESULTS_DIR, RULES_DIR, SCOPE_DIR, TOOL_META, list, parseFlags, readJson, toolName, toolsForGroup } from './lib.mjs';
 
-const TOOLS = {
-  eslint: { name: 'ESLint', light: '#2a78d6', dark: '#3987e5' },
-  rslint: { name: 'Rslint', light: '#eb6834', dark: '#d95926' },
-  oxlint: { name: 'Oxlint', light: '#1baf7a', dark: '#199e70' },
-  biome: { name: 'Biome', light: '#eda100', dark: '#c98500' },
-};
+const TOOLS = TOOL_META;
 const SURFACE = { light: '#fcfcfb', dark: '#1a1a19' };
 const TEXT = { light: { primary: '#0b0b0b', secondary: '#52514e' }, dark: { primary: '#f0efec', secondary: '#c3c2b7' } };
 const RATIO_INK = '#ffffff';
@@ -30,7 +25,7 @@ const RATIO_INK = '#ffffff';
 // ------------------------------------------------------------------ layout
 const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
 const W = 760;
-const LABEL_W = 110; // tool names, right-aligned
+const LABEL_W = 170; // tool names, right-aligned
 const BAR_X = LABEL_W + 16;
 const VALUE_W = 90; // room for the time label after the longest bar
 const BAR_MAX = W - BAR_X - VALUE_W;
@@ -81,7 +76,7 @@ function renderChart({ label, rows, crashed = [] }) {
     const cy = y + BAR_H / 2;
     const ratio = row.ms / fastest;
     const ratioText = `${ratio.toFixed(2)}×`;
-    const name = TOOLS[row.tool].name;
+    const name = toolName(row.tool);
     const label = `${name}: ${fmtTime(row.ms)} (${i > 0 ? `${ratioText} the fastest` : 'fastest'})`;
     const valueText = fmtTime(row.ms);
     return `
@@ -101,7 +96,7 @@ function renderChart({ label, rows, crashed = [] }) {
 ${body.join('')}${crashed
     .map((tool, j) => {
       const cy = PAD + (sorted.length + j) * (BAR_H + ROW_GAP) + BAR_H / 2;
-      const name = TOOLS[tool].name;
+      const name = toolName(tool);
       return `
   <g>
     <title>${esc(`${name}: N/A (crashed, no valid result)`)}</title>
@@ -116,13 +111,21 @@ ${body.join('')}${crashed
 
 // ------------------------------------------------------------------ data
 const groups = readJson(path.join(RULES_DIR, 'groups.json'));
+const scope = readJson(path.join(SCOPE_DIR, 'summary.json'));
+const flags = parseFlags();
+const selectedGroups = list(flags.groups, Object.keys(groups));
+for (const [group, def] of Object.entries(groups)) {
+  if (!selectedGroups.includes(group)) delete groups[group];
+  else def.tools = toolsForGroup(def, list(flags.tools));
+}
 const load = (group, fixture, tool) => {
   const file = path.join(RESULTS_DIR, 'raw', `group-${group.toLowerCase()}`, fixture, `${tool}.json`);
-  return fs.existsSync(file) ? readJson(file) : null;
+  if (!fs.existsSync(file)) return null;
+  const result = readJson(file);
+  return result.files === scope[fixture].files && (result.scopeMatch || result.diagnostics.error) ? result : null;
 };
 
 const outDir = path.join(RESULTS_DIR, 'charts');
-fs.rmSync(outDir, { recursive: true, force: true });
 fs.mkdirSync(outDir, { recursive: true });
 
 for (const [group, def] of Object.entries(groups)) {

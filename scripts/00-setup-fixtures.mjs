@@ -1,4 +1,4 @@
-// Step 0: check out the six fixture repositories (git submodules pinned to the
+// Step 0: check out the nine fixture repositories (git submodules pinned to the
 // benchmarked commits, shallow) and install their dependencies (type-aware
 // linting needs them). Every fixture is installed
 // with the same Node + pnpm as the benchmark, from its own frozen lockfile,

@@ -2,6 +2,7 @@
   "ignores": [
     "packages/core/tests/build/utils/bundles/**"
   ],
+  "directoryAliases": [],
   "exclude": [],
   "untyped": [
     "cspell.config.cjs",

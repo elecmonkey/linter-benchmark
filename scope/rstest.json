@@ -1,5 +1,8 @@
 {
   "ignores": [],
+  "directoryAliases": [
+    ".claude/skills/**"
+  ],
   "exclude": [],
   "untyped": [
     "bump.config.mts",

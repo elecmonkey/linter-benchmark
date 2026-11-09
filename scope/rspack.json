@@ -5,6 +5,7 @@
     "**/tests/**",
     "crates/rspack_resolver/**"
   ],
+  "directoryAliases": [],
   "exclude": [],
   "untyped": [
     "rstack.config.mts",
@@ -37,7 +38,6 @@
     "packages/rspack/rstack.config.ts",
     "packages/rspack/hot/**",
     "scripts/**",
-    "tests/**",
     "website/cspell.config.js",
     "website/sortProjectWords.js",
     "website/hooks/**",

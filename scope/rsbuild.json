@@ -3,6 +3,7 @@
     "e2e/cases/browser-logs/skip-build-error/src/index.js",
     "e2e/cases/wasm/wasm-source-import/src/index.js"
   ],
+  "directoryAliases": [],
   "exclude": [],
   "untyped": [
     "cspell.config.js",

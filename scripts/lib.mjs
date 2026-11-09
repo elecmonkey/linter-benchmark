@@ -32,6 +32,22 @@ export const FIXTURES = REPOS.map(fixtureName);
 
 export const TS_PREFIX = '@typescript-eslint/';
 
+// Stable comparator IDs, labels and rule namespaces shared by every step.
+export const TOOL_META = {
+  rslint: { name: 'Rslint', light: '#eb6834', dark: '#d95926' },
+  oxlint: { name: 'Oxlint', light: '#1baf7a', dark: '#199e70' },
+  'oxlint-tsgolint': { name: 'Oxlint (tsgolint)', ruleTool: 'oxlint', typedOnly: true, light: '#1baf7a', dark: '#199e70' },
+  'oxlint-tsrs': { name: 'Oxlint (tsrs)', ruleTool: 'oxlint', typedOnly: true, light: '#9362cc', dark: '#a47ad7' },
+  'oxlint-tsrs-fast': { name: 'Oxlint (tsrs --fast)', ruleTool: 'oxlint', typedOnly: true, light: '#247eab', dark: '#3b94bd' },
+  biome: { name: 'Biome', light: '#eda100', dark: '#c98500' },
+};
+
+export function toolMeta(tool) {
+  if (!Object.hasOwn(TOOL_META, tool)) throw new Error(`unknown benchmark tool: ${tool}`);
+  return TOOL_META[tool];
+}
+export const toolName = (tool) => toolMeta(tool).name;
+
 export function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
@@ -59,3 +75,13 @@ export function parseFlags(argv = process.argv.slice(2)) {
 }
 
 export const list = (value, fallback) => (value ? value.split(',') : fallback);
+
+// Engine variants share Oxlint's rule set and configuration.
+export const ruleTool = (tool) => toolMeta(tool).ruleTool ?? tool;
+export function toolsForGroup(def, selected) {
+  for (const tool of [...def.tools, ...(selected ?? [])]) toolMeta(tool);
+  if (!def.typeInfo && def.tools.some((tool) => toolMeta(tool).typedOnly)) {
+    throw new Error('a group without type information cannot include a type-aware engine');
+  }
+  return selected ? def.tools.filter((tool) => selected.includes(tool)) : [...def.tools];
+}

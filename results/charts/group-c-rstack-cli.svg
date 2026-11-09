@@ -1,51 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="170" viewBox="0 0 760 170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Group C, rstack-cli: median wall time, lower is better">
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="132" viewBox="0 0 760 132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Group C, rstack-cli: median wall time, lower is better">
   <style>
     .surface { fill: #fcfcfb; }
     .t-primary { fill: #0b0b0b; }
     .t-secondary { fill: #52514e; }
     .ratio { fill: #ffffff; }
-    .bar-eslint { fill: #2a78d6; }
     .bar-rslint { fill: #eb6834; }
     .bar-oxlint { fill: #1baf7a; }
+    .bar-oxlint-tsgolint { fill: #1baf7a; }
+    .bar-oxlint-tsrs { fill: #9362cc; }
+    .bar-oxlint-tsrs-fast { fill: #247eab; }
     .bar-biome { fill: #eda100; }
     @media (prefers-color-scheme: dark) {
       .surface { fill: #1a1a19; }
       .t-primary { fill: #f0efec; }
       .t-secondary { fill: #c3c2b7; }
-      .bar-eslint { fill: #3987e5; }
       .bar-rslint { fill: #d95926; }
       .bar-oxlint { fill: #199e70; }
+      .bar-oxlint-tsgolint { fill: #199e70; }
+      .bar-oxlint-tsrs { fill: #a47ad7; }
+      .bar-oxlint-tsrs-fast { fill: #3b94bd; }
       .bar-biome { fill: #c98500; }
     }
   </style>
-  <rect class="surface" width="760" height="170" rx="8"/>
+  <rect class="surface" width="760" height="132" rx="8"/>
 
   <g>
-    <title>Oxlint: 85 ms (fastest)</title>
-    <text class="t-secondary" x="110" y="28" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint</text>
-    <path class="bar-oxlint" d="M126,16H189A4,4 0 0 1 193,20V36A4,4 0 0 1 189,40H126Z"/>
-    <text class="ratio" x="185" y="28" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.00×</text>
-    <text class="t-secondary" x="203" y="28" dominant-baseline="central" font-size="14">85 ms</text>
+    <title>Oxlint: 66 ms (fastest)</title>
+    <text class="t-secondary" x="170" y="28" text-anchor="end" dominant-baseline="central" font-size="15">Oxlint</text>
+    <path class="bar-oxlint" d="M186,16H249A4,4 0 0 1 253,20V36A4,4 0 0 1 249,40H186Z"/>
+    <text class="ratio" x="245" y="28" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.00×</text>
+    <text class="t-secondary" x="263" y="28" dominant-baseline="central" font-size="14">66 ms</text>
   </g>
   <g>
-    <title>Biome: 164 ms (1.92× the fastest)</title>
-    <text class="t-secondary" x="110" y="66" text-anchor="end" dominant-baseline="central" font-size="15">Biome</text>
-    <path class="bar-biome" d="M126,54H329.88148725459473A4,4 0 0 1 333.88148725459473,58V74A4,4 0 0 1 329.88148725459473,78H126Z"/>
-    <text class="ratio" x="325.88148725459473" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.92×</text>
-    <text class="t-secondary" x="343.88148725459473" y="66" dominant-baseline="central" font-size="14">164 ms</text>
+    <title>Biome: 118 ms (1.79× the fastest)</title>
+    <text class="t-secondary" x="170" y="66" text-anchor="end" dominant-baseline="central" font-size="15">Biome</text>
+    <path class="bar-biome" d="M186,54H565.6525863328159A4,4 0 0 1 569.6525863328159,58V74A4,4 0 0 1 565.6525863328159,78H186Z"/>
+    <text class="ratio" x="561.6525863328159" y="66" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">1.79×</text>
+    <text class="t-secondary" x="579.6525863328159" y="66" dominant-baseline="central" font-size="14">118 ms</text>
   </g>
   <g>
-    <title>Rslint: 234 ms (2.74× the fastest)</title>
-    <text class="t-secondary" x="110" y="104" text-anchor="end" dominant-baseline="central" font-size="15">Rslint</text>
-    <path class="bar-rslint" d="M126,92H406.2594218662765A4,4 0 0 1 410.2594218662765,96V112A4,4 0 0 1 406.2594218662765,116H126Z"/>
-    <text class="ratio" x="402.2594218662765" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">2.74×</text>
-    <text class="t-secondary" x="420.2594218662765" y="104" dominant-baseline="central" font-size="14">234 ms</text>
-  </g>
-  <g>
-    <title>ESLint: 782 ms (9.17× the fastest)</title>
-    <text class="t-secondary" x="110" y="142" text-anchor="end" dominant-baseline="central" font-size="15">ESLint</text>
-    <path class="bar-eslint" d="M126,130H666A4,4 0 0 1 670,134V150A4,4 0 0 1 666,154H126Z"/>
-    <text class="ratio" x="662" y="142" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">9.17×</text>
-    <text class="t-secondary" x="680" y="142" dominant-baseline="central" font-size="14">782 ms</text>
+    <title>Rslint: 142 ms (2.15× the fastest)</title>
+    <text class="t-secondary" x="170" y="104" text-anchor="end" dominant-baseline="central" font-size="15">Rslint</text>
+    <path class="bar-rslint" d="M186,92H666A4,4 0 0 1 670,96V112A4,4 0 0 1 666,116H186Z"/>
+    <text class="ratio" x="662" y="104" text-anchor="end" dominant-baseline="central" font-size="13" font-weight="700">2.15×</text>
+    <text class="t-secondary" x="680" y="104" dominant-baseline="central" font-size="14">142 ms</text>
   </g>
 </svg>

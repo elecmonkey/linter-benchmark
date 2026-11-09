@@ -456,12 +456,6 @@ scripts/release/cargo-version.mjs
 scripts/release/publish.mjs
 scripts/release/version.mjs
 scripts/x.mjs
-tests/rspack-test/configCases/resolve/pnp-enable/.pnp.cjs
-tests/rspack-test/diagnosticsCases/config/pnp-disable/.pnp.cjs
-tests/rspack-test/esmOutputCases/basic/hidden-folder/.hidden/index.js
-tests/rspack-test/normalCases/context/ignore-hidden-files/folder/.file.js
-tests/rspack-test/normalCases/context/import-meta-glob/.foo/test.js
-tests/rspack-test/normalCases/context/import-meta-glob/dot/.hidden.js
 website/components/ApiMeta.tsx
 website/components/Attribution.tsx
 website/components/BlogList.tsx

@@ -2741,7 +2741,6 @@ extensions/css-language-features/server/src/utils/runner.ts
 extensions/css-language-features/server/src/utils/strings.ts
 extensions/css-language-features/server/src/utils/validation.ts
 extensions/css-language-features/server/test/index.js
-extensions/css-language-features/server/test/pathCompletionFixtures/.foo.js
 extensions/debug-auto-launch/esbuild.mts
 extensions/debug-auto-launch/src/extension.ts
 extensions/debug-server-ready/esbuild.mts
@@ -2980,7 +2979,6 @@ extensions/html-language-features/server/src/test/folding.test.ts
 extensions/html-language-features/server/src/test/formatting.test.ts
 extensions/html-language-features/server/src/test/hover.test.ts
 extensions/html-language-features/server/src/test/javascriptMode.test.ts
-extensions/html-language-features/server/src/test/pathCompletionFixtures/.foo.js
 extensions/html-language-features/server/src/test/rename.test.ts
 extensions/html-language-features/server/src/test/selectionRanges.test.ts
 extensions/html-language-features/server/src/test/semanticTokens.test.ts

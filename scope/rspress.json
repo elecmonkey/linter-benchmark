@@ -2,6 +2,7 @@
   "ignores": [
     "**/*.d.ts"
   ],
+  "directoryAliases": [],
   "exclude": [],
   "untyped": [
     "cspell.config.cjs",

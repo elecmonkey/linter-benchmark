@@ -1,0 +1,84 @@
+{
+  "group": "A",
+  "fixture": "rstack-cli",
+  "tool": "oxlint-tsgolint",
+  "completedAt": "2026-11-09T05:13:08.797Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "libproc",
+    "rssSampleMs": 50
+  },
+  "environment": {
+    "OXLINT_TSGOLINT_PATH": "/Users/bytedance/rstack/wrslint/benchmark/node_modules/.bin/tsgolint"
+  },
+  "files": 366,
+  "filesLinted": 366,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 503.977291,
+    "mean": 513.459033,
+    "stdev": 13.68494364692312,
+    "min": 499.540625,
+    "max": 532.513583
+  },
+  "peakRssMb": {
+    "median": 442.15625,
+    "max": 461.96875
+  },
+  "runs": [
+    {
+      "wallMs": 503.977291,
+      "peakRssMb": 406.796875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 499.540625,
+      "peakRssMb": 445.328125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 503.7945,
+      "peakRssMb": 415.5625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 532.513583,
+      "peakRssMb": 442.15625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 527.469166,
+      "peakRssMb": 461.96875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 259,
+    "typeAware": 238,
+    "syntactic": 0,
+    "unmapped": {
+      "typescript/tsconfig-error": 21
+    },
+    "byRule": {
+      "@typescript-eslint/no-unsafe-argument": 10,
+      "@typescript-eslint/no-unsafe-assignment": 20,
+      "@typescript-eslint/no-unsafe-call": 120,
+      "@typescript-eslint/no-unsafe-member-access": 73,
+      "@typescript-eslint/no-unsafe-return": 14,
+      "@typescript-eslint/require-await": 1
+    }
+  }
+}

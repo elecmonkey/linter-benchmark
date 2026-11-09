@@ -53,6 +53,8 @@ pnpm run chart && pnpm run report
 
 `06-report.mjs` rewrites the README between `<!-- results:start -->` and `<!-- results:end -->`. Do not edit that part by hand.
 
+`.github/workflows/benchmark.yml` provides a manual CI refresh. It validates all fresh A/B/C data before publishing the generated files through an internal PR. `scripts/ci-contract.mjs` fixes the target and English publication text; manual dispatch with `publish_results` enabled approves that contract. The CI benchmark job has read-only repository permissions, and publication uses a separate job.
+
 ## Before benchmarking
 
 Make sure the machine has ample free resources and nothing else interferes: no other heavy jobs, and no editors or language servers watching this directory.

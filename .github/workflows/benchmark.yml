@@ -1,0 +1,141 @@
+name: Refresh benchmark results
+
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: 'Runner label, or a JSON label array for a dedicated runner'
+        required: true
+        default: ubuntu-24.04
+        type: string
+      publish_results:
+        description: |
+          Approve pushing ci/benchmark-results in this repository and opening a PR to main.
+          Title and commit: Update benchmark results
+          PR body:
+          Refresh all A/B/C benchmark results, charts, scope, configurations, and README using the pinned fixture revisions and tool versions.
+
+          Each combination uses one warmup and five measured runs.
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: benchmark-refresh
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ${{ startsWith(inputs.runner, '[') && fromJSON(inputs.runner) || inputs.runner }}
+    timeout-minutes: 180
+    steps:
+      - name: Check out pinned sources and fixtures
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          submodules: recursive
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+        with:
+          version: 12.18.0
+          run_install: false
+
+      - name: Install Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 26.5.1
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install benchmark dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Install fixture dependencies
+        run: pnpm run setup
+
+      - name: Generate rules, scope and configurations
+        run: |
+          pnpm run rules
+          pnpm run scope
+          pnpm run configs
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Clear previous measurements and record runner information
+        run: node scripts/ci-results.mjs prepare
+
+      - name: Run all groups with interleaved tools
+        run: pnpm run bench -- --groups A,B,C --runs 5 --warmup 1 --timeout-min 15
+
+      - name: Validate every fresh measurement
+        run: node scripts/ci-results.mjs validate
+
+      - name: Generate charts and README results
+        run: |
+          pnpm run chart
+          pnpm run report
+
+      - name: Save generated update
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: benchmark-results-${{ github.run_id }}
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            README.md
+            results/
+            scope/
+            configs/
+            fixture/manifest.json
+            rules/universe.json
+            rules/matrix.json
+            rules/groups.json
+            rules/oxlint-rules.json
+
+      - name: Save diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: benchmark-logs-${{ github.run_id }}
+          if-no-files-found: ignore
+          retention-days: 14
+          path: logs/
+
+  publish:
+    needs: benchmark
+    if: github.ref == 'refs/heads/main' && inputs.publish_results
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out publication source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Install Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 26.5.1
+
+      - name: Download validated results
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: benchmark-results-${{ github.run_id }}
+          path: .benchmark-output
+
+      - name: Publish the approved benchmark update PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BENCHMARK_PUBLISH_APPROVED: ${{ inputs.publish_results }}
+        run: node scripts/ci-publish.mjs

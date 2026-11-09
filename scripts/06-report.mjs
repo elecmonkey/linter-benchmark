@@ -20,6 +20,8 @@ for (const [group, def] of Object.entries(groups)) {
 const scope = readJson(path.join(SCOPE_DIR, 'summary.json'));
 const manifestPath = path.join(FIXTURE_DIR, 'manifest.json');
 const manifest = fs.existsSync(manifestPath) ? readJson(manifestPath) : null;
+const environmentPath = path.join(RESULTS_DIR, 'environment.json');
+const environment = fs.existsSync(environmentPath) ? readJson(environmentPath) : null;
 
 const REPO_OF = Object.fromEntries(REPOS.map((repo) => [fixtureName(repo), repo]));
 const ORDER = Object.keys(REPO_OF).sort((a, b) => scope[a].files - scope[b].files);
@@ -67,6 +69,11 @@ function section(chartDir, headingLevel) {
     lines.push(`| ${group} | ${cells.join(' · ')} |`);
   }
   lines.push('');
+
+  if (environment && Object.entries(groups).every(([group, def]) =>
+    ORDER.every((fixture) => def.tools.every((tool) => load(group, fixture, tool)?.ciRunId === environment.ciRunId)))) {
+    lines.push(`Runner: ${environment.os} ${environment.release} (${environment.arch}), ${environment.cpuModel}, ${environment.cpuCount} CPUs, ${environment.memoryGiB} GiB RAM. Node ${environment.node}, pnpm ${environment.pnpm}. [Workflow run](${environment.runUrl}).`, '');
+  }
 
   if (Object.values(groups).some((def) => def.tools.some((tool) => tool.startsWith('oxlint-tsrs')))) {
     lines.push('The Oxlint variants use the same file scope and rule configuration. tsrs default mode uses `TSRS_FAST=0`; fast mode uses `TSRS_FAST=1`. Diagnostic counts can differ between engines and are reported separately.', '');

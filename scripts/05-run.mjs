@@ -265,6 +265,7 @@ for (const group of GROUPS) {
           group,
           fixture,
           tool,
+          ...(process.env.GITHUB_ACTIONS === 'true' ? { ciRunId: `${process.env.GITHUB_RUN_ID}/${process.env.GITHUB_RUN_ATTEMPT}` } : {}),
           completedAt: new Date().toISOString(),
           measurement: { runs: RUNS, warmup: WARMUP, rssMethod: rssSampler.method, rssSampleMs: 50 },
           environment: spec.env ?? {},

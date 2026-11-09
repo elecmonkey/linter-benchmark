@@ -433,6 +433,30 @@ pnpm run bench -- --groups A --fixtures rstack-cli --runs 1 --warmup 0
 
 `report` regenerates the results section above. Do not edit that section by hand. See [AGENTS.md](AGENTS.md) for layout and resource requirements.
 
+## Manual CI refresh
+
+In GitHub Actions, select **Refresh benchmark results**, choose the `main` branch, and click **Run workflow**. The default runner is `ubuntu-24.04`; the `runner` input also accepts a larger runner label or a JSON label array such as `["self-hosted","linux","x64","benchmark"]`. A dedicated runner with at least 32 GiB RAM is recommended for the largest type-aware fixture; the standard public runner has about 16 GiB. Failed or incomplete measurements stop publication.
+
+The workflow installs pinned dependencies and fixture revisions, regenerates the rule/configuration inputs, runs all tests, and benchmarks A/B/C with one warmup and five interleaved measurements. It clears the old measurement files first and validates all 108 fresh results before regenerating README and the 27 charts. Runner hardware and software information is included with the CI results so they can be distinguished from local measurements.
+
+Results and logs are uploaded as artifacts. With `publish_results` enabled, the publishing job pushes only generated data to `ci/benchmark-results` on this repository and creates a PR to `main`, or updates the branch of its existing PR. It preserves branch history and uses no force push. A changed `main`, human edits to the automation branch/PR, or changes outside generated paths stop publication. With `publish_results` disabled, the workflow only saves artifacts.
+
+Enabling `publish_results` and submitting the manual dispatch approves the following fixed publication contract (`scripts/ci-contract.mjs`):
+
+- Repository: `elecmonkey/linter-benchmark`
+- Base: `main`
+- Head: `ci/benchmark-results` in the same repository
+- Commit message and PR title: `Update benchmark results`
+- PR body:
+
+```text
+Refresh all A/B/C benchmark results, charts, scope, configurations, and README using the pinned fixture revisions and tool versions.
+
+Each combination uses one warmup and five measured runs.
+```
+
+The workflow verifies the commit and PR text before publishing and reads them back afterward. The benchmark job has read-only repository permissions; only the publishing job receives `contents: write` and `pull-requests: write`. Enable **Allow GitHub Actions to create and approve pull requests** under the repository's Actions settings before using publication. The workflow creates PRs without approving or merging them.
+
 ## Versions
 
 | Tool | Version |

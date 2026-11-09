@@ -404,6 +404,8 @@ Generated configurations replace the fixture's own lint configuration for the ru
 
 Each combination receives one warmup and five measured runs. Multiple selected tools are interleaved. Wall time includes command launchers; peak RSS sums the whole process tree and is sampled every 50 ms. On macOS a persistent Python helper reads libproc; other platforms use `ps`. Sampler initialization is outside the timed command. The last run provides diagnostic counts by baseline rule ID. A 15-minute timeout kills the command's process group.
 
+Commands that finish before a usable RSS sample retain their timing and diagnostic results; their RSS is `null` and displayed as `N/A`. This is a missing memory observation, not a failed lint run. An in-flight sample is awaited after the exit timestamp, so waiting for the sampler does not extend the measured wall time.
+
 ## Reproduce
 
 Requires Node 26, pnpm 12, and Python 3 on macOS (standard library only).
@@ -440,6 +442,8 @@ In GitHub Actions, select **Refresh benchmark results**, choose the `main` branc
 The workflow installs pinned dependencies and fixture revisions, regenerates the rule/configuration inputs, runs all tests, and benchmarks A/B/C with one warmup and five interleaved measurements. It clears the old measurement files first and validates all 108 fresh results before regenerating README and the 27 charts. Runner hardware and software information is included with the CI results so they can be distinguished from local measurements.
 
 Results and logs are uploaded as artifacts. With `publish_results` enabled, the publishing job pushes only generated data to `ci/benchmark-results` on this repository and creates a PR to `main`, or updates the branch of its existing PR. It preserves branch history and uses no force push. A changed `main`, human edits to the automation branch/PR, or changes outside generated paths stop publication. With `publish_results` disabled, the workflow only saves artifacts.
+
+A raw checkpoint is uploaded before validation, including exact result JSON and the generated inputs. The always-uploaded logs also contain a backup under `benchmark-checkpoint/`. Validation failures therefore preserve the measured data. Retrying only a failed publishing job can reuse the validated artifact from an earlier attempt of the same workflow run.
 
 Enabling `publish_results` and submitting the manual dispatch approves the following fixed publication contract (`scripts/ci-contract.mjs`):
 

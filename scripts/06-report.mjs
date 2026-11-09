@@ -28,6 +28,7 @@ const ORDER = Object.keys(REPO_OF).sort((a, b) => scope[a].files - scope[b].file
 
 const fmtTime = (ms) => (ms >= 10_000 ? `${(ms / 1000).toFixed(1)} s` : ms >= 1000 ? `${(ms / 1000).toFixed(2)} s` : `${Math.round(ms)} ms`);
 const fmtInt = (n) => n.toLocaleString('en-US');
+const fmtRss = (n) => Number.isFinite(n) && n > 0 ? `${fmtInt(Math.round(n))} MB` : 'N/A';
 
 function load(group, fixture, tool) {
   const file = path.join(RESULTS_DIR, 'raw', `group-${group.toLowerCase()}`, fixture, `${tool}.json`);
@@ -107,7 +108,7 @@ function section(chartDir, headingLevel) {
         }
         const failed = r.failedRuns ? ` (${r.failedRuns} failed)` : '';
         lines.push(
-          `| ${toolName(tool)}${failed} | ${fmtTime(r.wallMs.median)} | ${fmtTime(r.wallMs.min)} | ${fmtTime(r.wallMs.max)} | ${fmtInt(Math.round(r.peakRssMb.median))} MB | ${fmtInt(r.diagnostics.total ?? 0)} | ${(r.wallMs.median / fastest).toFixed(2)}× |`,
+          `| ${toolName(tool)}${failed} | ${fmtTime(r.wallMs.median)} | ${fmtTime(r.wallMs.min)} | ${fmtTime(r.wallMs.max)} | ${fmtRss(r.peakRssMb.median)} | ${fmtInt(r.diagnostics.total ?? 0)} | ${(r.wallMs.median / fastest).toFixed(2)}× |`,
         );
       }
       lines.push('');

@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT } from './lib.mjs';
 import { validateResult } from './ci-results.mjs';
-import { PUBLICATION, GENERATED_PATHS, isGeneratedPath, assertPullRequest } from './ci-contract.mjs';
+import { PUBLICATION, GENERATED_PATHS, isGeneratedPath, assertPullRequest, isSameWorkflowRun } from './ci-contract.mjs';
 
 const context = { group: 'A', fixture: 'sample', tool: 'oxlint-tsrs-fast', files: 2, startedAt: '2026-01-01T00:00:00Z', ciRunId: '123/1' };
 const valid = () => ({
@@ -28,10 +28,21 @@ test('CI accepts diagnostics exit codes but rejects stale, incomplete and failed
     (r) => { r.runs[0].exitCode = 2; },
     (r) => { r.runs[0].timedOut = true; },
     (r) => { r.runs[0].signal = 'SIGKILL'; },
-    (r) => { r.peakRssMb.median = 0; },
+    (r) => { r.peakRssMb.median = -1; },
   ]) {
     const result = valid(); mutate(result);
     assert.throws(() => validateResult(result, context));
+  }
+});
+
+test('a successful short command without an RSS observation remains valid', () => {
+  for (const missing of [0, null]) {
+    const result = valid();
+    result.peakRssMb = { median: missing, max: missing, sampledRuns: 0 };
+    for (const run of result.runs) run.peakRssMb = missing;
+    assert.doesNotThrow(() => validateResult(result, context));
+    result.runs[0].wallMs = NaN;
+    assert.throws(() => validateResult(result, context), /timing/);
   }
 });
 
@@ -59,4 +70,15 @@ test('manual dispatch approval displays the exact publication text', () => {
   assert(description.includes(`PR to ${PUBLICATION.base}`));
   const readme = fs.readFileSync(path.join(ROOT, 'README.md'), 'utf8');
   assert(readme.includes(PUBLICATION.body));
+});
+
+test('checkpoint upload precedes validation and publisher retries reuse the measured attempt', () => {
+  const workflow = fs.readFileSync(path.join(ROOT, '.github/workflows/benchmark.yml'), 'utf8');
+  const checkpoint = workflow.indexOf('name: Save raw checkpoint before validation');
+  assert(checkpoint > 0 && checkpoint < workflow.indexOf('name: Validate every fresh measurement'));
+  assert(workflow.slice(checkpoint, workflow.indexOf('name: Validate every fresh measurement')).includes("if: always() && steps.prepare.outcome == 'success'"));
+  assert(isSameWorkflowRun('123/1', '123'));
+  assert(isSameWorkflowRun('123/2', '123'));
+  assert(!isSameWorkflowRun('124/1', '123'));
+  assert(!isSameWorkflowRun('123/invalid', '123'));
 });

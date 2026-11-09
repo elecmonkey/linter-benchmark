@@ -25,3 +25,7 @@ export function assertPullRequest(pr) {
     throw new Error('PR target or text differs from the publication contract; no further writes are allowed');
   }
 }
+
+export function isSameWorkflowRun(measurementId, runId) {
+  return typeof measurementId === 'string' && /^\d+\/\d+$/.test(measurementId) && measurementId.split('/')[0] === runId;
+}

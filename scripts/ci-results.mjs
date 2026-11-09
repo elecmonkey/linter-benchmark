@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { FIXTURES, ROOT, readJson, writeJson } from './lib.mjs';
-import { PUBLICATION } from './ci-contract.mjs';
+import { PUBLICATION, GENERATED_PATHS } from './ci-contract.mjs';
 
 export function validateResult(result, { group, fixture, tool, files, startedAt, ciRunId }) {
   const context = `${group}/${fixture}/${tool}`;
@@ -20,9 +20,11 @@ export function validateResult(result, { group, fixture, tool, files, startedAt,
   if (tool.startsWith('oxlint-tsrs') && result.environment?.TSRS_FAST !== (tool.endsWith('-fast') ? '1' : '0')) fail('wrong tsrs preset');
   for (const run of result.runs) {
     if (![0, 1].includes(run.exitCode) || run.signal || run.timedOut) fail('unsuccessful measurement');
-    if (!Number.isFinite(run.wallMs) || run.wallMs <= 0 || !Number.isFinite(run.peakRssMb) || run.peakRssMb < 0) fail('invalid timing or RSS');
+    if (!Number.isFinite(run.wallMs) || run.wallMs <= 0 || run.peakRssMb !== null && (!Number.isFinite(run.peakRssMb) || run.peakRssMb < 0)) fail('invalid timing or RSS');
   }
-  if (!Number.isFinite(result.wallMs?.median) || result.wallMs.median <= 0 || !Number.isFinite(result.peakRssMb?.median) || result.peakRssMb.median <= 0) fail('missing timing or RSS samples');
+  if (!Number.isFinite(result.wallMs?.median) || result.wallMs.median <= 0) fail('missing timing samples');
+  const rss = result.peakRssMb?.median;
+  if (rss !== null && (!Number.isFinite(rss) || rss < 0)) fail('invalid RSS samples');
 }
 
 export function validateDirectory(root = ROOT) {
@@ -75,6 +77,15 @@ function prepare() {
     memoryGiB: Math.round(totalMemory / 1024 ** 3),
     node: process.version, pnpm: execFileSync('pnpm', ['--version'], { encoding: 'utf8' }).trim(),
   });
+  // The always-uploaded logs include a second copy of exact result JSON and
+  // its inputs, even if a later validation or artifact upload fails.
+  const checkpoint = path.join(ROOT, 'logs/benchmark-checkpoint');
+  fs.rmSync(checkpoint, { recursive: true, force: true });
+  for (const file of [...GENERATED_PATHS.filter((file) => file !== 'results'), 'results/environment.json']) {
+    const target = path.join(checkpoint, file);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.cpSync(path.join(ROOT, file), target, { recursive: true });
+  }
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
     `## Benchmark publication preview\n\nRepository: ${PUBLICATION.repository}\n\nBase: ${PUBLICATION.base}\n\nHead: ${PUBLICATION.branch}\n\nCommit message: ${PUBLICATION.commitMessage}\nPR title: ${PUBLICATION.title}\n\nPR body:\n\n${PUBLICATION.body}\n`);
 }

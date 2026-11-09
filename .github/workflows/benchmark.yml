@@ -69,10 +69,30 @@ jobs:
         run: pnpm test
 
       - name: Clear previous measurements and record runner information
+        id: prepare
         run: node scripts/ci-results.mjs prepare
 
       - name: Run all groups with interleaved tools
         run: pnpm run bench -- --groups A,B,C --runs 5 --warmup 1 --timeout-min 15
+
+      - name: Save raw checkpoint before validation
+        if: always() && steps.prepare.outcome == 'success'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: benchmark-checkpoint-${{ github.run_id }}
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            README.md
+            results/raw/
+            results/environment.json
+            scope/
+            configs/
+            fixture/manifest.json
+            rules/universe.json
+            rules/matrix.json
+            rules/groups.json
+            rules/oxlint-rules.json
 
       - name: Validate every fresh measurement
         run: node scripts/ci-results.mjs validate

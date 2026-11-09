@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { PUBLICATION, GENERATED_PATHS, isGeneratedPath, assertPullRequest } from './ci-contract.mjs';
+import { PUBLICATION, GENERATED_PATHS, isGeneratedPath, assertPullRequest, isSameWorkflowRun } from './ci-contract.mjs';
 import { ROOT, readJson } from './lib.mjs';
 import { validateDirectory } from './ci-results.mjs';
 
@@ -17,7 +17,9 @@ const environment = readJson(path.join(artifact, 'results/environment.json'));
 if (process.env.GITHUB_REPOSITORY !== PUBLICATION.repository || process.env.GITHUB_REF !== `refs/heads/${PUBLICATION.base}`) fail('publication is allowed only from this repository main branch');
 if (process.env.BENCHMARK_PUBLISH_APPROVED !== 'true') fail('workflow dispatch did not approve publication');
 if (environment.sourceCommit !== process.env.GITHUB_SHA) fail('artifact source differs from the dispatched commit');
-if (environment.ciRunId !== `${process.env.GITHUB_RUN_ID}/${process.env.GITHUB_RUN_ATTEMPT}`) fail('artifact belongs to another workflow run');
+// A retry of only the publishing job reuses the benchmark artifact from the
+// earlier attempt of this same run; do not require benchmarking again.
+if (!isSameWorkflowRun(environment.ciRunId, process.env.GITHUB_RUN_ID)) fail('artifact belongs to another workflow run');
 const remote = git('remote', 'get-url', '--push', 'origin').replace(/\.git$/, '');
 if (remote !== `https://github.com/${PUBLICATION.repository}`) fail('origin differs from the publication target');
 validateDirectory(artifact);

@@ -19,10 +19,10 @@
 //
 // Output: results/raw/group-<g>/<fixture>/<tool>.json
 //         logs/output/group-<g>/<fixture>/<tool>.{stdout,stderr} (last run)
-import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRssSampler } from './rss.mjs';
+import { measureCommand, summarizeRss } from './measure.mjs';
 import { BIN, CONFIGS_DIR, FIXTURES, FIXTURE_DIR, LOGS_DIR, RESULTS_DIR, RULES_DIR, SCOPE_DIR, list, parseFlags, readJson, ruleTool, toolsForGroup, writeJson } from './lib.mjs';
 
 const flags = parseFlags();
@@ -124,44 +124,8 @@ function ruleIndex(group, tool) {
 const rssSampler = createRssSampler();
 await rssSampler.ready;
 
-function runOnce(argv, { cwd, env, stdoutFile, stderrFile }) {
-  return new Promise((resolve, reject) => {
-    const stdout = fs.openSync(stdoutFile, 'w');
-    const stderr = fs.openSync(stderrFile, 'w');
-    const start = process.hrtime.bigint();
-    // detached: own process group, so a timeout can kill launcher + native children.
-    const child = spawn(argv[0], argv.slice(1), { cwd, env: { ...process.env, ...env }, stdio: ['ignore', stdout, stderr], detached: true });
-    let timedOut = false;
-    const killer = setTimeout(() => {
-      timedOut = true;
-      try {
-        process.kill(-child.pid, 'SIGKILL');
-      } catch {}
-    }, TIMEOUT_MS);
-
-    let peakKb = 0;
-    let sampling = false;
-    let samplingError;
-    const timer = setInterval(async () => {
-      if (sampling) return;
-      sampling = true;
-      try {
-        peakKb = Math.max(peakKb, await rssSampler.sample(child.pid));
-      } catch (error) { samplingError = error; }
-      sampling = false;
-    }, 50);
-
-    child.on('error', reject);
-    child.on('exit', (code, signal) => {
-      const wallMs = Number(process.hrtime.bigint() - start) / 1e6;
-      clearInterval(timer);
-      clearTimeout(killer);
-      fs.closeSync(stdout);
-      fs.closeSync(stderr);
-      if (samplingError) return reject(samplingError);
-      resolve({ wallMs, peakRssMb: peakKb / 1024, exitCode: code, signal, timedOut });
-    });
-  });
+function runOnce(argv, options) {
+  return measureCommand(argv, { ...options, sampler: rssSampler, timeoutMs: TIMEOUT_MS });
 }
 
 // ------------------------------------------------------------------ stats
@@ -235,7 +199,7 @@ for (const group of GROUPS) {
             stderrFile: path.join(outDir, `${tool}.stderr`),
           });
           const label = measured < 0 ? 'warmup' : `run ${measured + 1}`;
-          console.log(`[${group}] ${fixture.padEnd(10)} ${tool.padEnd(6)} ${label.padEnd(6)} ${(result.wallMs / 1000).toFixed(2).padStart(7)}s ${result.peakRssMb.toFixed(0).padStart(6)} MB  exit=${result.exitCode ?? result.signal}${result.timedOut ? ' TIMEOUT' : ''}`);
+          console.log(`[${group}] ${fixture.padEnd(10)} ${tool.padEnd(6)} ${label.padEnd(6)} ${(result.wallMs / 1000).toFixed(2).padStart(7)}s ${(result.peakRssMb === null ? 'N/A' : result.peakRssMb.toFixed(0)).padStart(6)} MB  exit=${result.exitCode ?? result.signal}${result.timedOut ? ' TIMEOUT' : ''}`);
           if (measured >= 0) runs[tool].push(result);
         }
       }
@@ -261,7 +225,7 @@ for (const group of GROUPS) {
           console.log(`[${group}] ${fixture} ${tool}: SCOPE MISMATCH, linted ${scopeCheck.filesLinted} files, scope has ${files.length}`);
         }
         const walls = runs[tool].map((r) => r.wallMs);
-        writeJson(path.join(RESULTS_DIR, 'raw', `group-${group.toLowerCase()}`, fixture, `${tool}.json`), {
+        const result = {
           group,
           fixture,
           tool,
@@ -275,10 +239,14 @@ for (const group of GROUPS) {
           failedRuns: runs[tool].filter((r) => r.timedOut || r.signal).length,
           command: spec.args(groups[group].typeInfo).map((a) => a.replace(`${BIN}/`, '')).join(' '),
           wallMs: { median: median(walls), mean: mean(walls), stdev: stdev(walls), min: Math.min(...walls), max: Math.max(...walls) },
-          peakRssMb: { median: median(runs[tool].map((r) => r.peakRssMb)), max: Math.max(...runs[tool].map((r) => r.peakRssMb)) },
+          peakRssMb: summarizeRss(runs[tool]),
           runs: runs[tool],
           diagnostics,
-        });
+        };
+        writeJson(path.join(RESULTS_DIR, 'raw', `group-${group.toLowerCase()}`, fixture, `${tool}.json`), result);
+        if (process.env.GITHUB_ACTIONS === 'true') {
+          writeJson(path.join(LOGS_DIR, 'benchmark-checkpoint', 'results/raw', `group-${group.toLowerCase()}`, fixture, `${tool}.json`), result);
+        }
       }
     } finally {
       cleanup();

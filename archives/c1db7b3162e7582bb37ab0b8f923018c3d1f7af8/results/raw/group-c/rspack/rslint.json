@@ -1,0 +1,87 @@
+{
+  "group": "C",
+  "fixture": "rspack",
+  "tool": "rslint",
+  "ciRunId": "42612909433/1",
+  "completedAt": "2026-11-09T13:02:19.407Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 493,
+  "filesLinted": 493,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 313.872702,
+    "mean": 309.96579099999997,
+    "stdev": 5.598636907998844,
+    "min": 300.870319,
+    "max": 315.152012
+  },
+  "peakRssMb": {
+    "median": 160.21875,
+    "max": 161.02734375,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 305.977273,
+      "peakRssMb": 160.296875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 313.956649,
+      "peakRssMb": 161.02734375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 315.152012,
+      "peakRssMb": 156.8125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 300.870319,
+      "peakRssMb": 160.21875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 313.872702,
+      "peakRssMb": 159.8046875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 624,
+    "typeAware": 0,
+    "syntactic": 624,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 453,
+      "@typescript-eslint/no-require-imports": 46,
+      "no-control-regex": 2,
+      "no-empty": 18,
+      "no-prototype-builtins": 2,
+      "no-useless-assignment": 8,
+      "no-var": 78,
+      "prefer-const": 4,
+      "prefer-rest-params": 5,
+      "prefer-spread": 4,
+      "preserve-caught-error": 4
+    }
+  }
+}

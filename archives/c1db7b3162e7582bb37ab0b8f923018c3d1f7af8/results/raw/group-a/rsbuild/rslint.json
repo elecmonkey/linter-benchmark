@@ -1,0 +1,86 @@
+{
+  "group": "A",
+  "fixture": "rsbuild",
+  "tool": "rslint",
+  "ciRunId": "42612909433/1",
+  "completedAt": "2026-11-09T12:00:30.603Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 2450,
+  "filesLinted": 2450,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 2561.005271,
+    "mean": 2605.9286558000003,
+    "stdev": 73.46016431440316,
+    "min": 2535.911449,
+    "max": 2725.192943
+  },
+  "peakRssMb": {
+    "median": 655.0234375,
+    "max": 683.0390625,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 2561.005271,
+      "peakRssMb": 615.19140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2657.748942,
+      "peakRssMb": 591.8203125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2549.784674,
+      "peakRssMb": 666.24609375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2535.911449,
+      "peakRssMb": 655.0234375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2725.192943,
+      "peakRssMb": 683.0390625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1013,
+    "typeAware": 949,
+    "syntactic": 64,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/await-thenable": 2,
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-floating-promises": 6,
+      "@typescript-eslint/no-unsafe-argument": 2,
+      "@typescript-eslint/no-unsafe-assignment": 203,
+      "@typescript-eslint/no-unsafe-call": 502,
+      "@typescript-eslint/no-unsafe-member-access": 222,
+      "@typescript-eslint/no-unsafe-return": 11,
+      "@typescript-eslint/no-unused-vars": 19,
+      "@typescript-eslint/require-await": 1
+    }
+  }
+}

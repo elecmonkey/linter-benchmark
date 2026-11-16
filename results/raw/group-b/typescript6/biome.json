@@ -2,8 +2,8 @@
   "group": "B",
   "fixture": "typescript6",
   "tool": "biome",
-  "ciRunId": "42612909433/1",
-  "completedAt": "2026-11-09T13:01:41.339Z",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T09:00:41.703Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
@@ -17,62 +17,62 @@
   "failedRuns": 0,
   "command": "biome lint --reporter=json --max-diagnostics=none .",
   "wallMs": {
-    "median": 13172.175835,
-    "mean": 13155.8657804,
-    "stdev": 133.41699525578355,
-    "min": 12974.286888,
-    "max": 13357.203078
+    "median": 16146.467629,
+    "mean": 16259.609531999999,
+    "stdev": 292.73305121199195,
+    "min": 15984.682037,
+    "max": 16818.370323
   },
   "peakRssMb": {
-    "median": 2316.48828125,
-    "max": 2381.06640625,
+    "median": 2350.34375,
+    "max": 2356.87109375,
     "sampledRuns": 5
   },
   "runs": [
     {
-      "wallMs": 13172.175835,
-      "peakRssMb": 2308.32421875,
+      "wallMs": 16818.370323,
+      "peakRssMb": 2356.87109375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 13223.202467,
-      "peakRssMb": 2308.44921875,
+      "wallMs": 16146.467629,
+      "peakRssMb": 2350.34375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 13357.203078,
-      "peakRssMb": 2316.48828125,
+      "wallMs": 15984.682037,
+      "peakRssMb": 2351.15625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 13052.460634,
-      "peakRssMb": 2381.06640625,
+      "wallMs": 16255.79782,
+      "peakRssMb": 2340.5390625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 12974.286888,
-      "peakRssMb": 2328.35546875,
+      "wallMs": 16092.729851,
+      "peakRssMb": 2347.56640625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 2334,
-    "typeAware": 105,
+    "total": 2328,
+    "typeAware": 99,
     "syntactic": 2229,
     "unmapped": {},
     "byRule": {
       "@typescript-eslint/no-array-constructor": 1,
-      "@typescript-eslint/no-base-to-string": 9,
+      "@typescript-eslint/no-base-to-string": 7,
       "@typescript-eslint/no-duplicate-enum-values": 4,
       "@typescript-eslint/no-explicit-any": 959,
       "@typescript-eslint/no-floating-promises": 4,
@@ -81,8 +81,8 @@
       "@typescript-eslint/no-namespace": 41,
       "@typescript-eslint/no-non-null-asserted-optional-chain": 13,
       "@typescript-eslint/no-require-imports": 13,
-      "@typescript-eslint/no-unsafe-return": 49,
-      "@typescript-eslint/no-unsafe-unary-minus": 8,
+      "@typescript-eslint/no-unsafe-return": 47,
+      "@typescript-eslint/no-unsafe-unary-minus": 6,
       "@typescript-eslint/no-unused-vars": 3,
       "@typescript-eslint/prefer-promise-reject-errors": 1,
       "@typescript-eslint/require-await": 31,

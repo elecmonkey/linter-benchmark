@@ -1,0 +1,90 @@
+{
+  "group": "B",
+  "fixture": "rslib",
+  "tool": "biome",
+  "ciRunId": "42612909433/1",
+  "completedAt": "2026-11-09T12:29:52.847Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 1378.703657,
+    "mean": 1384.2407924,
+    "stdev": 29.105184171123888,
+    "min": 1349.353112,
+    "max": 1436.192865
+  },
+  "peakRssMb": {
+    "median": 583.4921875,
+    "max": 594.1953125,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 1349.353112,
+      "peakRssMb": 565.2890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1436.192865,
+      "peakRssMb": 594.1953125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1367.934585,
+      "peakRssMb": 577.9921875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1378.703657,
+      "peakRssMb": 585.09375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1389.019743,
+      "peakRssMb": 583.4921875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 203,
+    "typeAware": 104,
+    "syntactic": 96,
+    "unmapped": {
+      "other: parse": 3
+    },
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-floating-promises": 6,
+      "@typescript-eslint/no-misused-promises": 2,
+      "@typescript-eslint/no-require-imports": 25,
+      "@typescript-eslint/no-unsafe-return": 3,
+      "@typescript-eslint/no-unused-vars": 1,
+      "@typescript-eslint/require-await": 93,
+      "no-delete-var": 4,
+      "no-empty + no-empty-static-block": 17,
+      "no-prototype-builtins": 1,
+      "no-shadow-restricted-names": 2,
+      "preserve-caught-error": 5
+    }
+  }
+}

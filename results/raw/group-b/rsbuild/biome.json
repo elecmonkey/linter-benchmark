@@ -2,8 +2,8 @@
   "group": "B",
   "fixture": "rsbuild",
   "tool": "biome",
-  "ciRunId": "42612909433/1",
-  "completedAt": "2026-11-09T12:28:49.364Z",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T08:18:04.913Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
@@ -17,57 +17,57 @@
   "failedRuns": 0,
   "command": "biome lint --reporter=json --max-diagnostics=none .",
   "wallMs": {
-    "median": 1277.693907,
-    "mean": 1274.8672308,
-    "stdev": 5.285625606185402,
-    "min": 1266.609973,
-    "max": 1280.518226
+    "median": 1675.69259,
+    "mean": 1684.9197038000002,
+    "stdev": 23.28363517742102,
+    "min": 1664.066668,
+    "max": 1729.556561
   },
   "peakRssMb": {
-    "median": 277.3515625,
-    "max": 278.9375,
+    "median": 281.6796875,
+    "max": 282.265625,
     "sampledRuns": 5
   },
   "runs": [
     {
-      "wallMs": 1266.609973,
-      "peakRssMb": 276.3984375,
+      "wallMs": 1729.556561,
+      "peakRssMb": 280.78125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1277.693907,
-      "peakRssMb": 275.0625,
+      "wallMs": 1664.066668,
+      "peakRssMb": 281.6796875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1270.784698,
-      "peakRssMb": 277.3515625,
+      "wallMs": 1684.432952,
+      "peakRssMb": 282.265625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1280.518226,
-      "peakRssMb": 278.9375,
+      "wallMs": 1675.69259,
+      "peakRssMb": 281.40234375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1278.72935,
-      "peakRssMb": 278.05078125,
+      "wallMs": 1670.849748,
+      "peakRssMb": 281.70703125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 155,
-    "typeAware": 36,
+    "total": 153,
+    "typeAware": 34,
     "syntactic": 119,
     "unmapped": {},
     "byRule": {
@@ -77,7 +77,7 @@
       "@typescript-eslint/no-misused-promises": 4,
       "@typescript-eslint/no-namespace": 2,
       "@typescript-eslint/no-require-imports": 3,
-      "@typescript-eslint/no-unsafe-return": 3,
+      "@typescript-eslint/no-unsafe-return": 1,
       "@typescript-eslint/require-await": 22,
       "no-constant-binary-expression": 1,
       "no-control-regex": 1,

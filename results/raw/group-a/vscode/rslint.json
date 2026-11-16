@@ -2,8 +2,8 @@
   "group": "A",
   "fixture": "vscode",
   "tool": "rslint",
-  "ciRunId": "42612909433/1",
-  "completedAt": "2026-11-09T12:25:18.934Z",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T08:13:49.826Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
@@ -17,57 +17,57 @@
   "failedRuns": 0,
   "command": "rslint -c rslint.config.bench.mjs --format jsonline",
   "wallMs": {
-    "median": 68765.289363,
-    "mean": 67223.8538086,
-    "stdev": 4466.930100263435,
-    "min": 62077.936948,
-    "max": 73353.118466
+    "median": 97585.172009,
+    "mean": 97447.60269259999,
+    "stdev": 2085.6855322828305,
+    "min": 94869.312571,
+    "max": 100768.615849
   },
   "peakRssMb": {
-    "median": 14262.0703125,
-    "max": 14765.02734375,
+    "median": 13969.37109375,
+    "max": 14135.31640625,
     "sampledRuns": 5
   },
   "runs": [
     {
-      "wallMs": 62077.936948,
-      "peakRssMb": 14262.0703125,
+      "wallMs": 94869.312571,
+      "peakRssMb": 13909.1953125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 69844.48209,
-      "peakRssMb": 14765.02734375,
+      "wallMs": 100768.615849,
+      "peakRssMb": 14135.31640625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 62078.442176,
-      "peakRssMb": 14114.6796875,
+      "wallMs": 97585.172009,
+      "peakRssMb": 13969.37109375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 73353.118466,
-      "peakRssMb": 14510.21484375,
+      "wallMs": 98361.585339,
+      "peakRssMb": 14130.7421875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 68765.289363,
-      "peakRssMb": 14224.85546875,
+      "wallMs": 95653.327695,
+      "peakRssMb": 13854.00390625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 168683,
-    "typeAware": 146402,
+    "total": 167372,
+    "typeAware": 145091,
     "syntactic": 22281,
     "unmapped": {},
     "byRule": {
@@ -90,7 +90,7 @@
       "@typescript-eslint/no-redundant-type-constituents": 827,
       "@typescript-eslint/no-require-imports": 291,
       "@typescript-eslint/no-this-alias": 252,
-      "@typescript-eslint/no-unnecessary-type-assertion": 4988,
+      "@typescript-eslint/no-unnecessary-type-assertion": 3677,
       "@typescript-eslint/no-unsafe-argument": 5670,
       "@typescript-eslint/no-unsafe-assignment": 14076,
       "@typescript-eslint/no-unsafe-call": 44748,

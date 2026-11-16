@@ -2,8 +2,8 @@
   "group": "B",
   "fixture": "rstest",
   "tool": "biome",
-  "ciRunId": "42612909433/1",
-  "completedAt": "2026-11-09T12:31:38.458Z",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T08:20:53.663Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
@@ -17,57 +17,57 @@
   "failedRuns": 0,
   "command": "biome lint --reporter=json --max-diagnostics=none .",
   "wallMs": {
-    "median": 2240.236368,
-    "mean": 2230.5539838000004,
-    "stdev": 46.95592263801011,
-    "min": 2151.682117,
-    "max": 2283.028002
+    "median": 3105.129276,
+    "mean": 3097.4948634,
+    "stdev": 42.27331173858117,
+    "min": 3043.557481,
+    "max": 3153.812662
   },
   "peakRssMb": {
-    "median": 758.74609375,
-    "max": 773.9140625,
+    "median": 745.50390625,
+    "max": 781,
     "sampledRuns": 5
   },
   "runs": [
     {
-      "wallMs": 2151.682117,
-      "peakRssMb": 724.49609375,
+      "wallMs": 3153.812662,
+      "peakRssMb": 737.6328125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2240.236368,
-      "peakRssMb": 758.74609375,
+      "wallMs": 3105.129276,
+      "peakRssMb": 753.56640625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2283.028002,
-      "peakRssMb": 773.9140625,
+      "wallMs": 3043.557481,
+      "peakRssMb": 745.50390625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2208.774136,
-      "peakRssMb": 731.30078125,
+      "wallMs": 3129.540088,
+      "peakRssMb": 781,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2269.049296,
-      "peakRssMb": 762.9453125,
+      "wallMs": 3055.43481,
+      "peakRssMb": 732.81640625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 1606,
-    "typeAware": 394,
+    "total": 1576,
+    "typeAware": 364,
     "syntactic": 1211,
     "unmapped": {
       "other: parse": 1
@@ -75,12 +75,12 @@
     "byRule": {
       "@typescript-eslint/no-base-to-string": 3,
       "@typescript-eslint/no-explicit-any": 609,
-      "@typescript-eslint/no-floating-promises": 24,
+      "@typescript-eslint/no-floating-promises": 25,
       "@typescript-eslint/no-implied-eval": 4,
       "@typescript-eslint/no-misused-promises": 17,
       "@typescript-eslint/no-namespace": 1,
       "@typescript-eslint/no-require-imports": 65,
-      "@typescript-eslint/no-unsafe-return": 59,
+      "@typescript-eslint/no-unsafe-return": 28,
       "@typescript-eslint/no-unused-vars": 4,
       "@typescript-eslint/prefer-promise-reject-errors": 2,
       "@typescript-eslint/require-await": 285,

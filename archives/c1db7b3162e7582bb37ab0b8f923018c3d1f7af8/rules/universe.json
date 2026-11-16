@@ -1,0 +1,370 @@
+[
+  {
+    "rule": "for-direction",
+    "typed": false
+  },
+  {
+    "rule": "no-async-promise-executor",
+    "typed": false
+  },
+  {
+    "rule": "no-case-declarations",
+    "typed": false
+  },
+  {
+    "rule": "no-compare-neg-zero",
+    "typed": false
+  },
+  {
+    "rule": "no-cond-assign",
+    "typed": false
+  },
+  {
+    "rule": "no-constant-binary-expression",
+    "typed": false
+  },
+  {
+    "rule": "no-constant-condition",
+    "typed": false
+  },
+  {
+    "rule": "no-control-regex",
+    "typed": false
+  },
+  {
+    "rule": "no-debugger",
+    "typed": false
+  },
+  {
+    "rule": "no-delete-var",
+    "typed": false
+  },
+  {
+    "rule": "no-dupe-else-if",
+    "typed": false
+  },
+  {
+    "rule": "no-duplicate-case",
+    "typed": false
+  },
+  {
+    "rule": "no-empty",
+    "typed": false
+  },
+  {
+    "rule": "no-empty-character-class",
+    "typed": false
+  },
+  {
+    "rule": "no-empty-pattern",
+    "typed": false
+  },
+  {
+    "rule": "no-empty-static-block",
+    "typed": false
+  },
+  {
+    "rule": "no-ex-assign",
+    "typed": false
+  },
+  {
+    "rule": "no-extra-boolean-cast",
+    "typed": false
+  },
+  {
+    "rule": "no-fallthrough",
+    "typed": false
+  },
+  {
+    "rule": "no-global-assign",
+    "typed": false
+  },
+  {
+    "rule": "no-invalid-regexp",
+    "typed": false
+  },
+  {
+    "rule": "no-irregular-whitespace",
+    "typed": false
+  },
+  {
+    "rule": "no-loss-of-precision",
+    "typed": false
+  },
+  {
+    "rule": "no-misleading-character-class",
+    "typed": false
+  },
+  {
+    "rule": "no-nonoctal-decimal-escape",
+    "typed": false
+  },
+  {
+    "rule": "no-octal",
+    "typed": false
+  },
+  {
+    "rule": "no-prototype-builtins",
+    "typed": false
+  },
+  {
+    "rule": "no-regex-spaces",
+    "typed": false
+  },
+  {
+    "rule": "no-self-assign",
+    "typed": false
+  },
+  {
+    "rule": "no-shadow-restricted-names",
+    "typed": false
+  },
+  {
+    "rule": "no-sparse-arrays",
+    "typed": false
+  },
+  {
+    "rule": "no-unassigned-vars",
+    "typed": false
+  },
+  {
+    "rule": "no-unexpected-multiline",
+    "typed": false
+  },
+  {
+    "rule": "no-unsafe-finally",
+    "typed": false
+  },
+  {
+    "rule": "no-unsafe-optional-chaining",
+    "typed": false
+  },
+  {
+    "rule": "no-unused-labels",
+    "typed": false
+  },
+  {
+    "rule": "no-unused-private-class-members",
+    "typed": false
+  },
+  {
+    "rule": "no-useless-assignment",
+    "typed": false
+  },
+  {
+    "rule": "no-useless-backreference",
+    "typed": false
+  },
+  {
+    "rule": "no-useless-catch",
+    "typed": false
+  },
+  {
+    "rule": "no-useless-escape",
+    "typed": false
+  },
+  {
+    "rule": "preserve-caught-error",
+    "typed": false
+  },
+  {
+    "rule": "require-yield",
+    "typed": false
+  },
+  {
+    "rule": "use-isnan",
+    "typed": false
+  },
+  {
+    "rule": "valid-typeof",
+    "typed": false
+  },
+  {
+    "rule": "no-var",
+    "typed": false
+  },
+  {
+    "rule": "prefer-const",
+    "typed": false
+  },
+  {
+    "rule": "prefer-rest-params",
+    "typed": false
+  },
+  {
+    "rule": "prefer-spread",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/await-thenable",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/ban-ts-comment",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-array-constructor",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-array-delete",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-base-to-string",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-duplicate-enum-values",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-duplicate-type-constituents",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-empty-object-type",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-explicit-any",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-extra-non-null-assertion",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-floating-promises",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-for-in-array",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-implied-eval",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-misused-new",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-misused-promises",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-namespace",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-non-null-asserted-optional-chain",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-redundant-type-constituents",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-require-imports",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-this-alias",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-unnecessary-type-assertion",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-unnecessary-type-constraint",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-unsafe-argument",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-unsafe-assignment",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-unsafe-call",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-unsafe-declaration-merging",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-unsafe-enum-comparison",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-unsafe-function-type",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-unsafe-member-access",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-unsafe-return",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-unsafe-unary-minus",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/no-unused-expressions",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-unused-vars",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/no-wrapper-object-types",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/only-throw-error",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/prefer-as-const",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/prefer-namespace-keyword",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/prefer-promise-reject-errors",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/require-await",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/restrict-plus-operands",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/restrict-template-expressions",
+    "typed": true
+  },
+  {
+    "rule": "@typescript-eslint/triple-slash-reference",
+    "typed": false
+  },
+  {
+    "rule": "@typescript-eslint/unbound-method",
+    "typed": true
+  }
+]

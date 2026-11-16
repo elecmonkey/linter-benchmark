@@ -2,8 +2,8 @@
   "group": "C",
   "fixture": "rslib",
   "tool": "oxlint",
-  "ciRunId": "42612909433/1",
-  "completedAt": "2026-11-09T13:01:53.029Z",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T09:00:56.309Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
@@ -17,49 +17,49 @@
   "failedRuns": 0,
   "command": "oxlint -c .oxlintrc.bench.json --disable-nested-config -f json .",
   "wallMs": {
-    "median": 71.079139,
-    "mean": 71.41944659999999,
-    "stdev": 2.9625397416234325,
-    "min": 66.829808,
-    "max": 75.866548
+    "median": 82.84716,
+    "mean": 83.3232366,
+    "stdev": 2.157843441962795,
+    "min": 80.961146,
+    "max": 87.105271
   },
   "peakRssMb": {
-    "median": 103.859375,
-    "max": 103.859375,
-    "sampledRuns": 1
+    "median": 103.171875,
+    "max": 106.59765625,
+    "sampledRuns": 4
   },
   "runs": [
     {
-      "wallMs": 72.846056,
+      "wallMs": 81.683807,
+      "peakRssMb": 105.85546875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 87.105271,
+      "peakRssMb": 100.16796875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 82.84716,
+      "peakRssMb": 106.59765625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 84.018799,
       "peakRssMb": null,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 71.079139,
-      "peakRssMb": null,
-      "exitCode": 1,
-      "signal": null,
-      "timedOut": false
-    },
-    {
-      "wallMs": 66.829808,
-      "peakRssMb": null,
-      "exitCode": 1,
-      "signal": null,
-      "timedOut": false
-    },
-    {
-      "wallMs": 75.866548,
-      "peakRssMb": 103.859375,
-      "exitCode": 1,
-      "signal": null,
-      "timedOut": false
-    },
-    {
-      "wallMs": 70.475682,
-      "peakRssMb": null,
+      "wallMs": 80.961146,
+      "peakRssMb": 100.48828125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false

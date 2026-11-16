@@ -1,0 +1,93 @@
+{
+  "group": "C",
+  "fixture": "typescript6",
+  "tool": "oxlint",
+  "ciRunId": "42612909433/1",
+  "completedAt": "2026-11-09T13:06:33.623Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 745,
+  "filesLinted": 745,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 381.419987,
+    "mean": 381.1105306,
+    "stdev": 3.5171252267294992,
+    "min": 377.306106,
+    "max": 386.5497
+  },
+  "peakRssMb": {
+    "median": 279.97265625,
+    "max": 283.33203125,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 382.949739,
+      "peakRssMb": 281.203125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 386.5497,
+      "peakRssMb": 279.97265625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 377.327121,
+      "peakRssMb": 274.7734375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 381.419987,
+      "peakRssMb": 273.8359375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 377.306106,
+      "peakRssMb": 283.33203125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1526,
+    "typeAware": 0,
+    "syntactic": 1526,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-array-constructor": 1,
+      "@typescript-eslint/no-duplicate-enum-values": 5,
+      "@typescript-eslint/no-explicit-any": 959,
+      "@typescript-eslint/no-namespace": 26,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 12,
+      "@typescript-eslint/no-require-imports": 53,
+      "no-case-declarations": 344,
+      "no-constant-condition": 1,
+      "no-control-regex": 7,
+      "no-extra-boolean-cast": 22,
+      "no-fallthrough": 6,
+      "no-shadow-restricted-names": 3,
+      "no-unassigned-vars": 2,
+      "no-unsafe-optional-chaining": 1,
+      "no-useless-assignment": 28,
+      "no-var": 54,
+      "preserve-caught-error": 2
+    }
+  }
+}

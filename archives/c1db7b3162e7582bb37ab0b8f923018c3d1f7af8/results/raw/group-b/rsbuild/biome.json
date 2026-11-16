@@ -1,0 +1,90 @@
+{
+  "group": "B",
+  "fixture": "rsbuild",
+  "tool": "biome",
+  "ciRunId": "42612909433/1",
+  "completedAt": "2026-11-09T12:28:49.364Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 2450,
+  "filesLinted": 2450,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 1277.693907,
+    "mean": 1274.8672308,
+    "stdev": 5.285625606185402,
+    "min": 1266.609973,
+    "max": 1280.518226
+  },
+  "peakRssMb": {
+    "median": 277.3515625,
+    "max": 278.9375,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 1266.609973,
+      "peakRssMb": 276.3984375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1277.693907,
+      "peakRssMb": 275.0625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1270.784698,
+      "peakRssMb": 277.3515625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1280.518226,
+      "peakRssMb": 278.9375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1278.72935,
+      "peakRssMb": 278.05078125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 155,
+    "typeAware": 36,
+    "syntactic": 119,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-floating-promises": 6,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 4,
+      "@typescript-eslint/no-namespace": 2,
+      "@typescript-eslint/no-require-imports": 3,
+      "@typescript-eslint/no-unsafe-return": 3,
+      "@typescript-eslint/require-await": 22,
+      "no-constant-binary-expression": 1,
+      "no-control-regex": 1,
+      "no-delete-var": 5,
+      "no-empty + no-empty-static-block": 58,
+      "prefer-const": 2,
+      "preserve-caught-error": 2
+    }
+  }
+}

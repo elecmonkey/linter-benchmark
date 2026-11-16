@@ -1,0 +1,110 @@
+{
+  "group": "C",
+  "fixture": "vscode",
+  "tool": "rslint",
+  "ciRunId": "42612909433/1",
+  "completedAt": "2026-11-09T13:05:32.207Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 14258,
+  "filesLinted": 14258,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 12010.768602,
+    "mean": 11908.7054298,
+    "stdev": 492.88887814823096,
+    "min": 11071.209224,
+    "max": 12498.804043
+  },
+  "peakRssMb": {
+    "median": 5613.9375,
+    "max": 5685.3671875,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 12010.768602,
+      "peakRssMb": 5658.9140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 12249.796768,
+      "peakRssMb": 5581.8671875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 11071.209224,
+      "peakRssMb": 5685.3671875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 12498.804043,
+      "peakRssMb": 5578.09765625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 11712.948512,
+      "peakRssMb": 5613.9375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 10291,
+    "typeAware": 0,
+    "syntactic": 10291,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-array-constructor": 3,
+      "@typescript-eslint/no-duplicate-enum-values": 15,
+      "@typescript-eslint/no-explicit-any": 5718,
+      "@typescript-eslint/no-misused-new": 1,
+      "@typescript-eslint/no-namespace": 712,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 28,
+      "@typescript-eslint/no-require-imports": 291,
+      "@typescript-eslint/no-unsafe-declaration-merging": 4,
+      "@typescript-eslint/prefer-as-const": 15,
+      "no-constant-binary-expression": 10,
+      "no-constant-condition": 21,
+      "no-control-regex": 86,
+      "no-dupe-else-if": 2,
+      "no-empty": 188,
+      "no-empty-pattern": 33,
+      "no-ex-assign": 11,
+      "no-extra-boolean-cast": 83,
+      "no-fallthrough": 23,
+      "no-irregular-whitespace": 47,
+      "no-prototype-builtins": 118,
+      "no-regex-spaces": 14,
+      "no-self-assign": 25,
+      "no-shadow-restricted-names": 3,
+      "no-unassigned-vars": 11,
+      "no-unsafe-optional-chaining": 7,
+      "no-useless-assignment": 504,
+      "no-useless-catch": 9,
+      "no-useless-escape": 1969,
+      "prefer-const": 130,
+      "prefer-rest-params": 17,
+      "prefer-spread": 40,
+      "preserve-caught-error": 148,
+      "require-yield": 4,
+      "valid-typeof": 1
+    }
+  }
+}

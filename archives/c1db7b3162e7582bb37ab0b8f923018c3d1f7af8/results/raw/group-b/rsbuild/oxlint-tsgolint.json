@@ -1,0 +1,90 @@
+{
+  "group": "B",
+  "fixture": "rsbuild",
+  "tool": "oxlint-tsgolint",
+  "ciRunId": "42612909433/1",
+  "completedAt": "2026-11-09T12:28:49.362Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {
+    "OXLINT_TSGOLINT_PATH": "/home/runner/work/linter-benchmark/linter-benchmark/node_modules/.bin/tsgolint"
+  },
+  "files": 2450,
+  "filesLinted": 2450,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 2376.193276,
+    "mean": 2416.6226343999997,
+    "stdev": 76.9706166172016,
+    "min": 2323.701866,
+    "max": 2524.160876
+  },
+  "peakRssMb": {
+    "median": 758.734375,
+    "max": 775.72265625,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 2524.160876,
+      "peakRssMb": 775.72265625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2368.471322,
+      "peakRssMb": 705.0625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2323.701866,
+      "peakRssMb": 672.4765625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2376.193276,
+      "peakRssMb": 758.734375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2490.585832,
+      "peakRssMb": 768.06640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 95,
+    "typeAware": 20,
+    "syntactic": 50,
+    "unmapped": {
+      "typescript/tsconfig-error": 25
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 1,
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 3,
+      "@typescript-eslint/no-require-imports": 1,
+      "@typescript-eslint/no-unsafe-return": 11,
+      "@typescript-eslint/require-await": 4,
+      "no-constant-binary-expression": 1,
+      "no-control-regex": 1,
+      "prefer-const": 2
+    }
+  }
+}

@@ -2,8 +2,8 @@
   "group": "C",
   "fixture": "rspack",
   "tool": "biome",
-  "ciRunId": "42612909433/1",
-  "completedAt": "2026-11-09T13:02:19.411Z",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T09:01:28.575Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
@@ -17,58 +17,58 @@
   "failedRuns": 0,
   "command": "biome lint --reporter=json --max-diagnostics=none .",
   "wallMs": {
-    "median": 287.602687,
-    "mean": 286.7554228,
-    "stdev": 1.9051577246097402,
-    "min": 284.366809,
-    "max": 289.054557
+    "median": 346.261392,
+    "mean": 345.86779019999994,
+    "stdev": 3.1251062935659273,
+    "min": 341.829723,
+    "max": 350.360431
   },
   "peakRssMb": {
-    "median": 154.13671875,
-    "max": 154.84375,
+    "median": 152.80078125,
+    "max": 153.20703125,
     "sampledRuns": 5
   },
   "runs": [
     {
-      "wallMs": 284.622726,
-      "peakRssMb": 154.13671875,
+      "wallMs": 350.360431,
+      "peakRssMb": 153.078125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 287.602687,
-      "peakRssMb": 154.0625,
+      "wallMs": 341.829723,
+      "peakRssMb": 152.5625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 284.366809,
-      "peakRssMb": 148.453125,
+      "wallMs": 347.875473,
+      "peakRssMb": 152.48046875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 288.130335,
-      "peakRssMb": 154.84375,
+      "wallMs": 343.011932,
+      "peakRssMb": 152.80078125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 289.054557,
-      "peakRssMb": 154.37109375,
+      "wallMs": 346.261392,
+      "peakRssMb": 153.20703125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 809,
+    "total": 810,
     "typeAware": 0,
-    "syntactic": 808,
+    "syntactic": 809,
     "unmapped": {
       "other: syntax/correctness/noTypeOnlyImportAttributes": 1
     },
@@ -84,7 +84,7 @@
       "no-global-assign": 1,
       "no-prototype-builtins": 7,
       "no-unsafe-optional-chaining": 1,
-      "no-useless-assignment": 8,
+      "no-useless-assignment": 9,
       "no-var": 65,
       "prefer-const": 4,
       "prefer-rest-params": 7,

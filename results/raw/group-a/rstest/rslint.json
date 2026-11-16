@@ -2,8 +2,8 @@
   "group": "A",
   "fixture": "rstest",
   "tool": "rslint",
-  "ciRunId": "42612909433/1",
-  "completedAt": "2026-11-09T12:02:59.012Z",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T07:44:06.846Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
@@ -17,57 +17,57 @@
   "failedRuns": 0,
   "command": "rslint -c rslint.config.bench.mjs --format jsonline",
   "wallMs": {
-    "median": 2776.001102,
-    "mean": 2785.5351727999996,
-    "stdev": 17.810843751607827,
-    "min": 2769.024168,
-    "max": 2815.53212
+    "median": 4372.483652,
+    "mean": 4367.2816041999995,
+    "stdev": 86.81746482389667,
+    "min": 4235.431396,
+    "max": 4472.043118
   },
   "peakRssMb": {
-    "median": 632.17578125,
-    "max": 694.765625,
+    "median": 546.0546875,
+    "max": 596.5,
     "sampledRuns": 5
   },
   "runs": [
     {
-      "wallMs": 2771.009466,
-      "peakRssMb": 621.5703125,
+      "wallMs": 4472.043118,
+      "peakRssMb": 546.0546875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2776.001102,
-      "peakRssMb": 611.8046875,
+      "wallMs": 4372.483652,
+      "peakRssMb": 581.97265625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2796.109008,
-      "peakRssMb": 640.90234375,
+      "wallMs": 4310.918409,
+      "peakRssMb": 596.5,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2815.53212,
-      "peakRssMb": 694.765625,
+      "wallMs": 4445.531446,
+      "peakRssMb": 545.73046875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 2769.024168,
-      "peakRssMb": 632.17578125,
+      "wallMs": 4235.431396,
+      "peakRssMb": 497.21875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 36597,
-    "typeAware": 35755,
+    "total": 36572,
+    "typeAware": 35730,
     "syntactic": 842,
     "unmapped": {},
     "byRule": {
@@ -81,7 +81,7 @@
       "@typescript-eslint/no-misused-promises": 17,
       "@typescript-eslint/no-redundant-type-constituents": 50,
       "@typescript-eslint/no-require-imports": 68,
-      "@typescript-eslint/no-unnecessary-type-assertion": 123,
+      "@typescript-eslint/no-unnecessary-type-assertion": 98,
       "@typescript-eslint/no-unsafe-argument": 476,
       "@typescript-eslint/no-unsafe-assignment": 1820,
       "@typescript-eslint/no-unsafe-call": 21465,

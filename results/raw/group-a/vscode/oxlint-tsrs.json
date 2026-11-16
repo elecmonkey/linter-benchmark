@@ -2,8 +2,8 @@
   "group": "A",
   "fixture": "vscode",
   "tool": "oxlint-tsrs",
-  "ciRunId": "42612909433/1",
-  "completedAt": "2026-11-09T12:25:20.718Z",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T08:13:51.744Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
@@ -20,58 +20,58 @@
   "failedRuns": 0,
   "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
   "wallMs": {
-    "median": 24115.836722,
-    "mean": 24578.5986786,
-    "stdev": 2462.8212266839855,
-    "min": 21912.471158,
-    "max": 28772.744275
+    "median": 29001.814723,
+    "mean": 28948.146914399997,
+    "stdev": 486.64377722088733,
+    "min": 28109.706077,
+    "max": 29634.739477
   },
   "peakRssMb": {
-    "median": 6840.09765625,
-    "max": 6887.23828125,
+    "median": 4576.69921875,
+    "max": 4592.16015625,
     "sampledRuns": 5
   },
   "runs": [
     {
-      "wallMs": 21912.471158,
-      "peakRssMb": 6810.25,
+      "wallMs": 29029.005914,
+      "peakRssMb": 4578.3984375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 28772.744275,
-      "peakRssMb": 6828.671875,
+      "wallMs": 29001.814723,
+      "peakRssMb": 4568.234375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 25602.700333,
-      "peakRssMb": 6840.09765625,
+      "wallMs": 29634.739477,
+      "peakRssMb": 4592.16015625,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 24115.836722,
-      "peakRssMb": 6845.15234375,
+      "wallMs": 28109.706077,
+      "peakRssMb": 4576.27734375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 22489.240905,
-      "peakRssMb": 6887.23828125,
+      "wallMs": 28965.468381,
+      "peakRssMb": 4576.69921875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     }
   ],
   "diagnostics": {
-    "total": 163615,
+    "total": 163616,
     "typeAware": 146028,
-    "syntactic": 17585,
+    "syntactic": 17586,
     "unmapped": {
       "typescript/tsconfig-error": 2
     },
@@ -139,7 +139,7 @@
       "no-useless-escape": 1926,
       "prefer-const": 133,
       "prefer-rest-params": 17,
-      "prefer-spread": 40,
+      "prefer-spread": 41,
       "preserve-caught-error": 148,
       "require-yield": 4,
       "valid-typeof": 1

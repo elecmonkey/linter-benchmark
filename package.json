@@ -13,12 +13,12 @@
     "test": "node --test scripts/*.test.mjs"
   },
   "dependencies": {
-    "@biomejs/biome": "2.6.4",
-    "@rslint/core": "0.10.0",
-    "oxlint": "1.91.0",
-    "oxlint-tsgolint": "7.0.2005",
+    "@biomejs/biome": "2.6.8",
+    "@rslint/core": "0.10.1",
+    "oxlint": "1.93.0",
+    "oxlint-tsgolint": "7.0.2007",
     "typescript": "6.0.3",
     "minimatch": "10.2.6",
-    "tsrs": "0.23.0-ts7.1.0-beta"
+    "tsrs": "0.25.0-ts7.1.0-beta"
   }
 }

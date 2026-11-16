@@ -1,6 +1,6 @@
 {
   "description": "Pinned 92-rule baseline and equivalent Biome mappings. Retained to keep benchmark rule selections stable across tool refactors. Update this catalog explicitly when changing the baseline or Biome version.",
-  "biomeVersion": "2.6.4",
+  "biomeVersion": "2.6.8",
   "rules": [
     {
       "rule": "for-direction",

@@ -3703,7 +3703,7 @@
     "value": "prefer-catch",
     "category": "style",
     "type_aware": false,
-    "fix": "pending",
+    "fix": "conditional_suggestion",
     "default": false,
     "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/promise/prefer-catch.html"
   },
@@ -6160,7 +6160,7 @@
     "value": "no-useless-undefined",
     "category": "pedantic",
     "type_aware": false,
-    "fix": "fixable_fix",
+    "fix": "fixable_safe_fix_or_suggestion",
     "default": false,
     "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/unicorn/no-useless-undefined.html"
   },
@@ -6556,7 +6556,7 @@
     "value": "prefer-regexp-test",
     "category": "pedantic",
     "type_aware": false,
-    "fix": "fixable_fix",
+    "fix": "fixable_safe_fix_or_suggestion",
     "default": false,
     "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/unicorn/prefer-regexp-test.html"
   },
@@ -6592,7 +6592,7 @@
     "value": "prefer-single-call",
     "category": "pedantic",
     "type_aware": false,
-    "fix": "fixable_fix",
+    "fix": "conditional_fix",
     "default": false,
     "docs_url": "https://oxc.rs/docs/guide/usage/linter/rules/unicorn/prefer-single-call.html"
   },

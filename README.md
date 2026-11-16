@@ -471,9 +471,9 @@ The workflow verifies the commit and PR text before publishing and reads them ba
 
 | Tool | Version |
 |---|---|
-| Rslint | `@rslint/core` 0.10.0 |
-| Oxlint | 1.91.0 |
-| tsgolint | `oxlint-tsgolint` 7.0.2005 |
-| tsrs | 0.23.0-ts7.1.0-beta |
-| Biome | 2.6.4 |
+| Rslint | `@rslint/core` 0.10.1 |
+| Oxlint | 1.93.0 |
+| tsgolint | `oxlint-tsgolint` 7.0.2007 |
+| tsrs | 0.25.0-ts7.1.0-beta |
+| Biome | 2.6.8 |
 | Scope project loader | TypeScript 6.0.3 |

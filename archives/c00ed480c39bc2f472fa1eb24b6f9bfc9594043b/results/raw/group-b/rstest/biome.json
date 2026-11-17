@@ -1,0 +1,98 @@
+{
+  "group": "B",
+  "fixture": "rstest",
+  "tool": "biome",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T08:20:53.663Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 2139,
+  "filesLinted": 2139,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 3105.129276,
+    "mean": 3097.4948634,
+    "stdev": 42.27331173858117,
+    "min": 3043.557481,
+    "max": 3153.812662
+  },
+  "peakRssMb": {
+    "median": 745.50390625,
+    "max": 781,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 3153.812662,
+      "peakRssMb": 737.6328125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 3105.129276,
+      "peakRssMb": 753.56640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 3043.557481,
+      "peakRssMb": 745.50390625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 3129.540088,
+      "peakRssMb": 781,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 3055.43481,
+      "peakRssMb": 732.81640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1576,
+    "typeAware": 364,
+    "syntactic": 1211,
+    "unmapped": {
+      "other: parse": 1
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 3,
+      "@typescript-eslint/no-explicit-any": 609,
+      "@typescript-eslint/no-floating-promises": 25,
+      "@typescript-eslint/no-implied-eval": 4,
+      "@typescript-eslint/no-misused-promises": 17,
+      "@typescript-eslint/no-namespace": 1,
+      "@typescript-eslint/no-require-imports": 65,
+      "@typescript-eslint/no-unsafe-return": 28,
+      "@typescript-eslint/no-unused-vars": 4,
+      "@typescript-eslint/prefer-promise-reject-errors": 2,
+      "@typescript-eslint/require-await": 285,
+      "no-delete-var": 18,
+      "no-empty + no-empty-static-block": 424,
+      "no-prototype-builtins": 8,
+      "no-shadow-restricted-names": 4,
+      "no-useless-assignment": 1,
+      "no-var": 59,
+      "prefer-const": 4,
+      "prefer-rest-params": 1,
+      "preserve-caught-error": 13
+    }
+  }
+}

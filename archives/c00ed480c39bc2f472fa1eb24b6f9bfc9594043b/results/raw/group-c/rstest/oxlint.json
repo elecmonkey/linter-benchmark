@@ -1,0 +1,83 @@
+{
+  "group": "C",
+  "fixture": "rstest",
+  "tool": "oxlint",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T09:01:11.539Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 2139,
+  "filesLinted": 2139,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 147.672853,
+    "mean": 148.71691760000002,
+    "stdev": 5.435686532327324,
+    "min": 142.917883,
+    "max": 157.820211
+  },
+  "peakRssMb": {
+    "median": 122.9140625,
+    "max": 127.83984375,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 143.872633,
+      "peakRssMb": 116.4765625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 142.917883,
+      "peakRssMb": 127.83984375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 151.301008,
+      "peakRssMb": 122.3515625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 157.820211,
+      "peakRssMb": 125.2578125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 147.672853,
+      "peakRssMb": 122.9140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 757,
+    "typeAware": 0,
+    "syntactic": 757,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 609,
+      "@typescript-eslint/no-require-imports": 68,
+      "no-empty": 1,
+      "no-useless-assignment": 2,
+      "no-var": 59,
+      "prefer-const": 11,
+      "preserve-caught-error": 7
+    }
+  }
+}

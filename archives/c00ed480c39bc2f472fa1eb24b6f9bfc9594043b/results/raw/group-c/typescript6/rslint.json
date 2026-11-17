@@ -1,0 +1,90 @@
+{
+  "group": "C",
+  "fixture": "typescript6",
+  "tool": "rslint",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T09:06:47.156Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 745,
+  "filesLinted": 745,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 1469.786832,
+    "mean": 1490.2086596000001,
+    "stdev": 56.80495144737466,
+    "min": 1432.701948,
+    "max": 1571.340041
+  },
+  "peakRssMb": {
+    "median": 463.81640625,
+    "max": 468.1796875,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 1542.563283,
+      "peakRssMb": 463.81640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1469.786832,
+      "peakRssMb": 441.7265625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1571.340041,
+      "peakRssMb": 446.015625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1434.651194,
+      "peakRssMb": 466.48828125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1432.701948,
+      "peakRssMb": 468.1796875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 1530,
+    "typeAware": 0,
+    "syntactic": 1530,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-duplicate-enum-values": 5,
+      "@typescript-eslint/no-explicit-any": 959,
+      "@typescript-eslint/no-namespace": 26,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 12,
+      "@typescript-eslint/no-require-imports": 53,
+      "no-case-declarations": 344,
+      "no-constant-condition": 1,
+      "no-control-regex": 7,
+      "no-extra-boolean-cast": 22,
+      "no-shadow-restricted-names": 3,
+      "no-unassigned-vars": 3,
+      "no-useless-assignment": 28,
+      "no-var": 65,
+      "preserve-caught-error": 2
+    }
+  }
+}

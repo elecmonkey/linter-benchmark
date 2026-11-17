@@ -2,8 +2,8 @@
   "group": "C",
   "fixture": "rslib",
   "tool": "oxlint",
-  "ciRunId": "43815439378/2",
-  "completedAt": "2026-11-16T09:00:56.309Z",
+  "ciRunId": "44007236205/1",
+  "completedAt": "2026-11-17T04:06:30.879Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
@@ -17,49 +17,49 @@
   "failedRuns": 0,
   "command": "oxlint -c .oxlintrc.bench.json --disable-nested-config -f json .",
   "wallMs": {
-    "median": 82.84716,
-    "mean": 83.3232366,
-    "stdev": 2.157843441962795,
-    "min": 80.961146,
-    "max": 87.105271
+    "median": 72.22396,
+    "mean": 72.8905084,
+    "stdev": 2.2180007609799075,
+    "min": 71.015613,
+    "max": 77.07326
   },
   "peakRssMb": {
-    "median": 103.171875,
-    "max": 106.59765625,
-    "sampledRuns": 4
+    "median": null,
+    "max": null,
+    "sampledRuns": 0
   },
   "runs": [
     {
-      "wallMs": 81.683807,
-      "peakRssMb": 105.85546875,
-      "exitCode": 1,
-      "signal": null,
-      "timedOut": false
-    },
-    {
-      "wallMs": 87.105271,
-      "peakRssMb": 100.16796875,
-      "exitCode": 1,
-      "signal": null,
-      "timedOut": false
-    },
-    {
-      "wallMs": 82.84716,
-      "peakRssMb": 106.59765625,
-      "exitCode": 1,
-      "signal": null,
-      "timedOut": false
-    },
-    {
-      "wallMs": 84.018799,
+      "wallMs": 77.07326,
       "peakRssMb": null,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 80.961146,
-      "peakRssMb": 100.48828125,
+      "wallMs": 73.01742,
+      "peakRssMb": null,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 71.015613,
+      "peakRssMb": null,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 72.22396,
+      "peakRssMb": null,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 71.122289,
+      "peakRssMb": null,
       "exitCode": 1,
       "signal": null,
       "timedOut": false

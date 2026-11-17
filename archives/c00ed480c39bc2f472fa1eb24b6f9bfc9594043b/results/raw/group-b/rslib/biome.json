@@ -1,0 +1,90 @@
+{
+  "group": "B",
+  "fixture": "rslib",
+  "tool": "biome",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T08:18:59.619Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 1811.778131,
+    "mean": 1810.9281867999998,
+    "stdev": 10.494797831195537,
+    "min": 1796.189665,
+    "max": 1827.607117
+  },
+  "peakRssMb": {
+    "median": 576.921875,
+    "max": 595.546875,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 1804.499238,
+      "peakRssMb": 576.921875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1796.189665,
+      "peakRssMb": 571.87109375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1814.566783,
+      "peakRssMb": 573.06640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1827.607117,
+      "peakRssMb": 595.546875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1811.778131,
+      "peakRssMb": 587.2890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 203,
+    "typeAware": 104,
+    "syntactic": 96,
+    "unmapped": {
+      "other: parse": 3
+    },
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-floating-promises": 6,
+      "@typescript-eslint/no-misused-promises": 2,
+      "@typescript-eslint/no-require-imports": 25,
+      "@typescript-eslint/no-unsafe-return": 3,
+      "@typescript-eslint/no-unused-vars": 1,
+      "@typescript-eslint/require-await": 93,
+      "no-delete-var": 4,
+      "no-empty + no-empty-static-block": 17,
+      "no-prototype-builtins": 1,
+      "no-shadow-restricted-names": 2,
+      "preserve-caught-error": 5
+    }
+  }
+}

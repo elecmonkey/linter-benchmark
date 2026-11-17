@@ -1,0 +1,85 @@
+{
+  "group": "C",
+  "fixture": "rslib",
+  "tool": "biome",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T09:00:56.309Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 281.379202,
+    "mean": 280.625587,
+    "stdev": 2.7331547752100698,
+    "min": 275.9403,
+    "max": 284.20971
+  },
+  "peakRssMb": {
+    "median": 114.78515625,
+    "max": 115.12890625,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 279.81842,
+      "peakRssMb": 114.78515625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 281.379202,
+      "peakRssMb": 114.4296875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 284.20971,
+      "peakRssMb": 114.87890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 275.9403,
+      "peakRssMb": 110.78515625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 281.780303,
+      "peakRssMb": 115.12890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 98,
+    "typeAware": 0,
+    "syntactic": 95,
+    "unmapped": {
+      "other: parse": 3
+    },
+    "byRule": {
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-require-imports": 25,
+      "no-delete-var": 4,
+      "no-empty + no-empty-static-block": 17,
+      "no-prototype-builtins": 1,
+      "no-shadow-restricted-names": 2,
+      "preserve-caught-error": 5
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "group": "B",
+  "fixture": "rspress",
+  "tool": "biome",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T08:23:09.321Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 746,
+  "filesLinted": 746,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 1710.840582,
+    "mean": 1704.8750185999997,
+    "stdev": 23.34558755031184,
+    "min": 1670.043342,
+    "max": 1731.849726
+  },
+  "peakRssMb": {
+    "median": 560.2421875,
+    "max": 566.671875,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 1725.144607,
+      "peakRssMb": 560.2421875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1686.496836,
+      "peakRssMb": 562.16015625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1731.849726,
+      "peakRssMb": 566.671875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1710.840582,
+      "peakRssMb": 555.7890625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1670.043342,
+      "peakRssMb": 540.5,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 179,
+    "typeAware": 87,
+    "syntactic": 92,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 6,
+      "@typescript-eslint/no-explicit-any": 45,
+      "@typescript-eslint/no-floating-promises": 12,
+      "@typescript-eslint/no-implied-eval": 4,
+      "@typescript-eslint/no-misused-promises": 3,
+      "@typescript-eslint/no-require-imports": 2,
+      "@typescript-eslint/no-unsafe-return": 1,
+      "@typescript-eslint/require-await": 61,
+      "no-delete-var": 15,
+      "no-empty + no-empty-static-block": 22,
+      "no-unsafe-optional-chaining": 1,
+      "no-useless-assignment": 1,
+      "preserve-caught-error": 6
+    }
+  }
+}

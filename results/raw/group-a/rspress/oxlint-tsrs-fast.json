@@ -2,8 +2,8 @@
   "group": "A",
   "fixture": "rspress",
   "tool": "oxlint-tsrs-fast",
-  "ciRunId": "43815439378/2",
-  "completedAt": "2026-11-16T07:46:03.681Z",
+  "ciRunId": "44007236205/1",
+  "completedAt": "2026-11-17T03:09:58.526Z",
   "measurement": {
     "runs": 5,
     "warmup": 1,
@@ -20,49 +20,49 @@
   "failedRuns": 0,
   "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
   "wallMs": {
-    "median": 1303.607677,
-    "mean": 1299.8733484,
-    "stdev": 10.249453767892117,
-    "min": 1281.996711,
-    "max": 1310.609053
+    "median": 1071.689704,
+    "mean": 1074.2864048,
+    "stdev": 6.869967187497141,
+    "min": 1067.05328,
+    "max": 1087.02226
   },
   "peakRssMb": {
-    "median": 350.57421875,
-    "max": 363.6640625,
+    "median": 355.703125,
+    "max": 360.07421875,
     "sampledRuns": 5
   },
   "runs": [
     {
-      "wallMs": 1281.996711,
-      "peakRssMb": 363.6640625,
+      "wallMs": 1087.02226,
+      "peakRssMb": 357.93359375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1303.607677,
-      "peakRssMb": 341.09375,
+      "wallMs": 1067.05328,
+      "peakRssMb": 348.52734375,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1307.521367,
-      "peakRssMb": 356.5,
+      "wallMs": 1070.542453,
+      "peakRssMb": 360.07421875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1310.609053,
-      "peakRssMb": 349.67578125,
+      "wallMs": 1075.124327,
+      "peakRssMb": 355.703125,
       "exitCode": 1,
       "signal": null,
       "timedOut": false
     },
     {
-      "wallMs": 1295.631934,
-      "peakRssMb": 350.57421875,
+      "wallMs": 1071.689704,
+      "peakRssMb": 351.71875,
       "exitCode": 1,
       "signal": null,
       "timedOut": false

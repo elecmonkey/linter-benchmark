@@ -1,0 +1,99 @@
+{
+  "group": "A",
+  "fixture": "rslib",
+  "tool": "oxlint-tsrs",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T07:42:28.025Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {
+    "OXLINT_TSGOLINT_PATH": "/home/runner/work/linter-benchmark/linter-benchmark/node_modules/.bin/tsrs-lint",
+    "TSRS_FAST": "0"
+  },
+  "files": 1018,
+  "filesLinted": 1018,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --type-aware --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 1044.55737,
+    "mean": 1057.9823916,
+    "stdev": 24.504184798718267,
+    "min": 1032.393354,
+    "max": 1099.303539
+  },
+  "peakRssMb": {
+    "median": 350.63671875,
+    "max": 356.171875,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 1044.55737,
+      "peakRssMb": 350.63671875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1032.393354,
+      "peakRssMb": 356.1484375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1041.710204,
+      "peakRssMb": 346.59375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1071.947491,
+      "peakRssMb": 356.171875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1099.303539,
+      "peakRssMb": 345.24609375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 674,
+    "typeAware": 584,
+    "syntactic": 75,
+    "unmapped": {
+      "other: Expected a semicolon or an implicit semicolon after a statement, but found none": 1,
+      "typescript/tsconfig-error": 14
+    },
+    "byRule": {
+      "@typescript-eslint/await-thenable": 7,
+      "@typescript-eslint/ban-ts-comment": 6,
+      "@typescript-eslint/no-explicit-any": 41,
+      "@typescript-eslint/no-floating-promises": 11,
+      "@typescript-eslint/no-misused-promises": 5,
+      "@typescript-eslint/no-redundant-type-constituents": 5,
+      "@typescript-eslint/no-require-imports": 23,
+      "@typescript-eslint/no-unnecessary-type-assertion": 50,
+      "@typescript-eslint/no-unsafe-argument": 7,
+      "@typescript-eslint/no-unsafe-assignment": 137,
+      "@typescript-eslint/no-unsafe-call": 91,
+      "@typescript-eslint/no-unsafe-member-access": 155,
+      "@typescript-eslint/no-unsafe-return": 12,
+      "@typescript-eslint/no-unused-vars": 3,
+      "@typescript-eslint/require-await": 95,
+      "@typescript-eslint/restrict-template-expressions": 9,
+      "preserve-caught-error": 2
+    }
+  }
+}

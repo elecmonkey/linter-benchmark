@@ -1,0 +1,93 @@
+{
+  "group": "B",
+  "fixture": "rsdoctor",
+  "tool": "biome",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T08:22:02.943Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 734,
+  "filesLinted": 734,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "biome lint --reporter=json --max-diagnostics=none .",
+  "wallMs": {
+    "median": 2160.290098,
+    "mean": 2168.619807,
+    "stdev": 44.45132269978308,
+    "min": 2112.742688,
+    "max": 2242.495464
+  },
+  "peakRssMb": {
+    "median": 669.14453125,
+    "max": 690.4296875,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 2188.112416,
+      "peakRssMb": 677.43359375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2160.290098,
+      "peakRssMb": 669.14453125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2112.742688,
+      "peakRssMb": 659.16015625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2242.495464,
+      "peakRssMb": 690.4296875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 2139.458369,
+      "peakRssMb": 655.64453125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 549,
+    "typeAware": 191,
+    "syntactic": 357,
+    "unmapped": {
+      "other: suppressions/unused": 1
+    },
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 2,
+      "@typescript-eslint/no-explicit-any": 268,
+      "@typescript-eslint/no-floating-promises": 45,
+      "@typescript-eslint/no-require-imports": 23,
+      "@typescript-eslint/no-unsafe-return": 27,
+      "@typescript-eslint/no-unused-vars": 1,
+      "@typescript-eslint/prefer-promise-reject-errors": 1,
+      "@typescript-eslint/require-await": 116,
+      "no-delete-var": 10,
+      "no-empty + no-empty-static-block": 39,
+      "no-prototype-builtins": 2,
+      "no-shadow-restricted-names": 2,
+      "no-var": 10,
+      "prefer-rest-params": 1,
+      "preserve-caught-error": 1
+    }
+  }
+}

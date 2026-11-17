@@ -1,0 +1,79 @@
+{
+  "group": "B",
+  "fixture": "rstack-cli",
+  "tool": "rslint",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T08:19:29.593Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 366,
+  "filesLinted": 366,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 1443.864264,
+    "mean": 1427.84205,
+    "stdev": 55.935312097951645,
+    "min": 1345.756223,
+    "max": 1500.484526
+  },
+  "peakRssMb": {
+    "median": 337.05078125,
+    "max": 343.87109375,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 1500.484526,
+      "peakRssMb": 334.0390625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1345.756223,
+      "peakRssMb": 284.31640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1443.864264,
+      "peakRssMb": 343.87109375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1465.482017,
+      "peakRssMb": 337.05078125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1383.62322,
+      "peakRssMb": 343.44140625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 25,
+    "typeAware": 22,
+    "syntactic": 3,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-unsafe-return": 19,
+      "@typescript-eslint/no-unused-vars": 3,
+      "@typescript-eslint/require-await": 3
+    }
+  }
+}

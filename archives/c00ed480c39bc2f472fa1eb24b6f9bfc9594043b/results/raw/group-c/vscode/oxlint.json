@@ -1,0 +1,110 @@
+{
+  "group": "C",
+  "fixture": "vscode",
+  "tool": "oxlint",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T09:05:38.628Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 14258,
+  "filesLinted": 14258,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "oxlint -c .oxlintrc.bench.json --disable-nested-config -f json .",
+  "wallMs": {
+    "median": 1866.813493,
+    "mean": 1869.7351062000002,
+    "stdev": 30.16718463792145,
+    "min": 1824.620558,
+    "max": 1918.27059
+  },
+  "peakRssMb": {
+    "median": 263.21875,
+    "max": 283.67578125,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 1824.620558,
+      "peakRssMb": 236.1796875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1878.16355,
+      "peakRssMb": 278.5859375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1860.80734,
+      "peakRssMb": 283.67578125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1918.27059,
+      "peakRssMb": 263.21875,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 1866.813493,
+      "peakRssMb": 239.6328125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 10261,
+    "typeAware": 0,
+    "syntactic": 10261,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-array-constructor": 3,
+      "@typescript-eslint/no-duplicate-enum-values": 15,
+      "@typescript-eslint/no-explicit-any": 5718,
+      "@typescript-eslint/no-misused-new": 1,
+      "@typescript-eslint/no-namespace": 712,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 28,
+      "@typescript-eslint/no-require-imports": 291,
+      "@typescript-eslint/no-unsafe-declaration-merging": 2,
+      "@typescript-eslint/prefer-as-const": 15,
+      "no-constant-binary-expression": 10,
+      "no-constant-condition": 21,
+      "no-control-regex": 85,
+      "no-dupe-else-if": 2,
+      "no-empty": 188,
+      "no-empty-pattern": 33,
+      "no-ex-assign": 11,
+      "no-extra-boolean-cast": 83,
+      "no-fallthrough": 36,
+      "no-irregular-whitespace": 18,
+      "no-prototype-builtins": 118,
+      "no-regex-spaces": 14,
+      "no-self-assign": 24,
+      "no-shadow-restricted-names": 8,
+      "no-unassigned-vars": 11,
+      "no-unsafe-optional-chaining": 50,
+      "no-useless-assignment": 486,
+      "no-useless-catch": 8,
+      "no-useless-escape": 1926,
+      "prefer-const": 133,
+      "prefer-rest-params": 17,
+      "prefer-spread": 41,
+      "preserve-caught-error": 148,
+      "require-yield": 4,
+      "valid-typeof": 1
+    }
+  }
+}

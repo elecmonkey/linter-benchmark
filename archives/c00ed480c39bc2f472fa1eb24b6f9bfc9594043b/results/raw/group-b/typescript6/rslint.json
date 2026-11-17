@@ -1,0 +1,100 @@
+{
+  "group": "B",
+  "fixture": "typescript6",
+  "tool": "rslint",
+  "ciRunId": "43815439378/2",
+  "completedAt": "2026-11-16T09:00:41.672Z",
+  "measurement": {
+    "runs": 5,
+    "warmup": 1,
+    "rssMethod": "ps",
+    "rssSampleMs": 50
+  },
+  "environment": {},
+  "files": 745,
+  "filesLinted": 745,
+  "scopeMatch": true,
+  "failedRuns": 0,
+  "command": "rslint -c rslint.config.bench.mjs --format jsonline",
+  "wallMs": {
+    "median": 5365.638408,
+    "mean": 5363.7236088,
+    "stdev": 103.6748119374602,
+    "min": 5220.199213,
+    "max": 5503.7582
+  },
+  "peakRssMb": {
+    "median": 743.58984375,
+    "max": 783.78125,
+    "sampledRuns": 5
+  },
+  "runs": [
+    {
+      "wallMs": 5446.756134,
+      "peakRssMb": 741.0703125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 5503.7582,
+      "peakRssMb": 763.84765625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 5365.638408,
+      "peakRssMb": 783.78125,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 5282.266089,
+      "peakRssMb": 743.58984375,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    },
+    {
+      "wallMs": 5220.199213,
+      "peakRssMb": 634.56640625,
+      "exitCode": 1,
+      "signal": null,
+      "timedOut": false
+    }
+  ],
+  "diagnostics": {
+    "total": 2213,
+    "typeAware": 336,
+    "syntactic": 1877,
+    "unmapped": {},
+    "byRule": {
+      "@typescript-eslint/no-base-to-string": 13,
+      "@typescript-eslint/no-duplicate-enum-values": 5,
+      "@typescript-eslint/no-explicit-any": 959,
+      "@typescript-eslint/no-floating-promises": 4,
+      "@typescript-eslint/no-implied-eval": 1,
+      "@typescript-eslint/no-misused-promises": 1,
+      "@typescript-eslint/no-namespace": 26,
+      "@typescript-eslint/no-non-null-asserted-optional-chain": 12,
+      "@typescript-eslint/no-require-imports": 53,
+      "@typescript-eslint/no-unsafe-return": 277,
+      "@typescript-eslint/no-unsafe-unary-minus": 2,
+      "@typescript-eslint/no-unused-vars": 347,
+      "@typescript-eslint/prefer-promise-reject-errors": 2,
+      "@typescript-eslint/require-await": 30,
+      "@typescript-eslint/restrict-plus-operands": 6,
+      "no-case-declarations": 344,
+      "no-constant-condition": 1,
+      "no-control-regex": 7,
+      "no-extra-boolean-cast": 22,
+      "no-shadow-restricted-names": 3,
+      "no-unassigned-vars": 3,
+      "no-useless-assignment": 28,
+      "no-var": 65,
+      "preserve-caught-error": 2
+    }
+  }
+}
